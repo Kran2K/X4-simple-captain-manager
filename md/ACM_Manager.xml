@@ -10,13 +10,16 @@
         <set_value name="$Action" exact="event.param2" />
         <set_value name="$Ship" exact="component.{event.param3}" />
 
+        <debug_text text="'[ACM MD Debug] Action: ' + $Action + ' | Ship Component: ' + $Ship + ' | IsShip: ' + @$Ship.isclass.ship" filter="general"/>
+
         <!-- 1. 함장 일괄 할당 해제 (unassign_pilot) -->
         <do_if value="$Action == 'unassign_pilot'">
-          <do_if value="$Ship.pilot">
+          <do_if value="@$Ship.pilot">
             <set_value name="$Pilot" exact="$Ship.pilot" />
+            <debug_text text="'[ACM MD Debug] Unassigning pilot: ' + $Pilot.knownname + ' from ship: ' + $Ship.knownname" filter="general"/>
 
-            <!-- 승무원 공간 부족 여부 체크 및 최하위 좆밥 선원 해고 -->
-            <do_if value="$Ship.people.count ge $Ship.people.capacity">
+            <!-- 승무원 공간 부족 여부 체크 및 최하위 선원 해고 -->
+            <do_if value="@$Ship.people.count ge @$Ship.people.capacity">
               <set_value name="$WorstCrew" value="null" />
               <set_value name="$WorstSkillSum" value="999" />
               
@@ -27,7 +30,7 @@
                 <set_value name="$Crew" exact="$CrewList.{$i}" />
                 <!-- 현재 해제하려는 파일럿 본인은 제외하고 비교 -->
                 <do_if value="$Crew != $Pilot">
-                  <set_value name="$SkillSum" value="$Crew.skill.piloting + $Crew.skill.engineering" />
+                  <set_value name="$SkillSum" value="@$Crew.skill.piloting + @$Crew.skill.engineering" />
                   <do_if value="$SkillSum lt $WorstSkillSum">
                     <set_value name="$WorstSkillSum" value="$SkillSum" />
                     <set_value name="$WorstCrew" exact="$Crew" />
@@ -37,6 +40,7 @@
 
               <!-- 가장 숙련도가 낮은 크루를 삭제(해고)하여 공석 확보 -->
               <do_if value="$WorstCrew">
+                <debug_text text="'[ACM MD Debug] Crew space full. Firing worst crew: ' + $WorstCrew.knownname" filter="general"/>
                 <destroy_object object="$WorstCrew" />
               </do_if>
             </do_if>
@@ -45,30 +49,36 @@
             <assign_control_entity actor="$Pilot" object="$Ship" role="controlrole.none" post="false" />
             <assign_control_entity actor="null" object="$Ship" role="controlrole.pilot" post="false" />
             
-            <!-- write_to_logbook에 필수 속성인 title 및 최신 빌드 필수인 post="true" 추가 -->
             <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{21}.[$Ship.knownname]" post="true" />
           </do_if>
+          <do_else>
+            <debug_text text="'[ACM MD Debug] Unassign failed: Ship has no pilot or is invalid.'" filter="general"/>
+          </do_else>
         </do_if>
 
         <!-- 2. 함장 일괄 해고 (fire_pilot) -->
         <do_elseif value="$Action == 'fire_pilot'">
-          <do_if value="$Ship.pilot">
+          <do_if value="@$Ship.pilot">
             <set_value name="$Pilot" exact="$Ship.pilot" />
             <set_value name="$PilotName" exact="$Pilot.knownname" />
+            <debug_text text="'[ACM MD Debug] Firing pilot: ' + $PilotName + ' from ship: ' + $Ship.knownname" filter="general"/>
             
             <!-- 파일럿 NPC 제어직 해제 후 즉시 객체 파괴 -->
             <assign_control_entity actor="null" object="$Ship" role="controlrole.pilot" post="false" />
             <destroy_object object="$Pilot" />
             
-            <!-- write_to_logbook에 필수 속성인 title 및 최신 빌드 필수인 post="true" 추가 -->
             <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{22}.[$Ship.knownname, $PilotName]" post="true" />
           </do_if>
+          <do_else>
+            <debug_text text="'[ACM MD Debug] Fire failed: Ship has no pilot or is invalid.'" filter="general"/>
+          </do_else>
         </do_elseif>
 
         <!-- 3. 함장 일괄 배정 (assign_pilot) -->
         <do_elseif value="$Action == 'assign_pilot'">
           <!-- 대상 함선의 함장 자리가 비어있는 경우에만 실행 -->
-          <do_if value="not $Ship.pilot">
+          <do_if value="not @$Ship.pilot">
+            <debug_text text="'[ACM MD Debug] Finding candidate for ship: ' + $Ship.knownname" filter="general"/>
             <!-- 플레이어 소유의 전 은하 함선들을 순회하며 미배정된 최적의 후보자 탐색 -->
             <find_object name="$PlayerShips" owner="faction.player" class="class.ship" multiple="true" space="player.galaxy" />
             
@@ -83,9 +93,9 @@
                 <do_all exact="$ShipNPCs.count" counter="$j">
                   <set_value name="$NPC" exact="$ShipNPCs.{$j}" />
                   <!-- 해당 NPC가 다른 함선에서 직책(함장, 관리자 등)을 맡고 있지 않은 승무원 상태인지 체크 -->
-                  <do_if value="$PShip.pilot != $NPC and not $NPC.controlled">
+                  <do_if value="@$PShip.pilot != $NPC and not @$NPC.controlled">
                     <!-- 조종술 숙련도가 가장 높은 후보 검색 -->
-                    <do_if value="$NPC.skill.piloting gt $BestPiloting">
+                    <do_if value="@$NPC.skill.piloting gt $BestPiloting">
                       <set_value name="$BestPiloting" value="$NPC.skill.piloting" />
                       <set_value name="$BestCandidate" exact="$NPC" />
                     </do_if>
@@ -96,15 +106,16 @@
 
             <!-- 엘리트 후보를 배정 진행 -->
             <do_if value="$BestCandidate">
-              <!-- 대상 함선 정원 초과 시 최하위 좆밥 선원 사전 해고 -->
-              <do_if value="$Ship.people.count ge $Ship.people.capacity">
+              <debug_text text="'[ACM Debug] Best candidate found: ' + $BestCandidate.knownname + ' skill: ' + $BestPiloting" filter="general"/>
+              <!-- 대상 함선 정원 초과 시 최하위 선원 사전 해고 -->
+              <do_if value="@$Ship.people.count ge @$Ship.people.capacity">
                 <set_value name="$WorstCrew" value="null" />
                 <set_value name="$WorstSkillSum" value="999" />
                 
                 <find_object_component name="$TargetCrewList" object="$Ship" class="class.npc" multiple="true" />
                 <do_all exact="$TargetCrewList.count" counter="$k">
                   <set_value name="$TCrew" exact="$TargetCrewList.{$k}" />
-                  <set_value name="$TSkillSum" value="$TCrew.skill.piloting + $TCrew.skill.engineering" />
+                  <set_value name="$TSkillSum" value="@$TCrew.skill.piloting + @$TCrew.skill.engineering" />
                   <do_if value="$TSkillSum lt $WorstSkillSum">
                     <set_value name="$WorstSkillSum" value="$TSkillSum" />
                     <set_value name="$WorstCrew" exact="$TCrew" />
@@ -112,19 +123,24 @@
                 </do_all>
 
                 <do_if value="$WorstCrew">
+                  <debug_text text="'[ACM Debug] Target ship crew space full. Firing worst crew: ' + $WorstCrew.knownname" filter="general"/>
                   <destroy_object object="$WorstCrew" />
                 </do_if>
               </do_if>
 
               <!-- 새 함선으로 이동과 동시에 파일럿 직책으로 승격 배정 -->
               <assign_control_entity actor="$BestCandidate" object="$Ship" role="controlrole.pilot" post="false" />
-              <!-- write_to_logbook에 필수 속성인 title 및 최신 빌드 필수인 post="true" 추가 -->
               <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{23}.[$Ship.knownname, ($BestPiloting / 3), $BestCandidate.knownname]" post="true" />
             </do_if>
+            <do_else>
+              <debug_text text="'[ACM MD Debug] Assign failed: No eligible crew found in galaxy.'" filter="general"/>
+            </do_else>
           </do_if>
+          <do_else>
+            <debug_text text="'[ACM MD Debug] Assign failed: Ship already has a pilot.'" filter="general"/>
+          </do_else>
         </do_elseif>
       </actions>
     </cue>
-
   </cues>
 </mdscript>
