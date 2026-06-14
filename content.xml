@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<content id="captain_manager" name="{98765, 1}" description="{98765, 5}" author="kran2k" version="100" date="2026-06-15" save="false">
+<content id="captain_manager" name="Captain Manager" description="Allows batch assigning, unassigning, and firing of captains for multiple selected ships from the context menu." author="kran2k" version="100" date="2026-06-15" save="false">
+  <text language="82" name="함장 관리" description="우클릭 상호작용 메뉴에서 선택한 함선들의 함장 자동 할당, 보직 해제, 해고 등의 인사 관리를 일괄적으로 처리할 수 있게 해줍니다."/>
   <!-- 피드백을 반영하여 버전(version) 속성을 제거한 깔끔한 의존성 목록 구성 -->
   <dependency id="kuerteeUIExtensionsAndHUD" optional="true" name="kuertee UI Extensions and HUD" />
   <dependency id="ws_3477279743" optional="true" name="kuertee UI Extensions and HUD" />
