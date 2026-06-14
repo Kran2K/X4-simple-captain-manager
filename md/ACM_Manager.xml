@@ -14,13 +14,22 @@
         <event_cue_signalled cue="@md.Interact_Menu_API.Get_Actions" />
         <check_value value="@event.param.$object.isclass.ship" />
         <check_value value="@event.param.$object.isplayerowned" />
-        <check_value value="@event.param.$selectedplayerships.count gt 0" />
       </conditions>
       <actions>
-        <debug_text text="'[ACM] Get_Actions: object=' + @event.param.$object.knownname + ' ships=' + @event.param.$selectedplayerships.count" filter="general" />
+        <!-- 전체 선택 함선 리스트 빌드 (우클릭 대상 + 다중 선택된 다른 함선들) -->
+        <create_list name="$Ships" />
+        <append_to_list name="$Ships" exact="event.param.$object" />
+        <do_all exact="@event.param.$selectedplayerships.count" counter="$i">
+          <set_value name="$SelShip" exact="event.param.$selectedplayerships.{$i}" />
+          <do_if value="not $Ships.indexof.{$SelShip}">
+            <append_to_list name="$Ships" exact="$SelShip" />
+          </do_if>
+        </do_all>
+
+        <debug_text text="'[ACM] Get_Actions: object=' + @event.param.$object.knownname + ' total_ships=' + $Ships.count" filter="general" />
 
         <!-- 선택 함선 수에 따라 노출 섹션 결정 -->
-        <set_value name="$section" exact="if @event.param.$selectedplayerships.count gt 1 then 'selected_orders_all' else 'selected_orders'" />
+        <set_value name="$section" exact="if $Ships.count gt 1 then 'selected_orders_all' else 'selected_orders'" />
 
         <!-- 1. 함장 일괄 할당 해제 -->
         <signal_cue_instantly
@@ -75,16 +84,40 @@
         <event_cue_signalled />
       </conditions>
       <actions>
-        <set_value name="$Ships" exact="event.param.$selectedplayerships" />
+        <!-- 전체 선택 함선 리스트 빌드 -->
+        <create_list name="$Ships" />
+        <do_if value="@event.param.$object.isclass.ship and event.param.$object.isplayerowned">
+          <append_to_list name="$Ships" exact="event.param.$object" />
+        </do_if>
+        <do_all exact="@event.param.$selectedplayerships.count" counter="$i">
+          <set_value name="$SelShip" exact="event.param.$selectedplayerships.{$i}" />
+          <do_if value="not $Ships.indexof.{$SelShip}">
+            <append_to_list name="$Ships" exact="$SelShip" />
+          </do_if>
+        </do_all>
+
         <debug_text text="'[ACM] Unassign: ' + $Ships.count + ' ships'" filter="general" />
         <do_all exact="$Ships.count" counter="$i">
           <set_value name="$Ship" exact="$Ships.{$i}" />
           <do_if value="@$Ship.pilot">
-            <debug_text text="'[ACM] Unassigning: ' + @$Ship.pilot.knownname + ' from ' + $Ship.knownname" filter="general" />
-            <!-- transfer_people로 같은 함선 내에서 pilot → unassigned 역할 변경 -->
-            <transfer_people object="$Ship" otherobject="$Ship" providepeople="false" result="$r">
-              <matching_people currentroles="[entityrole.pilot]" newroles="[entityrole.unassigned]" amounts="[1]" />
-            </transfer_people>
+            <set_value name="$Pilot" exact="$Ship.pilot" />
+            <debug_text text="'[ACM] Unassigning: ' + $Pilot.knownname + ' from ' + $Ship.knownname" filter="general" />
+            
+            <!-- 조종사 보직 해제 -->
+            <dismiss_control_entity actor="$Pilot" object="$Ship" />
+            
+            <!-- NPC 엔티티 역할 변경 (일반 승무원/미배정 상태) -->
+            <set_entity_role entity="$Pilot" role="entityrole.unassigned" />
+            <set_entity_role_object entity="$Pilot" object="$Ship" />
+            
+            <!-- NPC 템플릿 역할 변경 -->
+            <do_if value="$Ship.people.{$Pilot.npctemplate}.exists">
+              <set_npc_template_role object="$Ship" template="$Pilot.npctemplate" role="entityrole.unassigned" />
+            </do_if>
+            <do_else>
+              <create_npc_template object="$Ship" entity="$Pilot" role="entityrole.unassigned" />
+            </do_else>
+            
             <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{21}.[$Ship.knownname]" post="true" />
           </do_if>
           <do_else>
@@ -104,7 +137,18 @@
         <event_cue_signalled />
       </conditions>
       <actions>
-        <set_value name="$Ships" exact="event.param.$selectedplayerships" />
+        <!-- 전체 선택 함선 리스트 빌드 -->
+        <create_list name="$Ships" />
+        <do_if value="@event.param.$object.isclass.ship and event.param.$object.isplayerowned">
+          <append_to_list name="$Ships" exact="event.param.$object" />
+        </do_if>
+        <do_all exact="@event.param.$selectedplayerships.count" counter="$i">
+          <set_value name="$SelShip" exact="event.param.$selectedplayerships.{$i}" />
+          <do_if value="not $Ships.indexof.{$SelShip}">
+            <append_to_list name="$Ships" exact="$SelShip" />
+          </do_if>
+        </do_all>
+
         <debug_text text="'[ACM] Fire: ' + $Ships.count + ' ships'" filter="general" />
         <do_all exact="$Ships.count" counter="$i">
           <set_value name="$Ship" exact="$Ships.{$i}" />
@@ -112,8 +156,11 @@
             <set_value name="$Pilot" exact="$Ship.pilot" />
             <set_value name="$PilotName" exact="$Pilot.knownname" />
             <debug_text text="'[ACM] Firing: ' + $PilotName + ' from ' + $Ship.knownname" filter="general" />
-            <!-- destroy_object만으로 controlpost 자동 해제됨 (assign_control_entity null 불필요) -->
+            
+            <!-- 조종사 보직 해제 후 제거 (꼬임 방지) -->
+            <dismiss_control_entity actor="$Pilot" object="$Ship" />
             <destroy_object object="$Pilot" />
+            
             <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{22}.[$Ship.knownname, $PilotName]" post="true" />
           </do_if>
           <do_else>
@@ -135,7 +182,18 @@
         <event_cue_signalled />
       </conditions>
       <actions>
-        <set_value name="$Ships" exact="event.param.$selectedplayerships" />
+        <!-- 전체 선택 함선 리스트 빌드 -->
+        <create_list name="$Ships" />
+        <do_if value="@event.param.$object.isclass.ship and event.param.$object.isplayerowned">
+          <append_to_list name="$Ships" exact="event.param.$object" />
+        </do_if>
+        <do_all exact="@event.param.$selectedplayerships.count" counter="$i">
+          <set_value name="$SelShip" exact="event.param.$selectedplayerships.{$i}" />
+          <do_if value="not $Ships.indexof.{$SelShip}">
+            <append_to_list name="$Ships" exact="$SelShip" />
+          </do_if>
+        </do_all>
+
         <debug_text text="'[ACM] Assign: ' + $Ships.count + ' ships'" filter="general" />
 
         <!-- 플레이어 소유 전 함선 목록 (후보 탐색용) -->
@@ -195,15 +253,29 @@
         <event_cue_signalled />
       </conditions>
       <actions>
-        <set_value name="$Ship" exact="event.param.$object" />
-        <debug_text text="'[ACM SCAN] ===== ' + $Ship.knownname + ' | people: ' + @$Ship.people.count + '/' + @$Ship.people.capacity" filter="general" />
-        <find_object_component name="$ScanList" object="$Ship" class="class.npc" multiple="true" />
-        <debug_text text="'[ACM SCAN] Total NPC: ' + $ScanList.count" filter="general" />
-        <do_all exact="$ScanList.count" counter="$si">
-          <set_value name="$SNPC" exact="$ScanList.{$si}" />
-          <debug_text text="'[ACM SCAN] NPC[' + $si + '] name=' + $SNPC.knownname + ' | controlled=' + @$SNPC.controlled + ' | controlpost=' + @$SNPC.controlpost + ' | is_pilot=' + ($Ship.pilot == $SNPC)" filter="general" />
+        <!-- 전체 선택 함선 리스트 빌드 -->
+        <create_list name="$Ships" />
+        <do_if value="@event.param.$object.isclass.ship and event.param.$object.isplayerowned">
+          <append_to_list name="$Ships" exact="event.param.$object" />
+        </do_if>
+        <do_all exact="@event.param.$selectedplayerships.count" counter="$i">
+          <set_value name="$SelShip" exact="event.param.$selectedplayerships.{$i}" />
+          <do_if value="not $Ships.indexof.{$SelShip}">
+            <append_to_list name="$Ships" exact="$SelShip" />
+          </do_if>
         </do_all>
-        <debug_text text="'[ACM SCAN] $Ship.pilot = ' + @$Ship.pilot.knownname" filter="general" />
+
+        <do_all exact="$Ships.count" counter="$i">
+          <set_value name="$Ship" exact="$Ships.{$i}" />
+          <debug_text text="'[ACM SCAN] ===== ' + $Ship.knownname + ' | people: ' + @$Ship.people.count + '/' + @$Ship.people.capacity" filter="general" />
+          <find_object_component name="$ScanList" object="$Ship" class="class.npc" multiple="true" />
+          <debug_text text="'[ACM SCAN] Total NPC: ' + $ScanList.count" filter="general" />
+          <do_all exact="$ScanList.count" counter="$si">
+            <set_value name="$SNPC" exact="$ScanList.{$si}" />
+            <debug_text text="'[ACM SCAN] NPC[' + $si + '] name=' + $SNPC.knownname + ' | controlled=' + @$SNPC.controlled + ' | controlpost=' + @$SNPC.controlpost + ' | is_pilot=' + ($Ship.pilot == $SNPC)" filter="general" />
+          </do_all>
+          <debug_text text="'[ACM SCAN] $Ship.pilot = ' + @$Ship.pilot.knownname" filter="general" />
+        </do_all>
       </actions>
     </cue>
 
