@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mdscript name="ACM_Manager" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="md.xsd">
+<mdscript name="captain_manager" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="md.xsd">
   <cues>
 
     <!-- ============================================================
          1. 메뉴 오픈 시 액션 등록
          - SN Mod Support APIs: md.Interact_Menu_API.Get_Actions
          ============================================================ -->
-    <cue name="ACM_Get_Actions" instantiate="true">
+    <cue name="captain_manager_get_actions" instantiate="true">
       <conditions>
         <event_cue_signalled cue="@md.Interact_Menu_API.Get_Actions" />
         <check_value value="@event.param.$object.isclass.ship" />
@@ -43,7 +43,7 @@
             $section  = $section,
             $text     = readtext.{98765}.{2},
             $mouseover = readtext.{98765}.{20},
-            $callback = ACM_Assign_Callback,
+            $callback = captain_manager_assign_callback,
             ]" />
 
         <!-- 2. 함장 할당 해제 (id="3") -->
@@ -61,7 +61,7 @@
             $text     = readtext.{98765}.{3},
             $mouseover = $UnassignMouseover,
             $active   = $UnassignActive,
-            $callback = ACM_Unassign_Callback,
+            $callback = captain_manager_unassign_callback,
             ]" />
 
         <!-- 3. 함장 해고 (id="4") -->
@@ -79,7 +79,7 @@
             $text     = readtext.{98765}.{4},
             $mouseover = $FireMouseover,
             $active   = $FireActive,
-            $callback = ACM_Fire_Callback,
+            $callback = captain_manager_fire_callback,
             ]" />
 
       </actions>
@@ -90,7 +90,7 @@
          2. 함장 일괄 보직 해제 콜백
          - 함장 슬롯만 비움(NPC는 함선에 미배정 인원으로 잔류)
          ============================================================ -->
-    <cue name="ACM_Unassign_Callback" instantiate="true">
+    <cue name="captain_manager_unassign_callback" instantiate="true">
       <conditions>
         <event_cue_signalled />
       </conditions>
@@ -173,7 +173,7 @@
          3. 함장 일괄 해고 콜백
          - 함장 슬롯 비우고 NPC 제거
          ============================================================ -->
-    <cue name="ACM_Fire_Callback" instantiate="true">
+    <cue name="captain_manager_fire_callback" instantiate="true">
       <conditions>
         <event_cue_signalled />
       </conditions>
@@ -214,7 +214,7 @@
          - 은하 내 플레이어 함선에서 미배정 선원 중 조종술 최고치 탐색
          - 16등급 우선순위 정렬 (XL>L>M>S 및 fight>trade>mine>build)
          ============================================================ -->
-    <cue name="ACM_Assign_Callback" instantiate="true">
+    <cue name="captain_manager_assign_callback" instantiate="true">
       <conditions>
         <event_cue_signalled />
       </conditions>
