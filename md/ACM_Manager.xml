@@ -199,12 +199,15 @@
         <!-- 플레이어 소유 전 함선 목록 (후보 탐색용) -->
         <find_object name="$PlayerShips" owner="faction.player" class="class.ship" multiple="true" space="player.galaxy" />
 
+        <!-- 중복 배정 방지 리스트 -->
+        <create_list name="$AssignedCandidates" />
+
         <do_all exact="$Ships.count" counter="$i">
           <set_value name="$Ship" exact="$Ships.{$i}" />
 
           <!-- 함장 자리가 비어있는 함선만 처리 -->
           <do_if value="not @$Ship.pilot">
-            <set_value name="$BestCandidate" value="null" />
+            <set_value name="$BestCandidate" exact="null" />
             <set_value name="$BestPiloting" value="-1" />
 
             <!-- 전 함선 순회하며 미배정 최고 조종술 선원 탐색 -->
@@ -215,8 +218,8 @@
                 <find_object_component name="$ShipNPCs" object="$PShip" class="class.npc" multiple="true" />
                 <do_all exact="$ShipNPCs.count" counter="$k">
                   <set_value name="$NPC" exact="$ShipNPCs.{$k}" />
-                  <!-- 이미 함장/관리자 직책(controlentity)을 맡지 않고, 역할이 미배정(unassigned)인 선원만 -->
-                  <do_if value="not $NPC.iscontrolentity and $NPC.role == entityrole.unassigned">
+                  <!-- 이미 함장/관리자 직책(controlentity)을 맡지 않고, 역할이 미배정(unassigned)이며, 이번 루프에서 아직 배정되지 않은 선원만 -->
+                  <do_if value="not $NPC.iscontrolentity and $NPC.role == entityrole.unassigned and not $AssignedCandidates.indexof.{$NPC}">
                     <set_value name="$NPC_Piloting" exact="$NPC.skill.{skilltype.piloting}" />
                     <do_if value="$NPC_Piloting gt $BestPiloting">
                       <set_value name="$BestPiloting" exact="$NPC_Piloting" />
@@ -228,9 +231,10 @@
             </do_all>
 
             <!-- 후보 발견 시 배정 -->
-            <do_if value="$BestCandidate">
+            <do_if value="$BestCandidate and $BestCandidate.exists">
               <debug_text text="'[ACM] Assigning ' + $BestCandidate.knownname + ' (skill ' + $BestPiloting + ') to ' + $Ship.knownname" filter="general" />
               <assign_control_entity actor="$BestCandidate" object="$Ship" role="controlrole.pilot" post="controlpost.aipilot" transfer="true" init="true" />
+              <append_to_list name="$AssignedCandidates" exact="$BestCandidate" />
               <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{23}.[$Ship.knownname, ($BestPiloting / 3), $BestCandidate.knownname]" post="true" />
             </do_if>
             <do_else>
