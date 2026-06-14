@@ -31,33 +31,36 @@
         <!-- 선택 함선 수에 따라 노출 섹션 결정 -->
         <set_value name="$section" exact="if $Ships.count gt 1 then 'selected_orders_all' else 'selected_orders'" />
 
-        <!-- 1. 함장 일괄 할당 해제 -->
-        <signal_cue_instantly
-          cue="md.Interact_Menu_API.Add_Action"
-          param="table[
-            $id       = 'acm_unassign_pilot',
-            $section  = $section,
-            $text     = readtext.{98765}.{2},
-            $callback = ACM_Unassign_Callback,
-            ]" />
-
-        <!-- 2. 함장 일괄 배정 -->
+        <!-- 1. 함장 자동 할당 -->
         <signal_cue_instantly
           cue="md.Interact_Menu_API.Add_Action"
           param="table[
             $id       = 'acm_assign_pilot',
             $section  = $section,
             $text     = readtext.{98765}.{3},
+            $mouseover = readtext.{98765}.{30},
             $callback = ACM_Assign_Callback,
             ]" />
 
-        <!-- 3. 함장 일괄 해고 -->
+        <!-- 2. 함장 할당 해제 -->
+        <signal_cue_instantly
+          cue="md.Interact_Menu_API.Add_Action"
+          param="table[
+            $id       = 'acm_unassign_pilot',
+            $section  = $section,
+            $text     = readtext.{98765}.{2},
+            $mouseover = readtext.{98765}.{20},
+            $callback = ACM_Unassign_Callback,
+            ]" />
+
+        <!-- 3. 함장 해고 -->
         <signal_cue_instantly
           cue="md.Interact_Menu_API.Add_Action"
           param="table[
             $id       = 'acm_fire_pilot',
             $section  = $section,
             $text     = readtext.{98765}.{4},
+            $mouseover = readtext.{98765}.{40},
             $callback = ACM_Fire_Callback,
             ]" />
 

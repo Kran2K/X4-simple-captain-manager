@@ -2,9 +2,12 @@
 <language id="44">
   <page id="98765" title="Advanced Captain Manager Texts">
     <t id="1">Advanced Captain Manager</t>
-    <t id="2">Unassign Captains (Batch)</t>
-    <t id="3">Assign Captains (Batch)</t>
-    <t id="4">Fire Captains (Batch)</t>
+    <t id="2">Unassign Captains</t>
+    <t id="3">Auto Assign Captains</t>
+    <t id="4">Fire Captains</t>
+    <t id="20">Dismisses the captains of selected ships and leaves them as unassigned crew.</t>
+    <t id="30">Automatically assigns the best available pilots based on ship size (XL > L > M > S) and purpose (Fight > Trade > Mine > Build).</t>
+    <t id="40">Immediately fires and removes the captains of selected ships.</t>
     <t id="11">%1 captains have been unassigned.</t>
     <t id="12">Captains have been assigned to %1 empty ships.</t>
     <t id="13">%1 captains have been fired.</t>
