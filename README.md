@@ -1,4 +1,4 @@
-# Captain Manager - X4: Foundations Mod
+# Simple Captain Manager (SCM) - X4: Foundations Mod
 
 이 모드는 X4: Foundations에서 여러 대의 함선을 다중 선택하여 우클릭 메뉴를 통해 함장(파일럿)을 대량으로 해제, 배정, 해고할 수 있게 도와주는 편의성(QOL) 모드입니다. 
 
@@ -38,7 +38,7 @@
 
 ## 💾 설치 방법
 
-1. `captain_manager` 폴더를 복사합니다.
+1. `simple_captain_manager` 폴더를 복사합니다.
 2. X4: Foundations의 게임 설치 경로 내 `extensions` 폴더에 붙여넣습니다.
    - **스팀 기본 경로**: `C:\Program Files (x86)\Steam\steamapps\common\X4 Foundations\extensions\`
    - 만약 `extensions` 폴더가 없다면 새 폴더를 생성하여 그 하위에 모드 폴더를 넣어주세요.

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <language id="44">
-  <page id="98765" title="Captain Manager Texts">
-    <t id="1">Captain Manager</t>
+  <page id="98765" title="Simple Captain Manager Texts">
+    <t id="1">Simple Captain Manager</t>
     <t id="2">Auto Assign Captain</t>
     <t id="3">Dismiss Captain</t>
     <t id="4">Fire Captain</t>

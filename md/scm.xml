@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mdscript name="captain_manager" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="md.xsd">
+<mdscript name="scm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="md.xsd">
   <cues>
 
     <!-- ============================================================
          1. 메뉴 오픈 시 액션 등록
          - SN Mod Support APIs: md.Interact_Menu_API.Get_Actions
          ============================================================ -->
-    <cue name="captain_manager_get_actions" instantiate="true">
+    <cue name="scm_get_actions" instantiate="true">
       <conditions>
         <event_cue_signalled cue="@md.Interact_Menu_API.Get_Actions" />
         <check_value value="@event.param.$object.isclass.ship" />
@@ -43,7 +43,7 @@
             $section  = $section,
             $text     = readtext.{98765}.{2},
             $mouseover = readtext.{98765}.{20},
-            $callback = captain_manager_assign_callback,
+            $callback = scm_assign_callback,
             ]" />
 
         <!-- 2. 함장 할당 해제 (id="3") -->
@@ -61,7 +61,7 @@
             $text     = readtext.{98765}.{3},
             $mouseover = $UnassignMouseover,
             $active   = $UnassignActive,
-            $callback = captain_manager_unassign_callback,
+            $callback = scm_unassign_callback,
             ]" />
 
         <!-- 3. 함장 해고 (id="4") -->
@@ -79,7 +79,7 @@
             $text     = readtext.{98765}.{4},
             $mouseover = $FireMouseover,
             $active   = $FireActive,
-            $callback = captain_manager_fire_callback,
+            $callback = scm_fire_callback,
             ]" />
 
       </actions>
@@ -90,7 +90,7 @@
          2. 함장 일괄 보직 해제 콜백
          - 함장 슬롯만 비움(NPC는 함선에 미배정 인원으로 잔류)
          ============================================================ -->
-    <cue name="captain_manager_unassign_callback" instantiate="true">
+    <cue name="scm_unassign_callback" instantiate="true">
       <conditions>
         <event_cue_signalled />
       </conditions>
@@ -107,7 +107,7 @@
           </do_if>
         </do_all>
 
-        <debug_text text="'[Captain Manager] Unassign start: ' + $Ships.count + ' ships'" filter="general" />
+        <debug_text text="'[SCM] Unassign start: ' + $Ships.count + ' ships'" filter="general" />
         <do_all exact="$Ships.count" counter="$i">
           <set_value name="$Ship" exact="$Ships.{$i}" />
           <do_if value="@$Ship.pilot">
@@ -130,7 +130,7 @@
                 </do_if>
               </do_all>
               <do_if value="$WorstCrew">
-                <debug_text text="'[Captain Manager] Ship full. Firing worst crew ' + $WorstCrew + ' to make space for dismissed pilot.'" filter="general" />
+                <debug_text text="'[SCM] Ship full. Firing worst crew ' + $WorstCrew + ' to make space for dismissed pilot.'" filter="general" />
                 <remove_npc_template object="$Ship" template="$WorstCrew" />
               </do_if>
             </do_if>
@@ -138,7 +138,7 @@
             <set_value name="$Template" exact="@$Pilot.npctemplate" />
             <set_value name="$PilotExists" exact="$Pilot.exists" />
             
-            <debug_text text="'[Captain Manager] Unassigning pilot for: ' + $Ship.knownname + ' | pilot_name=' + $Pilot.knownname + ' | pilot_exists=' + $PilotExists + ' | template=' + $Template" filter="general" />
+            <debug_text text="'[SCM] Unassigning pilot for: ' + $Ship.knownname + ' | pilot_name=' + $Pilot.knownname + ' | pilot_exists=' + $PilotExists + ' | template=' + $Template" filter="general" />
             
             <!-- 조종사 보직 해제 -->
             <dismiss_control_entity actor="$Pilot" object="$Ship" />
@@ -159,7 +159,7 @@
               </do_else>
             </do_if>
             <do_else>
-              <debug_text text="'[Captain Manager] Warning: No npctemplate found for pilot!'" filter="general" />
+              <debug_text text="'[SCM] Warning: No npctemplate found for pilot!'" filter="general" />
             </do_else>
             
             <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{21}.[$Ship.knownname]" post="true" />
@@ -173,7 +173,7 @@
          3. 함장 일괄 해고 콜백
          - 함장 슬롯 비우고 NPC 제거
          ============================================================ -->
-    <cue name="captain_manager_fire_callback" instantiate="true">
+    <cue name="scm_fire_callback" instantiate="true">
       <conditions>
         <event_cue_signalled />
       </conditions>
@@ -190,13 +190,13 @@
           </do_if>
         </do_all>
 
-        <debug_text text="'[Captain Manager] Fire: ' + $Ships.count + ' ships'" filter="general" />
+        <debug_text text="'[SCM] Fire: ' + $Ships.count + ' ships'" filter="general" />
         <do_all exact="$Ships.count" counter="$i">
           <set_value name="$Ship" exact="$Ships.{$i}" />
           <do_if value="@$Ship.pilot">
             <set_value name="$Pilot" exact="$Ship.pilot" />
             <set_value name="$PilotName" exact="$Pilot.knownname" />
-            <debug_text text="'[Captain Manager] Firing: ' + $PilotName + ' from ' + $Ship.knownname" filter="general" />
+            <debug_text text="'[SCM] Firing: ' + $PilotName + ' from ' + $Ship.knownname" filter="general" />
             
             <!-- 조종사 보직 해제 후 제거 (꼬임 방지) -->
             <dismiss_control_entity actor="$Pilot" object="$Ship" />
@@ -214,7 +214,7 @@
          - 은하 내 플레이어 함선에서 미배정 선원 중 조종술 최고치 탐색
          - 16등급 우선순위 정렬 (XL>L>M>S 및 fight>trade>mine>build)
          ============================================================ -->
-    <cue name="captain_manager_assign_callback" instantiate="true">
+    <cue name="scm_assign_callback" instantiate="true">
       <conditions>
         <event_cue_signalled />
       </conditions>
@@ -231,7 +231,7 @@
           </do_if>
         </do_all>
 
-        <debug_text text="'[Captain Manager] Assign: ' + $Ships.count + ' ships'" filter="general" />
+        <debug_text text="'[SCM] Assign: ' + $Ships.count + ' ships'" filter="general" />
 
         <!-- 1순위: 클래스(XL>L>M>S), 2순위: 카테고리(전함>민간함) 우선순위로 정렬하기 위해 분할 리스트 생성 -->
         <create_list name="$Ships_XL" />
@@ -370,7 +370,7 @@
             </do_if>
 
             <do_if value="$TargetActor.exists">
-              <debug_text text="'[Captain Manager] Assigning ' + $TargetActor.knownname + ' (skill ' + $BestPiloting + ') to ' + $Ship.knownname" filter="general" />
+              <debug_text text="'[SCM] Assigning ' + $TargetActor.knownname + ' (skill ' + $BestPiloting + ') to ' + $Ship.knownname" filter="general" />
               <assign_control_entity actor="$TargetActor" object="$Ship" role="controlrole.pilot" post="controlpost.aipilot" transfer="true" init="true" />
               
               <!-- 중복 배정 방지를 위해 선발된 템플릿과 시드 등록 -->
@@ -387,7 +387,7 @@
               <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{23}.[$Ship.knownname, ($BestPiloting / 3), $TargetActor.knownname]" post="true" />
             </do_if>
             <do_else>
-              <debug_text text="'[Captain Manager] Failed to instantiate candidate: ' + $BestCandidate + ' for ' + $Ship.knownname" filter="general" />
+              <debug_text text="'[SCM] Failed to instantiate candidate: ' + $BestCandidate + ' for ' + $Ship.knownname" filter="general" />
             </do_else>
           </do_if>
         </do_all>
