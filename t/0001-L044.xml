@@ -8,9 +8,9 @@
     <t id="5">Provides options to assign, dismiss, or fire the captain from the context menu.</t>
     <t id="20">Automatically assigns the crew member with the highest piloting skill from the unassigned personnel.</t>
     <t id="30">Dismisses the captain and changes their status to unassigned personnel.</t>
-    <t id="31">This ship has no captain to dismiss.</t>
+    <t id="31">No captain to dismiss.</t>
     <t id="40">Immediately fires the captain.</t>
-    <t id="41">This ship has no captain to fire.</t>
+    <t id="41">No captain to fire.</t>
     <t id="11">Dismissed %1 captain.</t>
     <t id="12">Assigned captain to %1 ship.</t>
     <t id="13">Fired %1 captain.</t>
