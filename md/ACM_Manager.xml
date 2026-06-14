@@ -207,82 +207,68 @@
 
         <debug_text text="'[ACM] Assign: ' + $Ships.count + ' ships'" filter="general" />
 
-        <!-- 1순위: 클래스(XL>L>M>S), 2순위: 카테고리(전함>민간함) 우선순위로 정렬하기 위해 분할 리스트 생성 -->
-        <create_list name="$Ships_XL_Fight" />
-        <create_list name="$Ships_XL_Civil" />
-        <create_list name="$Ships_L_Fight" />
-        <create_list name="$Ships_L_Civil" />
-        <create_list name="$Ships_M_Fight" />
-        <create_list name="$Ships_M_Civil" />
-        <create_list name="$Ships_S_Fight" />
-        <create_list name="$Ships_S_Civil" />
+        <!-- 클래스별 분류 리스트 생성 -->
+        <create_list name="$Ships_XL" />
+        <create_list name="$Ships_L" />
+        <create_list name="$Ships_M" />
+        <create_list name="$Ships_S" />
 
         <do_all exact="$Ships.count" counter="$i">
           <set_value name="$Ship" exact="$Ships.{$i}" />
           <do_if value="not @$Ship.pilot">
             <do_if value="$Ship.isclass.ship_xl">
-              <do_if value="$Ship.primarypurpose == purpose.fight">
-                <append_to_list name="$Ships_XL_Fight" exact="$Ship" />
-              </do_if>
-              <do_else>
-                <append_to_list name="$Ships_XL_Civil" exact="$Ship" />
-              </do_else>
+              <append_to_list name="$Ships_XL" exact="$Ship" />
             </do_if>
             <do_elseif value="$Ship.isclass.ship_l">
-              <do_if value="$Ship.primarypurpose == purpose.fight">
-                <append_to_list name="$Ships_L_Fight" exact="$Ship" />
-              </do_if>
-              <do_else>
-                <append_to_list name="$Ships_L_Civil" exact="$Ship" />
-              </do_else>
+              <append_to_list name="$Ships_L" exact="$Ship" />
             </do_elseif>
             <do_elseif value="$Ship.isclass.ship_m">
-              <do_if value="$Ship.primarypurpose == purpose.fight">
-                <append_to_list name="$Ships_M_Fight" exact="$Ship" />
-              </do_if>
-              <do_else>
-                <append_to_list name="$Ships_M_Civil" exact="$Ship" />
-              </do_else>
+              <append_to_list name="$Ships_M" exact="$Ship" />
             </do_elseif>
             <do_elseif value="$Ship.isclass.ship_s">
-              <do_if value="$Ship.primarypurpose == purpose.fight">
-                <append_to_list name="$Ships_S_Fight" exact="$Ship" />
-              </do_if>
-              <do_else>
-                <append_to_list name="$Ships_S_Civil" exact="$Ship" />
-              </do_else>
+              <append_to_list name="$Ships_S" exact="$Ship" />
             </do_elseif>
           </do_if>
         </do_all>
 
         <create_list name="$SortedShips" />
-        <!-- XL -->
-        <do_all exact="$Ships_XL_Fight.count" counter="$i">
-          <append_to_list name="$SortedShips" exact="$Ships_XL_Fight.{$i}" />
-        </do_all>
-        <do_all exact="$Ships_XL_Civil.count" counter="$i">
-          <append_to_list name="$SortedShips" exact="$Ships_XL_Civil.{$i}" />
-        </do_all>
-        <!-- L -->
-        <do_all exact="$Ships_L_Fight.count" counter="$i">
-          <append_to_list name="$SortedShips" exact="$Ships_L_Fight.{$i}" />
-        </do_all>
-        <do_all exact="$Ships_L_Civil.count" counter="$i">
-          <append_to_list name="$SortedShips" exact="$Ships_L_Civil.{$i}" />
-        </do_all>
-        <!-- M -->
-        <do_all exact="$Ships_M_Fight.count" counter="$i">
-          <append_to_list name="$SortedShips" exact="$Ships_M_Fight.{$i}" />
-        </do_all>
-        <do_all exact="$Ships_M_Civil.count" counter="$i">
-          <append_to_list name="$SortedShips" exact="$Ships_M_Civil.{$i}" />
-        </do_all>
-        <!-- S -->
-        <do_all exact="$Ships_S_Fight.count" counter="$i">
-          <append_to_list name="$SortedShips" exact="$Ships_S_Fight.{$i}" />
-        </do_all>
-        <do_all exact="$Ships_S_Civil.count" counter="$i">
-          <append_to_list name="$SortedShips" exact="$Ships_S_Civil.{$i}" />
+
+        <!-- 용도 우선순위 목록 정의 (fight > trade > mine > build) -->
+        <create_list name="$Purposes" />
+        <append_to_list name="$Purposes" exact="purpose.fight" />
+        <append_to_list name="$Purposes" exact="purpose.trade" />
+        <append_to_list name="$Purposes" exact="purpose.mine" />
+        <append_to_list name="$Purposes" exact="purpose.build" />
+
+        <!-- 정렬 루프용 클래스 리스트 모음 -->
+        <create_list name="$ClassLists" />
+        <append_to_list name="$ClassLists" exact="$Ships_XL" />
+        <append_to_list name="$ClassLists" exact="$Ships_L" />
+        <append_to_list name="$ClassLists" exact="$Ships_M" />
+        <append_to_list name="$ClassLists" exact="$Ships_S" />
+
+        <!-- 클래스별(XL -> L -> M -> S) 순회하며 세부 용도 정렬 수행 -->
+        <do_all exact="$ClassLists.count" counter="$c">
+          <set_value name="$CurrentClassList" exact="$ClassLists.{$c}" />
+
+          <!-- 1단계: 정의된 용도 순서대로 병합 -->
+          <do_all exact="$Purposes.count" counter="$p">
+            <set_value name="$CurrentPurpose" exact="$Purposes.{$p}" />
+            <do_all exact="$CurrentClassList.count" counter="$i">
+              <set_value name="$Ship" exact="$CurrentClassList.{$i}" />
+              <do_if value="$Ship.primarypurpose == $CurrentPurpose">
+                <append_to_list name="$SortedShips" exact="$Ship" />
+              </do_if>
+            </do_all>
+          </do_all>
+
+          <!-- 2단계: 그 외(기타) 용도 함선들 추가 -->
+          <do_all exact="$CurrentClassList.count" counter="$i">
+            <set_value name="$Ship" exact="$CurrentClassList.{$i}" />
+            <do_if value="not $Purposes.indexof.{$Ship.primarypurpose}">
+              <append_to_list name="$SortedShips" exact="$Ship" />
+            </do_if>
+          </do_all>
         </do_all>
 
         <!-- 플레이어 소유 전 함선 목록 (후보 탐색용, 격납된 함선도 찾기 위해 recursive="true" 필수) -->
