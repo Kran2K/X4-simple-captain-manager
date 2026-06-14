@@ -39,7 +39,7 @@
         <signal_cue_instantly
           cue="md.Interact_Menu_API.Add_Action"
           param="table[
-            $id       = 'acm_assign_pilot',
+            $id       = 'scm_assign_pilot',
             $section  = $section,
             $text     = readtext.{98765}.{2},
             $mouseover = readtext.{98765}.{20},
@@ -56,7 +56,7 @@
         <signal_cue_instantly
           cue="md.Interact_Menu_API.Add_Action"
           param="table[
-            $id       = 'acm_unassign_pilot',
+            $id       = 'scm_unassign_pilot',
             $section  = $section,
             $text     = readtext.{98765}.{3},
             $mouseover = $UnassignMouseover,
@@ -74,7 +74,7 @@
         <signal_cue_instantly
           cue="md.Interact_Menu_API.Add_Action"
           param="table[
-            $id       = 'acm_fire_pilot',
+            $id       = 'scm_fire_pilot',
             $section  = $section,
             $text     = readtext.{98765}.{4},
             $mouseover = $FireMouseover,
