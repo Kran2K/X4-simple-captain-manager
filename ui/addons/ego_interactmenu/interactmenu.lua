@@ -69,8 +69,15 @@ local function on_prepare_sections_end(configSections)
     local unassignEntry = {
         text = unassignText,
         script = function()
+            DebugError("[ACM UI Debug] Unassign clicked! playerShips count: " .. tostring(#playerShips))
             for _, ship in ipairs(playerShips) do
-                AddUITriggeredEvent("InteractMenu", "unassign_pilot", ConvertStringTo64Bit(tostring(ship)))
+                local ok, err = pcall(function()
+                    DebugError("[ACM UI Debug] Sending unassign for ship: " .. tostring(ship))
+                    AddUITriggeredEvent("InteractMenu", "unassign_pilot", ship)
+                end)
+                if not ok then
+                    DebugError("[ACM UI Debug] AddUITriggeredEvent failed: " .. tostring(err))
+                end
             end
             realMenu.onCloseElement("close")
         end,
@@ -94,6 +101,7 @@ local function on_prepare_sections_end(configSections)
     local assignEntry = {
         text = assignText,
         script = function()
+            DebugError("[ACM UI Debug] Assign clicked! playerShips count: " .. tostring(#playerShips))
             local sortedShips = {}
             for _, ship in ipairs(playerShips) do
                 table.insert(sortedShips, ship)
@@ -139,7 +147,13 @@ local function on_prepare_sections_end(configSections)
 
             -- 정렬된 순서대로 배정 이벤트 전송
             for _, ship in ipairs(sortedShips) do
-                AddUITriggeredEvent("InteractMenu", "assign_pilot", ConvertStringTo64Bit(tostring(ship)))
+                local ok, err = pcall(function()
+                    DebugError("[ACM UI Debug] Sending assign for ship: " .. tostring(ship))
+                    AddUITriggeredEvent("InteractMenu", "assign_pilot", ship)
+                end)
+                if not ok then
+                    DebugError("[ACM UI Debug] AddUITriggeredEvent failed: " .. tostring(err))
+                end
             end
             realMenu.onCloseElement("close")
         end,
@@ -154,8 +168,15 @@ local function on_prepare_sections_end(configSections)
     local fireEntry = {
         text = fireText,
         script = function()
+            DebugError("[ACM UI Debug] Fire clicked! playerShips count: " .. tostring(#playerShips))
             for _, ship in ipairs(playerShips) do
-                AddUITriggeredEvent("InteractMenu", "fire_pilot", ConvertStringTo64Bit(tostring(ship)))
+                local ok, err = pcall(function()
+                    DebugError("[ACM UI Debug] Sending fire for ship: " .. tostring(ship))
+                    AddUITriggeredEvent("InteractMenu", "fire_pilot", ship)
+                end)
+                if not ok then
+                    DebugError("[ACM UI Debug] AddUITriggeredEvent failed: " .. tostring(err))
+                end
             end
             realMenu.onCloseElement("close")
         end,
