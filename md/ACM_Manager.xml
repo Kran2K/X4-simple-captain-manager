@@ -96,26 +96,37 @@
           </do_if>
         </do_all>
 
-        <debug_text text="'[ACM] Unassign: ' + $Ships.count + ' ships'" filter="general" />
+        <debug_text text="'[ACM] Unassign start: ' + $Ships.count + ' ships'" filter="general" />
         <do_all exact="$Ships.count" counter="$i">
           <set_value name="$Ship" exact="$Ships.{$i}" />
           <do_if value="@$Ship.pilot">
             <set_value name="$Pilot" exact="$Ship.pilot" />
-            <debug_text text="'[ACM] Unassigning: ' + $Pilot.knownname + ' from ' + $Ship.knownname" filter="general" />
+            <set_value name="$Template" exact="@$Pilot.npctemplate" />
+            <set_value name="$PilotExists" exact="$Pilot.exists" />
+            
+            <debug_text text="'[ACM] Unassigning pilot for: ' + $Ship.knownname + ' | pilot_name=' + $Pilot.knownname + ' | pilot_exists=' + $PilotExists + ' | template=' + $Template" filter="general" />
             
             <!-- 조종사 보직 해제 -->
             <dismiss_control_entity actor="$Pilot" object="$Ship" />
             
             <!-- NPC 엔티티 역할 변경 (일반 승무원/미배정 상태) -->
-            <set_entity_role entity="$Pilot" role="entityrole.unassigned" />
-            <set_entity_role_object entity="$Pilot" object="$Ship" />
+            <do_if value="$PilotExists">
+              <set_entity_role entity="$Pilot" role="entityrole.unassigned" />
+              <set_entity_role_object entity="$Pilot" object="$Ship" />
+              <debug_text text="'[ACM]   - Set entity role to unassigned for instanced actor'" filter="general" />
+            </do_if>
             
             <!-- NPC 템플릿 역할 변경 -->
-            <do_if value="$Ship.people.{$Pilot.npctemplate}.exists">
-              <set_npc_template_role object="$Ship" template="$Pilot.npctemplate" role="entityrole.unassigned" />
+            <do_if value="$Template">
+              <do_if value="$Ship.people.{$Template}.exists">
+                <set_npc_template_role object="$Ship" template="$Template" role="entityrole.unassigned" />
+              </do_if>
+              <do_else>
+                <create_npc_template object="$Ship" entity="$Pilot" role="entityrole.unassigned" />
+              </do_else>
             </do_if>
             <do_else>
-              <create_npc_template object="$Ship" entity="$Pilot" role="entityrole.unassigned" />
+              <debug_text text="'[ACM]   - Warning: No npctemplate found for pilot!'" filter="general" />
             </do_else>
             
             <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{21}.[$Ship.knownname]" post="true" />
@@ -196,50 +207,72 @@
 
         <debug_text text="'[ACM] Assign: ' + $Ships.count + ' ships'" filter="general" />
 
-        <!-- 플레이어 소유 전 함선 목록 (후보 탐색용) -->
-        <find_object name="$PlayerShips" owner="faction.player" class="class.ship" multiple="true" space="player.galaxy" />
+        <!-- 플레이어 소유 전 함선 목록 (후보 탐색용, 격납된 함선도 찾기 위해 recursive="true" 필수) -->
+        <find_ship name="$PlayerShips" owner="faction.player" multiple="true" space="player.galaxy" recursive="true" />
+        <debug_text text="'[ACM] Total player ships in galaxy for search: ' + $PlayerShips.count" filter="general" />
 
         <!-- 중복 배정 방지 리스트 -->
         <create_list name="$AssignedCandidates" />
+        <create_list name="$AssignedSeeds" />
 
         <do_all exact="$Ships.count" counter="$i">
           <set_value name="$Ship" exact="$Ships.{$i}" />
 
           <!-- 함장 자리가 비어있는 함선만 처리 -->
           <do_if value="not @$Ship.pilot">
+            <debug_text text="'[ACM] Processing empty pilot seat for ship: ' + $Ship.knownname" filter="general" />
             <set_value name="$BestCandidate" exact="null" />
             <set_value name="$BestPiloting" value="-1" />
             <set_value name="$BestSource" exact="null" />
+            <set_value name="$BestSeed" exact="0" />
 
             <!-- 1단계: 자기 자신 함선 내부에서 최고의 미배정 선원 템플릿 탐색 -->
             <set_value name="$LocalPeople" exact="$Ship.people.list" />
+            <debug_text text="'[ACM]   1. Scanning local crew: count=' + $LocalPeople.count" filter="general" />
             <do_all exact="$LocalPeople.count" counter="$k">
               <set_value name="$Template" exact="$LocalPeople.{$k}" />
+              <set_value name="$Role" exact="$Ship.people.{$Template}.role" />
+              <set_value name="$Seed" exact="@$Ship.people.{$Template}.seed" />
+              <set_value name="$Name" exact="@$Ship.people.{$Template}.name" />
+              <set_value name="$NPC_Piloting" exact="$Ship.people.{$Template}.skill.{skilltype.piloting}" />
+              <set_value name="$IsAlreadyAssigned" exact="$AssignedCandidates.indexof.{$Template} or ($Seed gt 0 and $AssignedSeeds.indexof.{$Seed})" />
+              
+              <debug_text text="'[ACM]     - Local crew[' + $k + ']: name=' + $Name + ' | template=' + $Template + ' | seed=' + $Seed + ' | role=' + $Role.name + ' | piloting=' + $NPC_Piloting + ' | already_assigned=' + $IsAlreadyAssigned" filter="general" />
+              
               <!-- 템플릿의 롤이 미배정이고, 이번 일괄 배정에서 아직 선발되지 않은 선원만 -->
-              <do_if value="$Ship.people.{$Template}.role == entityrole.unassigned and not $AssignedCandidates.indexof.{$Template}">
-                <set_value name="$NPC_Piloting" exact="$Ship.people.{$Template}.skill.{skilltype.piloting}" />
+              <do_if value="$Role == entityrole.unassigned and not $IsAlreadyAssigned">
                 <do_if value="$NPC_Piloting gt $BestPiloting">
                   <set_value name="$BestPiloting" exact="$NPC_Piloting" />
                   <set_value name="$BestCandidate" exact="$Template" />
                   <set_value name="$BestSource" exact="$Ship" />
+                  <set_value name="$BestSeed" exact="$Seed" />
                 </do_if>
               </do_if>
             </do_all>
 
             <!-- 2단계: 자기 배에서 찾지 못한 경우에만 타 함선들을 조회하여 템플릿 탐색 -->
             <do_if value="not $BestCandidate">
+              <debug_text text="'[ACM]   2. Local crew not found. Scanning remote player ships...'" filter="general" />
               <do_all exact="$PlayerShips.count" counter="$j">
                 <set_value name="$PShip" exact="$PlayerShips.{$j}" />
                 <do_if value="$PShip != $Ship">
                   <set_value name="$RemotePeople" exact="$PShip.people.list" />
                   <do_all exact="$RemotePeople.count" counter="$k">
                     <set_value name="$Template" exact="$RemotePeople.{$k}" />
-                    <do_if value="$PShip.people.{$Template}.role == entityrole.unassigned and not $AssignedCandidates.indexof.{$Template}">
-                      <set_value name="$NPC_Piloting" exact="$PShip.people.{$Template}.skill.{skilltype.piloting}" />
-                      <do_if value="$NPC_Piloting gt $BestPiloting">
-                        <set_value name="$BestPiloting" exact="$NPC_Piloting" />
-                        <set_value name="$BestCandidate" exact="$Template" />
-                        <set_value name="$BestSource" exact="$PShip" />
+                    <set_value name="$Role" exact="$PShip.people.{$Template}.role" />
+                    <set_value name="$Seed" exact="@$PShip.people.{$Template}.seed" />
+                    <set_value name="$Name" exact="@$PShip.people.{$Template}.name" />
+                    <set_value name="$NPC_Piloting" exact="$PShip.people.{$Template}.skill.{skilltype.piloting}" />
+                    <set_value name="$IsAlreadyAssigned" exact="$AssignedCandidates.indexof.{$Template} or ($Seed gt 0 and $AssignedSeeds.indexof.{$Seed})" />
+                    
+                    <do_if value="$Role == entityrole.unassigned">
+                      <do_if value="not $IsAlreadyAssigned">
+                        <do_if value="$NPC_Piloting gt $BestPiloting">
+                          <set_value name="$BestPiloting" exact="$NPC_Piloting" />
+                          <set_value name="$BestCandidate" exact="$Template" />
+                          <set_value name="$BestSource" exact="$PShip" />
+                          <set_value name="$BestSeed" exact="$Seed" />
+                        </do_if>
                       </do_if>
                     </do_if>
                   </do_all>
@@ -249,24 +282,35 @@
 
             <!-- 후보 발견 시 배정 -->
             <do_if value="$BestCandidate">
-              <!-- 템플릿이 이미 인스턴스로 존재하는가? (보통 S급 배에 대기하는 선원은 인스턴스가 소멸해 없음) -->
+              <debug_text text="'[ACM]   3. Best candidate found: name=' + @$BestSource.people.{$BestCandidate}.name + ' (skill=' + $BestPiloting + ') from ship: ' + $BestSource.knownname" filter="general" />
+              
+              <!-- 템플릿이 이미 인스턴스로 존재하는가? -->
               <set_value name="$TargetActor" exact="$BestSource.roleentity.{$BestCandidate}" />
+              <debug_text text="'[ACM]     - Checking actor instance existence: exists=' + $TargetActor.exists" filter="general" />
+              
               <do_if value="not $TargetActor.exists">
                 <!-- 인스턴스가 없으므로 템플릿으로부터 NPC 인스턴스 생성 -->
+                <debug_text text="'[ACM]     - Actor instance not found. Creating NPC from template: ' + $BestCandidate" filter="general" />
                 <create_npc_from_template name="$TargetActor" object="$BestSource" template="$BestCandidate" owner="faction.player" placementobject="$Ship" required="true" />
+                <debug_text text="'[ACM]     - Created NPC instance: exists=' + $TargetActor.exists + ' | name=' + @$TargetActor.knownname" filter="general" />
               </do_if>
 
               <do_if value="$TargetActor.exists">
-                <debug_text text="'[ACM] Assigning ' + $TargetActor.knownname + ' (skill ' + $BestPiloting + ') to ' + $Ship.knownname" filter="general" />
+                <debug_text text="'[ACM]     - Assigning pilot entity: ' + $TargetActor.knownname + ' to ' + $Ship.knownname" filter="general" />
                 <assign_control_entity actor="$TargetActor" object="$Ship" role="controlrole.pilot" post="controlpost.aipilot" transfer="true" init="true" />
                 
-                <!-- 중복 배정 방지를 위해 선발된 템플릿 등록 -->
+                <!-- 중복 배정 방지를 위해 선발된 템플릿과 시드 등록 -->
                 <append_to_list name="$AssignedCandidates" exact="$BestCandidate" />
+                <do_if value="$BestSeed gt 0">
+                  <append_to_list name="$AssignedSeeds" exact="$BestSeed" />
+                </do_if>
 
                 <!-- 이적이 완료되었으므로 소스 배에서 템플릿 제거 -->
+                <debug_text text="'[ACM]     - Removing crew template from source ship: ' + $BestSource.knownname" filter="general" />
                 <do_if value="$BestSource.people.{$BestCandidate}.exists">
                   <remove_npc_template object="$BestSource" template="$BestCandidate" />
                 </do_if>
+                <debug_text text="'[ACM]     - Crew template removal check: exists=' + $BestSource.people.{$BestCandidate}.exists" filter="general" />
 
                 <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{23}.[$Ship.knownname, ($BestPiloting / 3), $TargetActor.knownname]" post="true" />
               </do_if>
