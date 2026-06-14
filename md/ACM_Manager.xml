@@ -82,15 +82,6 @@
             $callback = ACM_Fire_Callback,
             ]" />
 
-        <!-- [DEBUG] 선원 role 스캔 -->
-        <signal_cue_instantly
-          cue="md.Interact_Menu_API.Add_Action"
-          param="table[
-            $id       = 'acm_debug_scan',
-            $section  = $section,
-            $text     = '[DEBUG] 선원 role 스캔',
-            $callback = ACM_Debug_Scan_Callback,
-            ]" />
       </actions>
     </cue>
 
@@ -376,42 +367,6 @@
               <debug_text text="'[Captain Manager] Failed to instantiate candidate: ' + $BestCandidate + ' for ' + $Ship.knownname" filter="general" />
             </do_else>
           </do_if>
-        </do_all>
-      </actions>
-    </cue>
-
-
-    <!-- ============================================================
-         5. [DEBUG] 선원 role 스캔 콜백
-         - 실제 controlpost 값 확인용 (미배정인원 role 식별)
-         ============================================================ -->
-    <cue name="ACM_Debug_Scan_Callback" instantiate="true">
-      <conditions>
-        <event_cue_signalled />
-      </conditions>
-      <actions>
-        <!-- 전체 선택 함선 리스트 빌드 -->
-        <create_list name="$Ships" />
-        <do_if value="@event.param.$object.isclass.ship and event.param.$object.isplayerowned">
-          <append_to_list name="$Ships" exact="event.param.$object" />
-        </do_if>
-        <do_all exact="@event.param.$selectedplayerships.count" counter="$i">
-          <set_value name="$SelShip" exact="event.param.$selectedplayerships.{$i}" />
-          <do_if value="not $Ships.indexof.{$SelShip}">
-            <append_to_list name="$Ships" exact="$SelShip" />
-          </do_if>
-        </do_all>
-
-        <do_all exact="$Ships.count" counter="$i">
-          <set_value name="$Ship" exact="$Ships.{$i}" />
-          <debug_text text="'[Captain Manager SCAN] ===== ' + $Ship.knownname + ' | people: ' + @$Ship.people.count + '/' + @$Ship.people.capacity" filter="general" />
-          <find_object_component name="$ScanList" object="$Ship" class="class.npc" multiple="true" />
-          <debug_text text="'[Captain Manager SCAN] Total NPC: ' + $ScanList.count" filter="general" />
-          <do_all exact="$ScanList.count" counter="$si">
-            <set_value name="$SNPC" exact="$ScanList.{$si}" />
-            <debug_text text="'[Captain Manager SCAN] NPC[' + $si + '] name=' + $SNPC.knownname + ' | controlled=' + @$SNPC.controlled + ' | controlpost=' + @$SNPC.controlpost + ' | is_pilot=' + ($Ship.pilot == $SNPC)" filter="general" />
-          </do_all>
-          <debug_text text="'[Captain Manager SCAN] $Ship.pilot = ' + @$Ship.pilot.knownname" filter="general" />
         </do_all>
       </actions>
     </cue>
