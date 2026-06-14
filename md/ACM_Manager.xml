@@ -215,10 +215,11 @@
                 <find_object_component name="$ShipNPCs" object="$PShip" class="class.npc" multiple="true" />
                 <do_all exact="$ShipNPCs.count" counter="$k">
                   <set_value name="$NPC" exact="$ShipNPCs.{$k}" />
-                  <!-- 이미 함장/관리자 직책을 맡지 않은 선원만 -->
-                  <do_if value="@$PShip.pilot != $NPC and not @$NPC.controlled">
-                    <do_if value="@$NPC.skill.piloting gt $BestPiloting">
-                      <set_value name="$BestPiloting" value="$NPC.skill.piloting" />
+                  <!-- 이미 함장/관리자 직책(controlentity)을 맡지 않고, 역할이 미배정(unassigned)인 선원만 -->
+                  <do_if value="not $NPC.iscontrolentity and $NPC.role == entityrole.unassigned">
+                    <set_value name="$NPC_Piloting" exact="$NPC.skill.{skilltype.piloting}" />
+                    <do_if value="$NPC_Piloting gt $BestPiloting">
+                      <set_value name="$BestPiloting" exact="$NPC_Piloting" />
                       <set_value name="$BestCandidate" exact="$NPC" />
                     </do_if>
                   </do_if>
@@ -229,7 +230,7 @@
             <!-- 후보 발견 시 배정 -->
             <do_if value="$BestCandidate">
               <debug_text text="'[ACM] Assigning ' + $BestCandidate.knownname + ' (skill ' + $BestPiloting + ') to ' + $Ship.knownname" filter="general" />
-              <assign_control_entity actor="$BestCandidate" object="$Ship" role="controlrole.pilot" post="false" />
+              <assign_control_entity actor="$BestCandidate" object="$Ship" role="controlrole.pilot" post="controlpost.aipilot" transfer="true" init="true" />
               <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{23}.[$Ship.knownname, ($BestPiloting / 3), $BestCandidate.knownname]" post="true" />
             </do_if>
             <do_else>
