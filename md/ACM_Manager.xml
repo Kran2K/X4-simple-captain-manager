@@ -26,6 +26,15 @@
         <!-- 선택 함선 수에 따라 노출 섹션 결정 -->
         <set_value name="$section" exact="if $Ships.count gt 1 then 'selected_orders_all' else 'selected_orders'" />
 
+        <!-- 단일 함선 선택 시 함장 존재 판별 -->
+        <set_value name="$ShipsCount" exact="$Ships.count" />
+        <set_value name="$SingleShipHasPilot" exact="false" />
+        <do_if value="$ShipsCount == 1">
+          <do_if value="@$Ships.{1}.pilot">
+            <set_value name="$SingleShipHasPilot" exact="true" />
+          </do_if>
+        </do_if>
+
         <!-- 1. 함장 자동 할당 (id="2") -->
         <signal_cue_instantly
           cue="md.Interact_Menu_API.Add_Action"
@@ -38,24 +47,38 @@
             ]" />
 
         <!-- 2. 함장 할당 해제 (id="3") -->
+        <set_value name="$UnassignActive" exact="true" />
+        <set_value name="$UnassignMouseover" exact="readtext.{98765}.{30}" />
+        <do_if value="$ShipsCount == 1 and not $SingleShipHasPilot">
+          <set_value name="$UnassignActive" exact="false" />
+          <set_value name="$UnassignMouseover" exact="readtext.{98765}.{31}" />
+        </do_if>
         <signal_cue_instantly
           cue="md.Interact_Menu_API.Add_Action"
           param="table[
             $id       = 'acm_unassign_pilot',
             $section  = $section,
             $text     = readtext.{98765}.{3},
-            $mouseover = readtext.{98765}.{30},
+            $mouseover = $UnassignMouseover,
+            $active   = $UnassignActive,
             $callback = ACM_Unassign_Callback,
             ]" />
 
         <!-- 3. 함장 해고 (id="4") -->
+        <set_value name="$FireActive" exact="true" />
+        <set_value name="$FireMouseover" exact="readtext.{98765}.{40}" />
+        <do_if value="$ShipsCount == 1 and not $SingleShipHasPilot">
+          <set_value name="$FireActive" exact="false" />
+          <set_value name="$FireMouseover" exact="readtext.{98765}.{41}" />
+        </do_if>
         <signal_cue_instantly
           cue="md.Interact_Menu_API.Add_Action"
           param="table[
             $id       = 'acm_fire_pilot',
             $section  = $section,
             $text     = readtext.{98765}.{4},
-            $mouseover = readtext.{98765}.{40},
+            $mouseover = $FireMouseover,
+            $active   = $FireActive,
             $callback = ACM_Fire_Callback,
             ]" />
 
