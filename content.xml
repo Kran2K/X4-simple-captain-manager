@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<content id="advanced_captain_manager" name="Advanced Captain Manager" description="Allows batch unassigning, assigning, and firing of captains for multiple selected ships from the context menu." author="Antigravity &amp; User" version="100" date="2026-06-14" save="false">
+  <!-- 피드백을 반영하여 버전(version) 속성을 제거한 깔끔한 의존성 목록 구성 -->
+  <dependency id="kuerteeUIExtensionsAndHUD" optional="true" name="kuertee UI Extensions and HUD" />
+  <dependency id="ws_3477279743" optional="true" name="kuertee UI Extensions and HUD" />
+</content>
