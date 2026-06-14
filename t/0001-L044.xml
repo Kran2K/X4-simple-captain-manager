@@ -6,9 +6,9 @@
     <t id="3">Unassign Captains</t>
     <t id="4">Fire Captains</t>
     <t id="20">Automatically assigns the best available pilots based on ship size (XL > L > M > S) and purpose (Fight > Trade > Mine > Build).</t>
-    <t id="30">Dismisses the captains of selected ships and leaves them as unassigned crew.</t>
+    <t id="30">Dismisses the captains and leaves them as unassigned crew.</t>
     <t id="31">This ship has no captain to unassign.</t>
-    <t id="40">Immediately fires and removes the captains of selected ships.</t>
+    <t id="40">Immediately fires and removes the captains.</t>
     <t id="41">This ship has no captain to fire.</t>
     <t id="11">%1 captains have been unassigned.</t>
     <t id="12">Captains have been assigned to %1 empty ships.</t>
