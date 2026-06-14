@@ -87,8 +87,8 @@
 
 
     <!-- ============================================================
-         2. 함장 일괄 할당 해제 콜백
-         - 함장 슬롯만 비움(NPC는 함선에 일반 승무원으로 잔류)
+         2. 함장 일괄 보직 해제 콜백
+         - 함장 슬롯만 비움(NPC는 함선에 미배정 인원으로 잔류)
          ============================================================ -->
     <cue name="ACM_Unassign_Callback" instantiate="true">
       <conditions>
@@ -120,7 +120,7 @@
             <!-- 조종사 보직 해제 -->
             <dismiss_control_entity actor="$Pilot" object="$Ship" />
             
-            <!-- NPC 엔티티 역할 변경 (일반 승무원/미배정 상태) -->
+            <!-- NPC 엔티티 역할 변경 (미배정 인원 상태) -->
             <do_if value="$PilotExists">
               <set_entity_role entity="$Pilot" role="entityrole.unassigned" />
               <set_entity_role_object entity="$Pilot" object="$Ship" />
