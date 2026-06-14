@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <language id="44">
-  <page id="98765" title="Advanced Captain Manager Texts">
+  <page id="98765" title="Captain Manager Texts">
     <t id="1">Captain Manager</t>
     <t id="2">Auto Assign Captains</t>
     <t id="3">Unassign Captains</t>
     <t id="4">Fire Captains</t>
     <t id="5">Allows batch unassigning, assigning, and firing of captains for multiple selected ships from the context menu.</t>
-    <t id="20">Automatically assigns the best available pilots based on ship size (XL > L > M > S) and purpose (Fight > Trade > Mine > Build).</t>
+    <t id="20">Automatically assigns the best available pilots based on ship size and purpose. Priority is XL, L, M, S classes and Fight, Trade, Mine, Build purpose.</t>
     <t id="30">Dismisses the captains and leaves them as unassigned crew.</t>
     <t id="31">This ship has no captain to unassign.</t>
     <t id="40">Immediately fires and removes the captains.</t>
