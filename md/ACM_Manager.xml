@@ -1,84 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mdscript name="ACM_Manager" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="md.xsd">
   <cues>
-    <!-- Lua UI로부터 전달받은 이벤트를 리스닝하여 처리 -->
-    <cue name="ACM_On_Trigger" instantiate="true">
+
+    <!-- ============================================================
+         1. 메뉴 오픈 시 액션 등록
+         - SN Mod Support APIs: md.Interact_Menu_API.Get_Actions
+         - event.param.$object: 우클릭한 컴포넌트
+         - event.param.$selectedplayerships: 선택된 플레이어 함선 목록
+         - 지도 우클릭은 $object.isclass.ship 조건에서 자동 필터
+         ============================================================ -->
+    <cue name="ACM_Get_Actions" instantiate="true">
       <conditions>
-        <event_ui_triggered screen="'InteractMenu'" />
+        <event_cue_signalled cue="@md.Interact_Menu_API.Get_Actions" />
+        <check_value value="@event.param.$object.isclass.ship" />
+        <check_value value="@event.param.$object.isplayerowned" />
+        <check_value value="@event.param.$selectedplayerships.count gt 0" />
       </conditions>
       <actions>
-        <set_value name="$Action" exact="event.param2" />
-        <set_value name="$Ship" exact="component.{event.param3}" />
+        <debug_text text="'[ACM] Get_Actions: object=' + @event.param.$object.knownname + ' ships=' + @event.param.$selectedplayerships.count" filter="general" />
 
-        <debug_text text="'[ACM MD Debug] Action: ' + $Action + ' | Ship Component: ' + $Ship + ' | IsShip: ' + @$Ship.isclass.ship" filter="general"/>
+        <!-- 선택 함선 수에 따라 노출 섹션 결정 -->
+        <set_value name="$section" exact="if @event.param.$selectedplayerships.count gt 1 then 'selected_orders_all' else 'selected_orders'" />
 
-        <!-- 0. [DEBUG] 함선 내 NPC role 스캔 - 실제 role 값 확인용 -->
-        <do_if value="$Action == 'debug_scan_crew'">
-          <debug_text text="'[ACM SCAN] ===== Crew Scan for ship: ' + $Ship.knownname + ' ===== people.count: ' + @$Ship.people.count + ' / capacity: ' + @$Ship.people.capacity" filter="general"/>
-          <find_object_component name="$ScanList" object="$Ship" class="class.npc" multiple="true" />
-          <debug_text text="'[ACM SCAN] Total NPC found: ' + $ScanList.count" filter="general"/>
-          <do_all exact="$ScanList.count" counter="$si">
-            <set_value name="$SNPC" exact="$ScanList.{$si}"/>
-            <debug_text text="'[ACM SCAN] NPC[' + $si + '] name=' + $SNPC.knownname + ' | controlled=' + @$SNPC.controlled + ' | controlpost=' + @$SNPC.controlpost + ' | is_pilot=' + ($Ship.pilot == $SNPC)" filter="general"/>
-          </do_all>
-          <debug_text text="'[ACM SCAN] $Ship.pilot = ' + @$Ship.pilot.knownname" filter="general"/>
-        </do_if>
+        <!-- 1. 함장 일괄 할당 해제 -->
+        <signal_cue_instantly
+          cue="md.Interact_Menu_API.Add_Action"
+          param="table[
+            $id       = 'acm_unassign_pilot',
+            $section  = $section,
+            $text     = readtext.{98765}.{2},
+            $callback = ACM_Unassign_Callback,
+            ]" />
 
-        <!-- 1. 함장 일괄 할당 해제 (unassign_pilot) -->
-        <do_if value="$Action == 'unassign_pilot'">
+        <!-- 2. 함장 일괄 배정 -->
+        <signal_cue_instantly
+          cue="md.Interact_Menu_API.Add_Action"
+          param="table[
+            $id       = 'acm_assign_pilot',
+            $section  = $section,
+            $text     = readtext.{98765}.{3},
+            $callback = ACM_Assign_Callback,
+            ]" />
+
+        <!-- 3. 함장 일괄 해고 -->
+        <signal_cue_instantly
+          cue="md.Interact_Menu_API.Add_Action"
+          param="table[
+            $id       = 'acm_fire_pilot',
+            $section  = $section,
+            $text     = readtext.{98765}.{4},
+            $callback = ACM_Fire_Callback,
+            ]" />
+
+        <!-- [DEBUG] 선원 role 스캔 -->
+        <signal_cue_instantly
+          cue="md.Interact_Menu_API.Add_Action"
+          param="table[
+            $id       = 'acm_debug_scan',
+            $section  = $section,
+            $text     = '[DEBUG] 선원 role 스캔',
+            $callback = ACM_Debug_Scan_Callback,
+            ]" />
+      </actions>
+    </cue>
+
+
+    <!-- ============================================================
+         2. 함장 일괄 할당 해제 콜백
+         - event.param.$selectedplayerships: 선택된 모든 함선
+         - 함장 슬롯만 비움(NPC는 함선에 일반 승무원으로 잔류)
+         ============================================================ -->
+    <cue name="ACM_Unassign_Callback" instantiate="true">
+      <conditions>
+        <event_cue_signalled />
+      </conditions>
+      <actions>
+        <set_value name="$Ships" exact="event.param.$selectedplayerships" />
+        <debug_text text="'[ACM] Unassign: ' + $Ships.count + ' ships'" filter="general" />
+        <do_all exact="$Ships.count" counter="$i">
+          <set_value name="$Ship" exact="$Ships.{$i}" />
           <do_if value="@$Ship.pilot">
-            <set_value name="$Pilot" exact="$Ship.pilot" />
-            <debug_text text="'[ACM MD Debug] Unassigning pilot: ' + $Pilot.knownname + ' from ship: ' + $Ship.knownname" filter="general"/>
-
-            <!-- 파일럿 슬롯을 비워 일반 승무원으로 전환 (NPC는 함선에 남음) -->
+            <debug_text text="'[ACM] Unassigning: ' + @$Ship.pilot.knownname + ' from ' + $Ship.knownname" filter="general" />
             <assign_control_entity actor="null" object="$Ship" role="controlrole.pilot" post="false" />
-            
             <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{21}.[$Ship.knownname]" post="true" />
           </do_if>
           <do_else>
-            <debug_text text="'[ACM MD Debug] Unassign failed: Ship has no pilot or is invalid.'" filter="general"/>
+            <debug_text text="'[ACM] Unassign skip (no pilot): ' + $Ship.knownname" filter="general" />
           </do_else>
-        </do_if>
+        </do_all>
+      </actions>
+    </cue>
 
-        <!-- 2. 함장 일괄 해고 (fire_pilot) -->
-        <do_elseif value="$Action == 'fire_pilot'">
+
+    <!-- ============================================================
+         3. 함장 일괄 해고 콜백
+         - 함장 슬롯 비우고 NPC 제거
+         ============================================================ -->
+    <cue name="ACM_Fire_Callback" instantiate="true">
+      <conditions>
+        <event_cue_signalled />
+      </conditions>
+      <actions>
+        <set_value name="$Ships" exact="event.param.$selectedplayerships" />
+        <debug_text text="'[ACM] Fire: ' + $Ships.count + ' ships'" filter="general" />
+        <do_all exact="$Ships.count" counter="$i">
+          <set_value name="$Ship" exact="$Ships.{$i}" />
           <do_if value="@$Ship.pilot">
             <set_value name="$Pilot" exact="$Ship.pilot" />
             <set_value name="$PilotName" exact="$Pilot.knownname" />
-            <debug_text text="'[ACM MD Debug] Firing pilot: ' + $PilotName + ' from ship: ' + $Ship.knownname" filter="general"/>
-            
-            <!-- 파일럿 NPC 제어직 해제 후 즉시 객체 파괴 -->
+            <debug_text text="'[ACM] Firing: ' + $PilotName + ' from ' + $Ship.knownname" filter="general" />
             <assign_control_entity actor="null" object="$Ship" role="controlrole.pilot" post="false" />
             <destroy_object object="$Pilot" />
-            
             <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{22}.[$Ship.knownname, $PilotName]" post="true" />
           </do_if>
           <do_else>
-            <debug_text text="'[ACM MD Debug] Fire failed: Ship has no pilot or is invalid.'" filter="general"/>
+            <debug_text text="'[ACM] Fire skip (no pilot): ' + $Ship.knownname" filter="general" />
           </do_else>
-        </do_elseif>
+        </do_all>
+      </actions>
+    </cue>
 
-        <!-- 3. 함장 일괄 배정 (assign_pilot) -->
-        <do_elseif value="$Action == 'assign_pilot'">
-          <!-- 대상 함선의 함장 자리가 비어있는 경우에만 실행 -->
+
+    <!-- ============================================================
+         4. 함장 일괄 배정 콜백
+         - 은하 내 플레이어 함선에서 미배정 선원 중 조종술 최고치 탐색
+         - 함장 빈 함선에만 배정 (XL>L>M>S 순서는 MD에서 직접 정렬 불가,
+           selectedplayerships 순서 그대로 처리)
+         ============================================================ -->
+    <cue name="ACM_Assign_Callback" instantiate="true">
+      <conditions>
+        <event_cue_signalled />
+      </conditions>
+      <actions>
+        <set_value name="$Ships" exact="event.param.$selectedplayerships" />
+        <debug_text text="'[ACM] Assign: ' + $Ships.count + ' ships'" filter="general" />
+
+        <!-- 플레이어 소유 전 함선 목록 (후보 탐색용) -->
+        <find_object name="$PlayerShips" owner="faction.player" class="class.ship" multiple="true" space="player.galaxy" />
+
+        <do_all exact="$Ships.count" counter="$i">
+          <set_value name="$Ship" exact="$Ships.{$i}" />
+
+          <!-- 함장 자리가 비어있는 함선만 처리 -->
           <do_if value="not @$Ship.pilot">
-            <debug_text text="'[ACM MD Debug] Finding candidate for ship: ' + $Ship.knownname" filter="general"/>
-            <!-- 플레이어 소유의 전 은하 함선들을 순회하며 미배정된 최적의 후보자 탐색 -->
-            <find_object name="$PlayerShips" owner="faction.player" class="class.ship" multiple="true" space="player.galaxy" />
-            
             <set_value name="$BestCandidate" value="null" />
             <set_value name="$BestPiloting" value="-1" />
-            
-            <do_all exact="$PlayerShips.count" counter="$i">
-              <set_value name="$PShip" exact="$PlayerShips.{$i}" />
-              <!-- 자기 자신(대상 함선)에 들어있는 선원은 탐색 대상에서 배제 -->
+
+            <!-- 전 함선 순회하며 미배정 최고 조종술 선원 탐색 -->
+            <do_all exact="$PlayerShips.count" counter="$j">
+              <set_value name="$PShip" exact="$PlayerShips.{$j}" />
+              <!-- 대상 함선 본인 제외 -->
               <do_if value="$PShip != $Ship">
                 <find_object_component name="$ShipNPCs" object="$PShip" class="class.npc" multiple="true" />
-                <do_all exact="$ShipNPCs.count" counter="$j">
-                  <set_value name="$NPC" exact="$ShipNPCs.{$j}" />
-                  <!-- 해당 NPC가 다른 함선에서 직책(함장, 관리자 등)을 맡고 있지 않은 승무원 상태인지 체크 -->
+                <do_all exact="$ShipNPCs.count" counter="$k">
+                  <set_value name="$NPC" exact="$ShipNPCs.{$k}" />
+                  <!-- 이미 함장/관리자 직책을 맡지 않은 선원만 -->
                   <do_if value="@$PShip.pilot != $NPC and not @$NPC.controlled">
-                    <!-- 조종술 숙련도가 가장 높은 후보 검색 -->
                     <do_if value="@$NPC.skill.piloting gt $BestPiloting">
                       <set_value name="$BestPiloting" value="$NPC.skill.piloting" />
                       <set_value name="$BestCandidate" exact="$NPC" />
@@ -88,43 +165,44 @@
               </do_if>
             </do_all>
 
-            <!-- 엘리트 후보를 배정 진행 -->
+            <!-- 후보 발견 시 배정 -->
             <do_if value="$BestCandidate">
-              <debug_text text="'[ACM Debug] Best candidate found: ' + $BestCandidate.knownname + ' skill: ' + $BestPiloting" filter="general"/>
-              <!-- 대상 함선 정원 초과 시 최하위 선원 사전 해고 -->
-              <do_if value="@$Ship.people.count ge @$Ship.people.capacity">
-                <set_value name="$WorstCrew" value="null" />
-                <set_value name="$WorstSkillSum" value="999" />
-                
-                <find_object_component name="$TargetCrewList" object="$Ship" class="class.npc" multiple="true" />
-                <do_all exact="$TargetCrewList.count" counter="$k">
-                  <set_value name="$TCrew" exact="$TargetCrewList.{$k}" />
-                  <set_value name="$TSkillSum" value="@$TCrew.skill.piloting + @$TCrew.skill.engineering" />
-                  <do_if value="$TSkillSum lt $WorstSkillSum">
-                    <set_value name="$WorstSkillSum" value="$TSkillSum" />
-                    <set_value name="$WorstCrew" exact="$TCrew" />
-                  </do_if>
-                </do_all>
-
-                <do_if value="$WorstCrew">
-                  <debug_text text="'[ACM Debug] Target ship crew space full. Firing worst crew: ' + $WorstCrew.knownname" filter="general"/>
-                  <destroy_object object="$WorstCrew" />
-                </do_if>
-              </do_if>
-
-              <!-- 새 함선으로 이동과 동시에 파일럿 직책으로 승격 배정 -->
+              <debug_text text="'[ACM] Assigning ' + $BestCandidate.knownname + ' (skill ' + $BestPiloting + ') to ' + $Ship.knownname" filter="general" />
               <assign_control_entity actor="$BestCandidate" object="$Ship" role="controlrole.pilot" post="false" />
               <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{23}.[$Ship.knownname, ($BestPiloting / 3), $BestCandidate.knownname]" post="true" />
             </do_if>
             <do_else>
-              <debug_text text="'[ACM MD Debug] Assign failed: No eligible crew found in galaxy.'" filter="general"/>
+              <debug_text text="'[ACM] No eligible crew found for: ' + $Ship.knownname" filter="general" />
             </do_else>
           </do_if>
           <do_else>
-            <debug_text text="'[ACM MD Debug] Assign failed: Ship already has a pilot.'" filter="general"/>
+            <debug_text text="'[ACM] Assign skip (already has pilot): ' + $Ship.knownname" filter="general" />
           </do_else>
-        </do_elseif>
+        </do_all>
       </actions>
     </cue>
+
+
+    <!-- ============================================================
+         5. [DEBUG] 선원 role 스캔 콜백
+         - 실제 controlpost 값 확인용 (미배정인원 role 식별)
+         ============================================================ -->
+    <cue name="ACM_Debug_Scan_Callback" instantiate="true">
+      <conditions>
+        <event_cue_signalled />
+      </conditions>
+      <actions>
+        <set_value name="$Ship" exact="event.param.$object" />
+        <debug_text text="'[ACM SCAN] ===== ' + $Ship.knownname + ' | people: ' + @$Ship.people.count + '/' + @$Ship.people.capacity" filter="general" />
+        <find_object_component name="$ScanList" object="$Ship" class="class.npc" multiple="true" />
+        <debug_text text="'[ACM SCAN] Total NPC: ' + $ScanList.count" filter="general" />
+        <do_all exact="$ScanList.count" counter="$si">
+          <set_value name="$SNPC" exact="$ScanList.{$si}" />
+          <debug_text text="'[ACM SCAN] NPC[' + $si + '] name=' + $SNPC.knownname + ' | controlled=' + @$SNPC.controlled + ' | controlpost=' + @$SNPC.controlpost + ' | is_pilot=' + ($Ship.pilot == $SNPC)" filter="general" />
+        </do_all>
+        <debug_text text="'[ACM SCAN] $Ship.pilot = ' + @$Ship.pilot.knownname" filter="general" />
+      </actions>
+    </cue>
+
   </cues>
 </mdscript>

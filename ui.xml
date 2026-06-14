@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <addon name="advanced_captain_manager" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../ui/core/addon.xsd">
-  <environment type="menus">
-    <!-- 실제 우클릭 컨텍스트 메뉴 환경(ego_interactmenu)에 인젝션하도록 수정 -->
-    <file name="ui/addons/ego_interactmenu/interactmenu.lua" />
-    
-    <!-- UI Extensions가 먼저 로드되도록 의존성 지정 -->
-    <dependency name="kuertee_ui_extensions" />
-  </environment>
+  <!-- Lua 파일 없음: SN Mod Support APIs MD 방식으로 전환 -->
 </addon>
