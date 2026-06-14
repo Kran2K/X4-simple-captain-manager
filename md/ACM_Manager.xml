@@ -24,7 +24,7 @@
         </do_all>
 
         <!-- 선택 함선 수에 따라 노출 섹션 결정 -->
-        <set_value name="$section" exact="if $Ships.count gt 1 then 'selected_orders_all' else 'selected_orders'" />
+        <set_value name="$section" exact="if $Ships.count gt 1 then 'selected_orders_all' else 'interaction'" />
 
         <!-- 단일 함선 선택 시 함장 존재 판별 -->
         <set_value name="$ShipsCount" exact="$Ships.count" />
