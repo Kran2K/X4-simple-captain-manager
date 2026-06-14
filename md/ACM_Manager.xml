@@ -81,7 +81,10 @@
           <set_value name="$Ship" exact="$Ships.{$i}" />
           <do_if value="@$Ship.pilot">
             <debug_text text="'[ACM] Unassigning: ' + @$Ship.pilot.knownname + ' from ' + $Ship.knownname" filter="general" />
-            <assign_control_entity actor="null" object="$Ship" role="controlrole.pilot" post="false" />
+            <!-- transfer_people로 같은 함선 내에서 pilot → unassigned 역할 변경 -->
+            <transfer_people object="$Ship" otherobject="$Ship" providepeople="false" result="$r">
+              <matching_people currentroles="[entityrole.pilot]" newroles="[entityrole.unassigned]" amounts="[1]" />
+            </transfer_people>
             <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{21}.[$Ship.knownname]" post="true" />
           </do_if>
           <do_else>
@@ -109,7 +112,7 @@
             <set_value name="$Pilot" exact="$Ship.pilot" />
             <set_value name="$PilotName" exact="$Pilot.knownname" />
             <debug_text text="'[ACM] Firing: ' + $PilotName + ' from ' + $Ship.knownname" filter="general" />
-            <assign_control_entity actor="null" object="$Ship" role="controlrole.pilot" post="false" />
+            <!-- destroy_object만으로 controlpost 자동 해제됨 (assign_control_entity null 불필요) -->
             <destroy_object object="$Pilot" />
             <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{22}.[$Ship.knownname, $PilotName]" post="true" />
           </do_if>
