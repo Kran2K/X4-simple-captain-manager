@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<addon name="advanced_captain_manager" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../ui/core/addon.xsd">
+<addon name="captain_manager" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../ui/core/addon.xsd">
   <!-- Lua 파일 없음: SN Mod Support APIs MD 방식으로 전환 -->
 </addon>
