@@ -112,6 +112,29 @@
           <set_value name="$Ship" exact="$Ships.{$i}" />
           <do_if value="@$Ship.pilot">
             <set_value name="$Pilot" exact="$Ship.pilot" />
+            
+            <!-- 정원 가득 참 방지: 여유 슬롯이 없으면 최하위 선원 1명 자동 해고 -->
+            <do_if value="$Ship.people.free le 0">
+              <set_value name="$WorstCrew" exact="null" />
+              <set_value name="$WorstSkillSum" exact="9999" />
+              <set_value name="$CrewList" exact="$Ship.people.list" />
+              <do_all exact="$CrewList.count" counter="$k">
+                <set_value name="$Template" exact="$CrewList.{$k}" />
+                <set_value name="$Role" exact="$Ship.people.{$Template}.role" />
+                <do_if value="$Role != entityrole.pilot and $Template != @$Pilot.npctemplate">
+                  <set_value name="$TSkillSum" exact="$Ship.people.{$Template}.skill.piloting + $Ship.people.{$Template}.skill.engineering + $Ship.people.{$Template}.skill.management + $Ship.people.{$Template}.skill.morale + $Ship.people.{$Template}.skill.boarding" />
+                  <do_if value="$TSkillSum lt $WorstSkillSum">
+                    <set_value name="$WorstSkillSum" exact="$TSkillSum" />
+                    <set_value name="$WorstCrew" exact="$Template" />
+                  </do_if>
+                </do_if>
+              </do_all>
+              <do_if value="$WorstCrew">
+                <debug_text text="'[Captain Manager] Ship full. Firing worst crew ' + $WorstCrew + ' to make space for dismissed pilot.'" filter="general" />
+                <remove_npc_template object="$Ship" template="$WorstCrew" />
+              </do_if>
+            </do_if>
+
             <set_value name="$Template" exact="@$Pilot.npctemplate" />
             <set_value name="$PilotExists" exact="$Pilot.exists" />
             
