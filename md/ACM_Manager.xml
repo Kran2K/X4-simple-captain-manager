@@ -18,35 +18,7 @@
             <set_value name="$Pilot" exact="$Ship.pilot" />
             <debug_text text="'[ACM MD Debug] Unassigning pilot: ' + $Pilot.knownname + ' from ship: ' + $Ship.knownname" filter="general"/>
 
-            <!-- 승무원 공간 부족 여부 체크 및 최하위 선원 해고 -->
-            <do_if value="@$Ship.people.count ge @$Ship.people.capacity">
-              <set_value name="$WorstCrew" value="null" />
-              <set_value name="$WorstSkillSum" value="999" />
-              
-              <!-- 함선 내부의 모든 NPC 선원 목록 쿼리 -->
-              <find_object_component name="$CrewList" object="$Ship" class="class.npc" multiple="true" />
-              
-              <do_all exact="$CrewList.count" counter="$i">
-                <set_value name="$Crew" exact="$CrewList.{$i}" />
-                <!-- 현재 해제하려는 파일럿 본인은 제외하고 비교 -->
-                <do_if value="$Crew != $Pilot">
-                  <set_value name="$SkillSum" value="@$Crew.skill.piloting + @$Crew.skill.engineering" />
-                  <do_if value="$SkillSum lt $WorstSkillSum">
-                    <set_value name="$WorstSkillSum" value="$SkillSum" />
-                    <set_value name="$WorstCrew" exact="$Crew" />
-                  </do_if>
-                </do_if>
-              </do_all>
-
-              <!-- 가장 숙련도가 낮은 크루를 삭제(해고)하여 공석 확보 -->
-              <do_if value="$WorstCrew">
-                <debug_text text="'[ACM MD Debug] Crew space full. Firing worst crew: ' + $WorstCrew.knownname" filter="general"/>
-                <destroy_object object="$WorstCrew" />
-              </do_if>
-            </do_if>
-
-            <!-- 파일럿의 역할을 일반 승무원(직책 없음)으로 전환하고, 함선 파일럿 해제 -->
-            <assign_control_entity actor="$Pilot" object="$Ship" role="controlrole.none" post="false" />
+            <!-- 파일럿 슬롯을 비워 일반 승무원으로 전환 (NPC는 함선에 남음) -->
             <assign_control_entity actor="null" object="$Ship" role="controlrole.pilot" post="false" />
             
             <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{21}.[$Ship.knownname]" post="true" />
