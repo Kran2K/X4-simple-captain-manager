@@ -210,25 +210,38 @@
             <set_value name="$BestCandidate" exact="null" />
             <set_value name="$BestPiloting" value="-1" />
 
-            <!-- 전 함선 순회하며 미배정 최고 조종술 선원 탐색 -->
-            <do_all exact="$PlayerShips.count" counter="$j">
-              <set_value name="$PShip" exact="$PlayerShips.{$j}" />
-              <!-- 대상 함선 본인 제외 -->
-              <do_if value="$PShip != $Ship">
-                <find_object_component name="$ShipNPCs" object="$PShip" class="class.npc" multiple="true" />
-                <do_all exact="$ShipNPCs.count" counter="$k">
-                  <set_value name="$NPC" exact="$ShipNPCs.{$k}" />
-                  <!-- 이미 함장/관리자 직책(controlentity)을 맡지 않고, 역할이 미배정(unassigned)이며, 이번 루프에서 아직 배정되지 않은 선원만 -->
-                  <do_if value="not $NPC.iscontrolentity and $NPC.role == entityrole.unassigned and not $AssignedCandidates.indexof.{$NPC}">
-                    <set_value name="$NPC_Piloting" exact="$NPC.skill.{skilltype.piloting}" />
-                    <do_if value="$NPC_Piloting gt $BestPiloting">
-                      <set_value name="$BestPiloting" exact="$NPC_Piloting" />
-                      <set_value name="$BestCandidate" exact="$NPC" />
-                    </do_if>
-                  </do_if>
-                </do_all>
+            <!-- 1단계: 자기 자신 함선 내부에서 최고의 미배정 선원 탐색 -->
+            <find_object_component name="$LocalNPCs" object="$Ship" class="class.npc" multiple="true" />
+            <do_all exact="$LocalNPCs.count" counter="$k">
+              <set_value name="$NPC" exact="$LocalNPCs.{$k}" />
+              <do_if value="not $NPC.iscontrolentity and $NPC.role == entityrole.unassigned and not $AssignedCandidates.indexof.{$NPC}">
+                <set_value name="$NPC_Piloting" exact="$NPC.skill.{skilltype.piloting}" />
+                <do_if value="$NPC_Piloting gt $BestPiloting">
+                  <set_value name="$BestPiloting" exact="$NPC_Piloting" />
+                  <set_value name="$BestCandidate" exact="$NPC" />
+                </do_if>
               </do_if>
             </do_all>
+
+            <!-- 2단계: 자기 배에서 찾지 못한 경우에만 타 함선들을 조회하여 탐색 -->
+            <do_if value="not $BestCandidate">
+              <do_all exact="$PlayerShips.count" counter="$j">
+                <set_value name="$PShip" exact="$PlayerShips.{$j}" />
+                <do_if value="$PShip != $Ship">
+                  <find_object_component name="$ShipNPCs" object="$PShip" class="class.npc" multiple="true" />
+                  <do_all exact="$ShipNPCs.count" counter="$k">
+                    <set_value name="$NPC" exact="$ShipNPCs.{$k}" />
+                    <do_if value="not $NPC.iscontrolentity and $NPC.role == entityrole.unassigned and not $AssignedCandidates.indexof.{$NPC}">
+                      <set_value name="$NPC_Piloting" exact="$NPC.skill.{skilltype.piloting}" />
+                      <do_if value="$NPC_Piloting gt $BestPiloting">
+                        <set_value name="$BestPiloting" exact="$NPC_Piloting" />
+                        <set_value name="$BestCandidate" exact="$NPC" />
+                      </do_if>
+                    </do_if>
+                  </do_all>
+                </do_if>
+              </do_all>
+            </do_if>
 
             <!-- 후보 발견 시 배정 -->
             <do_if value="$BestCandidate and $BestCandidate.exists">
