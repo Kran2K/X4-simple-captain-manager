@@ -116,7 +116,7 @@
           </do_if>
         </do_all>
 
-        <debug_text text="'[ACM] Unassign start: ' + $Ships.count + ' ships'" filter="general" />
+        <debug_text text="'[Captain Manager] Unassign start: ' + $Ships.count + ' ships'" filter="general" />
         <do_all exact="$Ships.count" counter="$i">
           <set_value name="$Ship" exact="$Ships.{$i}" />
           <do_if value="@$Ship.pilot">
@@ -124,7 +124,7 @@
             <set_value name="$Template" exact="@$Pilot.npctemplate" />
             <set_value name="$PilotExists" exact="$Pilot.exists" />
             
-            <debug_text text="'[ACM] Unassigning pilot for: ' + $Ship.knownname + ' | pilot_name=' + $Pilot.knownname + ' | pilot_exists=' + $PilotExists + ' | template=' + $Template" filter="general" />
+            <debug_text text="'[Captain Manager] Unassigning pilot for: ' + $Ship.knownname + ' | pilot_name=' + $Pilot.knownname + ' | pilot_exists=' + $PilotExists + ' | template=' + $Template" filter="general" />
             
             <!-- 조종사 보직 해제 -->
             <dismiss_control_entity actor="$Pilot" object="$Ship" />
@@ -145,14 +145,11 @@
               </do_else>
             </do_if>
             <do_else>
-              <debug_text text="'[ACM]   - Warning: No npctemplate found for pilot!'" filter="general" />
+              <debug_text text="'[Captain Manager] Warning: No npctemplate found for pilot!'" filter="general" />
             </do_else>
             
             <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{21}.[$Ship.knownname]" post="true" />
           </do_if>
-          <do_else>
-            <debug_text text="'[ACM] Unassign skip (no pilot): ' + $Ship.knownname" filter="general" />
-          </do_else>
         </do_all>
       </actions>
     </cue>
@@ -179,13 +176,13 @@
           </do_if>
         </do_all>
 
-        <debug_text text="'[ACM] Fire: ' + $Ships.count + ' ships'" filter="general" />
+        <debug_text text="'[Captain Manager] Fire: ' + $Ships.count + ' ships'" filter="general" />
         <do_all exact="$Ships.count" counter="$i">
           <set_value name="$Ship" exact="$Ships.{$i}" />
           <do_if value="@$Ship.pilot">
             <set_value name="$Pilot" exact="$Ship.pilot" />
             <set_value name="$PilotName" exact="$Pilot.knownname" />
-            <debug_text text="'[ACM] Firing: ' + $PilotName + ' from ' + $Ship.knownname" filter="general" />
+            <debug_text text="'[Captain Manager] Firing: ' + $PilotName + ' from ' + $Ship.knownname" filter="general" />
             
             <!-- 조종사 보직 해제 후 제거 (꼬임 방지) -->
             <dismiss_control_entity actor="$Pilot" object="$Ship" />
@@ -193,9 +190,6 @@
             
             <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{22}.[$Ship.knownname, $PilotName]" post="true" />
           </do_if>
-          <do_else>
-            <debug_text text="'[ACM] Fire skip (no pilot): ' + $Ship.knownname" filter="general" />
-          </do_else>
         </do_all>
       </actions>
     </cue>
@@ -223,7 +217,7 @@
           </do_if>
         </do_all>
 
-        <debug_text text="'[ACM] Assign: ' + $Ships.count + ' ships'" filter="general" />
+        <debug_text text="'[Captain Manager] Assign: ' + $Ships.count + ' ships'" filter="general" />
 
         <!-- 1순위: 클래스(XL>L>M>S), 2순위: 카테고리(전함>민간함) 우선순위로 정렬하기 위해 분할 리스트 생성 -->
         <create_list name="$Ships_XL" />
@@ -300,7 +294,6 @@
         <do_all exact="$SortedShips.count" counter="$i">
           <set_value name="$Ship" exact="$SortedShips.{$i}" />
 
-          <debug_text text="'[ACM] Processing empty pilot seat for ship: ' + $Ship.knownname + ' (class=' + $Ship.class + ' purpose=' + $Ship.primarypurpose + ')'" filter="general" />
           <set_value name="$BestCandidate" exact="null" />
           <set_value name="$BestPiloting" value="-1" />
           <set_value name="$BestSource" exact="null" />
@@ -363,7 +356,7 @@
             </do_if>
 
             <do_if value="$TargetActor.exists">
-              <debug_text text="'[ACM] Assigning ' + $TargetActor.knownname + ' (skill ' + $BestPiloting + ') to ' + $Ship.knownname" filter="general" />
+              <debug_text text="'[Captain Manager] Assigning ' + $TargetActor.knownname + ' (skill ' + $BestPiloting + ') to ' + $Ship.knownname" filter="general" />
               <assign_control_entity actor="$TargetActor" object="$Ship" role="controlrole.pilot" post="controlpost.aipilot" transfer="true" init="true" />
               
               <!-- 중복 배정 방지를 위해 선발된 템플릿과 시드 등록 -->
@@ -380,12 +373,9 @@
               <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{23}.[$Ship.knownname, ($BestPiloting / 3), $TargetActor.knownname]" post="true" />
             </do_if>
             <do_else>
-              <debug_text text="'[ACM] Failed to instantiate candidate: ' + $BestCandidate + ' for ' + $Ship.knownname" filter="general" />
+              <debug_text text="'[Captain Manager] Failed to instantiate candidate: ' + $BestCandidate + ' for ' + $Ship.knownname" filter="general" />
             </do_else>
           </do_if>
-          <do_else>
-            <debug_text text="'[ACM] No eligible crew found for: ' + $Ship.knownname" filter="general" />
-          </do_else>
         </do_all>
       </actions>
     </cue>
@@ -414,14 +404,14 @@
 
         <do_all exact="$Ships.count" counter="$i">
           <set_value name="$Ship" exact="$Ships.{$i}" />
-          <debug_text text="'[ACM SCAN] ===== ' + $Ship.knownname + ' | people: ' + @$Ship.people.count + '/' + @$Ship.people.capacity" filter="general" />
+          <debug_text text="'[Captain Manager SCAN] ===== ' + $Ship.knownname + ' | people: ' + @$Ship.people.count + '/' + @$Ship.people.capacity" filter="general" />
           <find_object_component name="$ScanList" object="$Ship" class="class.npc" multiple="true" />
-          <debug_text text="'[ACM SCAN] Total NPC: ' + $ScanList.count" filter="general" />
+          <debug_text text="'[Captain Manager SCAN] Total NPC: ' + $ScanList.count" filter="general" />
           <do_all exact="$ScanList.count" counter="$si">
             <set_value name="$SNPC" exact="$ScanList.{$si}" />
-            <debug_text text="'[ACM SCAN] NPC[' + $si + '] name=' + $SNPC.knownname + ' | controlled=' + @$SNPC.controlled + ' | controlpost=' + @$SNPC.controlpost + ' | is_pilot=' + ($Ship.pilot == $SNPC)" filter="general" />
+            <debug_text text="'[Captain Manager SCAN] NPC[' + $si + '] name=' + $SNPC.knownname + ' | controlled=' + @$SNPC.controlled + ' | controlpost=' + @$SNPC.controlpost + ' | is_pilot=' + ($Ship.pilot == $SNPC)" filter="general" />
           </do_all>
-          <debug_text text="'[ACM SCAN] $Ship.pilot = ' + @$Ship.pilot.knownname" filter="general" />
+          <debug_text text="'[Captain Manager SCAN] $Ship.pilot = ' + @$Ship.pilot.knownname" filter="general" />
         </do_all>
       </actions>
     </cue>
