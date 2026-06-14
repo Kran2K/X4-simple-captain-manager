@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <language id="44">
   <page id="98765" title="Advanced Captain Manager Texts">
-    <t id="1">Advanced Captain Manager</t>
+    <t id="1">Captain Manager</t>
     <t id="2">Auto Assign Captains</t>
     <t id="3">Unassign Captains</t>
     <t id="4">Fire Captains</t>
