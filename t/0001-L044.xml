@@ -5,6 +5,7 @@
     <t id="2">Auto Assign Captains</t>
     <t id="3">Unassign Captains</t>
     <t id="4">Fire Captains</t>
+    <t id="5">Allows batch unassigning, assigning, and firing of captains for multiple selected ships from the context menu.</t>
     <t id="20">Automatically assigns the best available pilots based on ship size (XL > L > M > S) and purpose (Fight > Trade > Mine > Build).</t>
     <t id="30">Dismisses the captains and leaves them as unassigned crew.</t>
     <t id="31">This ship has no captain to unassign.</t>
