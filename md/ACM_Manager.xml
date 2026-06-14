@@ -12,6 +12,18 @@
 
         <debug_text text="'[ACM MD Debug] Action: ' + $Action + ' | Ship Component: ' + $Ship + ' | IsShip: ' + @$Ship.isclass.ship" filter="general"/>
 
+        <!-- 0. [DEBUG] 함선 내 NPC role 스캔 - 실제 role 값 확인용 -->
+        <do_if value="$Action == 'debug_scan_crew'">
+          <debug_text text="'[ACM SCAN] ===== Crew Scan for ship: ' + $Ship.knownname + ' ===== people.count: ' + @$Ship.people.count + ' / capacity: ' + @$Ship.people.capacity" filter="general"/>
+          <find_object_component name="$ScanList" object="$Ship" class="class.npc" multiple="true" />
+          <debug_text text="'[ACM SCAN] Total NPC found: ' + $ScanList.count" filter="general"/>
+          <do_all exact="$ScanList.count" counter="$si">
+            <set_value name="$SNPC" exact="$ScanList.{$si}"/>
+            <debug_text text="'[ACM SCAN] NPC[' + $si + '] name=' + $SNPC.knownname + ' | controlled=' + @$SNPC.controlled + ' | controlpost=' + @$SNPC.controlpost + ' | is_pilot=' + ($Ship.pilot == $SNPC)" filter="general"/>
+          </do_all>
+          <debug_text text="'[ACM SCAN] $Ship.pilot = ' + @$Ship.pilot.knownname" filter="general"/>
+        </do_if>
+
         <!-- 1. 함장 일괄 할당 해제 (unassign_pilot) -->
         <do_if value="$Action == 'unassign_pilot'">
           <do_if value="@$Ship.pilot">

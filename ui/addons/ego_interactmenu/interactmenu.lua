@@ -3,6 +3,23 @@
 
 local categoryId = "advanced_captain_manager"
 
+-- 지도 우클릭(좌표 컨텍스트) 여부 판단: component가 함선이 아닐 경우 제외
+local function is_ship_context(realMenu)
+    -- realMenu.component가 없거나 함선 클래스가 아닌 경우 지도 컨텍스트로 판단
+    if not realMenu.component then
+        DebugError("[ACM UI Debug] Skipping: no realMenu.component (map context?)")
+        return false
+    end
+    local componentClass = GetComponentData(realMenu.component, "class") or ""
+    DebugError("[ACM UI Debug] realMenu.component class: " .. componentClass)
+    -- 함선 클래스가 아니면 지도/스테이션 등 다른 컨텍스트
+    if not string.find(componentClass, "ship") then
+        DebugError("[ACM UI Debug] Skipping: component is not a ship (" .. componentClass .. ")")
+        return false
+    end
+    return true
+end
+
 local function get_parent_section(realMenu, playerShips)
     local parentSection = "selected_orders"
     if realMenu.showPlayerInteractions then
@@ -17,6 +34,9 @@ end
 local function on_prepare_sections_start(configSections)
     local realMenu = Helper.getMenu("InteractMenu")
     if not realMenu then return end
+
+    -- 지도 우클릭 컨텍스트면 메뉴 표시 안함
+    if not is_ship_context(realMenu) then return end
 
     local playerShips = realMenu.selectedplayerships
     if not playerShips or #playerShips == 0 then
@@ -55,6 +75,9 @@ end
 local function on_prepare_sections_end(configSections)
     local realMenu = Helper.getMenu("InteractMenu")
     if not realMenu then return end
+
+    -- 지도 우클릭 컨텍스트면 메뉴 표시 안함
+    if not is_ship_context(realMenu) then return end
 
     local playerShips = realMenu.selectedplayerships
     if not playerShips or #playerShips == 0 then
@@ -183,11 +206,28 @@ local function on_prepare_sections_end(configSections)
         active = true,
     }
 
+    -- [DEBUG] 선원 role 스캔
+    local scanEntry = {
+        text = "[DEBUG] 선원 role 스캔",
+        script = function()
+            DebugError("[ACM UI Debug] Scan clicked! Scanning first ship: " .. tostring(playerShips[1]))
+            local ok, err = pcall(function()
+                AddUITriggeredEvent("InteractMenu", "debug_scan_crew", playerShips[1])
+            end)
+            if not ok then
+                DebugError("[ACM UI Debug] Scan AddUITriggeredEvent failed: " .. tostring(err))
+            end
+            realMenu.onCloseElement("close")
+        end,
+        active = true,
+    }
+
     if realMenu.insertInteractionContent then
         pcall(function()
             realMenu.insertInteractionContent(categoryId, unassignEntry)
             realMenu.insertInteractionContent(categoryId, assignEntry)
             realMenu.insertInteractionContent(categoryId, fireEntry)
+            realMenu.insertInteractionContent(categoryId, scanEntry)
         end)
     end
 end
