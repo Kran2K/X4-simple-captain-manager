@@ -2,19 +2,19 @@
 <language id="44">
   <page id="98765" title="Captain Manager Texts">
     <t id="1">Captain Manager</t>
-    <t id="2">Auto Assign Captains</t>
-    <t id="3">Unassign Captains</t>
-    <t id="4">Fire Captains</t>
-    <t id="5">Allows batch unassigning, assigning, and firing of captains for multiple selected ships from the context menu.</t>
-    <t id="20">Automatically assigns the best available pilots based on ship size and purpose. Priority is XL, L, M, S classes and Fight, Trade, Mine, Build purpose.</t>
-    <t id="30">Dismisses the captains and leaves them as unassigned crew.</t>
-    <t id="31">This ship has no captain to unassign.</t>
-    <t id="40">Immediately fires and removes the captains.</t>
+    <t id="2">Auto Assign Captain</t>
+    <t id="3">Dismiss Captain</t>
+    <t id="4">Fire Captain</t>
+    <t id="5">Provides options to assign, dismiss, or fire the captain from the context menu.</t>
+    <t id="20">Automatically assigns the crew member with the highest piloting skill from the unassigned personnel.</t>
+    <t id="30">Dismisses the captain and changes their status to unassigned personnel.</t>
+    <t id="31">This ship has no captain to dismiss.</t>
+    <t id="40">Immediately fires the captain.</t>
     <t id="41">This ship has no captain to fire.</t>
-    <t id="11">%1 captains have been unassigned.</t>
-    <t id="12">Captains have been assigned to %1 empty ships.</t>
-    <t id="13">%1 captains have been fired.</t>
-    <t id="21">Unassigned captain of ship %1.</t>
+    <t id="11">Dismissed %1 captain.</t>
+    <t id="12">Assigned captain to %1 ship.</t>
+    <t id="13">Fired %1 captain.</t>
+    <t id="21">Dismissed captain of ship %1.</t>
     <t id="22">Fired captain %2 of ship %1.</t>
     <t id="23">Assigned %2-star captain %3 to ship %1.</t>
   </page>

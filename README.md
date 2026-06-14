@@ -1,4 +1,4 @@
-# Advanced Captain Manager (ACM) - X4: Foundations Mod
+# Captain Manager - X4: Foundations Mod
 
 이 모드는 X4: Foundations에서 여러 대의 함선을 다중 선택하여 우클릭 메뉴를 통해 함장(파일럿)을 대량으로 해제, 배정, 해고할 수 있게 도와주는 편의성(QOL) 모드입니다. 
 
@@ -19,31 +19,26 @@
 
 ---
 
-## 🛠️ 필수 및 선택 의존성 모드 (Dependencies)
+## 🛠️ 필수 의존성 모드 (Dependencies)
 
-*   **[필수] [Kuertee's UI Extensions and HUD](https://www.nexusmods.com/x4foundations/mods/552)**: 우클릭 서브메뉴 추가 및 UI 콜백 처리를 위해 필수적입니다.
-*   **[선택] [SirNukes Mod Support APIs](https://www.nexusmods.com/x4foundations/mods/503)**: 인게임 내 **ESC -> Extension Settings(확장 설정)** 메뉴에서 정렬 순서 옵션을 변경하고 저장하기 위해 필요합니다.
-
-> ⚠️ **중요 설정 안내**: 
-> Kuertee의 UI Extensions가 정상 작동하려면 게임 실행 후 **설정 -> 확장(Extensions) 메뉴**에서 **"Protected UI Mode(보호된 UI 모드)"** 옵션을 **비활성화(끄기)**해야 메뉴가 정상적으로 출력됩니다.
+*   **[필수] [SirNukes Mod Support APIs](https://www.nexusmods.com/x4foundations/mods/503)** (또는 스팀 창작마당 ID `ws_2042901274`): 인게임 내 우클릭 서브메뉴 출력 및 **ESC -> Extension Settings(확장 설정)** 메뉴에서 정렬 순서 옵션을 변경하고 저장하기 위해 필수적입니다.
 
 ---
 
 ## ⚙️ Extension Settings 설정 (정렬 우선순위 조절)
-`SirNukes Mod Support APIs`가 활성화되어 있는 경우, 게임 내 **확장 설정(Extension Settings)** 메뉴에서 각 함선 역할군 정렬 우선순위의 기본값을 변경할 수 있습니다.
+`SirNukes Mod Support APIs`를 통해 게임 내 **확장 설정(Extension Settings)** 메뉴에서 각 함선 역할군 정렬 우선순위의 기본값을 변경할 수 있습니다.
 - **전투함 (Fight)** (기본 우선순위 값: 4)
 - **무역선 (Trade)** (기본 우선순위 값: 3)
 - **채집선 (Mine)** (기본 우선순위 값: 2)
 - **건설선 (Build)** (기본 우선순위 값: 1)
 
 *우선순위 값이 높을수록 함장 배정 시 더 높은 우선순위로 간주되어 우수한 숙련도의 함장이 배정됩니다.*
-*의존성 API 모드가 없더라도 모드는 기본 우선순위(전투 > 무역 > 채집 > 건설)를 사용하여 문제없이 완벽히 동작합니다.*
 
 ---
 
 ## 💾 설치 방법
 
-1. `advanced_captain_manager` 폴더를 복사합니다.
+1. `captain_manager` 폴더를 복사합니다.
 2. X4: Foundations의 게임 설치 경로 내 `extensions` 폴더에 붙여넣습니다.
    - **스팀 기본 경로**: `C:\Program Files (x86)\Steam\steamapps\common\X4 Foundations\extensions\`
    - 만약 `extensions` 폴더가 없다면 새 폴더를 생성하여 그 하위에 모드 폴더를 넣어주세요.
