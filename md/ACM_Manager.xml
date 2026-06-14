@@ -209,33 +209,37 @@
           <do_if value="not @$Ship.pilot">
             <set_value name="$BestCandidate" exact="null" />
             <set_value name="$BestPiloting" value="-1" />
+            <set_value name="$BestSource" exact="null" />
 
-            <!-- 1단계: 자기 자신 함선 내부에서 최고의 미배정 선원 탐색 -->
-            <find_object_component name="$LocalNPCs" object="$Ship" class="class.npc" multiple="true" />
-            <do_all exact="$LocalNPCs.count" counter="$k">
-              <set_value name="$NPC" exact="$LocalNPCs.{$k}" />
-              <do_if value="not $NPC.iscontrolentity and $NPC.role == entityrole.unassigned and not $AssignedCandidates.indexof.{$NPC}">
-                <set_value name="$NPC_Piloting" exact="$NPC.skill.{skilltype.piloting}" />
+            <!-- 1단계: 자기 자신 함선 내부에서 최고의 미배정 선원 템플릿 탐색 -->
+            <set_value name="$LocalPeople" exact="$Ship.people.list" />
+            <do_all exact="$LocalPeople.count" counter="$k">
+              <set_value name="$Template" exact="$LocalPeople.{$k}" />
+              <!-- 템플릿의 롤이 미배정이고, 이번 일괄 배정에서 아직 선발되지 않은 선원만 -->
+              <do_if value="$Ship.people.{$Template}.role == entityrole.unassigned and not $AssignedCandidates.indexof.{$Template}">
+                <set_value name="$NPC_Piloting" exact="$Ship.people.{$Template}.skill.{skilltype.piloting}" />
                 <do_if value="$NPC_Piloting gt $BestPiloting">
                   <set_value name="$BestPiloting" exact="$NPC_Piloting" />
-                  <set_value name="$BestCandidate" exact="$NPC" />
+                  <set_value name="$BestCandidate" exact="$Template" />
+                  <set_value name="$BestSource" exact="$Ship" />
                 </do_if>
               </do_if>
             </do_all>
 
-            <!-- 2단계: 자기 배에서 찾지 못한 경우에만 타 함선들을 조회하여 탐색 -->
+            <!-- 2단계: 자기 배에서 찾지 못한 경우에만 타 함선들을 조회하여 템플릿 탐색 -->
             <do_if value="not $BestCandidate">
               <do_all exact="$PlayerShips.count" counter="$j">
                 <set_value name="$PShip" exact="$PlayerShips.{$j}" />
                 <do_if value="$PShip != $Ship">
-                  <find_object_component name="$ShipNPCs" object="$PShip" class="class.npc" multiple="true" />
-                  <do_all exact="$ShipNPCs.count" counter="$k">
-                    <set_value name="$NPC" exact="$ShipNPCs.{$k}" />
-                    <do_if value="not $NPC.iscontrolentity and $NPC.role == entityrole.unassigned and not $AssignedCandidates.indexof.{$NPC}">
-                      <set_value name="$NPC_Piloting" exact="$NPC.skill.{skilltype.piloting}" />
+                  <set_value name="$RemotePeople" exact="$PShip.people.list" />
+                  <do_all exact="$RemotePeople.count" counter="$k">
+                    <set_value name="$Template" exact="$RemotePeople.{$k}" />
+                    <do_if value="$PShip.people.{$Template}.role == entityrole.unassigned and not $AssignedCandidates.indexof.{$Template}">
+                      <set_value name="$NPC_Piloting" exact="$PShip.people.{$Template}.skill.{skilltype.piloting}" />
                       <do_if value="$NPC_Piloting gt $BestPiloting">
                         <set_value name="$BestPiloting" exact="$NPC_Piloting" />
-                        <set_value name="$BestCandidate" exact="$NPC" />
+                        <set_value name="$BestCandidate" exact="$Template" />
+                        <set_value name="$BestSource" exact="$PShip" />
                       </do_if>
                     </do_if>
                   </do_all>
@@ -244,11 +248,31 @@
             </do_if>
 
             <!-- 후보 발견 시 배정 -->
-            <do_if value="$BestCandidate and $BestCandidate.exists">
-              <debug_text text="'[ACM] Assigning ' + $BestCandidate.knownname + ' (skill ' + $BestPiloting + ') to ' + $Ship.knownname" filter="general" />
-              <assign_control_entity actor="$BestCandidate" object="$Ship" role="controlrole.pilot" post="controlpost.aipilot" transfer="true" init="true" />
-              <append_to_list name="$AssignedCandidates" exact="$BestCandidate" />
-              <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{23}.[$Ship.knownname, ($BestPiloting / 3), $BestCandidate.knownname]" post="true" />
+            <do_if value="$BestCandidate">
+              <!-- 템플릿이 이미 인스턴스로 존재하는가? (보통 S급 배에 대기하는 선원은 인스턴스가 소멸해 없음) -->
+              <set_value name="$TargetActor" exact="$BestSource.roleentity.{$BestCandidate}" />
+              <do_if value="not $TargetActor.exists">
+                <!-- 인스턴스가 없으므로 템플릿으로부터 NPC 인스턴스 생성 -->
+                <create_npc_from_template name="$TargetActor" object="$BestSource" template="$BestCandidate" owner="faction.player" placementobject="$Ship" required="true" />
+              </do_if>
+
+              <do_if value="$TargetActor.exists">
+                <debug_text text="'[ACM] Assigning ' + $TargetActor.knownname + ' (skill ' + $BestPiloting + ') to ' + $Ship.knownname" filter="general" />
+                <assign_control_entity actor="$TargetActor" object="$Ship" role="controlrole.pilot" post="controlpost.aipilot" transfer="true" init="true" />
+                
+                <!-- 중복 배정 방지를 위해 선발된 템플릿 등록 -->
+                <append_to_list name="$AssignedCandidates" exact="$BestCandidate" />
+
+                <!-- 이적이 완료되었으므로 소스 배에서 템플릿 제거 -->
+                <do_if value="$BestSource.people.{$BestCandidate}.exists">
+                  <remove_npc_template object="$BestSource" template="$BestCandidate" />
+                </do_if>
+
+                <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{23}.[$Ship.knownname, ($BestPiloting / 3), $TargetActor.knownname]" post="true" />
+              </do_if>
+              <do_else>
+                <debug_text text="'[ACM] Failed to instantiate candidate: ' + $BestCandidate + ' for ' + $Ship.knownname" filter="general" />
+              </do_else>
             </do_if>
             <do_else>
               <debug_text text="'[ACM] No eligible crew found for: ' + $Ship.knownname" filter="general" />
