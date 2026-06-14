@@ -13,8 +13,8 @@
     <t id="11">%1 captains have been unassigned.</t>
     <t id="12">Captains have been assigned to %1 empty ships.</t>
     <t id="13">%1 captains have been fired.</t>
-    <t id="21">[ACM] Unassigned captain of ship %1.</t>
-    <t id="22">[ACM] Fired captain %2 of ship %1.</t>
-    <t id="23">[ACM] Assigned %2-star captain %3 to ship %1.</t>
+    <t id="21">Unassigned captain of ship %1.</t>
+    <t id="22">Fired captain %2 of ship %1.</t>
+    <t id="23">Assigned %2-star captain %3 to ship %1.</t>
   </page>
 </language>
