@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language id="48">
+  <page id="98765" title="Simple Captain Manager Texts">
+    <t id="1">Zarządzanie kapitanami</t>
+    <t id="2">Autoprzypisywanie kapitana</t>
+    <t id="3">Odwołaj kapitana</t>
+    <t id="4">Zwolnij kapitana</t>
+    <t id="5">Umożliwia zarządzanie kapitanami wybranych statków z menu kontekstowego.</t>
+    <t id="6">Przenieś nieprzypisaną załogę</t>
+    <t id="7">Użyj seminariów</t>
+    <t id="11">Odwołano kapitana %1.</t>
+    <t id="12">Przypisano kapitana do statku %1.</t>
+    <t id="13">Zwolniono kapitana %1.</t>
+    <t id="20">Automatycznie przypisuje nieprzypisaną załogę do kapitanów na podstawie priorytetu.</t>
+    <t id="21">Odwołano kapitana statku %1 i przeniesiono do nieprzypisanych.</t>
+    <t id="22">Zwolniono kapitana %2 ze statku %1.</t>
+    <t id="23">Przypisano %2-gwiazdkowego kapitana %3 do statku %1.</t>
+    <t id="24">Przeniesiono %2 nieprzypisanych członków załogi na statek %1.</t>
+    <t id="25">Szkolenie ukończone: awansowano %1 kapitanów. (Zużyto: podstawowe x%2, 1-gwiazdkowe x%3, 2-gwiazdkowe x%4, 3-gwiazdkowe x%5, 4-gwiazdkowe x%6)</t>
+    <t id="30">Odwołuje kapitana i przenosi go do nieprzypisanej załogi.</t>
+    <t id="31">Brak kapitana do odwołania.</t>
+    <t id="32">Kapitan jest już przypisany do tego statku.</t>
+    <t id="40">Natychmiast zwalnia kapitana.</t>
+    <t id="41">Brak kapitana do zwolnienia.</t>
+    <t id="50">Zapełnia statek nieprzypisaną załogą na podstawie priorytetu.</t>
+    <t id="51">Szkol kapitanów przy użyciu seminariów dla załogi (pilotowanie) ze swojego ekwipunku.</t>
+    <t id="52">Brak kapitanów do szkolenia.</t>
+  </page>
+</language>

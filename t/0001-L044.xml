@@ -23,7 +23,7 @@
     <t id="40">Immediately fires the captain.</t>
     <t id="41">No captain to fire.</t>
     <t id="50">Fills the ship with unassigned crew based on priority.</t>
-    <t id="51">Train captains using piloting seminars from your inventory.</t>
+    <t id="51">Train captains using crew seminars (piloting) currently held in your inventory.</t>
     <t id="52">No captain to train.</t>
   </page>
 </language>

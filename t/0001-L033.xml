@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language id="33">
+  <page id="98765" title="Simple Captain Manager Texts">
+    <t id="1">Gestion des capitaines</t>
+    <t id="2">Assignation auto de capitaine</t>
+    <t id="3">Démettre le capitaine</t>
+    <t id="4">Licencier le capitaine</t>
+    <t id="5">Permet de gérer les capitaines des vaisseaux sélectionnés depuis le menu contextuel.</t>
+    <t id="6">Transférer l'équipage non assigné</t>
+    <t id="7">Utiliser des séminaires</t>
+    <t id="11">Capitaine %1 démis de ses fonctions.</t>
+    <t id="12">Capitaine assigné au vaisseau %1.</t>
+    <t id="13">Capitaine %1 licencié.</t>
+    <t id="20">Assigne automatiquement l'équipage non assigné au poste de capitaine selon la priorité.</t>
+    <t id="21">Capitaine du vaisseau %1 démis et déplacé vers l'équipage non assigné.</t>
+    <t id="22">Capitaine %2 du vaisseau %1 licencié.</t>
+    <t id="23">Capitaine %3 (%2 étoiles) assigné au vaisseau %1.</t>
+    <t id="24">Transféré %2 équipages non assignés vers le vaisseau %1.</t>
+    <t id="25">Formation terminée : %1 capitaines promus. (Consommé : basique x%2, 1-étoile x%3, 2-étoiles x%4, 3-étoiles x%5, 4-étoiles x%6)</t>
+    <t id="30">Démet le capitaine de ses fonctions et change son statut en équipage non assigné.</t>
+    <t id="31">Aucun capitaine à démettre de ses fonctions.</t>
+    <t id="32">Un capitaine est déjà assigné à ce vaisseau.</t>
+    <t id="40">Licencie immédiatement le capitaine.</t>
+    <t id="41">Aucun capitaine à licencier.</t>
+    <t id="50">Remplit le vaisseau avec l'équipage non assigné selon la priorité.</t>
+    <t id="51">Former les capitaines en utilisant les séminaires d'équipage (pilotage) de votre inventaire.</t>
+    <t id="52">Aucun capitaine à former.</t>
+  </page>
+</language>
