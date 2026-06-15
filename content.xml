@@ -4,4 +4,5 @@
   <dependency id="sn_mod_support_apis" optional="true" name="Sir Nuke's Mod Support APIs" />
   <dependency id="ws_2042901274" optional="true" name="Sir Nuke's Mod Support APIs" />
   <dependency id="kuertee_ui_extensions" optional="true" name="UI Extensions" />
+  <dependency id="ws_3477279743" optional="true" name="kuertee UI Extensions and HUD" />
 </content>
