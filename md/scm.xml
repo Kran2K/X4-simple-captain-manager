@@ -78,12 +78,31 @@
             $section  = $section,
             $text     = readtext.{98765}.{4},
             $mouseover = $FireMouseover,
-            $active   = $FireActive,
-            $callback = scm_fire_callback,
-            ]" />
-
-      </actions>
-    </cue>
+             $active   = $FireActive,
+             $callback = scm_fire_callback,
+             ]" />
+ 
+         <!-- 4. 미배정 인원 채우기 (id="5") -->
+         <do_if value="$ShipsCount == 1">
+           <set_value name="$FillActive" exact="true" />
+           <set_value name="$FillMouseover" exact="readtext.{98765}.{50}" />
+           <do_if value="$Ships.{1}.people.free le 0">
+             <set_value name="$FillActive" exact="false" />
+           </do_if>
+           <signal_cue_instantly
+             cue="md.Interact_Menu_API.Add_Action"
+             param="table[
+               $id       = 'scm_fill_unassigned',
+               $section  = $section,
+               $text     = readtext.{98765}.{6},
+               $mouseover = $FillMouseover,
+               $active   = $FillActive,
+               $callback = scm_fill_unassigned_callback,
+               ]" />
+         </do_if>
+ 
+       </actions>
+     </cue>
 
 
     <!-- ============================================================
@@ -116,21 +135,45 @@
             <!-- 정원 가득 참 방지: 여유 슬롯이 없으면 최하위 선원 1명 자동 해고 -->
             <do_if value="$Ship.people.free le 0">
               <set_value name="$WorstCrew" exact="null" />
-              <set_value name="$WorstSkillSum" exact="9999" />
+              <set_value name="$WorstSkill" exact="9999" />
               <set_value name="$CrewList" exact="$Ship.people.list" />
               <do_all exact="$CrewList.count" counter="$k">
                 <set_value name="$Template" exact="$CrewList.{$k}" />
                 <set_value name="$Role" exact="$Ship.people.{$Template}.role" />
                 <do_if value="$Role != entityrole.pilot and $Template != @$Pilot.npctemplate">
-                  <set_value name="$TSkillSum" exact="$Ship.people.{$Template}.skill.piloting + $Ship.people.{$Template}.skill.engineering + $Ship.people.{$Template}.skill.management + $Ship.people.{$Template}.skill.morale + $Ship.people.{$Template}.skill.boarding" />
-                  <do_if value="$TSkillSum lt $WorstSkillSum">
-                    <set_value name="$WorstSkillSum" exact="$TSkillSum" />
+                  <set_value name="$Morale" exact="$Ship.people.{$Template}.skill.morale" />
+                  <set_value name="$PrimarySkill" exact="0" />
+                  
+                  <!-- 역할군에 따른 1차 스킬 식별 (서비스:공학, 해병:나포) -->
+                  <do_if value="$Role == entityrole.service">
+                    <set_value name="$PrimarySkill" exact="$Ship.people.{$Template}.skill.engineering" />
+                  </do_if>
+                  <do_elseif value="$Role == entityrole.marine">
+                    <set_value name="$PrimarySkill" exact="$Ship.people.{$Template}.skill.boarding" />
+                  </do_elseif>
+                  <do_else>
+                    <!-- 미배정이거나 기타 역할군인 경우, 가장 뛰어난 주력 스킬을 1차 스킬로 가정 -->
+                    <set_value name="$MaxBase" exact="0" />
+                    <set_value name="$MaxBase" exact="[
+                      $Ship.people.{$Template}.skill.piloting,
+                      $Ship.people.{$Template}.skill.engineering,
+                      $Ship.people.{$Template}.skill.boarding,
+                      $Ship.people.{$Template}.skill.management
+                    ].max" />
+                    <set_value name="$PrimarySkill" exact="$MaxBase" />
+                  </do_else>
+                  
+                  <!-- 바닐라 종합 숙련도 공식: (1차스킬 * 3 + 사기) / 4 -->
+                  <set_value name="$EffectiveSkillVal" exact="($PrimarySkill * 3) + $Morale" />
+                  
+                  <do_if value="$EffectiveSkillVal lt $WorstSkill">
+                    <set_value name="$WorstSkill" exact="$EffectiveSkillVal" />
                     <set_value name="$WorstCrew" exact="$Template" />
                   </do_if>
                 </do_if>
               </do_all>
               <do_if value="$WorstCrew">
-                <debug_text text="'[SCM] Ship full. Firing worst crew ' + $WorstCrew + ' to make space for dismissed pilot.'" filter="general" />
+                <debug_text text="'[SCM] Ship full. Firing worst crew ' + $WorstCrew + ' (score: ' + $WorstSkill + ') to make space for dismissed pilot.'" filter="general" />
                 <remove_npc_template object="$Ship" template="$WorstCrew" />
               </do_if>
             </do_if>
@@ -391,6 +434,123 @@
             </do_else>
           </do_if>
         </do_all>
+      </actions>
+    </cue>
+
+    <!-- ============================================================
+         5. 미배정 인원 일괄 이동 콜백
+         - 플레이어 소유의 모든 함선/스테이션의 미배정 인원 탐색
+         - 1차스킬 * 3 + 사기 기준으로 정렬하여 우수한 인원부터 대상 함선에 가득 채움
+         ============================================================ -->
+    <cue name="scm_fill_unassigned_callback" instantiate="true">
+      <conditions>
+        <event_cue_signalled />
+      </conditions>
+      <actions>
+        <set_value name="$Ship" exact="event.param.$object" />
+        <do_if value="@$Ship.isclass.ship and $Ship.isplayerowned">
+          <set_value name="$FreeSlots" exact="$Ship.people.free" />
+          <do_if value="$FreeSlots gt 0">
+            <!-- 1. 플레이어 함선 및 스테이션 리스트 조회 -->
+            <find_ship name="$PlayerShips" owner="faction.player" multiple="true" space="player.galaxy" recursive="true" />
+            <find_station name="$PlayerStations" owner="faction.player" multiple="true" space="player.galaxy" />
+
+            <create_list name="$AllSources" />
+            <do_all exact="$PlayerShips.count" counter="$s">
+              <append_to_list name="$AllSources" exact="$PlayerShips.{$s}" />
+            </do_all>
+            <do_all exact="$PlayerStations.count" counter="$s">
+              <append_to_list name="$AllSources" exact="$PlayerStations.{$s}" />
+            </do_all>
+
+            <!-- 2. 미배정 후보군(Candidate) 모으기 -->
+            <create_list name="$Candidates" />
+            <do_all exact="$AllSources.count" counter="$s">
+              <set_value name="$Source" exact="$AllSources.{$s}" />
+              <!-- 대상 함선 자신은 원천 배제 -->
+              <do_if value="$Source != $Ship">
+                <set_value name="$People" exact="$Source.people.list" />
+                <do_all exact="$People.count" counter="$p">
+                  <set_value name="$Template" exact="$People.{$p}" />
+                  <set_value name="$Role" exact="$Source.people.{$Template}.role" />
+                  <do_if value="$Role == entityrole.unassigned">
+                    <!-- 스킬 점수 계산 (4개 스킬 중 최댓값 * 3 + 사기) -->
+                    <set_value name="$MaxBase" exact="0" />
+                    <set_value name="$MaxBase" exact="[
+                      $Source.people.{$Template}.skill.piloting,
+                      $Source.people.{$Template}.skill.engineering,
+                      $Source.people.{$Template}.skill.boarding,
+                      $Source.people.{$Template}.skill.management
+                    ].max" />
+                    <set_value name="$Morale" exact="$Source.people.{$Template}.skill.morale" />
+                    <set_value name="$Score" exact="($MaxBase * 3) + $Morale" />
+
+                    <append_to_list name="$Candidates" exact="table[
+                      $source = $Source,
+                      $template = $Template,
+                      $score = $Score
+                    ]" />
+                  </do_if>
+                </do_all>
+              </do_if>
+            </do_all>
+
+            <debug_text text="'[SCM] Found ' + $Candidates.count + ' unassigned candidates. Capacity left: ' + $FreeSlots" filter="general" />
+
+            <!-- 3. 점수가 가장 우수한 선원을 순서대로 $FreeSlots 만큼 선발 -->
+            <create_list name="$SelectedCandidates" />
+            <set_value name="$LoopCount" exact="if $FreeSlots lt $Candidates.count then $FreeSlots else $Candidates.count" />
+
+            <do_all exact="$LoopCount">
+              <set_value name="$BestIdx" exact="0" />
+              <set_value name="$BestScore" exact="-1" />
+              <do_all exact="$Candidates.count" counter="$idx">
+                <do_if value="$Candidates.{$idx}.$score gt $BestScore">
+                  <set_value name="$BestScore" exact="$Candidates.{$idx}.$score" />
+                  <set_value name="$BestIdx" exact="$idx" />
+                </do_if>
+              </do_all>
+              <do_if value="$BestIdx gt 0">
+                <append_to_list name="$SelectedCandidates" exact="$Candidates.{$BestIdx}" />
+                <remove_from_list name="$Candidates" exact="$Candidates.{$BestIdx}" />
+              </do_if>
+            </do_all>
+
+            <!-- 4. 소스별로 분류하여 이전 처리 실행 -->
+            <create_list name="$UniqueSources" />
+            <do_all exact="$SelectedCandidates.count" counter="$i">
+              <set_value name="$Src" exact="$SelectedCandidates.{$i}.$source" />
+              <do_if value="not $UniqueSources.indexof.{$Src}">
+                <append_to_list name="$UniqueSources" exact="$Src" />
+              </do_if>
+            </do_all>
+
+            <set_value name="$TotalTransferred" exact="0" />
+            <do_all exact="$UniqueSources.count" counter="$s">
+              <set_value name="$Src" exact="$UniqueSources.{$s}" />
+              <create_list name="$LocalTemplates" />
+              <do_all exact="$SelectedCandidates.count" counter="$i">
+                <do_if value="$SelectedCandidates.{$i}.$source == $Src">
+                  <append_to_list name="$LocalTemplates" exact="$SelectedCandidates.{$i}.$template" />
+                </do_if>
+              </do_all>
+
+              <do_if value="$LocalTemplates.count gt 0">
+                <debug_text text="'[SCM] Transferring ' + $LocalTemplates.count + ' templates from ' + $Src.knownname + ' to ' + $Ship.knownname" filter="general" />
+                <transfer_people object="$Ship" otherobject="$Src" result="$Transferred" force="true">
+                  <existing_people people="$LocalTemplates" />
+                </transfer_people>
+                <set_value name="$TotalTransferred" exact="$TotalTransferred + $Transferred.count" />
+              </do_if>
+            </do_all>
+
+            <!-- 5. 결과 알림 및 로그 작성 -->
+            <do_if value="$TotalTransferred gt 0">
+              <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{24}.[$Ship.knownname, $TotalTransferred]" post="true" />
+              <show_notification text="readtext.{98765}.{24}.[$Ship.knownname, $TotalTransferred]" timeout="6s" />
+            </do_if>
+          </do_if>
+        </do_if>
       </actions>
     </cue>
 

@@ -11,11 +11,14 @@
     <t id="31">No captain to dismiss.</t>
     <t id="40">Immediately fires the captain.</t>
     <t id="41">No captain to fire.</t>
+    <t id="6">Fill Unassigned Crew</t>
+    <t id="50">Fills this ship with the best unassigned crew from other player-owned ships.</t>
     <t id="11">Dismissed %1 captain.</t>
     <t id="12">Assigned captain to %1 ship.</t>
     <t id="13">Fired %1 captain.</t>
     <t id="21">Dismissed captain of ship %1.</t>
     <t id="22">Fired captain %2 of ship %1.</t>
     <t id="23">Assigned %2-star captain %3 to ship %1.</t>
+    <t id="24">Transferred %2 best unassigned crew to ship %1.</t>
   </page>
 </language>
