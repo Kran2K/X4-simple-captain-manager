@@ -23,17 +23,19 @@
           </do_if>
         </do_all>
 
-        <!-- 선택 함선 수에 따라 노출 섹션 결정 -->
-        <set_value name="$section" exact="if $Ships.count gt 1 then 'selected_orders_all' else 'interaction'" />
-
-        <!-- 단일 함선 선택 시 함장 존재 판별 -->
-        <set_value name="$ShipsCount" exact="$Ships.count" />
-        <set_value name="$SingleShipHasPilot" exact="false" />
-        <do_if value="$ShipsCount == 1">
-          <do_if value="@$Ships.{1}.pilot">
-            <set_value name="$SingleShipHasPilot" exact="true" />
-          </do_if>
-        </do_if>
+        <!-- Kuertee UI Extensions 그룹 등록 (함장 관리 대메뉴) -->
+        <set_value name="$section" exact="'actions_scm_group'" />
+        <raise_lua_event name="'Interact_Menu_API.Add_Custom_Actions_Group_Id'" param="'actions_scm_group'" />
+        <raise_lua_event name="'Interact_Menu_API.Add_Custom_Actions_Group_Text'" param="readtext.{98765}.{1}" />
+ 
+         <!-- 단일 함선 선택 시 함장 존재 판별 -->
+         <set_value name="$ShipsCount" exact="$Ships.count" />
+         <set_value name="$SingleShipHasPilot" exact="false" />
+         <do_if value="$ShipsCount == 1">
+           <do_if value="@$Ships.{1}.pilot">
+             <set_value name="$SingleShipHasPilot" exact="true" />
+           </do_if>
+         </do_if>
 
         <!-- 1. 함장 자동 할당 (id="2") -->
         <signal_cue_instantly
