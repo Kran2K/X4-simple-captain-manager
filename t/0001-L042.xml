@@ -12,9 +12,9 @@
     <t id="12">Kapitáni přiřazeni k %1 lodím.</t>
     <t id="13">%1 kapitánů vyhozeno.</t>
     <t id="20">Automaticky přiřadí nepřiřazenou posádku jako kapitány na základě priority.</t>
-    <t id="21">Propuštěn kapitán lodi %1.</t>
-    <t id="22">Vyhoden kapitán %2 z lodi %1.</t>
-    <t id="23">Přiřazen %2hvězdičkový kapitán %3 k lodi %1.</t>
+    <t id="21">Propuštěn %2hvězdičkový kapitán [%3] z lodi %1.</t>
+    <t id="22">Vyhoden %2hvězdičkový kapitán [%3] z lodi %1.</t>
+    <t id="23">Přiřazen %2hvězdičkový kapitán [%3] k lodi %1.</t>
     <t id="24">Převedeno %2 nepřiřazených členů posádky na loď %1.</t>
     <t id="25">Školení semináře dokončeno: %1 kapitáni povýšeni. [Spotřebováno: základní x%2, 1hvězdičkový x%3, 2hvězdičkový x%4, 3hvězdičkový x%5, 4hvězdičkový x%6]</t>
     <t id="30">Propustí kapitána a změní jeho stav na nepřiřazenou posádku.</t>

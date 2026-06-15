@@ -12,9 +12,9 @@
     <t id="12">Assigned captain to %1 ship.</t>
     <t id="13">Fired %1 captain.</t>
     <t id="20">Automatically assigns unassigned crew to captains based on priority.</t>
-    <t id="21">Dismissed captain of ship %1.</t>
-    <t id="22">Fired captain %2 of ship %1.</t>
-    <t id="23">Assigned %2-star captain %3 to ship %1.</t>
+    <t id="21">Dismissed %2-star captain [%3] of ship %1.</t>
+    <t id="22">Fired %2-star captain [%3] of ship %1.</t>
+    <t id="23">Assigned %2-star captain [%3] to ship %1.</t>
     <t id="24">Transferred %2 unassigned crew to ship %1.</t>
     <t id="25">Seminar training complete: Promoted %1 captains. [Consumed: basic x%2, 1-star x%3, 2-star x%4, 3-star x%5, 4-star x%6]</t>
     <t id="30">Dismisses the captain and changes their status to unassigned personnel.</t>

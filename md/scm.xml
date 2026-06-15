@@ -241,7 +241,7 @@
               <debug_text text="'[SCM] Warning: No npctemplate found for pilot!'" filter="general" />
             </do_else>
             
-            <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{21}.[$Ship.knownname]" post="true" />
+            <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{21}.[$Ship.knownname, ($Pilot.skill.piloting / 3), $Pilot.knownname]" post="true" />
           </do_if>
         </do_all>
       </actions>
@@ -275,13 +275,14 @@
           <do_if value="@$Ship.pilot">
             <set_value name="$Pilot" exact="$Ship.pilot" />
             <set_value name="$PilotName" exact="$Pilot.knownname" />
+            <set_value name="$PilotPiloting" exact="$Pilot.skill.piloting" />
             <debug_text text="'[SCM] Firing: ' + $PilotName + ' from ' + $Ship.knownname" filter="general" />
             
             <!-- Dismiss and destroy pilot entity (to prevent references getting stuck) -->
             <dismiss_control_entity actor="$Pilot" object="$Ship" />
             <destroy_object object="$Pilot" />
             
-            <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{22}.[$Ship.knownname, $PilotName]" post="true" />
+            <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{22}.[$Ship.knownname, ($PilotPiloting / 3), $PilotName]" post="true" />
           </do_if>
         </do_all>
       </actions>

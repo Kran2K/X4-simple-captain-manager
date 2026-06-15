@@ -12,9 +12,9 @@
     <t id="12">Capitaines assignés à %1 vaisseaux.</t>
     <t id="13">%1 capitaines licenciés.</t>
     <t id="20">Assigne automatiquement l'équipage non assigné au poste de capitaine selon la priorité.</t>
-    <t id="21">Capitaine du vaisseau %1 démis et déplacé vers l'équipage non assigné.</t>
-    <t id="22">Capitaine %2 du vaisseau %1 licencié.</t>
-    <t id="23">Capitaine %3 [%2 étoiles] assigné au vaisseau %1.</t>
+    <t id="21">Capitaine [%3] [%2 étoiles] du vaisseau %1 démis et déplacé vers l'équipage non assigné.</t>
+    <t id="22">Capitaine [%3] [%2 étoiles] du vaisseau %1 licencié.</t>
+    <t id="23">Capitaine [%3] [%2 étoiles] assigné au vaisseau %1.</t>
     <t id="24">Transféré %2 équipages non assignés vers le vaisseau %1.</t>
     <t id="25">Formation terminée : %1 capitaines promus. [Consommé : basique x%2, 1-étoile x%3, 2-étoiles x%4, 3-étoiles x%5, 4-étoiles x%6]</t>
     <t id="30">Démet le capitaine de ses fonctions et change son statut en équipage non assigné.</t>

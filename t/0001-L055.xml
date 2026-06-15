@@ -12,9 +12,9 @@
     <t id="12">Capitães atribuídos a %1 naves.</t>
     <t id="13">%1 capitães demitidos.</t>
     <t id="20">Atribui automaticamente tripulação não atribuída como capitães com base na prioridade.</t>
-    <t id="21">Dispensou o capitão da nave %1.</t>
-    <t id="22">Demitiu o capitão %2 da nave %1.</t>
-    <t id="23">Atribuiu o capitão de %2 estrelas %3 à nave %1.</t>
+    <t id="21">Dispensou o capitão de %2 estrelas [%3] da nave %1.</t>
+    <t id="22">Demitiu o capitão de %2 estrelas [%3] da nave %1.</t>
+    <t id="23">Atribuiu o capitão de %2 estrelas [%3] à nave %1.</t>
     <t id="24">Transferiu %2 tripulantes não atribuídos para a nave %1.</t>
     <t id="25">Treinamento com seminário concluído: %1 capitães promovidos. [Consumido: básico x%2, 1 estrela x%3, 2 estrelas x%4, 3 estrelas x%5, 4 estrelas x%6]</t>
     <t id="30">Dispensa o capitão e altera seu status para tripulação não atribuída.</t>

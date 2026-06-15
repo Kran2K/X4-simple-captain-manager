@@ -12,9 +12,9 @@
     <t id="12">Przypisano kapitanów do %1 statków.</t>
     <t id="13">Zwolniono %1 kapitanów.</t>
     <t id="20">Automatycznie przypisuje nieprzypisaną załogę do kapitanów na podstawie priorytetu.</t>
-    <t id="21">Odwołano kapitana statku %1 i przeniesiono do nieprzypisanych.</t>
-    <t id="22">Zwolniono kapitana %2 ze statku %1.</t>
-    <t id="23">Przypisano %2-gwiazdkowego kapitana %3 do statku %1.</t>
+    <t id="21">Odwołano %2-gwiazdkowego kapitana [%3] ze statku %1 i przeniesiono do nieprzypisanych.</t>
+    <t id="22">Zwolniono %2-gwiazdkowego kapitana [%3] ze statku %1.</t>
+    <t id="23">Przypisano %2-gwiazdkowego kapitana [%3] do statku %1.</t>
     <t id="24">Przeniesiono %2 nieprzypisanych członków załogi na statek %1.</t>
     <t id="25">Szkolenie ukończone: awansowano %1 kapitanów. [Zużyto: podstawowe x%2, 1-gwiazdkowe x%3, 2-gwiazdkowe x%4, 3-gwiazdkowe x%5, 4-gwiazdkowe x%6]</t>
     <t id="30">Odwołuje kapitana i przenosi go do nieprzypisanej załogi.</t>
