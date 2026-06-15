@@ -32,7 +32,7 @@
     <t id="33">[Warning] There are no unassigned crew members available in the galaxy to transfer to ship %1.</t>
     <t id="8">Drop Cargo</t>
     <t id="34">Ejected all cargo (%2 types of wares) of ship %1 into space.</t>
-    <t id="53">Ejects all cargo from the selected ships into space.</t>
+    <t id="53">Ejects all cargo into space.</t>
     <t id="54">No cargo to drop.</t>
   </page>
 </language>
