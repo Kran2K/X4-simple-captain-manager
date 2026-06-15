@@ -3,4 +3,5 @@
   <text language="82" name="함장 관리" description="우클릭 상호작용 메뉴에서 선택한 함선들의 함장 자동 임명, 보직 해제, 해고 등의 인사 관리를 일괄적으로 처리할 수 있게 해줍니다."/>
   <dependency id="sn_mod_support_apis" optional="true" name="Sir Nuke's Mod Support APIs" />
   <dependency id="ws_2042901274" optional="true" name="Sir Nuke's Mod Support APIs" />
+  <dependency id="kuertee_ui_extensions" optional="true" name="UI Extensions" />
 </content>
