@@ -391,7 +391,7 @@
           <set_value name="$Ship" exact="$SortedShips.{$i}" />
 
           <set_value name="$BestCandidate" exact="null" />
-          <set_value name="$BestPiloting" value="-1" />
+          <set_value name="$BestPiloting" exact="-1" />
           <set_value name="$BestSource" exact="null" />
           <set_value name="$BestSeed" exact="0" />
 
