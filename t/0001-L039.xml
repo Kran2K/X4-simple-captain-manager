@@ -17,6 +17,10 @@
     <t id="23">Capitano [%3] da %2 stelle assegnato alla nave %1.</t>
     <t id="24">Trasferiti %2 membri dell'equipaggio non assegnati alla nave %1.</t>
     <t id="25">Addestramento completato: %1 capitani promossi. [Consumato: base x%2, 1-stella x%3, 2-stelle x%4, 3-stelle x%5, 4-stelle x%6]</t>
+    <t id="26">[Attenzione] Per fare spazio al capitano congedato sulla nave %1, il membro dell'equipaggio meno qualificato (%2 stelle [%3]) è stato licenziato automaticamente.</t>
+    <t id="27">[Attenzione] Mancanza di equipaggio non assegnato; impossibile assegnare i capitani a %1 delle %2 navi richieste.</t>
+    <t id="28">A causa della capacità limitata sulla nave %1, solo %2 membri dell'crew non assegnato su %3 disponibili sono stati trasferiti.</t>
+    <t id="29">[Attenzione] Mancanza di equipaggio non assegnato; impossibile assegnare un capitano alla nave %1.</t>
     <t id="30">Congeda il capitano e cambia il suo stato in equipaggio non assegnato.</t>
     <t id="31">Nessun capitano da congedare.</t>
     <t id="32">Un capitano è già assegnato a questa nave.</t>

@@ -17,6 +17,10 @@
     <t id="23">Atribuiu o capitão de %2 estrelas [%3] à nave %1.</t>
     <t id="24">Transferiu %2 tripulantes não atribuídos para a nave %1.</t>
     <t id="25">Treinamento com seminário concluído: %1 capitães promovidos. [Consumido: básico x%2, 1 estrela x%3, 2 estrelas x%4, 3 estrelas x%5, 4 estrelas x%6]</t>
+    <t id="26">[Atenção] Para abrir espaço para o capitão dispensado na nave %1, o membro da tripulação menos qualificado (%2 estrelas [%3]) foi demitido automaticamente.</t>
+    <t id="27">[Atenção] Falta de tripulação não atribuída; falha ao atribuir capitães a %1 das %2 naves solicitadas.</t>
+    <t id="28">Devido à capacidade limitada na nave %1, apenas %2 dos %3 tripulantes não atribuídos disponíveis foram transferidos.</t>
+    <t id="29">[Atenção] Falta de tripulação não atribuída; falha ao atribuir um capitão à nave %1.</t>
     <t id="30">Dispensa o capitão e altera seu status para tripulação não atribuída.</t>
     <t id="31">Nenhum capitão para dispensar.</t>
     <t id="32">Um capitão já está atribuído a esta nave.</t>

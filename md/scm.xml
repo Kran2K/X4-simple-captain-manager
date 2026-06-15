@@ -205,12 +205,15 @@
                   <do_if value="$EffectiveSkillVal lt $WorstSkill">
                     <set_value name="$WorstSkill" exact="$EffectiveSkillVal" />
                     <set_value name="$WorstCrew" exact="$Template" />
+                    <set_value name="$WorstCrewRole" exact="$Role" />
+                    <set_value name="$WorstCrewStars" exact="$PrimarySkill / 3" />
                   </do_if>
                 </do_if>
               </do_all>
               <do_if value="$WorstCrew">
                 <debug_text text="'[SCM] Ship full. Firing worst crew ' + $WorstCrew + ' (score: ' + $WorstSkill + ') to make space for dismissed pilot.'" filter="general" />
                 <remove_npc_template object="$Ship" template="$WorstCrew" />
+                <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{26}.[$Ship.knownname, $WorstCrewStars, $WorstCrewRole.name]" post="true" />
               </do_if>
             </do_if>
 
@@ -480,6 +483,18 @@
             <debug_text text="'[SCM] Failed to find candidate for ' + $Ship.knownname" filter="general" />
           </do_else>
         </do_all>
+
+        <set_value name="$FailedCount" exact="$SortedShips.count - $AssignedCandidates.count" />
+        <do_if value="$FailedCount gt 0">
+          <do_if value="$SortedShips.count == 1">
+            <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{29}.[$SortedShips.{1}.knownname]" post="true" />
+            <show_notification text="readtext.{98765}.{29}.[$SortedShips.{1}.knownname]" timeout="6s" sound="notification_warning" />
+          </do_if>
+          <do_else>
+            <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{27}.[$FailedCount, $SortedShips.count]" post="true" />
+            <show_notification text="readtext.{98765}.{27}.[$FailedCount, $SortedShips.count]" timeout="6s" sound="notification_warning" />
+          </do_else>
+        </do_if>
       </actions>
     </cue>
 
@@ -544,6 +559,7 @@
             <debug_text text="'[SCM] Found ' + $Candidates.count + ' unassigned candidates. Capacity left: ' + $FreeSlots" filter="general" />
 
             <!-- 3. Select the highest scoring crew members up to $FreeSlots -->
+            <set_value name="$TotalCandidatesCount" exact="$Candidates.count" />
             <create_list name="$SelectedCandidates" />
             <set_value name="$LoopCount" exact="if $FreeSlots lt $Candidates.count then $FreeSlots else $Candidates.count" />
 
@@ -592,8 +608,14 @@
 
             <!-- 5. Write to logbook and show notification -->
             <do_if value="$TotalTransferred gt 0">
-              <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{24}.[$Ship.knownname, $TotalTransferred]" post="true" />
-              <show_notification text="readtext.{98765}.{24}.[$Ship.knownname, $TotalTransferred]" timeout="6s" />
+              <do_if value="$TotalCandidatesCount gt $TotalTransferred">
+                <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{28}.[$Ship.knownname, $TotalTransferred, $TotalCandidatesCount]" post="true" />
+                <show_notification text="readtext.{98765}.{28}.[$Ship.knownname, $TotalTransferred, $TotalCandidatesCount]" timeout="6s" />
+              </do_if>
+              <do_else>
+                <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{24}.[$Ship.knownname, $TotalTransferred]" post="true" />
+                <show_notification text="readtext.{98765}.{24}.[$Ship.knownname, $TotalTransferred]" timeout="6s" />
+              </do_else>
             </do_if>
           </do_if>
         </do_if>

@@ -17,6 +17,10 @@
     <t id="23">Přiřazen %2hvězdičkový kapitán [%3] k lodi %1.</t>
     <t id="24">Převedeno %2 nepřiřazených členů posádky na loď %1.</t>
     <t id="25">Školení semináře dokončeno: %1 kapitáni povýšeni. [Spotřebováno: základní x%2, 1hvězdičkový x%3, 2hvězdičkový x%4, 3hvězdičkový x%5, 4hvězdičkový x%6]</t>
+    <t id="26">[Varování] Aby se uvolnilo místo pro propuštěného kapitána na lodi %1, byl nejméně kvalifikovaný člen posádky (%2hvězdičkový [%3]) automaticky vyhozen.</t>
+    <t id="27">[Varování] Nedostatek nepřiřazené posádky; nepodařilo se přiřadit kapitány k %1 z %2 požadovaných lodí.</t>
+    <t id="28">Vzhledem k omezené kapacitě na lodi %1 bylo převedeno pouze %2 z %3 dostupných nepřiřazených členů posádky.</t>
+    <t id="29">[Varování] Nedostatek nepřiřazené posádky; nepodařilo se přiřadit kapitána k lodi %1.</t>
     <t id="30">Propustí kapitána a změní jeho stav na nepřiřazenou posádku.</t>
     <t id="31">Žádný kapitán k propuštění.</t>
     <t id="32">Kapitán je již k této lodi přiřazen.</t>
