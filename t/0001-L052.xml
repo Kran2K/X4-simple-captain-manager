@@ -16,14 +16,14 @@
     <t id="22">Despidió al capitán %2 de la nave %1.</t>
     <t id="23">Asignó al capitán de %2 estrellas %3 a la nave %1.</t>
     <t id="24">Transfirió %2 tripulantes no asignados a la nave %1.</t>
-    <t id="25">Capacitación de seminarios completada: %1 capitanes promovidos. (Consumido: básico x%2, 1 estrella x%3, 2 estrellas x%4, 3 estrellas x%5, 4 estrellas x%6)</t>
+    <t id="25">Capacitación de seminarios completada: %1 capitanes promovidos. [Consumido: básico x%2, 1 estrella x%3, 2 estrellas x%4, 3 estrellas x%5, 4 estrellas x%6]</t>
     <t id="30">Destituye al capitán y cambia su estado a tripulación no asignada.</t>
     <t id="31">No hay ningún capitán que destituir.</t>
     <t id="32">Ya hay un capitán asignado a esta nave.</t>
     <t id="40">Despide inmediatamente al capitán.</t>
     <t id="41">No hay ningún capitán que despedir.</t>
     <t id="50">Llena la nave con tripulación no asignada según la prioridad.</t>
-    <t id="51">Entrena capitanes usando los seminarios de tripulación (pilotaje) de tu inventario.</t>
+    <t id="51">Entrena capitanes usando los seminarios de tripulación de tu inventario.</t>
     <t id="52">No hay capitanes que entrenar.</t>
   </page>
 </language>

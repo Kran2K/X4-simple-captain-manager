@@ -16,14 +16,14 @@
     <t id="22">Demitiu o capitão %2 da nave %1.</t>
     <t id="23">Atribuiu o capitão de %2 estrelas %3 à nave %1.</t>
     <t id="24">Transferiu %2 tripulantes não atribuídos para a nave %1.</t>
-    <t id="25">Treinamento com seminário concluído: %1 capitães promovidos. (Consumido: básico x%2, 1 estrela x%3, 2 estrelas x%4, 3 estrelas x%5, 4 estrelas x%6)</t>
+    <t id="25">Treinamento com seminário concluído: %1 capitães promovidos. [Consumido: básico x%2, 1 estrela x%3, 2 estrelas x%4, 3 estrelas x%5, 4 estrelas x%6]</t>
     <t id="30">Dispensa o capitão e altera seu status para tripulação não atribuída.</t>
     <t id="31">Nenhum capitão para dispensar.</t>
     <t id="32">Um capitão já está atribuído a esta nave.</t>
     <t id="40">Demite imediatamente o capitão.</t>
     <t id="41">Nenhum capitão para demitir.</t>
     <t id="50">Preenche a nave com tripulação não atribuída com base na prioridade.</t>
-    <t id="51">Treina capitães usando seminários de tripulação (pilotagem) atualmente em seu inventário.</t>
+    <t id="51">Treina capitães usando seminários de tripulação atualmente em seu inventário.</t>
     <t id="52">Nenhum capitão para treinar.</t>
   </page>
 </language>

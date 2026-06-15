@@ -16,14 +16,14 @@
     <t id="22">Capitano %2 della nave %1 licenziato.</t>
     <t id="23">Capitano %3 da %2 stelle assegnato alla nave %1.</t>
     <t id="24">Trasferiti %2 membri dell'equipaggio non assegnati alla nave %1.</t>
-    <t id="25">Addestramento completato: %1 capitani promossi. (Consumato: base x%2, 1-stella x%3, 2-stelle x%4, 3-stelle x%5, 4-stelle x%6)</t>
+    <t id="25">Addestramento completato: %1 capitani promossi. [Consumato: base x%2, 1-stella x%3, 2-stelle x%4, 3-stelle x%5, 4-stelle x%6]</t>
     <t id="30">Congeda il capitano e cambia il suo stato in equipaggio non assegnato.</t>
     <t id="31">Nessun capitano da congedare.</t>
     <t id="32">Un capitano è già assegnato a questa nave.</t>
     <t id="40">Licenzia immediatamente il capitano.</t>
     <t id="41">Nessun capitano da licenziare.</t>
     <t id="50">Riempe la nave con equipaggio non assegnato in base alla priorità.</t>
-    <t id="51">Addestra i capitani usando i seminari dell'equipaggio (pilotaggio) dal tuo inventario.</t>
+    <t id="51">Addestra i capitani usando i seminari dell'equipaggio dal tuo inventario.</t>
     <t id="52">Nessun capitano da addestrare.</t>
   </page>
 </language>
