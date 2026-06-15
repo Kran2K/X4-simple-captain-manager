@@ -136,6 +136,28 @@
               $active   = $SeminarActive,
               $callback = scm_use_seminar_callback,
               ]" />
+
+          <!-- 6. Batch Drop Cargo (id="8") -->
+          <set_value name="$DropCargoActive" exact="false" />
+          <set_value name="$DropCargoMouseover" exact="readtext.{98765}.{53}" />
+          <do_all exact="$Ships.count" counter="$i">
+            <do_if value="$Ships.{$i}.cargo.count gt 0">
+              <set_value name="$DropCargoActive" exact="true" />
+            </do_if>
+          </do_all>
+          <do_if value="not $DropCargoActive">
+            <set_value name="$DropCargoMouseover" exact="readtext.{98765}.{54}" />
+          </do_if>
+          <signal_cue_instantly
+            cue="md.Interact_Menu_API.Add_Action"
+            param="table[
+              $id       = 'scm_drop_cargo',
+              $section  = $section,
+              $text     = readtext.{98765}.{8},
+              $mouseover = $DropCargoMouseover,
+              $active   = $DropCargoActive,
+              $callback = scm_drop_cargo_callback,
+              ]" />
         </do_if>
       </actions>
      </cue>
@@ -728,6 +750,52 @@
           <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{25}.[$SuccessCount, $Used_0, $Used_1, $Used_2, $Used_3, $Used_4]" post="true" />
           <show_notification text="readtext.{98765}.{25}.[$SuccessCount, $Used_0, $Used_1, $Used_2, $Used_3, $Used_4]" timeout="6s" />
         </do_if>
+      </actions>
+    </cue>
+
+    <!-- ============================================================
+         7. Batch Drop Cargo Callback
+         - Eject all container/cargo items of selected ships into space
+         ============================================================ -->
+    <cue name="scm_drop_cargo_callback" instantiate="true">
+      <conditions>
+        <event_cue_signalled />
+      </conditions>
+      <actions>
+        <!-- Build list of selected ships -->
+        <create_list name="$Ships" />
+        <do_if value="@event.param.$object.isclass.ship and event.param.$object.isplayerowned">
+          <append_to_list name="$Ships" exact="event.param.$object" />
+        </do_if>
+        <do_all exact="@event.param.$selectedplayerships.count" counter="$i">
+          <set_value name="$SelShip" exact="event.param.$selectedplayerships.{$i}" />
+          <do_if value="not $Ships.indexof.{$SelShip}">
+            <append_to_list name="$Ships" exact="$SelShip" />
+          </do_if>
+        </do_all>
+
+        <debug_text text="'[SCM] Drop Cargo start: ' + $Ships.count + ' ships'" filter="general" />
+        <do_all exact="$Ships.count" counter="$i">
+          <set_value name="$Ship" exact="$Ships.{$i}" />
+          <do_if value="$Ship.cargo.count gt 0">
+            <set_value name="$CargoList" exact="$Ship.cargo.list" />
+            <set_value name="$WaresCount" exact="$CargoList.count" />
+            
+            <!-- Loop through each ware in cargo and drop its entire count -->
+            <do_all exact="$WaresCount" counter="$k">
+              <set_value name="$Ware" exact="$CargoList.{$k}" />
+              <set_value name="$Amount" exact="$Ship.cargo.{$Ware}.count" />
+              <do_if value="$Amount gt 0">
+                <debug_text text="'[SCM] Dropping ' + $Amount + ' of ' + $Ware + ' from ' + $Ship.knownname" filter="general" />
+                <drop_cargo object="$Ship" ware="$Ware" exact="$Amount" />
+              </do_if>
+            </do_all>
+            
+            <!-- Output success to logbook and show notification -->
+            <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{34}.[$Ship.knownname, $WaresCount]" post="true" />
+            <show_notification text="readtext.{98765}.{34}.[$Ship.knownname, $WaresCount]" timeout="6s" />
+          </do_if>
+        </do_all>
       </actions>
     </cue>
 

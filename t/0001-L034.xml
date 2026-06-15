@@ -30,5 +30,9 @@
     <t id="51">Entrenar capitanes usando los seminarios de tripulación de tu inventario.</t>
     <t id="52">No hay capitanes que entrenar.</t>
     <t id="33">[Advertencia] No hay miembros de la tripulación sin asignar disponibles en la galaxia para transferir a la nave %1.</t>
+    <t id="8">Arrojar carga</t>
+    <t id="34">Se ha arrojado al espacio toda la carga (%2 tipos de mercancías) de la nave %1.</t>
+    <t id="53">Arroja toda la carga de las naves seleccionadas al espacio.</t>
+    <t id="54">No hay carga para arrojar.</t>
   </page>
 </language>

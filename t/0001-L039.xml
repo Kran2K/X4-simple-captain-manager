@@ -30,5 +30,9 @@
     <t id="51">Addestra i capitani usando i seminari dell'equipaggio dal tuo inventario.</t>
     <t id="52">Nessun capitano da addestrare.</t>
     <t id="33">[Attenzione] Non ci sono membri dell'equipaggio non assegnati disponibili nella galassia da trasferire sulla nave %1.</t>
+    <t id="8">Espelli carico</t>
+    <t id="34">Tutto il carico (%2 tipi di merci) della nave %1 è stato espulso nello spazio.</t>
+    <t id="53">Espelle tutto il carico dalle navi selezionate nello spazio.</t>
+    <t id="54">Nessun carico da espellere.</t>
   </page>
 </language>

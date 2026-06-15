@@ -30,5 +30,9 @@
     <t id="51">Treina capitães usando seminários de tripulação atualmente em seu inventário.</t>
     <t id="52">Nenhum capitão para treinar.</t>
     <t id="33">[Aviso] Não há membros da tripulação não atribuídos disponíveis na galáxia para transferir para a nave %1.</t>
+    <t id="8">Descartar Carga</t>
+    <t id="34">Toda a carga (%2 tipos de mercadorias) da nave %1 foi descartada no espaço.</t>
+    <t id="53">Descarta toda a carga das naves selecionadas no espaço.</t>
+    <t id="54">Nenhuma carga para descartar.</t>
   </page>
 </language>
