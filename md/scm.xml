@@ -211,9 +211,10 @@
                 </do_if>
               </do_all>
               <do_if value="$WorstCrew">
-                <debug_text text="'[SCM] Ship full. Firing worst crew ' + $WorstCrew + ' (score: ' + $WorstSkill + ') to make space for dismissed pilot.'" filter="general" />
+                <set_value name="$WorstCrewName" exact="$Ship.people.{$WorstCrew}.name" />
+                <debug_text text="'[SCM] Ship full. Firing worst crew ' + $WorstCrewName + ' (score: ' + $WorstSkill + ') to make space for dismissed pilot.'" filter="general" />
                 <remove_npc_template object="$Ship" template="$WorstCrew" />
-                <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{26}.[$Ship.knownname, $WorstCrewStars, $WorstCrewRole.name]" post="true" />
+                <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{26}.[$Ship.knownname, $WorstCrewStars, $WorstCrewName]" post="true" />
               </do_if>
             </do_if>
 
