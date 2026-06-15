@@ -311,7 +311,7 @@
           </do_if>
         </do_all>
 
-        <debug_text text="'[SCM_DEBUG] Assign Callback Started. Target Ships Count: ' + $Ships.count" filter="general" />
+        <debug_text text="'[SCM] Assign Callback Started. Target Ships Count: ' + $Ships.count" filter="general" />
 
         <!-- Create split lists to sort by Priority 1: Class (XL > L > M > S) and Priority 2: Category (Combat > Civilian) -->
         <create_list name="$Ships_XL" />
@@ -377,11 +377,11 @@
           </do_all>
         </do_all>
 
-        <debug_text text="'[SCM_DEBUG] Sorted target ships count: ' + $SortedShips.count" filter="general" />
+        <debug_text text="'[SCM] Sorted target ships count: ' + $SortedShips.count" filter="general" />
 
         <!-- List of all player-owned ships (for candidate search; recursive="true" is required to find docked ships) -->
         <find_ship name="$PlayerShips" owner="faction.player" multiple="true" space="player.galaxy" recursive="true" />
-        <debug_text text="'[SCM_DEBUG] Galaxy player ships found: ' + $PlayerShips.count" filter="general" />
+        <debug_text text="'[SCM] Galaxy player ships found: ' + $PlayerShips.count" filter="general" />
 
         <!-- Lists to prevent duplicate assignments -->
         <create_list name="$AssignedCandidates" />
@@ -396,11 +396,8 @@
           <set_value name="$BestSource" exact="null" />
           <set_value name="$BestSeed" exact="0" />
 
-          <debug_text text="'[SCM_DEBUG] === Processing Ship: ' + $Ship.knownname + ' (' + $Ship.idcode + ') ==='" filter="general" />
-
           <!-- Step 1: Search for the best unassigned crew template within the target ship itself -->
           <set_value name="$LocalPeople" exact="$Ship.people.list" />
-          <debug_text text="'[SCM_DEBUG] Local people list count: ' + $LocalPeople.count" filter="general" />
           <do_all exact="$LocalPeople.count" counter="$k">
             <set_value name="$Template" exact="$LocalPeople.{$k}" />
             <set_value name="$Role" exact="$Ship.people.{$Template}.role" />
@@ -408,8 +405,6 @@
             <set_value name="$NPC_Piloting" exact="$Ship.people.{$Template}.skill.{skilltype.piloting}" />
             <set_value name="$IsAlreadyAssigned" exact="$AssignedCandidates.indexof.{$Template} or ($Seed gt 0 and $AssignedSeeds.indexof.{$Seed})" />
             
-            <debug_text text="'[SCM_DEBUG] Local check: temp=' + $Template + ' | role=' + $Role.name + ' | seed=' + $Seed + ' | pilot=' + $NPC_Piloting + ' | assigned=' + $IsAlreadyAssigned" filter="general" />
-
             <!-- Only templates that are unassigned and haven't been selected yet in this batch run -->
             <do_if value="$Role == entityrole.unassigned and not $IsAlreadyAssigned">
               <do_if value="$NPC_Piloting gt $BestPiloting">
@@ -423,17 +418,11 @@
 
           <!-- Step 2: If none found locally, search remote ships for unassigned crew templates -->
           <do_if value="not $BestCandidate">
-            <debug_text text="'[SCM_DEBUG] Local search failed, starting remote search.'" filter="general" />
             <do_all exact="$PlayerShips.count" counter="$j">
               <set_value name="$PShip" exact="$PlayerShips.{$j}" />
               <do_if value="$PShip != $Ship">
                 <set_value name="$RemotePeople" exact="$PShip.people.list" />
                 
-                <!-- Only debug print remote ships that actually have people -->
-                <do_if value="$RemotePeople.count gt 0">
-                  <debug_text text="'[SCM_DEBUG] Checking Remote Ship: ' + $PShip.knownname + ' (' + $PShip.idcode + ') | remote people count: ' + $RemotePeople.count" filter="general" />
-                </do_if>
-
                 <do_all exact="$RemotePeople.count" counter="$k">
                   <set_value name="$Template" exact="$RemotePeople.{$k}" />
                   <set_value name="$Role" exact="$PShip.people.{$Template}.role" />
@@ -441,10 +430,6 @@
                   <set_value name="$NPC_Piloting" exact="$PShip.people.{$Template}.skill.{skilltype.piloting}" />
                   <set_value name="$IsAlreadyAssigned" exact="$AssignedCandidates.indexof.{$Template} or ($Seed gt 0 and $AssignedSeeds.indexof.{$Seed})" />
                   
-                  <do_if value="$Role == entityrole.unassigned">
-                    <debug_text text="'[SCM_DEBUG] Remote check (unassigned): temp=' + $Template + ' | source=' + $PShip.knownname + ' | seed=' + $Seed + ' | pilot=' + $NPC_Piloting + ' | assigned=' + $IsAlreadyAssigned" filter="general" />
-                  </do_if>
-
                   <do_if value="$Role == entityrole.unassigned and not $IsAlreadyAssigned">
                     <do_if value="$NPC_Piloting gt $BestPiloting">
                       <set_value name="$BestPiloting" exact="$NPC_Piloting" />
@@ -460,16 +445,14 @@
 
           <!-- Assign candidate if found -->
           <do_if value="$BestCandidate">
-            <debug_text text="'[SCM_DEBUG] Candidate selected: ' + $BestCandidate + ' (skill: ' + $BestPiloting + ') from ' + $BestSource.knownname + ' (seed=' + $BestSeed + ')'" filter="general" />
+            <debug_text text="'[SCM] Candidate selected: ' + $BestCandidate + ' (skill: ' + $BestPiloting + ') from ' + $BestSource.knownname + ' (seed=' + $BestSeed + ')'" filter="general" />
             
             <!-- Check if the template already has an active NPC entity -->
             <set_value name="$TargetActor" exact="$BestSource.roleentity.{$BestCandidate}" />
-            <debug_text text="'[SCM_DEBUG] TargetActor exists: ' + @$TargetActor.exists + ' | role=' + @$TargetActor.role.name" filter="general" />
 
             <do_if value="not $TargetActor">
               <!-- No active entity; instantiate NPC from template -->
               <create_npc_from_template name="$TargetActor" object="$BestSource" template="$BestCandidate" owner="faction.player" placementobject="$Ship" required="true" />
-              <debug_text text="'[SCM_DEBUG] Created NPC from template. exists: ' + @$TargetActor.exists" filter="general" />
             </do_if>
 
             <do_if value="$TargetActor">
@@ -483,11 +466,9 @@
               </do_if>
 
               <!-- Template transferred; remove template from the source ship -->
-              <debug_text text="'[SCM_DEBUG] Template check before remove: exists=' + $BestSource.people.{$BestCandidate}.exists" filter="general" />
               <do_if value="$BestSource.people.{$BestCandidate}.exists">
                 <remove_npc_template object="$BestSource" template="$BestCandidate" />
               </do_if>
-              <debug_text text="'[SCM_DEBUG] Template check after remove: exists=' + $BestSource.people.{$BestCandidate}.exists" filter="general" />
 
               <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{23}.[$Ship.knownname, ($BestPiloting / 3), $TargetActor.knownname]" post="true" />
             </do_if>
@@ -496,7 +477,7 @@
             </do_else>
           </do_if>
           <do_else>
-            <debug_text text="'[SCM_DEBUG] FAILED to find any candidate for ' + $Ship.knownname" filter="general" />
+            <debug_text text="'[SCM] Failed to find candidate for ' + $Ship.knownname" filter="general" />
           </do_else>
         </do_all>
       </actions>
