@@ -3,7 +3,7 @@
   <cues>
 
     <!-- ============================================================
-         1. 메뉴 오픈 시 액션 등록
+         1. Register Actions on Menu Open
          - SN Mod Support APIs: md.Interact_Menu_API.Get_Actions
          ============================================================ -->
     <cue name="scm_get_actions" instantiate="true">
@@ -13,7 +13,7 @@
         <check_value value="@event.param.$object.isplayerowned" />
       </conditions>
       <actions>
-        <!-- 전체 선택 함선 리스트 빌드 (우클릭 대상 + 다중 선택된 다른 플레이어 함선들) -->
+        <!-- Build list of selected ships (right-clicked ship + other selected player-owned ships) -->
         <create_list name="$Ships" />
         <do_if value="@event.param.$object.isclass.ship and event.param.$object.isplayerowned">
           <append_to_list name="$Ships" exact="event.param.$object" />
@@ -29,7 +29,7 @@
 
         <set_value name="$ShipsCount" exact="$Ships.count" />
         <do_if value="$ShipsCount gt 0">
-          <!-- 단일 함선 선택 시 함장 존재 판별 -->
+          <!-- Determine if a pilot exists when a single ship is selected -->
           <set_value name="$SingleShipHasPilot" exact="false" />
           <do_if value="$ShipsCount == 1">
             <do_if value="@$Ships.{1}.pilot.exists">
@@ -37,12 +37,12 @@
             </do_if>
           </do_if>
  
-          <!-- 선택 함선 수에 따라 kuertee UI Extensions 섹션명 분기 결정 및 그룹 등록 (함장 관리 대메뉴) -->
+          <!-- Determine Kuertee UI Extensions section name based on selection count and register group (Captain Management main menu) -->
           <set_value name="$section" exact="if $ShipsCount gt 1 then 'orders_scm_group' else 'actions_scm_group'" />
           <raise_lua_event name="'Interact_Menu_API.Add_Custom_Actions_Group_Id'" param="$section" />
           <raise_lua_event name="'Interact_Menu_API.Add_Custom_Actions_Group_Text'" param="readtext.{98765}.{1}" />
  
-          <!-- 1. 함장 자동 할당 (id="2") -->
+          <!-- 1. Auto Assign Captain (id="2") -->
           <set_value name="$AssignActive" exact="true" />
           <set_value name="$AssignMouseover" exact="readtext.{98765}.{20}" />
           <do_if value="$ShipsCount == 1 and $SingleShipHasPilot">
@@ -60,7 +60,7 @@
               $callback = scm_assign_callback,
               ]" />
 
-          <!-- 2. 함장 할당 해제 (id="3") -->
+          <!-- 2. Dismiss Captain (id="3") -->
           <set_value name="$UnassignActive" exact="true" />
           <set_value name="$UnassignMouseover" exact="readtext.{98765}.{30}" />
           <do_if value="$ShipsCount == 1 and not $SingleShipHasPilot">
@@ -78,7 +78,7 @@
               $callback = scm_unassign_callback,
               ]" />
 
-          <!-- 3. 함장 해고 (id="4") -->
+          <!-- 3. Fire Captain (id="4") -->
           <set_value name="$FireActive" exact="true" />
           <set_value name="$FireMouseover" exact="readtext.{98765}.{40}" />
           <do_if value="$ShipsCount == 1 and not $SingleShipHasPilot">
@@ -96,7 +96,7 @@
               $callback = scm_fire_callback,
               ]" />
  
-          <!-- 4. 미배정 인원 채우기 (id="5") -->
+          <!-- 4. Transfer Unassigned Crew (id="5") -->
           <do_if value="$ShipsCount == 1">
             <set_value name="$FillActive" exact="true" />
             <set_value name="$FillMouseover" exact="readtext.{98765}.{50}" />
@@ -115,7 +115,7 @@
                 ]" />
           </do_if>
  
-          <!-- 5. 세미나 일괄 사용 (id="6") -->
+          <!-- 5. Batch Use Seminars (id="6") -->
           <set_value name="$SeminarActive" exact="false" />
           <set_value name="$SeminarMouseover" exact="readtext.{98765}.{51}" />
           <do_all exact="$Ships.count" counter="$i">
@@ -142,15 +142,15 @@
 
 
     <!-- ============================================================
-         2. 함장 일괄 보직 해제 콜백
-         - 함장 슬롯만 비움(NPC는 함선에 미배정 인원으로 잔류)
+         2. Batch Dismiss Captain Callback
+         - Empty the pilot slot only (NPC remains on the ship as unassigned crew)
          ============================================================ -->
     <cue name="scm_unassign_callback" instantiate="true">
       <conditions>
         <event_cue_signalled />
       </conditions>
       <actions>
-        <!-- 전체 선택 함선 리스트 빌드 -->
+        <!-- Build list of selected ships -->
         <create_list name="$Ships" />
         <do_if value="@event.param.$object.isclass.ship and event.param.$object.isplayerowned">
           <append_to_list name="$Ships" exact="event.param.$object" />
@@ -168,7 +168,7 @@
           <do_if value="@$Ship.pilot">
             <set_value name="$Pilot" exact="$Ship.pilot" />
             
-            <!-- 정원 가득 참 방지: 여유 슬롯이 없으면 최하위 선원 1명 자동 해고 -->
+            <!-- Prevent crew capacity overflow: If no free slot, auto-fire the lowest skilled crew member -->
             <do_if value="$Ship.people.free le 0">
               <set_value name="$WorstCrew" exact="null" />
               <set_value name="$WorstSkill" exact="9999" />
@@ -180,7 +180,7 @@
                   <set_value name="$Morale" exact="$Ship.people.{$Template}.skill.morale" />
                   <set_value name="$PrimarySkill" exact="0" />
                   
-                  <!-- 역할군에 따른 1차 스킬 식별 (서비스:공학, 해병:나포) -->
+                  <!-- Identify primary skill based on role (Service Crew: Engineering, Marine: Boarding) -->
                   <do_if value="$Role == entityrole.service">
                     <set_value name="$PrimarySkill" exact="$Ship.people.{$Template}.skill.engineering" />
                   </do_if>
@@ -188,7 +188,7 @@
                     <set_value name="$PrimarySkill" exact="$Ship.people.{$Template}.skill.boarding" />
                   </do_elseif>
                   <do_else>
-                    <!-- 미배정이거나 기타 역할군인 경우, 가장 뛰어난 주력 스킬을 1차 스킬로 가정 -->
+                    <!-- If unassigned or other role, assume their highest basic skill is the primary skill -->
                     <set_value name="$MaxBase" exact="0" />
                     <set_value name="$MaxBase" exact="[
                       $Ship.people.{$Template}.skill.piloting,
@@ -199,7 +199,7 @@
                     <set_value name="$PrimarySkill" exact="$MaxBase" />
                   </do_else>
                   
-                  <!-- 바닐라 종합 숙련도 공식: (1차스킬 * 3 + 사기) / 4 -->
+                  <!-- Vanilla combined skill formula: (primary_skill * 3 + morale) / 4 -->
                   <set_value name="$EffectiveSkillVal" exact="($PrimarySkill * 3) + $Morale" />
                   
                   <do_if value="$EffectiveSkillVal lt $WorstSkill">
@@ -219,16 +219,16 @@
             
             <debug_text text="'[SCM] Unassigning pilot for: ' + $Ship.knownname + ' | pilot_name=' + $Pilot.knownname + ' | pilot_exists=' + $PilotExists + ' | template=' + $Template" filter="general" />
             
-            <!-- 조종사 보직 해제 -->
+            <!-- Dismiss pilot -->
             <dismiss_control_entity actor="$Pilot" object="$Ship" />
             
-            <!-- NPC 엔티티 역할 변경 (미배정 인원 상태) -->
+            <!-- Change NPC entity role (Unassigned status) -->
             <do_if value="$PilotExists">
               <set_entity_role entity="$Pilot" role="entityrole.unassigned" />
               <set_entity_role_object entity="$Pilot" object="$Ship" />
             </do_if>
             
-            <!-- NPC 템플릿 역할 변경 -->
+            <!-- Change NPC template role -->
             <do_if value="$Template">
               <do_if value="$Ship.people.{$Template}.exists">
                 <set_npc_template_role object="$Ship" template="$Template" role="entityrole.unassigned" />
@@ -249,15 +249,15 @@
 
 
     <!-- ============================================================
-         3. 함장 일괄 해고 콜백
-         - 함장 슬롯 비우고 NPC 제거
+         3. Batch Fire Captain Callback
+         - Empty the pilot slot and destroy the NPC entity
          ============================================================ -->
     <cue name="scm_fire_callback" instantiate="true">
       <conditions>
         <event_cue_signalled />
       </conditions>
       <actions>
-        <!-- 전체 선택 함선 리스트 빌드 -->
+        <!-- Build list of selected ships -->
         <create_list name="$Ships" />
         <do_if value="@event.param.$object.isclass.ship and event.param.$object.isplayerowned">
           <append_to_list name="$Ships" exact="event.param.$object" />
@@ -277,7 +277,7 @@
             <set_value name="$PilotName" exact="$Pilot.knownname" />
             <debug_text text="'[SCM] Firing: ' + $PilotName + ' from ' + $Ship.knownname" filter="general" />
             
-            <!-- 조종사 보직 해제 후 제거 (꼬임 방지) -->
+            <!-- Dismiss and destroy pilot entity (to prevent references getting stuck) -->
             <dismiss_control_entity actor="$Pilot" object="$Ship" />
             <destroy_object object="$Pilot" />
             
@@ -289,16 +289,16 @@
 
 
     <!-- ============================================================
-         4. 함장 일괄 배정 콜백
-         - 은하 내 플레이어 함선에서 미배정 선원 중 조종술 최고치 탐색
-         - 16등급 우선순위 정렬 (XL>L>M>S 및 fight>trade>mine>build)
+         4. Batch Assign Captain Callback
+         - Find the best unassigned crew member with the highest piloting skill from player-owned ships galaxy-wide
+         - Sort target ships by 16 priority classes (XL > L > M > S and fight > trade > mine > build)
          ============================================================ -->
     <cue name="scm_assign_callback" instantiate="true">
       <conditions>
         <event_cue_signalled />
       </conditions>
       <actions>
-        <!-- 전체 선택 함선 리스트 빌드 -->
+        <!-- Build list of selected ships -->
         <create_list name="$Ships" />
         <do_if value="@event.param.$object.isclass.ship and event.param.$object.isplayerowned">
           <append_to_list name="$Ships" exact="event.param.$object" />
@@ -312,7 +312,7 @@
 
         <debug_text text="'[SCM] Assign: ' + $Ships.count + ' ships'" filter="general" />
 
-        <!-- 1순위: 클래스(XL>L>M>S), 2순위: 카테고리(전함>민간함) 우선순위로 정렬하기 위해 분할 리스트 생성 -->
+        <!-- Create split lists to sort by Priority 1: Class (XL > L > M > S) and Priority 2: Category (Combat > Civilian) -->
         <create_list name="$Ships_XL" />
         <create_list name="$Ships_L" />
         <create_list name="$Ships_M" />
@@ -338,25 +338,25 @@
 
         <create_list name="$SortedShips" />
 
-        <!-- 용도 우선순위 목록 정의 (fight > trade > mine > build) -->
+        <!-- Define ship purpose priority list (fight > trade > mine > build) -->
         <create_list name="$Purposes" />
         <append_to_list name="$Purposes" exact="purpose.fight" />
         <append_to_list name="$Purposes" exact="purpose.trade" />
         <append_to_list name="$Purposes" exact="purpose.mine" />
         <append_to_list name="$Purposes" exact="purpose.build" />
 
-        <!-- 정렬 루프용 클래스 리스트 모음 -->
+        <!-- Collection of class lists for sorting loop -->
         <create_list name="$ClassLists" />
         <append_to_list name="$ClassLists" exact="$Ships_XL" />
         <append_to_list name="$ClassLists" exact="$Ships_L" />
         <append_to_list name="$ClassLists" exact="$Ships_M" />
         <append_to_list name="$ClassLists" exact="$Ships_S" />
 
-        <!-- 클래스별(XL -> L -> M -> S) 순회하며 세부 용도 정렬 수행 -->
+        <!-- Iterate by class (XL -> L -> M -> S) and sort by purpose -->
         <do_all exact="$ClassLists.count" counter="$c">
           <set_value name="$CurrentClassList" exact="$ClassLists.{$c}" />
 
-          <!-- 1단계: 정의된 용도 순서대로 병합 -->
+          <!-- Step 1: Merge according to defined purposes -->
           <do_all exact="$Purposes.count" counter="$p">
             <set_value name="$CurrentPurpose" exact="$Purposes.{$p}" />
             <do_all exact="$CurrentClassList.count" counter="$i">
@@ -367,7 +367,7 @@
             </do_all>
           </do_all>
 
-          <!-- 2단계: 그 외(기타) 용도 함선들 추가 -->
+          <!-- Step 2: Append ships with other (miscellaneous) purposes -->
           <do_all exact="$CurrentClassList.count" counter="$i">
             <set_value name="$Ship" exact="$CurrentClassList.{$i}" />
             <do_if value="not $Purposes.indexof.{$Ship.primarypurpose}">
@@ -376,14 +376,14 @@
           </do_all>
         </do_all>
 
-        <!-- 플레이어 소유 전 함선 목록 (후보 탐색용, 격납된 함선도 찾기 위해 recursive="true" 필수) -->
+        <!-- List of all player-owned ships (for candidate search; recursive="true" is required to find docked ships) -->
         <find_ship name="$PlayerShips" owner="faction.player" multiple="true" space="player.galaxy" recursive="true" />
 
-        <!-- 중복 배정 방지 리스트 -->
+        <!-- Lists to prevent duplicate assignments -->
         <create_list name="$AssignedCandidates" />
         <create_list name="$AssignedSeeds" />
 
-        <!-- 이제 정렬된 함선 리스트를 순회하며 배정 진행 -->
+        <!-- Now iterate through the sorted ships list and assign captains -->
         <do_all exact="$SortedShips.count" counter="$i">
           <set_value name="$Ship" exact="$SortedShips.{$i}" />
 
@@ -392,7 +392,7 @@
           <set_value name="$BestSource" exact="null" />
           <set_value name="$BestSeed" exact="0" />
 
-          <!-- 1단계: 자기 자신 함선 내부에서 최고의 미배정 선원 템플릿 탐색 -->
+          <!-- Step 1: Search for the best unassigned crew template within the target ship itself -->
           <set_value name="$LocalPeople" exact="$Ship.people.list" />
           <do_all exact="$LocalPeople.count" counter="$k">
             <set_value name="$Template" exact="$LocalPeople.{$k}" />
@@ -401,7 +401,7 @@
             <set_value name="$NPC_Piloting" exact="$Ship.people.{$Template}.skill.{skilltype.piloting}" />
             <set_value name="$IsAlreadyAssigned" exact="$AssignedCandidates.indexof.{$Template} or ($Seed gt 0 and $AssignedSeeds.indexof.{$Seed})" />
             
-            <!-- 템플릿의 롤이 미배정이고, 이번 일괄 배정에서 아직 선발되지 않은 선원만 -->
+            <!-- Only templates that are unassigned and haven't been selected yet in this batch run -->
             <do_if value="$Role == entityrole.unassigned and not $IsAlreadyAssigned">
               <do_if value="$NPC_Piloting gt $BestPiloting">
                 <set_value name="$BestPiloting" exact="$NPC_Piloting" />
@@ -412,7 +412,7 @@
             </do_if>
           </do_all>
 
-          <!-- 2단계: 자기 배에서 찾지 못한 경우에만 타 함선들을 조회하여 템플릿 탐색 -->
+          <!-- Step 2: If none found locally, search remote ships for unassigned crew templates -->
           <do_if value="not $BestCandidate">
             <do_all exact="$PlayerShips.count" counter="$j">
               <set_value name="$PShip" exact="$PlayerShips.{$j}" />
@@ -438,13 +438,13 @@
             </do_all>
           </do_if>
 
-          <!-- 후보 발견 시 배정 -->
+          <!-- Assign candidate if found -->
           <do_if value="$BestCandidate">
-            <!-- 템플릿이 이미 인스턴스로 존재하는가? -->
+            <!-- Check if the template already has an active NPC entity -->
             <set_value name="$TargetActor" exact="$BestSource.roleentity.{$BestCandidate}" />
             
             <do_if value="not $TargetActor.exists">
-              <!-- 인스턴스가 없으므로 템플릿으로부터 NPC 인스턴스 생성 -->
+              <!-- No active entity; instantiate NPC from template -->
               <create_npc_from_template name="$TargetActor" object="$BestSource" template="$BestCandidate" owner="faction.player" placementobject="$Ship" required="true" />
             </do_if>
 
@@ -452,13 +452,13 @@
               <debug_text text="'[SCM] Assigning ' + $TargetActor.knownname + ' (skill ' + $BestPiloting + ') to ' + $Ship.knownname" filter="general" />
               <assign_control_entity actor="$TargetActor" object="$Ship" role="controlrole.pilot" post="controlpost.aipilot" transfer="true" init="true" />
               
-              <!-- 중복 배정 방지를 위해 선발된 템플릿과 시드 등록 -->
+              <!-- Add selected template and seed to lists to prevent double assignment -->
               <append_to_list name="$AssignedCandidates" exact="$BestCandidate" />
               <do_if value="$BestSeed gt 0">
                 <append_to_list name="$AssignedSeeds" exact="$BestSeed" />
               </do_if>
 
-              <!-- 이적이 완료되었으므로 소스 배에서 템플릿 제거 -->
+              <!-- Template transferred; remove template from the source ship -->
               <do_if value="$BestSource.people.{$BestCandidate}.exists">
                 <remove_npc_template object="$BestSource" template="$BestCandidate" />
               </do_if>
@@ -474,9 +474,9 @@
     </cue>
 
     <!-- ============================================================
-         5. 미배정 인원 일괄 이동 콜백
-         - 플레이어 소유의 모든 함선/스테이션의 미배정 인원 탐색
-         - 1차스킬 * 3 + 사기 기준으로 정렬하여 우수한 인원부터 대상 함선에 가득 채움
+         5. Batch Transfer Unassigned Crew Callback
+         - Find all unassigned crew members from all player-owned ships and stations
+         - Sort them by (highest_skill * 3 + morale) and transfer the best crew members to fill the target ship
          ============================================================ -->
     <cue name="scm_fill_unassigned_callback" instantiate="true">
       <conditions>
@@ -487,7 +487,7 @@
         <do_if value="@$Ship.isclass.ship and $Ship.isplayerowned">
           <set_value name="$FreeSlots" exact="$Ship.people.free" />
           <do_if value="$FreeSlots gt 0">
-            <!-- 1. 플레이어 함선 및 스테이션 리스트 조회 -->
+            <!-- 1. Find player-owned ships and stations -->
             <find_ship name="$PlayerShips" owner="faction.player" multiple="true" space="player.galaxy" recursive="true" />
             <find_station name="$PlayerStations" owner="faction.player" multiple="true" space="player.galaxy" />
 
@@ -499,18 +499,18 @@
               <append_to_list name="$AllSources" exact="$PlayerStations.{$s}" />
             </do_all>
 
-            <!-- 2. 미배정 후보군(Candidate) 모으기 -->
+            <!-- 2. Collect unassigned candidates -->
             <create_list name="$Candidates" />
             <do_all exact="$AllSources.count" counter="$s">
               <set_value name="$Source" exact="$AllSources.{$s}" />
-              <!-- 대상 함선 자신은 원천 배제 -->
+              <!-- Exclude the target ship itself -->
               <do_if value="$Source != $Ship">
                 <set_value name="$People" exact="$Source.people.list" />
                 <do_all exact="$People.count" counter="$p">
                   <set_value name="$Template" exact="$People.{$p}" />
                   <set_value name="$Role" exact="$Source.people.{$Template}.role" />
                   <do_if value="$Role == entityrole.unassigned">
-                    <!-- 스킬 점수 계산 (4개 스킬 중 최댓값 * 3 + 사기) -->
+                    <!-- Calculate skill score (max_of_4_basic_skills * 3 + morale) -->
                     <set_value name="$MaxBase" exact="0" />
                     <set_value name="$MaxBase" exact="[
                       $Source.people.{$Template}.skill.piloting,
@@ -533,7 +533,7 @@
 
             <debug_text text="'[SCM] Found ' + $Candidates.count + ' unassigned candidates. Capacity left: ' + $FreeSlots" filter="general" />
 
-            <!-- 3. 점수가 가장 우수한 선원을 순서대로 $FreeSlots 만큼 선발 -->
+            <!-- 3. Select the highest scoring crew members up to $FreeSlots -->
             <create_list name="$SelectedCandidates" />
             <set_value name="$LoopCount" exact="if $FreeSlots lt $Candidates.count then $FreeSlots else $Candidates.count" />
 
@@ -552,7 +552,7 @@
               </do_if>
             </do_all>
 
-            <!-- 4. 소스별로 분류하여 이전 처리 실행 -->
+            <!-- 4. Group by source object and transfer -->
             <create_list name="$UniqueSources" />
             <do_all exact="$SelectedCandidates.count" counter="$i">
               <set_value name="$Src" exact="$SelectedCandidates.{$i}.$source" />
@@ -580,7 +580,7 @@
               </do_if>
             </do_all>
 
-            <!-- 5. 결과 알림 및 로그 작성 -->
+            <!-- 5. Write to logbook and show notification -->
             <do_if value="$TotalTransferred gt 0">
               <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{24}.[$Ship.knownname, $TotalTransferred]" post="true" />
               <show_notification text="readtext.{98765}.{24}.[$Ship.knownname, $TotalTransferred]" timeout="6s" />
@@ -591,16 +591,16 @@
     </cue>
 
     <!-- ============================================================
-         6. 세미나 일괄 사용 콜백
-         - 선택한 함선들의 함장 조종 스킬 체크
-         - 필요 세미나 인벤토리 보유 여부 체크 후 1개 차감 & 스킬 업
+         6. Batch Use Seminars Callback
+         - Check piloting skill of captains on selected ships
+         - Check inventory for required piloting seminars, consume 1, and raise skill
          ============================================================ -->
     <cue name="scm_use_seminar_callback" instantiate="true">
       <conditions>
         <event_cue_signalled />
       </conditions>
       <actions>
-        <!-- 전체 선택 함선 리스트 빌드 -->
+        <!-- Build list of selected ships -->
         <create_list name="$Ships" />
         <do_if value="@event.param.$object.isclass.ship and event.param.$object.isplayerowned">
           <append_to_list name="$Ships" exact="event.param.$object" />
@@ -630,34 +630,34 @@
               <set_value name="$TargetSkillVal" exact="if ($Piloting + 3) gt 15 then 15 else ($Piloting + 3)" />
               <set_value name="$SeminarIndex" exact="-1" />
 
-              <!-- 실제 바닐라 세미나 매핑 규칙 적용 (5단계) -->
+              <!-- Apply vanilla seminar mapping rules (5 tiers) -->
               <do_if value="$Piloting lt 3">
-                <!-- 1성 미만 -> 기본 조종 세미나 -->
+                <!-- Under 1-star -> Basic piloting seminar -->
                 <set_value name="$TargetSeminar" exact="ware.inv_seminar_piloting_0" />
                 <set_value name="$SeminarIndex" exact="0" />
               </do_if>
               <do_elseif value="$Piloting ge 3 and $Piloting lt 6">
-                <!-- 1성대 -> 1성 조종 세미나 -->
+                <!-- 1-star range -> 1-star piloting seminar -->
                 <set_value name="$TargetSeminar" exact="ware.inv_seminar_piloting_1" />
                 <set_value name="$SeminarIndex" exact="1" />
               </do_elseif>
               <do_elseif value="$Piloting ge 6 and $Piloting lt 9">
-                <!-- 2성대 -> 2성 조종 세미나 -->
+                <!-- 2-star range -> 2-star piloting seminar -->
                 <set_value name="$TargetSeminar" exact="ware.inv_seminar_piloting_2" />
                 <set_value name="$SeminarIndex" exact="2" />
               </do_elseif>
               <do_elseif value="$Piloting ge 9 and $Piloting lt 12">
-                <!-- 3성대 -> 3성 조종 세미나 -->
+                <!-- 3-star range -> 3-star piloting seminar -->
                 <set_value name="$TargetSeminar" exact="ware.inv_seminar_piloting_3" />
                 <set_value name="$SeminarIndex" exact="3" />
               </do_elseif>
               <do_elseif value="$Piloting ge 12 and $Piloting lt 15">
-                <!-- 4성대 -> 4성 조종 세미나 -->
+                <!-- 4-star range -> 4-star piloting seminar -->
                 <set_value name="$TargetSeminar" exact="ware.inv_seminar_piloting_4" />
                 <set_value name="$SeminarIndex" exact="4" />
               </do_elseif>
 
-              <!-- 플레이어 인벤토리에 세미나가 있는지 체크하고 사용 -->
+              <!-- Check if the seminar exists in player inventory and consume it -->
               <do_if value="$TargetSeminar != null and player.entity.inventory.{$TargetSeminar}.count gt 0">
                 <remove_inventory entity="player.entity" ware="$TargetSeminar" exact="1" />
                 <set_skill entity="$Pilot" type="skilltype.piloting" exact="$TargetSkillVal" />
@@ -686,7 +686,7 @@
 
         <debug_text text="'[SCM] Use Seminar finished. Promoted ' + $SuccessCount + ' captains'" filter="general" />
 
-        <!-- 결과 피드백 작성 -->
+        <!-- Show feedback and notify player -->
         <do_if value="$SuccessCount gt 0">
           <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{25}.[$SuccessCount, $Used_0, $Used_1, $Used_2, $Used_3, $Used_4]" post="true" />
           <show_notification text="readtext.{98765}.{25}.[$SuccessCount, $Used_0, $Used_1, $Used_2, $Used_3, $Used_4]" timeout="6s" />
