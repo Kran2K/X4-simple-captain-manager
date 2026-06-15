@@ -29,5 +29,6 @@
     <t id="50">Preenche a nave com tripulação não atribuída com base na prioridade.</t>
     <t id="51">Treina capitães usando seminários de tripulação atualmente em seu inventário.</t>
     <t id="52">Nenhum capitão para treinar.</t>
+    <t id="33">[Aviso] Não há membros da tripulação não atribuídos disponíveis na galáxia para transferir para a nave %1.</t>
   </page>
 </language>

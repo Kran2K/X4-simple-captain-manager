@@ -618,6 +618,10 @@
                 <show_notification text="readtext.{98765}.{24}.[$Ship.knownname, $TotalTransferred]" timeout="6s" />
               </do_else>
             </do_if>
+            <do_else>
+              <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{33}.[$Ship.knownname]" post="true" />
+              <show_notification text="readtext.{98765}.{33}.[$Ship.knownname]" timeout="6s" sound="notification_warning" />
+            </do_else>
           </do_if>
         </do_if>
       </actions>

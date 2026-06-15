@@ -29,5 +29,6 @@
     <t id="50">Naplní loď nepřiřazenou posádkou na základě priority.</t>
     <t id="51">Vyškolí kapitány pomocí seminářů posádky, které máte aktuálně v inventáři.</t>
     <t id="52">Žádný kapitán k vyškolení.</t>
+    <t id="33">[Varování] V galaxii nejsou k dispozici žádní nepřidělení členové posádky, které by bylo možné převést na loď %1.</t>
   </page>
 </language>

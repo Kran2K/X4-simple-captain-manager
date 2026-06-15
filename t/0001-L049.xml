@@ -29,5 +29,6 @@
     <t id="50">Füllt das Schiff mit ungewiesener Besatzung nach Priorität.</t>
     <t id="51">Kapitäne mit Crew-Seminaren aus dem Inventar ausbilden.</t>
     <t id="52">Keine Kapitäne zum Ausbilden vorhanden.</t>
+    <t id="33">[Warnung] Es gibt keine nicht zugewiesenen Besatzungsmitglieder in der Galaxie, die auf das Schiff %1 übertragen werden können.</t>
   </page>
 </language>

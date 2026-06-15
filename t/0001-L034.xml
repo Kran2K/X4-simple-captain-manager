@@ -29,5 +29,6 @@
     <t id="50">Llena la nave con tripulación no asignada según la prioridad.</t>
     <t id="51">Entrenar capitanes usando los seminarios de tripulación de tu inventario.</t>
     <t id="52">No hay capitanes que entrenar.</t>
+    <t id="33">[Advertencia] No hay miembros de la tripulación sin asignar disponibles en la galaxia para transferir a la nave %1.</t>
   </page>
 </language>
