@@ -5,7 +5,7 @@
     <t id="2">Auto Assign Captain</t>
     <t id="3">Dismiss Captain</t>
     <t id="4">Fire Captain</t>
-    <t id="5">Provides options to manage the captains of selected ships from the context menu.</t>
+    <t id="5">Allows batch personnel management for captains of selected ships in the right-click interaction menu.</t>
     <t id="6">Transfer Unassigned Crew</t>
     <t id="7">Use Seminars</t>
     <t id="11">Dismissed %1 captain.</t>

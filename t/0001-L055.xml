@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <language id="55">
   <page id="98765" title="Simple Captain Manager Texts">
-    <t id="1">Gerenciamento de Capitão</t>
+    <t id="1">Gerenciamento de Capitães</t>
     <t id="2">Atribuir Capitão Automaticamente</t>
     <t id="3">Dispensar Capitão</t>
     <t id="4">Demitir Capitão</t>
-    <t id="5">Fornece opções para gerenciar os capitães das naves seleccionadas no menu de contexto.</t>
+    <t id="5">Permite a gestão em lote de pessoal para os capitães das naves selecionadas no menu de interação do clique direito.</t>
     <t id="6">Transferir Tripulação não Atribuída</t>
     <t id="7">Usar Seminários</t>
     <t id="11">%1 capitães dispensados.</t>

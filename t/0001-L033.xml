@@ -5,7 +5,7 @@
     <t id="2">Assignation auto de capitaine</t>
     <t id="3">Démettre le capitaine</t>
     <t id="4">Licencier le capitaine</t>
-    <t id="5">Permet de gérer les capitaines des vaisseaux sélectionnés depuis le menu contextuel.</t>
+    <t id="5">Permet la gestion collective du personnel pour les capitaines des vaisseaux sélectionnés dans le menu d'interaction du clic droit.</t>
     <t id="6">Transférer l'équipage non assigné</t>
     <t id="7">Utiliser des séminaires</t>
     <t id="11">%1 capitaines démis de leurs fonctions.</t>
