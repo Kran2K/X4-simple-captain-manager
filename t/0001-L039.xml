@@ -8,9 +8,9 @@
     <t id="5">Fornisce opzioni per gestire i capitani delle navi selezionate dal menu contestuale.</t>
     <t id="6">Trasferisci Equipaggio non Assegnato</t>
     <t id="7">Usa Seminari</t>
-    <t id="11">Capitano %1 congedato.</t>
-    <t id="12">Capitano assegnato alla nave %1.</t>
-    <t id="13">Capitano %1 licenziato.</t>
+    <t id="11">%1 capitani congedati.</t>
+    <t id="12">Capitani assegnati a %1 navi.</t>
+    <t id="13">%1 capitani licenziati.</t>
     <t id="20">Assegna automaticamente l'equipaggio non assegnato come capitano in base alla priorità.</t>
     <t id="21">Capitano della nave %1 congedato e spostato all'equipaggio non assegnato.</t>
     <t id="22">Capitano %2 della nave %1 licenziato.</t>

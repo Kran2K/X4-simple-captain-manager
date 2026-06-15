@@ -8,9 +8,9 @@
     <t id="5">Permet de gérer les capitaines des vaisseaux sélectionnés depuis le menu contextuel.</t>
     <t id="6">Transférer l'équipage non assigné</t>
     <t id="7">Utiliser des séminaires</t>
-    <t id="11">Capitaine %1 démis de ses fonctions.</t>
-    <t id="12">Capitaine assigné au vaisseau %1.</t>
-    <t id="13">Capitaine %1 licencié.</t>
+    <t id="11">%1 capitaines démis de leurs fonctions.</t>
+    <t id="12">Capitaines assignés à %1 vaisseaux.</t>
+    <t id="13">%1 capitaines licenciés.</t>
     <t id="20">Assigne automatiquement l'équipage non assigné au poste de capitaine selon la priorité.</t>
     <t id="21">Capitaine du vaisseau %1 démis et déplacé vers l'équipage non assigné.</t>
     <t id="22">Capitaine %2 du vaisseau %1 licencié.</t>

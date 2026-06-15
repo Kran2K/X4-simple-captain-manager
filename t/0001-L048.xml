@@ -8,9 +8,9 @@
     <t id="5">Umożliwia zarządzanie kapitanami wybranych statków z menu kontekstowego.</t>
     <t id="6">Przenieś nieprzypisaną załogę</t>
     <t id="7">Użyj seminariów</t>
-    <t id="11">Odwołano kapitana %1.</t>
-    <t id="12">Przypisano kapitana do statku %1.</t>
-    <t id="13">Zwolniono kapitana %1.</t>
+    <t id="11">Odwołano %1 kapitanów.</t>
+    <t id="12">Przypisano kapitanów do %1 statków.</t>
+    <t id="13">Zwolniono %1 kapitanów.</t>
     <t id="20">Automatycznie przypisuje nieprzypisaną załogę do kapitanów na podstawie priorytetu.</t>
     <t id="21">Odwołano kapitana statku %1 i przeniesiono do nieprzypisanych.</t>
     <t id="22">Zwolniono kapitana %2 ze statku %1.</t>

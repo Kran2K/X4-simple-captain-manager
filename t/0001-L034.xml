@@ -8,9 +8,9 @@
     <t id="5">Permite gestionar los capitanes de las naves seleccionadas desde el menú contextual.</t>
     <t id="6">Transferir tripulación no asignada</t>
     <t id="7">Usar seminarios</t>
-    <t id="11">Capitán %1 destituido.</t>
-    <t id="12">Capitán asignado a la nave %1.</t>
-    <t id="13">Capitán %1 despedido.</t>
+    <t id="11">%1 capitanes destituidos.</t>
+    <t id="12">Capitanes asignados a %1 naves.</t>
+    <t id="13">%1 capitanes despedidos.</t>
     <t id="20">Asigna automáticamente tripulación no asignada como capitanes según prioridad.</t>
     <t id="21">Capitán de la nave %1 destituido y movido a tripulación no asignada.</t>
     <t id="22">Capitán %2 de la nave %1 despedido.</t>

@@ -8,9 +8,9 @@
     <t id="5">Bietet Optionen zur Verwaltung der Kapitäne ausgewählter Schiffe über das Kontextmenü.</t>
     <t id="6">Ungewiesene Besatzung übertragen</t>
     <t id="7">Seminare verwenden</t>
-    <t id="11">Kapitän %1 entlassen.</t>
-    <t id="12">Kapitän dem Schiff %1 zugewiesen.</t>
-    <t id="13">Kapitän %1 gefeuert.</t>
+    <t id="11">%1 Kapitäne entlassen (als ungewiesen).</t>
+    <t id="12">Kapitäne an %1 Schiffe zugewiesen.</t>
+    <t id="13">%1 Kapitäne gefeuert.</t>
     <t id="20">Weist ungewiesene Besatzungsmitglieder automatisch nach Priorität als Kapitän zu.</t>
     <t id="21">Kapitän von Schiff %1 entlassen und zur ungewiesenen Besatzung verschoben.</t>
     <t id="22">Kapitän %2 von Schiff %1 gefeuert.</t>
