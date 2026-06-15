@@ -20,5 +20,8 @@
     <t id="22">Fired captain %2 of ship %1.</t>
     <t id="23">Assigned %2-star captain %3 to ship %1.</t>
     <t id="24">Transferred %2 best unassigned crew to ship %1.</t>
+    <t id="7">Use Seminars</t>
+    <t id="51">Train captains of selected ships using piloting seminars from your inventory.</t>
+    <t id="25">Seminar training complete: Promoted %1 captains. (Consumed: basic x%2, 2-star x%3, 3-star x%4, 4-star x%5)</t>
   </page>
 </language>

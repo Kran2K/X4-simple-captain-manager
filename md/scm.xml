@@ -101,6 +101,24 @@
                ]" />
          </do_if>
  
+         <!-- 5. 세미나 일괄 사용 (id="6") -->
+         <set_value name="$SeminarActive" exact="false" />
+         <do_all exact="$Ships.count" counter="$i">
+           <do_if value="@$Ships.{$i}.pilot">
+             <set_value name="$SeminarActive" exact="true" />
+           </do_if>
+         </do_all>
+         <signal_cue_instantly
+           cue="md.Interact_Menu_API.Add_Action"
+           param="table[
+             $id       = 'scm_use_seminar',
+             $section  = $section,
+             $text     = readtext.{98765}.{7},
+             $mouseover = readtext.{98765}.{51},
+             $active   = $SeminarActive,
+             $callback = scm_use_seminar_callback,
+             ]" />
+ 
        </actions>
      </cue>
 
@@ -550,6 +568,105 @@
               <show_notification text="readtext.{98765}.{24}.[$Ship.knownname, $TotalTransferred]" timeout="6s" />
             </do_if>
           </do_if>
+        </do_if>
+      </actions>
+    </cue>
+
+    <!-- ============================================================
+         6. 세미나 일괄 사용 콜백
+         - 선택한 함선들의 함장 조종 스킬 체크
+         - 필요 세미나 인벤토리 보유 여부 체크 후 1개 차감 & 스킬 업
+         ============================================================ -->
+    <cue name="scm_use_seminar_callback" instantiate="true">
+      <conditions>
+        <event_cue_signalled />
+      </conditions>
+      <actions>
+        <!-- 전체 선택 함선 리스트 빌드 -->
+        <create_list name="$Ships" />
+        <do_if value="@event.param.$object.isclass.ship and event.param.$object.isplayerowned">
+          <append_to_list name="$Ships" exact="event.param.$object" />
+        </do_if>
+        <do_all exact="@event.param.$selectedplayerships.count" counter="$i">
+          <set_value name="$SelShip" exact="event.param.$selectedplayerships.{$i}" />
+          <do_if value="not $Ships.indexof.{$SelShip}">
+            <append_to_list name="$Ships" exact="$SelShip" />
+          </do_if>
+        </do_all>
+
+        <set_value name="$SuccessCount" exact="0" />
+        <set_value name="$Used_0" exact="0" />
+        <set_value name="$Used_2" exact="0" />
+        <set_value name="$Used_3" exact="0" />
+        <set_value name="$Used_4" exact="0" />
+
+        <do_all exact="$Ships.count" counter="$i">
+          <set_value name="$Ship" exact="$Ships.{$i}" />
+          <do_if value="@$Ship.pilot">
+            <set_value name="$Pilot" exact="$Ship.pilot" />
+            <set_value name="$Piloting" exact="$Pilot.skill.piloting" />
+            
+            <do_if value="$Piloting lt 15">
+              <set_value name="$TargetSeminar" exact="null" />
+              <set_value name="$TargetSkillVal" exact="0" />
+              <set_value name="$SeminarIndex" exact="-1" />
+
+              <!-- 사용자의 조종 세미나 매핑 규칙 적용 -->
+              <do_if value="$Piloting lt 6">
+                <!-- 2성 미만 -> 2성으로 만들기 위해 기본 세미나 필요 -->
+                <set_value name="$TargetSeminar" exact="ware.inv_seminar_piloting_0" />
+                <set_value name="$TargetSkillVal" exact="6" />
+                <set_value name="$SeminarIndex" exact="0" />
+              </do_if>
+              <do_elseif value="$Piloting ge 6 and $Piloting lt 9">
+                <!-- 2성 이상 3성 미만 -> 3성으로 만들기 위해 2성 세미나 필요 -->
+                <set_value name="$TargetSeminar" exact="ware.inv_seminar_piloting_2" />
+                <set_value name="$TargetSkillVal" exact="9" />
+                <set_value name="$SeminarIndex" exact="2" />
+              </do_elseif>
+              <do_elseif value="$Piloting ge 9 and $Piloting lt 12">
+                <!-- 3성 이상 4성 미만 -> 4성으로 만들기 위해 3성 세미나 필요 -->
+                <set_value name="$TargetSeminar" exact="ware.inv_seminar_piloting_3" />
+                <set_value name="$TargetSkillVal" exact="12" />
+                <set_value name="$SeminarIndex" exact="3" />
+              </do_elseif>
+              <do_elseif value="$Piloting ge 12 and $Piloting lt 15">
+                <!-- 4성 이상 5성 미만 -> 5성으로 만들기 위해 4성 세미나 필요 -->
+                <set_value name="$TargetSeminar" exact="ware.inv_seminar_piloting_4" />
+                <set_value name="$TargetSkillVal" exact="15" />
+                <set_value name="$SeminarIndex" exact="4" />
+              </do_elseif>
+
+              <!-- 플레이어 인벤토리에 세미나가 있는지 체크하고 사용 -->
+              <do_if value="$TargetSeminar != null and player.entity.inventory.{$TargetSeminar}.count gt 0">
+                <remove_inventory entity="player.entity" ware="$TargetSeminar" exact="1" />
+                <set_skill entity="$Pilot" type="skilltype.piloting" exact="$TargetSkillVal" />
+                
+                <set_value name="$SuccessCount" exact="$SuccessCount + 1" />
+                
+                <do_if value="$SeminarIndex == 0">
+                  <set_value name="$Used_0" exact="$Used_0 + 1" />
+                </do_if>
+                <do_if value="$SeminarIndex == 2">
+                  <set_value name="$Used_2" exact="$Used_2 + 1" />
+                </do_if>
+                <do_if value="$SeminarIndex == 3">
+                  <set_value name="$Used_3" exact="$Used_3 + 1" />
+                </do_if>
+                <do_if value="$SeminarIndex == 4">
+                  <set_value name="$Used_4" exact="$Used_4 + 1" />
+                </do_if>
+              </do_if>
+            </do_if>
+          </do_if>
+        </do_all>
+
+        <debug_text text="'[SCM] Use Seminar finished. Promoted ' + $SuccessCount + ' captains'" filter="general" />
+
+        <!-- 결과 피드백 작성 -->
+        <do_if value="$SuccessCount gt 0">
+          <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{25}.[$SuccessCount, $Used_0, $Used_2, $Used_3, $Used_4]" post="true" />
+          <show_notification text="readtext.{98765}.{25}.[$SuccessCount, $Used_0, $Used_2, $Used_3, $Used_4]" timeout="6s" />
         </do_if>
       </actions>
     </cue>
