@@ -13,115 +13,131 @@
         <check_value value="@event.param.$object.isplayerowned" />
       </conditions>
       <actions>
-        <!-- 전체 선택 함선 리스트 빌드 (우클릭 대상 + 다중 선택된 다른 함선들) -->
+        <!-- 전체 선택 함선 리스트 빌드 (우클릭 대상 + 다중 선택된 다른 플레이어 함선들) -->
         <create_list name="$Ships" />
-        <append_to_list name="$Ships" exact="event.param.$object" />
+        <do_if value="@event.param.$object.isclass.ship and event.param.$object.isplayerowned">
+          <append_to_list name="$Ships" exact="event.param.$object" />
+        </do_if>
         <do_all exact="@event.param.$selectedplayerships.count" counter="$i">
           <set_value name="$SelShip" exact="event.param.$selectedplayerships.{$i}" />
-          <do_if value="not $Ships.indexof.{$SelShip}">
-            <append_to_list name="$Ships" exact="$SelShip" />
+          <do_if value="@$SelShip.isclass.ship and $SelShip.isplayerowned">
+            <do_if value="not $Ships.indexof.{$SelShip}">
+              <append_to_list name="$Ships" exact="$SelShip" />
+            </do_if>
           </do_if>
         </do_all>
 
-        <!-- Kuertee UI Extensions 그룹 등록 (함장 관리 대메뉴) -->
-        <set_value name="$section" exact="'actions_scm_group'" />
-        <raise_lua_event name="'Interact_Menu_API.Add_Custom_Actions_Group_Id'" param="'actions_scm_group'" />
-        <raise_lua_event name="'Interact_Menu_API.Add_Custom_Actions_Group_Text'" param="readtext.{98765}.{1}" />
+        <set_value name="$ShipsCount" exact="$Ships.count" />
+        <do_if value="$ShipsCount gt 0">
+          <!-- 단일 함선 선택 시 함장 존재 판별 -->
+          <set_value name="$SingleShipHasPilot" exact="false" />
+          <do_if value="$ShipsCount == 1">
+            <do_if value="@$Ships.{1}.pilot.exists">
+              <set_value name="$SingleShipHasPilot" exact="true" />
+            </do_if>
+          </do_if>
  
-         <!-- 단일 함선 선택 시 함장 존재 판별 -->
-         <set_value name="$ShipsCount" exact="$Ships.count" />
-         <set_value name="$SingleShipHasPilot" exact="false" />
-         <do_if value="$ShipsCount == 1">
-           <do_if value="@$Ships.{1}.pilot">
-             <set_value name="$SingleShipHasPilot" exact="true" />
-           </do_if>
-         </do_if>
+          <!-- 선택 함선 수에 따라 kuertee UI Extensions 섹션명 분기 결정 및 그룹 등록 (함장 관리 대메뉴) -->
+          <set_value name="$section" exact="if $ShipsCount gt 1 then 'orders_scm_group' else 'actions_scm_group'" />
+          <raise_lua_event name="'Interact_Menu_API.Add_Custom_Actions_Group_Id'" param="$section" />
+          <raise_lua_event name="'Interact_Menu_API.Add_Custom_Actions_Group_Text'" param="readtext.{98765}.{1}" />
+ 
+          <!-- 1. 함장 자동 할당 (id="2") -->
+          <set_value name="$AssignActive" exact="true" />
+          <set_value name="$AssignMouseover" exact="readtext.{98765}.{20}" />
+          <do_if value="$ShipsCount == 1 and $SingleShipHasPilot">
+            <set_value name="$AssignActive" exact="false" />
+            <set_value name="$AssignMouseover" exact="readtext.{98765}.{32}" />
+          </do_if>
+          <signal_cue_instantly
+            cue="md.Interact_Menu_API.Add_Action"
+            param="table[
+              $id       = 'scm_assign_pilot',
+              $section  = $section,
+              $text     = readtext.{98765}.{2},
+              $mouseover = $AssignMouseover,
+              $active   = $AssignActive,
+              $callback = scm_assign_callback,
+              ]" />
 
-        <!-- 1. 함장 자동 할당 (id="2") -->
-        <signal_cue_instantly
-          cue="md.Interact_Menu_API.Add_Action"
-          param="table[
-            $id       = 'scm_assign_pilot',
-            $section  = $section,
-            $text     = readtext.{98765}.{2},
-            $mouseover = readtext.{98765}.{20},
-            $callback = scm_assign_callback,
-            ]" />
+          <!-- 2. 함장 할당 해제 (id="3") -->
+          <set_value name="$UnassignActive" exact="true" />
+          <set_value name="$UnassignMouseover" exact="readtext.{98765}.{30}" />
+          <do_if value="$ShipsCount == 1 and not $SingleShipHasPilot">
+            <set_value name="$UnassignActive" exact="false" />
+            <set_value name="$UnassignMouseover" exact="readtext.{98765}.{31}" />
+          </do_if>
+          <signal_cue_instantly
+            cue="md.Interact_Menu_API.Add_Action"
+            param="table[
+              $id       = 'scm_unassign_pilot',
+              $section  = $section,
+              $text     = readtext.{98765}.{3},
+              $mouseover = $UnassignMouseover,
+              $active   = $UnassignActive,
+              $callback = scm_unassign_callback,
+              ]" />
 
-        <!-- 2. 함장 할당 해제 (id="3") -->
-        <set_value name="$UnassignActive" exact="true" />
-        <set_value name="$UnassignMouseover" exact="readtext.{98765}.{30}" />
-        <do_if value="$ShipsCount == 1 and not $SingleShipHasPilot">
-          <set_value name="$UnassignActive" exact="false" />
-          <set_value name="$UnassignMouseover" exact="readtext.{98765}.{31}" />
+          <!-- 3. 함장 해고 (id="4") -->
+          <set_value name="$FireActive" exact="true" />
+          <set_value name="$FireMouseover" exact="readtext.{98765}.{40}" />
+          <do_if value="$ShipsCount == 1 and not $SingleShipHasPilot">
+            <set_value name="$FireActive" exact="false" />
+            <set_value name="$FireMouseover" exact="readtext.{98765}.{41}" />
+          </do_if>
+          <signal_cue_instantly
+            cue="md.Interact_Menu_API.Add_Action"
+            param="table[
+              $id       = 'scm_fire_pilot',
+              $section  = $section,
+              $text     = readtext.{98765}.{4},
+              $mouseover = $FireMouseover,
+              $active   = $FireActive,
+              $callback = scm_fire_callback,
+              ]" />
+ 
+          <!-- 4. 미배정 인원 채우기 (id="5") -->
+          <do_if value="$ShipsCount == 1">
+            <set_value name="$FillActive" exact="true" />
+            <set_value name="$FillMouseover" exact="readtext.{98765}.{50}" />
+            <do_if value="$Ships.{1}.people.free le 0">
+              <set_value name="$FillActive" exact="false" />
+            </do_if>
+            <signal_cue_instantly
+              cue="md.Interact_Menu_API.Add_Action"
+              param="table[
+                $id       = 'scm_fill_unassigned',
+                $section  = $section,
+                $text     = readtext.{98765}.{6},
+                $mouseover = $FillMouseover,
+                $active   = $FillActive,
+                $callback = scm_fill_unassigned_callback,
+                ]" />
+          </do_if>
+ 
+          <!-- 5. 세미나 일괄 사용 (id="6") -->
+          <set_value name="$SeminarActive" exact="false" />
+          <set_value name="$SeminarMouseover" exact="readtext.{98765}.{51}" />
+          <do_all exact="$Ships.count" counter="$i">
+            <do_if value="@$Ships.{$i}.pilot.exists">
+              <set_value name="$SeminarActive" exact="true" />
+            </do_if>
+          </do_all>
+          <do_if value="not $SeminarActive">
+            <set_value name="$SeminarMouseover" exact="readtext.{98765}.{52}" />
+          </do_if>
+          <signal_cue_instantly
+            cue="md.Interact_Menu_API.Add_Action"
+            param="table[
+              $id       = 'scm_use_seminar',
+              $section  = $section,
+              $text     = readtext.{98765}.{7},
+              $mouseover = $SeminarMouseover,
+              $active   = $SeminarActive,
+              $callback = scm_use_seminar_callback,
+              ]" />
         </do_if>
-        <signal_cue_instantly
-          cue="md.Interact_Menu_API.Add_Action"
-          param="table[
-            $id       = 'scm_unassign_pilot',
-            $section  = $section,
-            $text     = readtext.{98765}.{3},
-            $mouseover = $UnassignMouseover,
-            $active   = $UnassignActive,
-            $callback = scm_unassign_callback,
-            ]" />
-
-        <!-- 3. 함장 해고 (id="4") -->
-        <set_value name="$FireActive" exact="true" />
-        <set_value name="$FireMouseover" exact="readtext.{98765}.{40}" />
-        <do_if value="$ShipsCount == 1 and not $SingleShipHasPilot">
-          <set_value name="$FireActive" exact="false" />
-          <set_value name="$FireMouseover" exact="readtext.{98765}.{41}" />
-        </do_if>
-        <signal_cue_instantly
-          cue="md.Interact_Menu_API.Add_Action"
-          param="table[
-            $id       = 'scm_fire_pilot',
-            $section  = $section,
-            $text     = readtext.{98765}.{4},
-            $mouseover = $FireMouseover,
-             $active   = $FireActive,
-             $callback = scm_fire_callback,
-             ]" />
- 
-         <!-- 4. 미배정 인원 채우기 (id="5") -->
-         <do_if value="$ShipsCount == 1">
-           <set_value name="$FillActive" exact="true" />
-           <set_value name="$FillMouseover" exact="readtext.{98765}.{50}" />
-           <do_if value="$Ships.{1}.people.free le 0">
-             <set_value name="$FillActive" exact="false" />
-           </do_if>
-           <signal_cue_instantly
-             cue="md.Interact_Menu_API.Add_Action"
-             param="table[
-               $id       = 'scm_fill_unassigned',
-               $section  = $section,
-               $text     = readtext.{98765}.{6},
-               $mouseover = $FillMouseover,
-               $active   = $FillActive,
-               $callback = scm_fill_unassigned_callback,
-               ]" />
-         </do_if>
- 
-         <!-- 5. 세미나 일괄 사용 (id="6") -->
-         <set_value name="$SeminarActive" exact="false" />
-         <do_all exact="$Ships.count" counter="$i">
-           <do_if value="@$Ships.{$i}.pilot">
-             <set_value name="$SeminarActive" exact="true" />
-           </do_if>
-         </do_all>
-         <signal_cue_instantly
-           cue="md.Interact_Menu_API.Add_Action"
-           param="table[
-             $id       = 'scm_use_seminar',
-             $section  = $section,
-             $text     = readtext.{98765}.{7},
-             $mouseover = readtext.{98765}.{51},
-             $active   = $SeminarActive,
-             $callback = scm_use_seminar_callback,
-             ]" />
- 
-       </actions>
+      </actions>
      </cue>
 
 
