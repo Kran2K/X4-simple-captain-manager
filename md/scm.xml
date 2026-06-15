@@ -596,6 +596,7 @@
 
         <set_value name="$SuccessCount" exact="0" />
         <set_value name="$Used_0" exact="0" />
+        <set_value name="$Used_1" exact="0" />
         <set_value name="$Used_2" exact="0" />
         <set_value name="$Used_3" exact="0" />
         <set_value name="$Used_4" exact="0" />
@@ -608,32 +609,33 @@
             
             <do_if value="$Piloting lt 15">
               <set_value name="$TargetSeminar" exact="null" />
-              <set_value name="$TargetSkillVal" exact="0" />
+              <set_value name="$TargetSkillVal" exact="if ($Piloting + 3) gt 15 then 15 else ($Piloting + 3)" />
               <set_value name="$SeminarIndex" exact="-1" />
 
-              <!-- 사용자의 조종 세미나 매핑 규칙 적용 -->
-              <do_if value="$Piloting lt 6">
-                <!-- 2성 미만 -> 2성으로 만들기 위해 기본 세미나 필요 -->
+              <!-- 실제 바닐라 세미나 매핑 규칙 적용 (5단계) -->
+              <do_if value="$Piloting lt 3">
+                <!-- 1성 미만 -> 기본 조종 세미나 -->
                 <set_value name="$TargetSeminar" exact="ware.inv_seminar_piloting_0" />
-                <set_value name="$TargetSkillVal" exact="6" />
                 <set_value name="$SeminarIndex" exact="0" />
               </do_if>
+              <do_elseif value="$Piloting ge 3 and $Piloting lt 6">
+                <!-- 1성대 -> 1성 조종 세미나 -->
+                <set_value name="$TargetSeminar" exact="ware.inv_seminar_piloting_1" />
+                <set_value name="$SeminarIndex" exact="1" />
+              </do_elseif>
               <do_elseif value="$Piloting ge 6 and $Piloting lt 9">
-                <!-- 2성 이상 3성 미만 -> 3성으로 만들기 위해 2성 세미나 필요 -->
+                <!-- 2성대 -> 2성 조종 세미나 -->
                 <set_value name="$TargetSeminar" exact="ware.inv_seminar_piloting_2" />
-                <set_value name="$TargetSkillVal" exact="9" />
                 <set_value name="$SeminarIndex" exact="2" />
               </do_elseif>
               <do_elseif value="$Piloting ge 9 and $Piloting lt 12">
-                <!-- 3성 이상 4성 미만 -> 4성으로 만들기 위해 3성 세미나 필요 -->
+                <!-- 3성대 -> 3성 조종 세미나 -->
                 <set_value name="$TargetSeminar" exact="ware.inv_seminar_piloting_3" />
-                <set_value name="$TargetSkillVal" exact="12" />
                 <set_value name="$SeminarIndex" exact="3" />
               </do_elseif>
               <do_elseif value="$Piloting ge 12 and $Piloting lt 15">
-                <!-- 4성 이상 5성 미만 -> 5성으로 만들기 위해 4성 세미나 필요 -->
+                <!-- 4성대 -> 4성 조종 세미나 -->
                 <set_value name="$TargetSeminar" exact="ware.inv_seminar_piloting_4" />
-                <set_value name="$TargetSkillVal" exact="15" />
                 <set_value name="$SeminarIndex" exact="4" />
               </do_elseif>
 
@@ -646,6 +648,9 @@
                 
                 <do_if value="$SeminarIndex == 0">
                   <set_value name="$Used_0" exact="$Used_0 + 1" />
+                </do_if>
+                <do_if value="$SeminarIndex == 1">
+                  <set_value name="$Used_1" exact="$Used_1 + 1" />
                 </do_if>
                 <do_if value="$SeminarIndex == 2">
                   <set_value name="$Used_2" exact="$Used_2 + 1" />
@@ -665,8 +670,8 @@
 
         <!-- 결과 피드백 작성 -->
         <do_if value="$SuccessCount gt 0">
-          <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{25}.[$SuccessCount, $Used_0, $Used_2, $Used_3, $Used_4]" post="true" />
-          <show_notification text="readtext.{98765}.{25}.[$SuccessCount, $Used_0, $Used_2, $Used_3, $Used_4]" timeout="6s" />
+          <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{25}.[$SuccessCount, $Used_0, $Used_1, $Used_2, $Used_3, $Used_4]" post="true" />
+          <show_notification text="readtext.{98765}.{25}.[$SuccessCount, $Used_0, $Used_1, $Used_2, $Used_3, $Used_4]" timeout="6s" />
         </do_if>
       </actions>
     </cue>
