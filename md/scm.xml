@@ -9,93 +9,101 @@
     <cue name="scm_get_actions" instantiate="true">
       <conditions>
         <event_cue_signalled cue="@md.Interact_Menu_API.Get_Actions" />
-        <check_value value="@event.param.$object.isclass.ship" />
+        <check_value value="@event.param.$object.isclass.ship or @event.param.$object.isclass.station" />
         <check_value value="@event.param.$object.isplayerowned" />
       </conditions>
       <actions>
-        <!-- Build list of selected ships (right-clicked ship + other selected player-owned ships) -->
+        <!-- Build list of selected ships (right-clicked object + other selected player-owned ships) -->
         <create_list name="$Ships" />
-        <do_if value="@event.param.$object.isclass.ship and event.param.$object.isplayerowned">
+        <set_value name="$IsStation" exact="event.param.$object.isclass.station" />
+        
+        <do_if value="(@event.param.$object.isclass.ship or @event.param.$object.isclass.station) and event.param.$object.isplayerowned">
           <append_to_list name="$Ships" exact="event.param.$object" />
         </do_if>
-        <do_all exact="@event.param.$selectedplayerships.count" counter="$i">
-          <set_value name="$SelShip" exact="event.param.$selectedplayerships.{$i}" />
-          <do_if value="@$SelShip.isclass.ship and $SelShip.isplayerowned">
-            <do_if value="not $Ships.indexof.{$SelShip}">
-              <append_to_list name="$Ships" exact="$SelShip" />
+        
+        <!-- Only gather selected ships if the main target is not a station -->
+        <do_if value="not $IsStation">
+          <do_all exact="@event.param.$selectedplayerships.count" counter="$i">
+            <set_value name="$SelShip" exact="event.param.$selectedplayerships.{$i}" />
+            <do_if value="@$SelShip.isclass.ship and $SelShip.isplayerowned">
+              <do_if value="not $Ships.indexof.{$SelShip}">
+                <append_to_list name="$Ships" exact="$SelShip" />
+              </do_if>
             </do_if>
-          </do_if>
-        </do_all>
-
+          </do_all>
+        </do_if>
+ 
         <set_value name="$ShipsCount" exact="$Ships.count" />
         <do_if value="$ShipsCount gt 0">
-          <!-- Determine if a pilot exists when a single ship is selected -->
-          <set_value name="$SingleShipHasPilot" exact="false" />
-          <do_if value="$ShipsCount == 1">
-            <do_if value="@$Ships.{1}.pilot.exists">
-              <set_value name="$SingleShipHasPilot" exact="true" />
-            </do_if>
-          </do_if>
- 
           <!-- Determine Kuertee UI Extensions section name based on selection count and register group (Captain Management main menu) -->
           <set_value name="$section" exact="if $ShipsCount gt 1 then 'orders_scm_group' else 'actions_scm_group'" />
           <raise_lua_event name="'Interact_Menu_API.Add_Custom_Actions_Group_Id'" param="$section" />
           <raise_lua_event name="'Interact_Menu_API.Add_Custom_Actions_Group_Text'" param="readtext.{98765}.{1}" />
  
-          <!-- 1. Auto Assign Captain (id="2") -->
-          <set_value name="$AssignActive" exact="true" />
-          <set_value name="$AssignMouseover" exact="readtext.{98765}.{20}" />
-          <do_if value="$ShipsCount == 1 and $SingleShipHasPilot">
-            <set_value name="$AssignActive" exact="false" />
-            <set_value name="$AssignMouseover" exact="readtext.{98765}.{32}" />
-          </do_if>
-          <signal_cue_instantly
-            cue="md.Interact_Menu_API.Add_Action"
-            param="table[
-              $id       = 'scm_assign_pilot',
-              $section  = $section,
-              $text     = readtext.{98765}.{2},
-              $mouseover = $AssignMouseover,
-              $active   = $AssignActive,
-              $callback = scm_assign_callback,
-              ]" />
+          <do_if value="not $IsStation">
+            <!-- Determine if a pilot exists when a single ship is selected -->
+            <set_value name="$SingleShipHasPilot" exact="false" />
+            <do_if value="$ShipsCount == 1">
+              <do_if value="@$Ships.{1}.pilot.exists">
+                <set_value name="$SingleShipHasPilot" exact="true" />
+              </do_if>
+            </do_if>
 
-          <!-- 2. Dismiss Captain (id="3") -->
-          <set_value name="$UnassignActive" exact="true" />
-          <set_value name="$UnassignMouseover" exact="readtext.{98765}.{30}" />
-          <do_if value="$ShipsCount == 1 and not $SingleShipHasPilot">
-            <set_value name="$UnassignActive" exact="false" />
-            <set_value name="$UnassignMouseover" exact="readtext.{98765}.{31}" />
+            <!-- 1. Auto Assign Captain (id="2") -->
+            <set_value name="$AssignActive" exact="true" />
+            <set_value name="$AssignMouseover" exact="readtext.{98765}.{20}" />
+            <do_if value="$ShipsCount == 1 and $SingleShipHasPilot">
+              <set_value name="$AssignActive" exact="false" />
+              <set_value name="$AssignMouseover" exact="readtext.{98765}.{32}" />
+            </do_if>
+            <signal_cue_instantly
+              cue="md.Interact_Menu_API.Add_Action"
+              param="table[
+                $id       = 'scm_assign_pilot',
+                $section  = $section,
+                $text     = readtext.{98765}.{2},
+                $mouseover = $AssignMouseover,
+                $active   = $AssignActive,
+                $callback = scm_assign_callback,
+                ]" />
+  
+            <!-- 2. Dismiss Captain (id="3") -->
+            <set_value name="$UnassignActive" exact="true" />
+            <set_value name="$UnassignMouseover" exact="readtext.{98765}.{30}" />
+            <do_if value="$ShipsCount == 1 and not $SingleShipHasPilot">
+              <set_value name="$UnassignActive" exact="false" />
+              <set_value name="$UnassignMouseover" exact="readtext.{98765}.{31}" />
+            </do_if>
+            <signal_cue_instantly
+              cue="md.Interact_Menu_API.Add_Action"
+              param="table[
+                $id       = 'scm_unassign_pilot',
+                $section  = $section,
+                $text     = readtext.{98765}.{3},
+                $mouseover = $UnassignMouseover,
+                $active   = $UnassignActive,
+                $callback = scm_unassign_callback,
+                ]" />
+  
+            <!-- 3. Fire Captain (id="4") -->
+            <set_value name="$FireActive" exact="true" />
+            <set_value name="$FireMouseover" exact="readtext.{98765}.{40}" />
+            <do_if value="$ShipsCount == 1 and not $SingleShipHasPilot">
+              <set_value name="$FireActive" exact="false" />
+              <set_value name="$FireMouseover" exact="readtext.{98765}.{41}" />
+            </do_if>
+            <signal_cue_instantly
+              cue="md.Interact_Menu_API.Add_Action"
+              param="table[
+                $id       = 'scm_fire_pilot',
+                $section  = $section,
+                $text     = readtext.{98765}.{4},
+                $mouseover = $FireMouseover,
+                $active   = $FireActive,
+                $callback = scm_fire_callback,
+                ]" />
           </do_if>
-          <signal_cue_instantly
-            cue="md.Interact_Menu_API.Add_Action"
-            param="table[
-              $id       = 'scm_unassign_pilot',
-              $section  = $section,
-              $text     = readtext.{98765}.{3},
-              $mouseover = $UnassignMouseover,
-              $active   = $UnassignActive,
-              $callback = scm_unassign_callback,
-              ]" />
-
-          <!-- 3. Fire Captain (id="4") -->
-          <set_value name="$FireActive" exact="true" />
-          <set_value name="$FireMouseover" exact="readtext.{98765}.{40}" />
-          <do_if value="$ShipsCount == 1 and not $SingleShipHasPilot">
-            <set_value name="$FireActive" exact="false" />
-            <set_value name="$FireMouseover" exact="readtext.{98765}.{41}" />
-          </do_if>
-          <signal_cue_instantly
-            cue="md.Interact_Menu_API.Add_Action"
-            param="table[
-              $id       = 'scm_fire_pilot',
-              $section  = $section,
-              $text     = readtext.{98765}.{4},
-              $mouseover = $FireMouseover,
-              $active   = $FireActive,
-              $callback = scm_fire_callback,
-              ]" />
- 
+  
           <!-- 4. Transfer Unassigned Crew (id="5") -->
           <do_if value="$ShipsCount == 1">
             <set_value name="$FillActive" exact="true" />
@@ -114,53 +122,55 @@
                 $callback = scm_fill_unassigned_callback,
                 ]" />
           </do_if>
- 
-          <!-- 5. Batch Use Seminars (id="6") -->
-          <set_value name="$SeminarActive" exact="false" />
-          <set_value name="$SeminarMouseover" exact="readtext.{98765}.{51}" />
-          <do_all exact="$Ships.count" counter="$i">
-            <do_if value="@$Ships.{$i}.pilot.exists">
-              <set_value name="$SeminarActive" exact="true" />
+  
+          <do_if value="not $IsStation">
+            <!-- 5. Batch Use Seminars (id="6") -->
+            <set_value name="$SeminarActive" exact="false" />
+            <set_value name="$SeminarMouseover" exact="readtext.{98765}.{51}" />
+            <do_all exact="$Ships.count" counter="$i">
+              <do_if value="@$Ships.{$i}.pilot.exists">
+                <set_value name="$SeminarActive" exact="true" />
+              </do_if>
+            </do_all>
+            <do_if value="not $SeminarActive">
+              <set_value name="$SeminarMouseover" exact="readtext.{98765}.{52}" />
             </do_if>
-          </do_all>
-          <do_if value="not $SeminarActive">
-            <set_value name="$SeminarMouseover" exact="readtext.{98765}.{52}" />
-          </do_if>
-          <signal_cue_instantly
-            cue="md.Interact_Menu_API.Add_Action"
-            param="table[
-              $id       = 'scm_use_seminar',
-              $section  = $section,
-              $text     = readtext.{98765}.{7},
-              $mouseover = $SeminarMouseover,
-              $active   = $SeminarActive,
-              $callback = scm_use_seminar_callback,
-              ]" />
-
-          <!-- 6. Batch Drop Cargo (id="8") -->
-          <set_value name="$DropCargoActive" exact="false" />
-          <set_value name="$DropCargoMouseover" exact="readtext.{98765}.{53}" />
-          <do_all exact="$Ships.count" counter="$i">
-            <do_if value="$Ships.{$i}.cargo.count gt 0">
-              <set_value name="$DropCargoActive" exact="true" />
+            <signal_cue_instantly
+              cue="md.Interact_Menu_API.Add_Action"
+              param="table[
+                $id       = 'scm_use_seminar',
+                $section  = $section,
+                $text     = readtext.{98765}.{7},
+                $mouseover = $SeminarMouseover,
+                $active   = $SeminarActive,
+                $callback = scm_use_seminar_callback,
+                ]" />
+  
+            <!-- 6. Batch Drop Cargo (id="8") -->
+            <set_value name="$DropCargoActive" exact="false" />
+            <set_value name="$DropCargoMouseover" exact="readtext.{98765}.{53}" />
+            <do_all exact="$Ships.count" counter="$i">
+              <do_if value="$Ships.{$i}.cargo.count gt 0">
+                <set_value name="$DropCargoActive" exact="true" />
+              </do_if>
+            </do_all>
+            <do_if value="not $DropCargoActive">
+              <set_value name="$DropCargoMouseover" exact="readtext.{98765}.{54}" />
             </do_if>
-          </do_all>
-          <do_if value="not $DropCargoActive">
-            <set_value name="$DropCargoMouseover" exact="readtext.{98765}.{54}" />
+            <signal_cue_instantly
+              cue="md.Interact_Menu_API.Add_Action"
+              param="table[
+                $id       = 'scm_drop_cargo',
+                $section  = $section,
+                $text     = readtext.{98765}.{8},
+                $mouseover = $DropCargoMouseover,
+                $active   = $DropCargoActive,
+                $callback = scm_drop_cargo_callback,
+                ]" />
           </do_if>
-          <signal_cue_instantly
-            cue="md.Interact_Menu_API.Add_Action"
-            param="table[
-              $id       = 'scm_drop_cargo',
-              $section  = $section,
-              $text     = readtext.{98765}.{8},
-              $mouseover = $DropCargoMouseover,
-              $active   = $DropCargoActive,
-              $callback = scm_drop_cargo_callback,
-              ]" />
         </do_if>
       </actions>
-     </cue>
+    </cue>
 
 
     <!-- ============================================================
@@ -532,7 +542,7 @@
       </conditions>
       <actions>
         <set_value name="$Ship" exact="event.param.$object" />
-        <do_if value="@$Ship.isclass.ship and $Ship.isplayerowned">
+        <do_if value="(@$Ship.isclass.ship or @$Ship.isclass.station) and $Ship.isplayerowned">
           <set_value name="$FreeSlots" exact="$Ship.people.free" />
           <do_if value="$FreeSlots gt 0">
             <!-- 1. Find player-owned ships and stations -->

@@ -15,11 +15,11 @@
     <t id="21">Dispensou o capitão de %2 estrelas [%3] da nave %1.</t>
     <t id="22">Demitiu o capitão de %2 estrelas [%3] da nave %1.</t>
     <t id="23">Atribuiu o capitão de %2 estrelas [%3] à nave %1.</t>
-    <t id="24">Transferiu %2 tripulantes não atribuídos para a nave %1.</t>
+    <t id="24">Transferidos %2 tripulantes não atribuídos para %1.</t>
     <t id="25">Treinamento com seminário concluído: %1 capitães promovidos. [Consumido: básico x%2, 1 estrela x%3, 2 estrelas x%4, 3 estrelas x%5, 4 estrelas x%6]</t>
     <t id="26">[Atenção] Para abrir espaço para o capitão dispensado na nave %1, o membro da tripulação menos qualificado (%2 estrelas [%3]) foi demitido automaticamente.</t>
     <t id="27">[Atenção] Falta de tripulação não atribuída; falha ao atribuir capitães a %1 das %2 naves solicitadas.</t>
-    <t id="28">Devido à capacidade limitada na nave %1, apenas %2 dos %3 tripulantes não atribuídos disponíveis foram transferidos.</t>
+    <t id="28">Devido à capacidade limitada em %1, apenas %2 de %3 tripulantes não atribuídos disponíveis foram transferidos.</t>
     <t id="29">[Atenção] Falta de tripulação não atribuída; falha ao atribuir um capitão à nave %1.</t>
     <t id="30">Dispensa o capitão e altera seu status para tripulação não atribuída.</t>
     <t id="31">Nenhum capitão para dispensar.</t>
@@ -29,7 +29,7 @@
     <t id="50">Preenche a nave com tripulação não atribuída com base na prioridade.</t>
     <t id="51">Treina capitães usando seminários de tripulação atualmente em seu inventário.</t>
     <t id="52">Nenhum capitão para treinar.</t>
-    <t id="33">[Aviso] Não há membros da tripulação não atribuídos disponíveis na galáxia para transferir para a nave %1.</t>
+    <t id="33">[Aviso] Não há membros da tripulação não atribuídos disponíveis na galáxia para transferir para %1.</t>
     <t id="8">Descartar Carga</t>
     <t id="34">Toda a carga (%2 tipos de mercadorias) da nave %1 foi descartada no espaço.</t>
     <t id="53">Descarta toda a carga no espaço.</t>

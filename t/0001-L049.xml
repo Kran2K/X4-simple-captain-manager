@@ -15,11 +15,11 @@
     <t id="21">%2-Sterne-Kapitän [%3] von Schiff %1 entlassen und zur ungewiesenen Besatzung verschoben.</t>
     <t id="22">%2-Sterne-Kapitän [%3] von Schiff %1 gefeuert.</t>
     <t id="23">%2-Sterne-Kapitän [%3] dem Schiff %1 zugewiesen.</t>
-    <t id="24">%2 ungewiesene Besatzungsmitglieder auf Schiff %1 übertragen.</t>
+    <t id="24">%2 nicht zugewiesene Besatzungsmitglieder auf %1 übertragen.</t>
     <t id="25">Seminarausbildung abgeschlossen: %1 Kapitäne befördert. [Verbraucht: Einfach x%2, 1-Stern x%3, 2-Sterne x%4, 3-Sterne x%5, 4-Sterne x%6]</t>
     <t id="26">[Warnung] Um Platz für den entlassenen Kapitän auf Schiff %1 zu schaffen, wurde das am wenigsten qualifizierte Besatzungsmitglied (%2-Sterne [%3]) automatisch gefeuert.</t>
     <t id="27">[Warnung] Mangel an ungewiesener Besatzung; Zuweisung von Kapitänen an %1 von %2 angeforderten Schiffen fehlgeschlagen.</t>
-    <t id="28">Aufgrund begrenzter Kapazität auf Schiff %1 wurden nur %2 von %3 verfügbaren ungewiesenen Besatzungsmitgliedern übertragen.</t>
+    <t id="28">Aufgrund begrenzter Kapazität auf %1 wurden nur %2 von %3 verfügbaren nicht zugewiesenen Besatzungsmitgliedern übertragen.</t>
     <t id="29">[Warnung] Mangel an ungewiesener Besatzung; Zuweisung eines Kapitäns an Schiff %1 fehlgeschlagen.</t>
     <t id="30">Entlässt den Kapitän und ändert seinen Status in ungewiesene Besetzung.</t>
     <t id="31">Kein Kapitän zum Entlassen vorhanden.</t>
@@ -29,7 +29,7 @@
     <t id="50">Füllt das Schiff mit ungewiesener Besatzung nach Priorität.</t>
     <t id="51">Kapitäne mit Crew-Seminaren aus dem Inventar ausbilden.</t>
     <t id="52">Keine Kapitäne zum Ausbilden vorhanden.</t>
-    <t id="33">[Warnung] Es gibt keine nicht zugewiesenen Besatzungsmitglieder in der Galaxie, die auf das Schiff %1 übertragen werden können.</t>
+    <t id="33">[Warnung] Es gibt keine nicht zugewiesenen Besatzungsmitglieder in der Galaxie, die auf %1 übertragen werden können.</t>
     <t id="8">Fracht auswerfen</t>
     <t id="34">Alle Frachten (%2 Warensorten) von Schiff %1 wurden in den Weltraum ausgeworfen.</t>
     <t id="53">Wirft alle Frachten in den Weltraum aus.</t>

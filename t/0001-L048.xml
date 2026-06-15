@@ -15,11 +15,11 @@
     <t id="21">Odwołano %2-gwiazdkowego kapitana [%3] ze statku %1 i przeniesiono do nieprzypisanych.</t>
     <t id="22">Zwolniono %2-gwiazdkowego kapitana [%3] ze statku %1.</t>
     <t id="23">Przypisano %2-gwiazdkowego kapitana [%3] do statku %1.</t>
-    <t id="24">Przeniesiono %2 nieprzypisanych członków załogi na statek %1.</t>
+    <t id="24">Przeniesiono %2 nieprzypisanych członków załogi na %1.</t>
     <t id="25">Szkolenie ukończone: awansowano %1 kapitanów. [Zużyto: podstawowe x%2, 1-gwiazdkowe x%3, 2-gwiazdkowe x%4, 3-gwiazdkowe x%5, 4-gwiazdkowe x%6]</t>
     <t id="26">[Ostrzeżenie] Aby zrobić miejsce dla odwołanego kapitana na statku %1, najmniej wykwalifikowany członek załogi (%2-gwiazdkowy [%3]) został automatycznie zwolniony.</t>
     <t id="27">[Ostrzeżenie] Brak nieprzypisanej załogi; nie udało się przypisać kapitanów do %1 z %2 żądanych statków.</t>
-    <t id="28">Ze względu na ograniczoną pojemność statku %1 przeniesiono tylko %2 z %3 dostępnych nieprzypisanych członków załogi.</t>
+    <t id="28">Z powodu ograniczonej pojemności na %1 przeniesiono tylko %2 z %3 dostępnych nieprzypisanych członków załogi.</t>
     <t id="29">[Ostrzeżenie] Brak nieprzypisanej załogi; nie udało się przypisać kapitana do statku %1.</t>
     <t id="30">Odwołuje kapitana i przenosi go do nieprzypisanej załogi.</t>
     <t id="31">Brak kapitana do odwołania.</t>
@@ -29,7 +29,7 @@
     <t id="50">Zapełnia statek nieprzypisaną załogą na podstawie priorytetu.</t>
     <t id="51">Szkol kapitanów przy użyciu seminariów dla załogi ze swojego ekwipunku.</t>
     <t id="52">Brak kapitanów do szkolenia.</t>
-    <t id="33">[Ostrzeżenie] W galaktyce nie ma dostępnych nieprzypisanych członków załogi, których można by przenieść na statek %1.</t>
+    <t id="33">[Ostrzeżenie] W galaktyce nie ma dostępnych nieprzypisanych członków załogi, których można by przenieść na %1.</t>
     <t id="8">Wyrzuć ładunek</t>
     <t id="34">Cały ładunek (%2 rodzajów towarów) statku %1 został wyrzucony w przestrzeń kosmiczną.</t>
     <t id="53">Wyrzuca cały ładunek w przestrzeń kosmiczną.</t>

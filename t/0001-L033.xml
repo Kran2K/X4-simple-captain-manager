@@ -15,11 +15,11 @@
     <t id="21">Capitaine [%3] [%2 étoiles] du vaisseau %1 démis et déplacé vers l'équipage non assigné.</t>
     <t id="22">Capitaine [%3] [%2 étoiles] du vaisseau %1 licencié.</t>
     <t id="23">Capitaine [%3] [%2 étoiles] assigné au vaisseau %1.</t>
-    <t id="24">Transféré %2 équipages non assignés vers le vaisseau %1.</t>
+    <t id="24">Transfert de %2 membres d'équipage non assignés vers %1.</t>
     <t id="25">Formation terminée : %1 capitaines promus. [Consommé : basique x%2, 1-étoile x%3, 2-étoiles x%4, 3-étoiles x%5, 4-étoiles x%6]</t>
     <t id="26">[Attention] Pour faire de la place au capitaine démis sur le vaisseau %1, le membre d'équipage le moins qualifié (%2 étoiles [%3]) a été automatiquement licencié.</t>
     <t id="27">[Attention] Manque d'équipage non assigné ; échec de l'assignation des capitaines à %1 des %2 vaisseaux demandés.</t>
-    <t id="28">En raison d'une capacité limitée sur le vaisseau %1, seuls %2 membres d'équipage non assignés sur %3 disponibles ont été transférés.</t>
+    <t id="28">En raison de la capacité limitée sur %1, seuls %2 sur %3 membres d'équipage non assignés disponibles ont été transférés.</t>
     <t id="29">[Attention] Manque d'équipage non assigné ; échec de l'assignation d'un capitaine au vaisseau %1.</t>
     <t id="30">Démet le capitaine de ses fonctions et change son statut en équipage non assigné.</t>
     <t id="31">Aucun capitaine à démettre de ses fonctions.</t>
@@ -29,7 +29,7 @@
     <t id="50">Remplit le vaisseau avec l'équipage non assigné selon la priorité.</t>
     <t id="51">Former les capitaines en utilisant les séminaires d'équipage de votre inventaire.</t>
     <t id="52">Aucun capitaine à former.</t>
-    <t id="33">[Attention] Il n'y a pas de membres d'équipage non assignés disponibles dans la galaxie à transférer sur le vaisseau %1.</t>
+    <t id="33">[Attention] Il n'y a pas de membres d'équipage non assignés disponibles dans la galaxie à transférer sur %1.</t>
     <t id="8">Larguer la cargaison</t>
     <t id="34">Toute la cargaison (%2 types de marchandises) du vaisseau %1 a été larguée dans l'espace.</t>
     <t id="53">Largue toute la cargaison dans l'espace.</t>
