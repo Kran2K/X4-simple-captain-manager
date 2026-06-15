@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language id="55">
+  <page id="98765" title="Simple Captain Manager Texts">
+    <t id="1">Gerenciamento de Capitão</t>
+    <t id="2">Atribuir Capitão Automatically</t>
+    <t id="3">Dispensar Capitão</t>
+    <t id="4">Demitir Capitão</t>
+    <t id="5">Fornece opções para gerenciar os capitães das naves selecionadas no menu de contexto.</t>
+    <t id="6">Transferir Tripulação não Atribuída</t>
+    <t id="7">Usar Seminários</t>
+    <t id="11">Capitão %1 dispensado.</t>
+    <t id="12">Capitão atribuído à nave %1.</t>
+    <t id="13">Capitão %1 demitido.</t>
+    <t id="20">Atribui automaticamente tripulação não atribuída como capitães com base na prioridade.</t>
+    <t id="21">Dispensou o capitão da nave %1.</t>
+    <t id="22">Demitiu o capitão %2 da nave %1.</t>
+    <t id="23">Atribuiu o capitão de %2 estrelas %3 à nave %1.</t>
+    <t id="24">Transferiu %2 tripulantes não atribuídos para a nave %1.</t>
+    <t id="25">Treinamento com seminário concluído: %1 capitães promovidos. (Consumido: básico x%2, 1 estrela x%3, 2 estrelas x%4, 3 estrelas x%5, 4 estrelas x%6)</t>
+    <t id="30">Dispensa o capitão e altera seu status para tripulação não atribuída.</t>
+    <t id="31">Nenhum capitão para dispensar.</t>
+    <t id="32">Um capitão já está atribuído a esta nave.</t>
+    <t id="40">Demite imediatamente o capitão.</t>
+    <t id="41">Nenhum capitão para demitir.</t>
+    <t id="50">Preenche a nave com tripulação não atribuída com base na prioridade.</t>
+    <t id="51">Treina capitães usando seminários de tripulação (pilotagem) atualmente em seu inventário.</t>
+    <t id="52">Nenhum capitão para treinar.</t>
+  </page>
+</language>

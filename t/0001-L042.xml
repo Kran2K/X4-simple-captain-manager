@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language id="42">
+  <page id="98765" title="Simple Captain Manager Texts">
+    <t id="1">Správa kapitánů</t>
+    <t id="2">Automaticky přiřadit kapitána</t>
+    <t id="3">Propustit kapitána</t>
+    <t id="4">Vyhodit kapitána</t>
+    <t id="5">Nabízí možnosti pro správu kapitánů vybraných lodí z kontextové nabídky.</t>
+    <t id="6">Převést nepřiřazenou posádku</t>
+    <t id="7">Použít semináře</t>
+    <t id="11">Kapitán %1 propuštěn.</t>
+    <t id="12">Kapitán přiřazen k lodi %1.</t>
+    <t id="13">Kapitán %1 vyhozen.</t>
+    <t id="20">Automaticky přiřadí nepřiřazenou posádku jako kapitány na základě priority.</t>
+    <t id="21">Propuštěn kapitán lodi %1.</t>
+    <t id="22">Vyhoden kapitán %2 z lodi %1.</t>
+    <t id="23">Přiřazen %2hvězdičkový kapitán %3 k lodi %1.</t>
+    <t id="24">Převedeno %2 nepřiřazených členů posádky na loď %1.</t>
+    <t id="25">Školení semináře dokončeno: %1 kapitáni povýšeni. (Spotřebováno: základní x%2, 1hvězdičkový x%3, 2hvězdičkový x%4, 3hvězdičkový x%5, 4hvězdičkový x%6)</t>
+    <t id="30">Propustí kapitána a změní jeho stav na nepřiřazenou posádku.</t>
+    <t id="31">Žádný kapitán k propuštění.</t>
+    <t id="32">Kapitán je již k této lodi přiřazen.</t>
+    <t id="40">Okamžitě vyhodí kapitána.</t>
+    <t id="41">Žádný kapitán k vyhození.</t>
+    <t id="50">Naplní loď nepřiřazenou posádkou na základě priority.</t>
+    <t id="51">Vyškolí kapitány pomocí seminářů posádky (pilotování), které máte aktuálně v inventáři.</t>
+    <t id="52">Žádný kapitán k vyškolení.</t>
+  </page>
+</language>
