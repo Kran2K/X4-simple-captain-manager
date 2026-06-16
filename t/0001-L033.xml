@@ -72,6 +72,7 @@
     <t id="164">Consomme les séminaires de base à 1 étoile pour atteindre 2 étoiles. (Conserve les séminaires 2, 3 et 4 étoiles)</t>
     <t id="165">Consomme les séminaires de base pour atteindre 1 étoile. (Conserve les séminaires 1, 2, 3 et 4 étoiles)</t>
     <t id="190">Le vaisseau ou la station cible n'a plus de place disponible.</t>
-    <t id="35">[Attention] L'équipage du vaisseau est complet. Pour faire de la place au capitaine destitué, le membre d'équipage le moins qualifié sera automatiquement licencié.</t>
+    <t id="35">L'équipage du vaisseau est complet. Pour faire de la place au capitaine destitué, le membre d'équipage le moins qualifié sera automatiquement licencié.</t>
+    <t id="36">L'équipage de certains vaisseaux est complet. Pour faire de la place aux capitaines destitués, le membre d'équipage le moins qualifié sur ces vaisseaux sera automatiquement licencié.</t>
   </page>
 </language>

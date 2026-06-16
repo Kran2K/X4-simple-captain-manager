@@ -72,6 +72,7 @@
     <t id="164">Consume seminarios básicos hasta 1 estrella para alcanzar 2 estrellas. (Guarda seminarios de 2, 3 y 4 estrellas)</t>
     <t id="165">Consume seminarios básicos para alcanzar 1 estrella. (Guarda seminarios de 1, 2, 3 y 4 estrellas)</t>
     <t id="190">La nave o estación objetivo no tiene espacio libre.</t>
-    <t id="35">[Advertencia] La tripulación de la nave está completa. Para hacer espacio para el capitán destituido, el tripulante con menor cualificación será despedido automáticamente.</t>
+    <t id="35">La tripulación de la nave está completa. Para hacer espacio para el capitán destituido, el tripulante con menor cualificación será despedido automáticamente.</t>
+    <t id="36">La tripulación de algunas naves está completa. Para hacer espacio para los capitanes destituidos, el tripulante con menor cualificación en esas naves será despedido automáticamente.</t>
   </page>
 </language>

@@ -72,6 +72,7 @@
     <t id="164">Verbraucht Seminare von Basis bis 1 Stern, um 2-Sterne-Fertigkeit zu erreichen. (Spart 2, 3 und 4-Sterne-Seminare)</t>
     <t id="165">Verbraucht Grundseminare, um 1-Sterne-Fertigkeit zu erreichen. (Spart 1, 2, 3 und 4-Sterne-Seminare)</t>
     <t id="190">Das Zielschiff oder die Zielstation hat keinen freien Platz.</t>
-    <t id="35">[Warnung] Die Schiffsbesatzung ist voll. Um Platz für den entlassenen Kapitän zu schaffen, wird das Besatzungsmitglied mit den geringsten Fähigkeiten automatisch gefeuert.</t>
+    <t id="35">Die Schiffsbesatzung ist voll. Um Platz für den entlassenen Kapitän zu schaffen, wird das Besatzungsmitglied mit den geringsten Fähigkeiten automatisch gefeuert.</t>
+    <t id="36">Einige Schiffe sind voll besetzt. Um Platz für die entlassenen Kapitäne zu schaffen, wird das Besatzungsmitglied mit den geringsten Fähigkeiten auf diesen Schiffen automatisch gefeuert.</t>
   </page>
 </language>

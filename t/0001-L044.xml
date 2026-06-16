@@ -72,6 +72,7 @@
     <t id="164">Sequentially consumes basic to 1-star seminars to train piloting skill up to 2-star. (Saves 2, 3 and 4-star seminars)</t>
     <t id="165">Sequentially consumes basic seminars to train piloting skill up to 1-star. (Saves 1, 2, 3 and 4-star seminars)</t>
     <t id="190">The target ship or station has no free space.</t>
-    <t id="35">[Warning] The ship's crew quarters are full. To make room for the dismissed captain, the lowest-skilled crew member will be automatically fired.</t>
+    <t id="35">The ship's crew quarters are full. To make room for the dismissed captain, the lowest-skilled crew member will be automatically fired.</t>
+    <t id="36">Some ships have full crew quarters. To make room for the dismissed captains, the lowest-skilled crew member on those ships will be automatically fired.</t>
   </page>
 </language>
