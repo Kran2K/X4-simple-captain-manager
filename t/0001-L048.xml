@@ -75,12 +75,7 @@
     <t id="305">Przypisano %2-gwiazdkowego kapitana [%3] do statku %1.</t>
     <t id="306">Przeniesiono %2 nieprzypisanych członków załogi na %1.</t>
     <t id="307">Szkolenie ukończone: awansowano %1 kapitanów. [Zużyto: podstawowe x%2, 1-gwiazdkowe x%3, 2-gwiazdkowe x%4, 3-gwiazdkowe x%5, 4-gwiazdkowe x%6]</t>
-    <t id="308">[Ostrzeżenie] Aby zrobić miejsce dla odwołanego kapitana na statku %1, najmniej wykwalifikowany członek załogi [%2-gwiazdkowy [%3]] został automatycznie zwolniony.</t>
-    <t id="309">[Ostrzeżenie] Brak nieprzypisanej załogi; nie udało się przypisać kapitanów do %1 z %2 żądanych statków.</t>
-    <t id="310">Z powodu ograniczonej pojemności na %1 przeniesiono tylko %2 z %3 dostępnych nieprzypisanych członków załogi.</t>
-    <t id="311">[Ostrzeżenie] Brak nieprzypisanej załogi; nie udało się przypisać kapitana do statku %1.</t>
-    <t id="312">[Ostrzeżenie] W galaktyce nie ma dostępnych nieprzypisanych członków załogi, których można by przenieść na %1.</t>
-    <t id="313">Cały ładunek [%2 rodzajów towarów] statku %1 został wyrzucony w przestrzeń kosmiczną.</t>
+    <t id="308">Cały ładunek [%2 rodzajów towarów] statku %1 został wyrzucony w przestrzeń kosmiczną.</t>
     <!-- Category H: Disabled Warning Tooltips (ID: 400 ~ 499) -->
     <t id="400">Brak kapitana do odwołania.</t>
     <t id="401">Kapitan jest już przypisany do tego statku.</t>

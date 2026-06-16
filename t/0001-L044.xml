@@ -75,12 +75,7 @@
     <t id="305">Assigned %2-star captain [%3] to ship %1.</t>
     <t id="306">Transferred %2 unassigned crew to %1.</t>
     <t id="307">Seminar training complete: Promoted %1 captains. [Consumed: basic x%2, 1-star x%3, 2-star x%4, 3-star x%5, 4-star x%6]</t>
-    <t id="308">[Warning] To make room for the dismissed captain on ship %1, the lowest skilled crew member [%2-star [%3]] was automatically fired.</t>
-    <t id="309">[Warning] Lack of unassigned crew; failed to assign captains to %1 of %2 requested ships.</t>
-    <t id="310">Due to limited capacity on %1, only %2 out of %3 available unassigned crew members were transferred.</t>
-    <t id="311">[Warning] Lack of unassigned crew; failed to assign a captain to ship %1.</t>
-    <t id="312">[Warning] There are no unassigned crew members available in the galaxy to transfer to %1.</t>
-    <t id="313">Ejected all cargo [%2 types of wares] of ship %1 into space.</t>
+    <t id="308">Ejected all cargo [%2 types of wares] of ship %1 into space.</t>
     <!-- Category H: Disabled Warning Tooltips (ID: 400 ~ 499) -->
     <t id="400">No captain to dismiss.</t>
     <t id="401">A captain is already assigned to this ship.</t>

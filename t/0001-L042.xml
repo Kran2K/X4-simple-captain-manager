@@ -75,12 +75,7 @@
     <t id="305">Přiřazen %2hvězdičkový kapitán [%3] k lodi %1.</t>
     <t id="306">Převedeno %2 nepřidělených členů posádky na %1.</t>
     <t id="307">Školení semináře dokončeno: %1 kapitáni povýšeni. [Spotřebováno: základní x%2, 1hvězdičkový x%3, 2hvězdičkový x%4, 3hvězdičkový x%5, 4hvězdičkový x%6]</t>
-    <t id="308">[Varování] Aby se uvolnilo místo pro propuštěného kapitána na lodi %1, byl nejméně kvalifikovaný člen posádky [%2hvězdičkový [%3]] automaticky vyhozen.</t>
-    <t id="309">[Varování] Nedostatek nepřiřazené posádky; nepodařilo se přiřadit kapitány k %1 z %2 požadovaných lodí.</t>
-    <t id="310">Vzhledem k omezené kapacitě na %1 bylo převedeno pouze %2 z %3 dostupných nepřidělených členů posádky.</t>
-    <t id="311">[Varování] Nedostatek nepřiřazené posádky; nepodařilo se přiřadit kapitána k lodi %1.</t>
-    <t id="312">[Varování] V galaxii nejsou k dispozici žádní nepřidělení členové posádky, které by bylo možné převést na %1.</t>
-    <t id="313">Veškerý náklad [%2 druhů zboží] lodi %1 byl vyhozen do vesmíru.</t>
+    <t id="308">Veškerý náklad [%2 druhů zboží] lodi %1 byl vyhozen do vesmíru.</t>
     <!-- Category H: Disabled Warning Tooltips (ID: 400 ~ 499) -->
     <t id="400">Žádný kapitán k propuštění.</t>
     <t id="401">Kapitán je již k této lodi přiřazen.</t>

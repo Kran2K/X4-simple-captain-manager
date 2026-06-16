@@ -75,12 +75,7 @@
     <t id="305">%2-Sterne-Kapitän [%3] dem Schiff %1 zugewiesen.</t>
     <t id="306">%2 nicht zugewiesene Besatzungsmitglieder auf %1 übertragen.</t>
     <t id="307">Seminarausbildung abgeschlossen: %1 Kapitäne befördert. [Verbraucht: Einfach x%2, 1-Stern x%3, 2-Sterne x%4, 3-Sterne x%5, 4-Sterne x%6]</t>
-    <t id="308">[Warnung] Um Platz für den entlassenen Kapitän auf Schiff %1 zu schaffen, wurde das am wenigsten qualifizierte Besatzungsmitglied [%2-Sterne [%3]] automatisch gefeuert.</t>
-    <t id="309">[Warnung] Mangel an nicht zugewiesener Besatzung; Zuweisung von Kapitänen an %1 von %2 angeforderten Schiffen fehlgeschlagen.</t>
-    <t id="310">Aufgrund begrenzter Kapazität auf %1 wurden nur %2 von %3 verfügbaren nicht zugewiesenen Besatzungsmitgliedern übertragen.</t>
-    <t id="311">[Warnung] Mangel an nicht zugewiesener Besatzung; Zuweisung eines Kapitäns an Schiff %1 fehlgeschlagen.</t>
-    <t id="312">[Warnung] Es gibt keine nicht zugewiesenen Besatzungsmitglieder in der Galaxie, die auf %1 übertragen werden können.</t>
-    <t id="313">Alle Frachten [%2 Warensorten] von Schiff %1 wurden in den Weltraum ausgeworfen.</t>
+    <t id="308">Alle Frachten [%2 Warensorten] von Schiff %1 wurden in den Weltraum ausgeworfen.</t>
     <!-- Category H: Disabled Warning Tooltips (ID: 400 ~ 499) -->
     <t id="400">Kein Kapitän zum Entlassen vorhanden.</t>
     <t id="401">Diesem Schiff ist bereits ein Kapitän zugewiesen.</t>

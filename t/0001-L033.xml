@@ -75,12 +75,7 @@
     <t id="305">Capitaine [%3] [%2 étoiles] assigné au vaisseau %1.</t>
     <t id="306">Transfert de %2 membres d'équipage non assignés vers %1.</t>
     <t id="307">Formation terminée : %1 capitaines promus. [Consommé : basique x%2, 1-étoile x%3, 2-étoiles x%4, 3-étoiles x%5, 4-étoiles x%6]</t>
-    <t id="308">[Attention] Pour faire de la place au capitaine démis sur le vaisseau %1, le membre d'équipage le moins qualifié [%2 étoiles [%3]] a été automatiquement licencié.</t>
-    <t id="309">[Attention] Manque d'équipage non assigné ; échec de l'assignation des capitaines à %1 des %2 vaisseaux demandés.</t>
-    <t id="310">En raison de la capacité limitée sur %1, seuls %2 sur %3 membres d'équipage non assignés disponibles ont été transférés.</t>
-    <t id="311">[Attention] Manque d'équipage non assigné ; échec de l'assignation d'un capitaine au vaisseau %1.</t>
-    <t id="312">[Attention] Il n'y a pas de membres d'équipage non assignés disponibles dans la galaxie à transférer sur %1.</t>
-    <t id="313">Toute la cargaison [%2 types de marchandises] du vaisseau %1 a été larguée dans l'espace.</t>
+    <t id="308">Toute la cargaison [%2 types de marchandises] du vaisseau %1 a été larguée dans l'espace.</t>
     <!-- Category H: Disabled Warning Tooltips (ID: 400 ~ 499) -->
     <t id="400">Aucun capitaine à démettre de ses fonctions.</t>
     <t id="401">Un capitaine est déjà assigné à ce vaisseau.</t>

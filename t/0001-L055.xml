@@ -75,12 +75,7 @@
     <t id="305">Atribuiu o capitão de %2 estrelas [%3] à nave %1.</t>
     <t id="306">Transferidos %2 tripulantes não atribuídos para %1.</t>
     <t id="307">Treinamento com seminário concluído: %1 capitães promovidos. [Consumido: básico x%2, 1 estrela x%3, 2 estrelas x%4, 3 estrelas x%5, 4 estrelas x%6]</t>
-    <t id="308">[Atenção] Para abrir espaço para o capitão dispensado na nave %1, o membro da tripulação menos qualificado [%2 estrelas [%3]] foi demitido automaticamente.</t>
-    <t id="309">[Atenção] Falta de tripulação não atribuída; falha ao atribuir capitães a %1 das %2 naves solicitadas.</t>
-    <t id="310">Devido à capacidade limitada em %1, apenas %2 de %3 tripulantes não atribuídos disponíveis foram transferidos.</t>
-    <t id="311">[Atenção] Falta de tripulação não atribuída; falha ao atribuir um capitão à nave %1.</t>
-    <t id="312">[Aviso] Não há membros da tripulação não atribuídos disponíveis na galáxia para transferir para %1.</t>
-    <t id="313">Toda a carga [%2 tipos de mercadorias] da nave %1 foi descartada no espaço.</t>
+    <t id="308">Toda a carga [%2 tipos de mercadorias] da nave %1 foi descartada no espaço.</t>
     <!-- Category H: Disabled Warning Tooltips (ID: 400 ~ 499) -->
     <t id="400">Nenhum capitão para dispensar.</t>
     <t id="401">Um capitão já está atribuído a esta nave.</t>

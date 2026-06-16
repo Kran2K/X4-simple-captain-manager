@@ -915,7 +915,6 @@
                 <set_value name="$WorstCrewName" exact="$Ship.people.{$WorstCrew}.name" />
                 <debug_text text="'[SCM] Ship full. Firing worst crew ' + $WorstCrewName + ' (score: ' + $WorstSkill + ') to make space for dismissed pilot.'" filter="general" />
                 <remove_npc_template object="$Ship" template="$WorstCrew" />
-                <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{308}.[$Ship.knownname, $WorstCrewStars, $WorstCrewName]" />
               </do_if>
             </do_if>
 
@@ -1240,17 +1239,7 @@
             <show_notification text="readtext.{98765}.{301}.[$AssignedCandidates.count]" timeout="6s" />
           </do_if>
 
-          <set_value name="$FailedCount" exact="$SortedShips.count - $AssignedCandidates.count" />
-          <do_if value="$FailedCount gt 0">
-            <do_if value="$SortedShips.count == 1">
-              <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{311}.[$SortedShips.{1}.knownname]" />
-              <show_notification text="readtext.{98765}.{311}.[$SortedShips.{1}.knownname]" timeout="6s" sound="notification_warning" />
-            </do_if>
-            <do_else>
-              <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{309}.[$FailedCount, $SortedShips.count]" />
-              <show_notification text="readtext.{98765}.{309}.[$FailedCount, $SortedShips.count]" timeout="6s" sound="notification_warning" />
-            </do_else>
-          </do_if>
+
         </do_if>
         </do_if>
       </actions>
@@ -1375,20 +1364,10 @@
 
               <!-- 5. Write to logbook and show notification -->
               <do_if value="$TotalTransferred gt 0">
-                <do_if value="$TotalCandidatesCount gt $TotalTransferred">
-                  <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{310}.[$Ship.knownname, $TotalTransferred, $TotalCandidatesCount]" />
-                  <show_notification text="readtext.{98765}.{310}.[$Ship.knownname, $TotalTransferred, $TotalCandidatesCount]" timeout="6s" />
-                </do_if>
-                <do_else>
-                  <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{306}.[$Ship.knownname, $TotalTransferred]" />
-                  <show_notification text="readtext.{98765}.{306}.[$Ship.knownname, $TotalTransferred]" timeout="6s" />
-                </do_else>
+                <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{306}.[$Ship.knownname, $TotalTransferred]" />
+                <show_notification text="readtext.{98765}.{306}.[$Ship.knownname, $TotalTransferred]" timeout="6s" />
               </do_if>
             </do_if>
-            <do_else>
-              <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{312}.[$Ship.knownname]" />
-              <show_notification text="readtext.{98765}.{312}.[$Ship.knownname]" timeout="6s" sound="notification_warning" />
-            </do_else>
           </do_if>
         </do_if>
       </actions>
@@ -1578,8 +1557,8 @@
             </do_all>
             
             <!-- Output success to logbook and show notification -->
-            <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{313}.[$Ship.knownname, $WaresCount]" />
-            <show_notification text="readtext.{98765}.{313}.[$Ship.knownname, $WaresCount]" timeout="6s" />
+            <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{308}.[$Ship.knownname, $WaresCount]" />
+            <show_notification text="readtext.{98765}.{308}.[$Ship.knownname, $WaresCount]" timeout="6s" />
           </do_if>
         </do_all>
       </do_if>

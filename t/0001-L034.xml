@@ -75,12 +75,7 @@
     <t id="305">Capitán [%3] de %2 estrellas asignado a la nave %1.</t>
     <t id="306">Se transfirieron %2 miembros de la tripulación sin asignar a %1.</t>
     <t id="307">Formación completada: %1 capitanes promovidos. [Consumido: básico x%2, 1-estrella x%3, 2-estrellas x%4, 3-estrellas x%5, 4-estrellas x%6]</t>
-    <t id="308">[Atención] Para hacer espacio para el capitán destituido en la nave %1, el miembro de la tripulación menos calificado [%2 estrellas [%3]] fue despedido automáticamente.</t>
-    <t id="309">[Atención] Falta de tripulación no asignada; error al asignar capitanes a %1 de las %2 naves solicitadas.</t>
-    <t id="310">Debido a la capacidad limitada en %1, solo se transfirieron %2 de %3 miembros de la tripulación sin asignar disponibles.</t>
-    <t id="311">[Atención] Falta de tripulación no asignada; error al asignar un capitán a la nave %1.</t>
-    <t id="312">[Advertencia] No hay miembros de la tripulación sin asignar disponibles en la galaxia para transferir a %1.</t>
-    <t id="313">Se ha arrojado al espacio toda la carga [%2 tipos de mercancías] de la nave %1.</t>
+    <t id="308">Se ha arrojado al espacio toda la carga [%2 tipos de mercancías] de la nave %1.</t>
     <!-- Category H: Disabled Warning Tooltips (ID: 400 ~ 499) -->
     <t id="400">No hay ningún capitán que destituir.</t>
     <t id="401">Ya hay un capitán asignado a esta nave.</t>
