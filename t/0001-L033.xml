@@ -83,6 +83,6 @@
     <t id="207">Il manque les séminaires requis pour cette formation. [Manquant : Basique x%1, 1 étoile x%2, 2 étoiles x%3]</t>
     <t id="208">Il manque les séminaires requis pour cette formation. [Manquant : Basique x%1, 1 étoile x%2, 2 étoiles x%3, 3 étoiles x%4]</t>
     <t id="209">Il manque les séminaires requis pour cette formation. [Manquant : Basique x%1, 1 étoile x%2, 2 étoiles x%3, 3 étoiles x%4, 4 étoile x%5]</t>
-    <t id="210">[Attention] Pas assez de personnel non assigné ; les capitaines ne seront nommés que pour certains vaisseaux. [Manquant : %1]</t>
+    <t id="210">Pas assez de personnel non assigné ; les capitaines ne seront nommés que pour certains vaisseaux. [Manquant : %1]</t>
   </page>
 </language>
