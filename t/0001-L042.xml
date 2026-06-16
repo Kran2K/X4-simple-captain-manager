@@ -8,6 +8,7 @@
     <t id="5">Umožňuje hromadnou správu personálu pro kapitány vybraných lodí v interaktivní nabídce pravého tlačítka myši.</t>
     <t id="6">Převést nepřiřazenou posádku</t>
     <t id="7">Použít semináře</t>
+    <t id="8">Vyhodit náklad</t>
     <t id="11">%1 kapitánů propuštěno.</t>
     <t id="12">Kapitáni přiřazeni k %1 lodím.</t>
     <t id="13">%1 kapitánů vyhozeno.</t>
@@ -24,16 +25,17 @@
     <t id="30">Propustí kapitána a změní jeho stav na nepřiřazenou posádku.</t>
     <t id="31">Žádný kapitán k propuštění.</t>
     <t id="32">Kapitán je již k této lodi přiřazen.</t>
+    <t id="33">[Varování] V galaxii nejsou k dispozici žádní nepřidělení členové posádky, které by bylo možné převést na %1.</t>
+    <t id="34">Veškerý náklad [%2 druhů zboží] lodi %1 byl vyhozen do vesmíru.</t>
+    <t id="35">Posádka lodi je plná. Aby se uvolnilo místo pro propuštěného kapitána, bude nejméně kvalifikovaný člen posádky automaticky propuštěn.</t>
+    <t id="36">Posádka některých lodí je plná. Aby se uvolnilo místo pro propuštěné kapitány, bude nejméně kvalifikovaný člen posádky na těchto lodích automaticky propuštěn.</t>
     <t id="40">Okamžitě vyhodí kapitána.</t>
     <t id="41">Žádný kapitán k vyhození.</t>
+    <t id="50">Přemísťuje nepřiřazené členy posádky pro doplnění lodi podle priority.</t>
     <t id="51">Vyškolí kapitány pomocí seminářů posádky, které máte aktuálně v inventáři.</t>
     <t id="52">Žádný kapitán k vyškolení.</t>
-    <t id="33">[Varování] V galaxii nejsou k dispozici žádní nepřidělení členové posádky, které by bylo možné převést na %1.</t>
-    <t id="8">Vyhodit náklad</t>
-    <t id="34">Veškerý náklad [%2 druhů zboží] lodi %1 byl vyhozen do vesmíru.</t>
     <t id="53">Vyhodí veškerý náklad do vesmíru.</t>
     <t id="54">Žádný náklad k vyhození.</t>
-    <t id="50">Přemísťuje nepřiřazené členy posádky pro doplnění lodi podle priority.</t>
     <t id="90">Přiřadit kapitána</t>
     <t id="91">Použít semináře</t>
     <t id="93">Další funkce kapitána</t>
@@ -55,6 +57,7 @@
     <t id="133">Použít pouze 1 seminář</t>
     <t id="134">Trénovat na 2 hvězdy</t>
     <t id="135">Trénovat na 1 hvězdu</t>
+    <t id="136">Vycvičit na 5 hvězdiček</t>
     <t id="150">Přiřadí nepřiřazené členy posádky na místo kapitána bez ohledu na dovednosti.</t>
     <t id="151">Vybere a přiřadí nepřiřazené s dovedností pilotáže 3 hvězdy nebo více.</t>
     <t id="152">Vybere a přiřadí nepřiřazené s dovedností pilotáže 2 hvězdy nebo více.</t>
@@ -71,20 +74,14 @@
     <t id="163">Spotřebuje 1 vhodný seminář pro postup o úroveň dovednosti.</t>
     <t id="164">Spotřebuje semináře od základní do 1 hvězdy pro dosažení 2 hvězd.</t>
     <t id="165">Spotřebuje základní semináře pro dosažení 1 hvězdy.</t>
+    <t id="166">Postupně spotřebovává základní až 4hvězdičkové semináře k výcviku pilotáže na 5 hvězdiček.</t>
     <t id="190">Cílová loď nebo stanice nemá volné místo.</t>
-    <t id="35">Posádka lodi je plná. Aby se uvolnilo místo pro propuštěného kapitána, bude nejméně kvalifikovaný člen posádky automaticky propuštěn.</t>
-    <t id="36">Posádka některých lodí je plná. Aby se uvolnilo místo pro propuštěné kapitány, bude nejméně kvalifikovaný člen posádky na těchto lodích automaticky propuštěn.</t>
     <t id="200">Chybí Základní seminář vyžadovaný pro tento výcvik.</t>
-    <t id="201">Chybí semináře [základní nebo 1hvězdičkový] vyžadované pro tento výcvik.</t>
-    <t id="202">Chybí semináře [základní, 1hvězdičkový nebo 2hvězdičkový] vyžadované pro tento výcvik.</t>
-    <t id="203">Chybí semináře [základní, 1hvězdičkový, 2hvězdičkový nebo 3hvězdičkový] vyžadované pro tento výcvik.</t>
     <t id="204">Ve vašem inventáři nejsou žádné semináře.</t>
     <t id="205">Chybí semináře vyžadované pro tento výcvik. [Chybí: Základní x%1]</t>
     <t id="206">Chybí semináře vyžadované pro tento výcvik. [Chybí: Základní x%1, 1hvězdičkový x%2]</t>
     <t id="207">Chybí semináře vyžadované pro tento výcvik. [Chybí: Základní x%1, 1hvězdičkový x%2, 2hvězdičkový x%3]</t>
     <t id="208">Chybí semináře vyžadované pro tento výcvik. [Chybí: Základní x%1, 1hvězdičkový x%2, 2hvězdičkový x%3, 3hvězdičkový x%4]</t>
     <t id="209">Chybí semináře vyžadované pro tento výcvik. [Chybí: Základní x%1, 1hvězdičkový x%2, 2hvězdičkový x%3, 3hvězdičkový x%4, 4hvězdičkový x%5]</t>
-    <t id="136">Vycvičit na 5 hvězdiček</t>
-    <t id="166">Postupně spotřebovává základní až 4hvězdičkové semináře k výcviku pilotáže na 5 hvězdiček.</t>
   </page>
 </language>

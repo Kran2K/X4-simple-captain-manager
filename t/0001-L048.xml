@@ -8,6 +8,7 @@
     <t id="5">Umożliwia masowe zarządzanie kapitanami wybranych statków w menu interakcji prawego przycisku myszy.</t>
     <t id="6">Przenieś nieprzypisaną załogę</t>
     <t id="7">Użyj seminariów</t>
+    <t id="8">Wyrzuć ładunek</t>
     <t id="11">Odwołano %1 kapitanów.</t>
     <t id="12">Przypisano kapitanów do %1 statków.</t>
     <t id="13">Zwolniono %1 kapitanów.</t>
@@ -24,16 +25,17 @@
     <t id="30">Odwołuje kapitana i przenosi go do nieprzypisanej załogi.</t>
     <t id="31">Brak kapitana do odwołania.</t>
     <t id="32">Kapitan jest już przypisany do tego statku.</t>
+    <t id="33">[Ostrzeżenie] W galaktyce nie ma dostępnych nieprzypisanych członków załogi, których można by przenieść na %1.</t>
+    <t id="34">Cały ładunek [%2 rodzajów towarów] statku %1 został wyrzucony w przestrzeń kosmiczną.</t>
+    <t id="35">Załoga statku jest pełna. Aby zrobić miejsce dla odwołanego kapitana, najmniej wykwalifikowany członek załogi zostanie automatycznie zwolniony.</t>
+    <t id="36">Załoga niektórych statków jest pełna. Aby zrobić miejsce dla odwołanych kapitanów, najmniej wykwalifikowany członek załogi na tych statkach zostanie automatycznie zwolniony.</t>
     <t id="40">Natychmiast zwalnia kapitana.</t>
     <t id="41">Brak kapitana do zwolnienia.</t>
+    <t id="50">Przenosi nieprzypisanych członków załogi, aby wypełnić statek według priorytetu.</t>
     <t id="51">Szkol kapitanów przy użyciu seminariów dla załogi ze swojego ekwipunku.</t>
     <t id="52">Brak kapitanów do szkolenia.</t>
-    <t id="33">[Ostrzeżenie] W galaktyce nie ma dostępnych nieprzypisanych członków załogi, których można by przenieść na %1.</t>
-    <t id="8">Wyrzuć ładunek</t>
-    <t id="34">Cały ładunek [%2 rodzajów towarów] statku %1 został wyrzucony w przestrzeń kosmiczną.</t>
     <t id="53">Wyrzuca cały ładunek w przestrzeń kosmiczną.</t>
     <t id="54">Brak ładunku do wyrzucenia.</t>
-    <t id="50">Przenosi nieprzypisanych członków załogi, aby wypełnić statek według priorytetu.</t>
     <t id="90">Przypisz kapitana</t>
     <t id="91">Użyj seminariów</t>
     <t id="93">Inne funkcje kapitana</t>
@@ -55,6 +57,7 @@
     <t id="133">Użyj tylko 1 seminarium</t>
     <t id="134">Trenuj do 2 gwiazdek</t>
     <t id="135">Trenuj do 1 gwiazdki</t>
+    <t id="136">Szkolenie do 5 gwiazdek</t>
     <t id="150">Przypisuje nieprzypisanych do roli kapitana niezależnie od umiejętności.</t>
     <t id="151">Wybiera i przypisuje nieprzypisanych z umiejętnością pilotowania 3 gwiazdki lub więcej.</t>
     <t id="152">Wybiera i przypisuje nieprzypisanych z umiejętnością pilotowania 2 gwiazdki lub więcej.</t>
@@ -71,20 +74,14 @@
     <t id="163">Zużywa 1 odpowiednie seminarium, aby awansować o 1 poziom.</t>
     <t id="164">Zużywa seminaria od podstawowych do 1 gwiazdki, aby osiągnąć 2 gwiazdki.</t>
     <t id="165">Zużywa seminaria podstawowe, aby osiągnąć 1 gwiazdkę.</t>
+    <t id="166">Kolejno zużywa seminaria od podstawowych do 4-gwiazdkowych, aby wyszkolić pilotaż na 5 gwiazdek.</t>
     <t id="190">Docelowy statek lub stacja nie ma wolnego miejsca.</t>
-    <t id="35">Załoga statku jest pełna. Aby zrobić miejsce dla odwołanego kapitana, najmniej wykwalifikowany członek załogi zostanie automatycznie zwolniony.</t>
-    <t id="36">Załoga niektórych statków jest pełna. Aby zrobić miejsce dla odwołanych kapitanów, najmniej wykwalifikowany członek załogi na tych statkach zostanie automatycznie zwolniony.</t>
     <t id="200">Brak Podstawowego seminarium wymaganego do tego szkolenia.</t>
-    <t id="201">Brak seminariów [podstawowych lub 1-gwiazdkowych] wymaganych do tego szkolenia.</t>
-    <t id="202">Brak seminariów [podstawowych, 1-gwiazdkowych lub 2-gwiazdkowych] wymaganych do tego szkolenia.</t>
-    <t id="203">Brak seminariów [podstawowych, 1-gwiazdkowych, 2-gwiazdkowych lub 3-gwiazdkowych] wymaganych do tego szkolenia.</t>
     <t id="204">W Twoim ekwipunku nie ma żadnych seminariów.</t>
     <t id="205">Brak seminariów wymaganych do tego szkolenia. [Brak: Podstawowe x%1]</t>
     <t id="206">Brak seminariów wymaganych do tego szkolenia. [Brak: Podstawowe x%1, 1-gwiazdkowe x%2]</t>
     <t id="207">Brak seminariów wymaganych do tego szkolenia. [Brak: Podstawowe x%1, 1-gwiazdkowe x%2, 2-gwiazdkowe x%3]</t>
     <t id="208">Brak seminariów wymaganych do tego szkolenia. [Brak: Podstawowe x%1, 1-gwiazdkowe x%2, 2-gwiazdkowe x%3, 3-gwiazdkowe x%4]</t>
     <t id="209">Brak seminariów wymaganych do tego szkolenia. [Brak: Podstawowe x%1, 1-gwiazdkowe x%2, 2-gwiazdkowe x%3, 3-gwiazdkowe x%4, 4-gwiazdkowe x%5]</t>
-    <t id="136">Szkolenie do 5 gwiazdek</t>
-    <t id="166">Kolejno zużywa seminaria od podstawowych do 4-gwiazdkowych, aby wyszkolić pilotaż na 5 gwiazdek.</t>
   </page>
 </language>

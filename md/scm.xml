@@ -382,8 +382,8 @@
             <do_if value="$Ships.count == 1 and @$Ships.{1}.pilot.exists">
               <set_value name="$PilotSkill" exact="$Ships.{1}.pilot.skill.piloting" />
               <do_if value="$PilotSkill lt 3">
-                <set_value name="$SingleShortTid" exact="205" />
-                <set_value name="$SingleParams" exact="[$ShortSingle_0]" />
+                <set_value name="$SingleShortTid" exact="200" />
+                <set_value name="$SingleParams" exact="[]" />
               </do_if>
               <do_elseif value="$PilotSkill ge 3 and $PilotSkill lt 6">
                 <set_value name="$SingleShortTid" exact="206" />
@@ -406,7 +406,7 @@
             <set_value name="$SeminarMouseover_4star" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_4star then readtext.{98765}.{208}.[$Short4_0, $Short4_1, $Short4_2, $Short4_3] else readtext.{98765}.{161}))" />
             <set_value name="$SeminarMouseover_5star" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_5star then readtext.{98765}.{209}.[$ShortMax_0, $ShortMax_1, $ShortMax_2, $ShortMax_3, $ShortMax_4] else readtext.{98765}.{166}))" />
             <set_value name="$SeminarMouseover_max" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else readtext.{98765}.{160})" />
-            <set_value name="$SeminarMouseover_single" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_single then readtext.{98765}.{$SingleShortTid}.{$SingleParams} else readtext.{98765}.{163}))" />
+            <set_value name="$SeminarMouseover_single" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_single then (if $SingleParams.count gt 0 then readtext.{98765}.{$SingleShortTid}.{$SingleParams} else readtext.{98765}.{$SingleShortTid}) else readtext.{98765}.{163}))" />
 
             <!-- 2.1 Max Training -->
             <signal_cue_instantly

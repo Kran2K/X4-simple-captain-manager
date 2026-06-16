@@ -8,6 +8,7 @@
     <t id="5">Consente la gestione batch del personale per i capitani delle navi selezionate nel menu di interazione con tasto destro.</t>
     <t id="6">Trasferisci Equipaggio non Assegnato</t>
     <t id="7">Usa Seminari</t>
+    <t id="8">Espelli carico</t>
     <t id="11">%1 capitani congedati.</t>
     <t id="12">Capitani assegnati a %1 navi.</t>
     <t id="13">%1 capitani licenziati.</t>
@@ -24,16 +25,17 @@
     <t id="30">Congeda il capitano e cambia il suo stato in equipaggio non assegnato.</t>
     <t id="31">Nessun capitano da congedare.</t>
     <t id="32">Un capitano è già assegnato a questa nave.</t>
+    <t id="33">[Attenzione] Non ci sono membri dell'equipaggio non assegnati disponibili nella galassia da trasferire su %1.</t>
+    <t id="34">Tutto il carico [%2 tipi di merci] della nave %1 è stato espulso nello spazio.</t>
+    <t id="35">L'equipaggio della nave è al completo. Per fare spazio al capitano congedato, il membro dell'equipaggio meno qualificato verrà licenziato automaticamente.</t>
+    <t id="36">L'equipaggio di alcune navi è al completo. Per fare spazio ai capitani congedati, il membro dell'equipaggio meno qualificato su quelle navi verrà licenziato automaticamente.</t>
     <t id="40">Licenzia immediatamente il capitano.</t>
     <t id="41">Nessun capitano da licenziare.</t>
+    <t id="50">Trasferisce i membri dell'equipaggio non assegnati per riempire la nave secondo la priorità.</t>
     <t id="51">Addestra i capitani usando i seminari dell'equipaggio dal tuo inventario.</t>
     <t id="52">Nessun capitano da addestrare.</t>
-    <t id="33">[Attenzione] Non ci sono membri dell'equipaggio non assegnati disponibili nella galassia da trasferire su %1.</t>
-    <t id="8">Espelli carico</t>
-    <t id="34">Tutto il carico [%2 tipi di merci] della nave %1 è stato espulso nello spazio.</t>
     <t id="53">Espelle tutto il carico nello spazio.</t>
     <t id="54">Nessun carico da espellere.</t>
-    <t id="50">Trasferisce i membri dell'equipaggio non assegnati per riempire la nave secondo la priorità.</t>
     <t id="90">Assegna Capitano</t>
     <t id="91">Usa Seminari</t>
     <t id="93">Altre Funzioni Capitano</t>
@@ -55,6 +57,7 @@
     <t id="133">Usa solo 1 seminario</t>
     <t id="134">Allena fino a 2 stelle</t>
     <t id="135">Allena fino a 1 stella</t>
+    <t id="136">Addestra a 5 stelle</t>
     <t id="150">Assegna i membri non assegnati della galassia al ruolo di capitano, indipendentemente dall'abilità.</t>
     <t id="151">Seleziona e assegna i membri con abilità di pilotaggio 3 stelle o più.</t>
     <t id="152">Seleziona e assegna i membri con abilità di pilotaggio 2 stelle o più.</t>
@@ -71,20 +74,14 @@
     <t id="163">Consuma 1 seminario adatto per avanzare di un livello di abilità.</t>
     <t id="164">Consuma i seminari da base a 1 stella per raggiungere 2 stelle.</t>
     <t id="165">Consuma i seminari di base per raggiungere 1 stella.</t>
+    <t id="166">Consuma in sequenza i seminari da base a 4 stelle per addestrare l'abilità di pilotaggio a 5 stelle.</t>
     <t id="190">La nave o la stazione bersaglio non ha spazio libero.</t>
-    <t id="35">L'equipaggio della nave è al completo. Per fare spazio al capitano congedato, il membro dell'equipaggio meno qualificato verrà licenziato automaticamente.</t>
-    <t id="36">L'equipaggio di alcune navi è al completo. Per fare spazio ai capitani congedati, il membro dell'equipaggio meno qualificato su quelle navi verrà licenziato automaticamente.</t>
     <t id="200">Manca il Seminario base richiesto per questo addestramento.</t>
-    <t id="201">Mancano i seminari [base o 1 stella] richiesti per questo addestramento.</t>
-    <t id="202">Mancano i seminari [base, 1 o 2 stelle] richiesti per questo addestramento.</t>
-    <t id="203">Mancano i seminari [base, 1, 2 o 3 stelle] richiesti per questo addestramento.</t>
     <t id="204">Non ci sono seminari nel tuo inventario.</t>
     <t id="205">Mancano i seminari richiesti per questo addestramento. [Mancante: Seminario base x%1]</t>
     <t id="206">Mancano i seminari richiesti per questo addestramento. [Mancante: Base x%1, 1 stella x%2]</t>
     <t id="207">Mancano i seminari richiesti per questo addestramento. [Mancante: Base x%1, 1 stella x%2, 2 stelle x%3]</t>
     <t id="208">Mancano i seminari richiesti per questo addestramento. [Mancante: Base x%1, 1 stella x%2, 2 stelle x%3, 3 stelle x%4]</t>
     <t id="209">Mancano i seminari richiesti per questo addestramento. [Mancante: Base x%1, 1 stella x%2, 2 stelle x%3, 3 stelle x%4, 4 stelle x%5]</t>
-    <t id="136">Addestra a 5 stelle</t>
-    <t id="166">Consuma in sequenza i seminari da base a 4 stelle per addestrare l'abilità di pilotaggio a 5 stelle.</t>
   </page>
 </language>

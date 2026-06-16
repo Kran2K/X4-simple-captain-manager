@@ -8,6 +8,7 @@
     <t id="5">Allows batch personnel management for captains of selected ships in the right-click interaction menu.</t>
     <t id="6">Transfer Unassigned Crew</t>
     <t id="7">Use Seminars</t>
+    <t id="8">Drop Cargo</t>
     <t id="11">Dismissed %1 captains.</t>
     <t id="12">Assigned captains to %1 ships.</t>
     <t id="13">Fired %1 captains.</t>
@@ -24,16 +25,17 @@
     <t id="30">Dismisses the captain and changes their status to unassigned personnel.</t>
     <t id="31">No captain to dismiss.</t>
     <t id="32">A captain is already assigned to this ship.</t>
+    <t id="33">[Warning] There are no unassigned crew members available in the galaxy to transfer to %1.</t>
+    <t id="34">Ejected all cargo [%2 types of wares] of ship %1 into space.</t>
+    <t id="35">The ship's crew quarters are full. To make room for the dismissed captain, the lowest-skilled crew member will be automatically fired.</t>
+    <t id="36">Some ships have full crew quarters. To make room for the dismissed captains, the lowest-skilled crew member on those ships will be automatically fired.</t>
     <t id="40">Immediately fires the captain.</t>
     <t id="41">No captain to fire.</t>
+    <t id="50">Transfers unassigned crew members to fill the ship according to priority.</t>
     <t id="51">Train captains using crew seminars currently held in your inventory.</t>
     <t id="52">No captain to train.</t>
-    <t id="33">[Warning] There are no unassigned crew members available in the galaxy to transfer to %1.</t>
-    <t id="8">Drop Cargo</t>
-    <t id="34">Ejected all cargo [%2 types of wares] of ship %1 into space.</t>
     <t id="53">Ejects all cargo into space.</t>
     <t id="54">No cargo to drop.</t>
-    <t id="50">Transfers unassigned crew members to fill the ship according to priority.</t>
     <t id="90">Assign Captain</t>
     <t id="91">Use Seminars</t>
     <t id="93">Other Captain Functions</t>
@@ -55,6 +57,7 @@
     <t id="133">Use only 1 seminar</t>
     <t id="134">Train to 2-Star</t>
     <t id="135">Train to 1-Star</t>
+    <t id="136">Train to 5-Star</t>
     <t id="150">Assigns unassigned crew members in the galaxy to the captain slot, regardless of skill.</t>
     <t id="151">Selects and assigns only unassigned crew members with a piloting skill of 3-star or higher to the captain slot.</t>
     <t id="152">Selects and assigns only unassigned crew members with a piloting skill of 2-star or higher to the captain slot.</t>
@@ -71,20 +74,14 @@
     <t id="163">Consumes 1 seminar appropriate for the captain's current skill to promote the piloting skill by 1 tier.</t>
     <t id="164">Sequentially consumes basic to 1-star seminars to train piloting skill up to 2-star.</t>
     <t id="165">Sequentially consumes basic seminars to train piloting skill up to 1-star.</t>
+    <t id="166">Sequentially consumes basic to 4-star seminars to train piloting skill to 5-star.</t>
     <t id="190">The target ship or station has no free space.</t>
-    <t id="35">The ship's crew quarters are full. To make room for the dismissed captain, the lowest-skilled crew member will be automatically fired.</t>
-    <t id="36">Some ships have full crew quarters. To make room for the dismissed captains, the lowest-skilled crew member on those ships will be automatically fired.</t>
     <t id="200">Lacks the Basic Seminar required for this training.</t>
-    <t id="201">Lacks the Seminars [Basic or 1-Star] required for this training.</t>
-    <t id="202">Lacks the Seminars [Basic, 1-Star, or 2-Star] required for this training.</t>
-    <t id="203">Lacks the Seminars [Basic, 1-Star, 2-Star, or 3-Star] required for this training.</t>
     <t id="204">There are no Seminars in your inventory.</t>
     <t id="205">Lacks required seminars for this training. [Missing: Basic Seminar x%1]</t>
     <t id="206">Lacks required seminars for this training. [Missing: Basic x%1, 1-Star x%2]</t>
     <t id="207">Lacks required seminars for this training. [Missing: Basic x%1, 1-Star x%2, 2-Star x%3]</t>
     <t id="208">Lacks required seminars for this training. [Missing: Basic x%1, 1-Star x%2, 2-Star x%3, 3-Star x%4]</t>
     <t id="209">Lacks required seminars for this training. [Missing: Basic x%1, 1-Star x%2, 2-Star x%3, 3-Star x%4, 4-Star x%5]</t>
-    <t id="136">Train to 5-Star</t>
-    <t id="166">Sequentially consumes basic to 4-star seminars to train piloting skill to 5-star.</t>
   </page>
 </language>

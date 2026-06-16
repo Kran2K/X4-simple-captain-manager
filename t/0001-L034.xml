@@ -8,6 +8,7 @@
     <t id="5">Permite la gestión de personal por lotes para los capitanes de las naves seleccionadas en el menú de interacción del clic derecho.</t>
     <t id="6">Transferir tripulación no asignada</t>
     <t id="7">Usar seminarios</t>
+    <t id="8">Arrojar carga</t>
     <t id="11">%1 capitanes destituidos.</t>
     <t id="12">Capitanes asignados a %1 naves.</t>
     <t id="13">%1 capitanes despedidos.</t>
@@ -24,16 +25,17 @@
     <t id="30">Destituye al capitán y cambia su estado a tripulación no asignada.</t>
     <t id="31">No hay ningún capitán que destituir.</t>
     <t id="32">Ya hay un capitán asignado a esta nave.</t>
+    <t id="33">[Advertencia] No hay miembros de la tripulación sin asignar disponibles en la galaxia para transferir a %1.</t>
+    <t id="34">Se ha arrojado al espacio toda la carga [%2 tipos de mercancías] de la nave %1.</t>
+    <t id="35">La tripulación de la nave está completa. Para hacer espacio para el capitán destituido, el tripulante con menor cualificación será despedido automáticamente.</t>
+    <t id="36">La tripulación de algunas naves está completa. Para hacer espacio para los capitanes destituidos, el tripulante con menor cualificación en esas naves será despedido automáticamente.</t>
     <t id="40">Despide inmediatamente al capitán.</t>
     <t id="41">No hay ningún capitán que despedir.</t>
+    <t id="50">Transfiere tripulantes no asignados para llenar la nave según la prioridad.</t>
     <t id="51">Entrenar capitanes usando los seminarios de tripulación de tu inventario.</t>
     <t id="52">No hay capitanes que entrenar.</t>
-    <t id="33">[Advertencia] No hay miembros de la tripulación sin asignar disponibles en la galaxia para transferir a %1.</t>
-    <t id="8">Arrojar carga</t>
-    <t id="34">Se ha arrojado al espacio toda la carga [%2 tipos de mercancías] de la nave %1.</t>
     <t id="53">Arroja toda la carga al espacio.</t>
     <t id="54">No hay carga para arrojar.</t>
-    <t id="50">Transfiere tripulantes no asignados para llenar la nave según la prioridad.</t>
     <t id="90">Asignar Capitán</t>
     <t id="91">Usar Seminarios</t>
     <t id="93">Otras Funciones del Capitán</t>
@@ -55,6 +57,7 @@
     <t id="133">Usar solo 1 seminario</t>
     <t id="134">Entrenar hasta 2 estrellas</t>
     <t id="135">Entrenar hasta 1 estrella</t>
+    <t id="136">Entrenar a 5 estrellas</t>
     <t id="150">Asigna miembros no asignados de la galaxia al puesto de capitán, independientemente de la habilidad.</t>
     <t id="151">Selecciona y asigna miembros con habilidad de pilotaje 3 estrellas o más.</t>
     <t id="152">Selecciona y asigna miembros con habilidad de pilotaje 2 estrellas o más.</t>
@@ -71,20 +74,14 @@
     <t id="163">Consume 1 seminario adecuado para subir la habilidad un nivel.</t>
     <t id="164">Consume seminarios básicos hasta 1 estrella para alcanzar 2 estrellas.</t>
     <t id="165">Consume seminarios básicos para alcanzar 1 estrella.</t>
+    <t id="166">Consume secuencialmente seminarios básicos a 4 estrellas para entrenar la habilidad de pilotaje a 5 estrellas.</t>
     <t id="190">La nave o estación objetivo no tiene espacio libre.</t>
-    <t id="35">La tripulación de la nave está completa. Para hacer espacio para el capitán destituido, el tripulante con menor cualificación será despedido automáticamente.</t>
-    <t id="36">La tripulación de algunas naves está completa. Para hacer espacio para los capitanes destituidos, el tripulante con menor cualificación en esas naves será despedido automáticamente.</t>
     <t id="200">Falta el Seminario básico requerido para este entrenamiento.</t>
-    <t id="201">Faltan los seminarios [básico o 1 estrella] requeridos para este entrenamiento.</t>
-    <t id="202">Faltan los seminarios [básico, 1 o 2 estrellas] requeridos para este entrenamiento.</t>
-    <t id="203">Faltan los seminarios [básico, 1, 2 o 3 estrellas] requeridos para este entrenamiento.</t>
     <t id="204">No hay seminarios en tu inventario.</t>
     <t id="205">Faltan los seminarios requeridos para este entrenamiento. [Falta: Seminario básico x%1]</t>
     <t id="206">Faltan los seminarios requeridos para este entrenamiento. [Falta: Básico x%1, 1 estrella x%2]</t>
     <t id="207">Faltan los seminarios requeridos para este entrenamiento. [Falta: Básico x%1, 1 estrella x%2, 2 estrellas x%3]</t>
     <t id="208">Faltan los seminarios requeridos para este entrenamiento. [Falta: Básico x%1, 1 estrella x%2, 2 estrellas x%3, 3 estrellas x%4]</t>
     <t id="209">Faltan los seminarios requeridos para este entrenamiento. [Falta: Básico x%1, 1 estrella x%2, 2 estrellas x%3, 3 estrellas x%4, 4 estrellas x%5]</t>
-    <t id="136">Entrenar a 5 estrellas</t>
-    <t id="166">Consume secuencialmente seminarios básicos a 4 estrellas para entrenar la habilidad de pilotaje a 5 estrellas.</t>
   </page>
 </language>

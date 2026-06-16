@@ -8,6 +8,7 @@
     <t id="5">Ermöglicht die gesammelte Personalverwaltung für die Kapitäne ausgewählter Schiffe über das Rechtsklick-Interaktionsmenü.</t>
     <t id="6">Nicht zugewiesene Besatzung übertragen</t>
     <t id="7">Seminare verwenden</t>
+    <t id="8">Fracht auswerfen</t>
     <t id="11">%1 Kapitäne entlassen [als nicht zugewiesen].</t>
     <t id="12">Kapitäne an %1 Schiffe zugewiesen.</t>
     <t id="13">%1 Kapitäne gefeuert.</t>
@@ -24,16 +25,17 @@
     <t id="30">Entlässt den Kapitän und ändert seinen Status in nicht zugewiesene Besatzung.</t>
     <t id="31">Kein Kapitän zum Entlassen vorhanden.</t>
     <t id="32">Diesem Schiff ist bereits ein Kapitän zugewiesen.</t>
+    <t id="33">[Warnung] Es gibt keine nicht zugewiesenen Besatzungsmitglieder in der Galaxie, die auf %1 übertragen werden können.</t>
+    <t id="34">Alle Frachten [%2 Warensorten] von Schiff %1 wurden in den Weltraum ausgeworfen.</t>
+    <t id="35">Die Schiffsbesatzung ist voll. Um Platz für den entlassenen Kapitän zu schaffen, wird das Besatzungsmitglied mit den geringsten Fähigkeiten automatisch gefeuert.</t>
+    <t id="36">Einige Schiffe sind voll besetzt. Um Platz für die entlassenen Kapitäne zu schaffen, wird das Besatzungsmitglied mit den geringsten Fähigkeiten auf diesen Schiffen automatisch gefeuert.</t>
     <t id="40">Entlässt den Kapitän fristlos.</t>
     <t id="41">Kein Kapitän zum Feuern vorhanden.</t>
+    <t id="50">Überträgt nicht zugewiesene Besatzungsmitglieder, um das Schiff gemäß Priorität aufzufüllen.</t>
     <t id="51">Kapitäne mit Crew-Seminaren aus dem Inventar ausbilden.</t>
     <t id="52">Keine Kapitäne zum Ausbilden vorhanden.</t>
-    <t id="33">[Warnung] Es gibt keine nicht zugewiesenen Besatzungsmitglieder in der Galaxie, die auf %1 übertragen werden können.</t>
-    <t id="8">Fracht auswerfen</t>
-    <t id="34">Alle Frachten [%2 Warensorten] von Schiff %1 wurden in den Weltraum ausgeworfen.</t>
     <t id="53">Wirft alle Frachten in den Weltraum aus.</t>
     <t id="54">Keine Fracht zum Auswerfen vorhanden.</t>
-    <t id="50">Überträgt nicht zugewiesene Besatzungsmitglieder, um das Schiff gemäß Priorität aufzufüllen.</t>
     <t id="90">Kapitän zuweisen</t>
     <t id="91">Seminare verwenden</t>
     <t id="93">Weitere Kapitänsfunktionen</t>
@@ -55,6 +57,7 @@
     <t id="133">Nur 1 Seminar verwenden</t>
     <t id="134">Bis 2 Sterne trainieren</t>
     <t id="135">Bis 1 Stern trainieren</t>
+    <t id="136">Bis 5 Sterne ausbilden</t>
     <t id="150">Weist nicht zugewiesene Besatzungsmitglieder der Galaxie unabhängig von Fähigkeiten als Kapitän zu.</t>
     <t id="151">Wählt und weist Mitglieder mit Piloting-Fertigkeit 3 Sterne oder mehr zu.</t>
     <t id="152">Wählt und weist Mitglieder mit Piloting-Fertigkeit 2 Sterne oder mehr zu.</t>
@@ -71,20 +74,14 @@
     <t id="163">Verbraucht 1 passendes Seminar, um die Fertigkeit um 1 Stufe zu steigern.</t>
     <t id="164">Verbraucht Seminare von Basis bis 1 Stern, um 2-Sterne-Fertigkeit zu erreichen.</t>
     <t id="165">Verbraucht Grundseminare, um 1-Sterne-Fertigkeit zu erreichen.</t>
+    <t id="166">Verbraucht nacheinander Grund- bis 4-Sterne-Seminare, um die Pilotenfertigkeit auf 5 Sterne zu steigern.</t>
     <t id="190">Das Zielschiff oder die Zielstation hat keinen freien Platz.</t>
-    <t id="35">Die Schiffsbesatzung ist voll. Um Platz für den entlassenen Kapitän zu schaffen, wird das Besatzungsmitglied mit den geringsten Fähigkeiten automatisch gefeuert.</t>
-    <t id="36">Einige Schiffe sind voll besetzt. Um Platz für die entlassenen Kapitäne zu schaffen, wird das Besatzungsmitglied mit den geringsten Fähigkeiten auf diesen Schiffen automatisch gefeuert.</t>
     <t id="200">Es fehlt das für diese Ausbildung erforderliche Grundseminar.</t>
-    <t id="201">Die für diese Ausbildung erforderlichen Seminare [Grund- oder 1-Sterne-Seminar] fehlen.</t>
-    <t id="202">Die für diese Ausbildung erforderlichen Seminare [Grund-, 1-Sterne- oder 2-Sterne-Seminar] fehlen.</t>
-    <t id="203">Die für diese Ausbildung erforderlichen Seminare [Grund-, 1-Sterne-, 2-Sterne- oder 3-Sterne-Seminar] fehlen.</t>
     <t id="204">Es befinden sich keine Seminare in deinem Inventar.</t>
     <t id="205">Es fehlen die erforderlichen Seminare. [Fehlt: Grundseminar x%1]</t>
     <t id="206">Es fehlen die erforderlichen Seminare. [Fehlt: Grund- x%1, 1-Sterne-Seminar x%2]</t>
     <t id="207">Es fehlen die erforderlichen Seminare. [Fehlt: Grund- x%1, 1-Sterne- x%2, 2-Sterne-Seminar x%3]</t>
     <t id="208">Es fehlen die erforderlichen Seminare. [Fehlt: Grund- x%1, 1-Sterne- x%2, 2-Sterne- x%3, 3-Sterne-Seminar x%4]</t>
     <t id="209">Es fehlen die erforderlichen Seminare. [Fehlt: Grund- x%1, 1-Sterne- x%2, 2-Sterne- x%3, 3-Sterne- x%4, 4-Sterne-Seminar x%5]</t>
-    <t id="136">Bis 5 Sterne ausbilden</t>
-    <t id="166">Verbraucht nacheinander Grund- bis 4-Sterne-Seminare, um die Pilotenfertigkeit auf 5 Sterne zu steigern.</t>
   </page>
 </language>
