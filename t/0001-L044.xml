@@ -84,5 +84,5 @@
     <t id="207">Lacks required seminars for this training. [Missing: Basic x%1, 1-Star x%2, 2-Star x%3]</t>
     <t id="208">Lacks required seminars for this training. [Missing: Basic x%1, 1-Star x%2, 2-Star x%3, 3-Star x%4]</t>
     <t id="209">Lacks required seminars for this training. [Missing: Basic x%1, 1-Star x%2, 2-Star x%3, 3-Star x%4, 4-Star x%5]</t>
-  </page>
+  <t id="136">Train to 5-Star</t><t id="166">Sequentially consumes basic to 4-star seminars to train piloting skill to 5-star [max]. [Disabled if seminars are lacking]</t></page>
 </language>

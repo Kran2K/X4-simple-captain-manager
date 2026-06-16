@@ -372,7 +372,8 @@
             <set_value name="$Active_2star" exact="$SubmenuActive and ($Short2_0 == 0) and ($Short2_1 == 0)" />
             <set_value name="$Active_3star" exact="$SubmenuActive and ($Short3_0 == 0) and ($Short3_1 == 0) and ($Short3_2 == 0)" />
             <set_value name="$Active_4star" exact="$SubmenuActive and ($Short4_0 == 0) and ($Short4_1 == 0) and ($Short4_2 == 0) and ($Short4_3 == 0)" />
-            <set_value name="$Active_max" exact="$SubmenuActive and ($ShortMax_0 == 0) and ($ShortMax_1 == 0) and ($ShortMax_2 == 0) and ($ShortMax_3 == 0) and ($ShortMax_4 == 0)" />
+            <set_value name="$Active_5star" exact="$SubmenuActive and ($ShortMax_0 == 0) and ($ShortMax_1 == 0) and ($ShortMax_2 == 0) and ($ShortMax_3 == 0) and ($ShortMax_4 == 0)" />
+            <set_value name="$Active_max" exact="$SubmenuActive" />
             <set_value name="$Active_single" exact="$SubmenuActive and ($ShortSingle_0 == 0) and ($ShortSingle_1 == 0) and ($ShortSingle_2 == 0) and ($ShortSingle_3 == 0) and ($ShortSingle_4 == 0)" />
 
             <!-- Set up Seminar Tooltips based on Active status and inventory availability -->
@@ -380,7 +381,8 @@
             <set_value name="$SeminarMouseover_2star" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_2star then readtext.{98765}.{206}.[$Short2_0, $Short2_1] else readtext.{98765}.{164}))" />
             <set_value name="$SeminarMouseover_3star" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_3star then readtext.{98765}.{207}.[$Short3_0, $Short3_1, $Short3_2] else readtext.{98765}.{162}))" />
             <set_value name="$SeminarMouseover_4star" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_4star then readtext.{98765}.{208}.[$Short4_0, $Short4_1, $Short4_2, $Short4_3] else readtext.{98765}.{161}))" />
-            <set_value name="$SeminarMouseover_max" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_max then readtext.{98765}.{209}.[$ShortMax_0, $ShortMax_1, $ShortMax_2, $ShortMax_3, $ShortMax_4] else readtext.{98765}.{160}))" />
+            <set_value name="$SeminarMouseover_5star" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_5star then readtext.{98765}.{209}.[$ShortMax_0, $ShortMax_1, $ShortMax_2, $ShortMax_3, $ShortMax_4] else readtext.{98765}.{166}))" />
+            <set_value name="$SeminarMouseover_max" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else readtext.{98765}.{160})" />
             <set_value name="$SeminarMouseover_single" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_single then readtext.{98765}.{209}.[$ShortSingle_0, $ShortSingle_1, $ShortSingle_2, $ShortSingle_3, $ShortSingle_4] else readtext.{98765}.{163}))" />
 
             <!-- 2.1 Max Training -->
@@ -395,7 +397,19 @@
                 $callback = SCM_use_seminar_callback,
                 ]" />
 
-            <!-- 2.2 Train to 4-Star -->
+            <!-- 2.2 Train to 5-Star -->
+            <signal_cue_instantly
+              cue="md.Interact_Menu_API.Add_Action"
+              param="table[
+                $id       = 'scm_seminar_5star',
+                $section  = $s_seminar,
+                $text     = readtext.{98765}.{136},
+                $mouseover = $SeminarMouseover_5star,
+                $active   = $Active_5star,
+                $callback = SCM_use_seminar_callback,
+                ]" />
+
+            <!-- 2.3 Train to 4-Star -->
             <signal_cue_instantly
               cue="md.Interact_Menu_API.Add_Action"
               param="table[
@@ -1172,7 +1186,7 @@
                 <!-- Check maximum skill limit based on ActionId -->
                 <set_value name="$LimitPass" exact="false" />
                 <do_if value="$TargetSeminar != null">
-                  <do_if value="$ActionId == 'scm_seminar_max'">
+                  <do_if value="$ActionId == 'scm_seminar_max' or $ActionId == 'scm_seminar_5star'">
                     <set_value name="$LimitPass" exact="true" />
                   </do_if>
                   <do_elseif value="$ActionId == 'scm_seminar_4star' and $Piloting lt 12">

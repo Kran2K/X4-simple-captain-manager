@@ -84,5 +84,5 @@
     <t id="207">Brak seminariów wymaganych do tego szkolenia. [Brak: Podstawowe x%1, 1-gwiazdkowe x%2, 2-gwiazdkowe x%3]</t>
     <t id="208">Brak seminariów wymaganych do tego szkolenia. [Brak: Podstawowe x%1, 1-gwiazdkowe x%2, 2-gwiazdkowe x%3, 3-gwiazdkowe x%4]</t>
     <t id="209">Brak seminariów wymaganych do tego szkolenia. [Brak: Podstawowe x%1, 1-gwiazdkowe x%2, 2-gwiazdkowe x%3, 3-gwiazdkowe x%4, 4-gwiazdkowe x%5]</t>
-  </page>
+  <t id="136">Szkolenie do 5 gwiazdek</t><t id="166">Kolejno zużywa seminaria od podstawowych do 4-gwiazdkowych, aby wyszkolić pilotaż na 5 gwiazdek [maks]. [Wyłączone w przypadku braku seminariów]</t></page>
 </language>

@@ -84,5 +84,5 @@
     <t id="207">Chybí semináře vyžadované pro tento výcvik. [Chybí: Základní x%1, 1hvězdičkový x%2, 2hvězdičkový x%3]</t>
     <t id="208">Chybí semináře vyžadované pro tento výcvik. [Chybí: Základní x%1, 1hvězdičkový x%2, 2hvězdičkový x%3, 3hvězdičkový x%4]</t>
     <t id="209">Chybí semináře vyžadované pro tento výcvik. [Chybí: Základní x%1, 1hvězdičkový x%2, 2hvězdičkový x%3, 3hvězdičkový x%4, 4hvězdičkový x%5]</t>
-  </page>
+  <t id="136">Vycvičit na 5 hvězdiček</t><t id="166">Postupně spotřebovává základní až 4hvězdičkové semináře k výcviku pilotáže na 5 hvězdiček [max]. [Zakázáno, pokud chybí semináře]</t></page>
 </language>
