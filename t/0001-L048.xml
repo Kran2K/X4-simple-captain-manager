@@ -41,7 +41,7 @@
     <t id="93">Inne funkcje kapitana</t>
     <t id="110">Tylko umiejętność 5 gwiazdek</t>
     <t id="111">Wybiera i przypisuje tylko nieprzypisanych z umiejętnością pilotowania 5 gwiazdek.</t>
-    <t id="120">Przypisz wszystkich nieprzypisanych</t>
+    <t id="120">Assign All Unassigned Crew</t>
     <t id="121">Tylko 3 gwiazdki lub więcej</t>
     <t id="122">Tylko 2 gwiazdki lub więcej</t>
     <t id="123">Tylko poniżej 2 gwiazdek</t>
@@ -58,7 +58,7 @@
     <t id="134">Trenuj do 2 gwiazdek</t>
     <t id="135">Trenuj do 1 gwiazdki</t>
     <t id="136">Szkolenie do 5 gwiazdek</t>
-    <t id="150">Przypisuje nieprzypisanych do roli kapitana niezależnie od umiejętności.</t>
+    <t id="150">Appoints unassigned crew galaxy-wide in order of highest skill levels.</t>
     <t id="151">Wybiera i przypisuje nieprzypisanych z umiejętnością pilotowania 3 gwiazdki lub więcej.</t>
     <t id="152">Wybiera i przypisuje nieprzypisanych z umiejętnością pilotowania 2 gwiazdki lub więcej.</t>
     <t id="153">Wybiera i przypisuje nieprzypisanych z umiejętnością pilotowania poniżej 2 gwiazdek.</t>

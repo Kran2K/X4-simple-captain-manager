@@ -41,7 +41,7 @@
     <t id="93">Other Captain Functions</t>
     <t id="110">Assign 5-Star only</t>
     <t id="111">Selects and assigns only unassigned crew members with a piloting skill of 5-star to the captain slot.</t>
-    <t id="120">Assign All Unassigned</t>
+    <t id="120">Assign All Unassigned Crew</t>
     <t id="121">Assign 3-Star or higher only</t>
     <t id="122">Assign 2-Star or higher only</t>
     <t id="123">Assign under 2-Star only</t>
@@ -58,7 +58,7 @@
     <t id="134">Train to 2-Star</t>
     <t id="135">Train to 1-Star</t>
     <t id="136">Train to 5-Star</t>
-    <t id="150">Assigns unassigned crew members in the galaxy to the captain slot, regardless of skill.</t>
+    <t id="150">Appoints unassigned crew galaxy-wide in order of highest skill levels.</t>
     <t id="151">Selects and assigns only unassigned crew members with a piloting skill of 3-star or higher to the captain slot.</t>
     <t id="152">Selects and assigns only unassigned crew members with a piloting skill of 2-star or higher to the captain slot.</t>
     <t id="153">Selects and assigns only unassigned crew members with a piloting skill under 2-star to the captain slot.</t>

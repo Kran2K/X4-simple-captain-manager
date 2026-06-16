@@ -41,7 +41,7 @@
     <t id="93">Weitere Kapitänsfunktionen</t>
     <t id="110">Nur 5-Sterne-Fertigkeit</t>
     <t id="111">Wählt und weist nur nicht zugewiesene Besatzungsmitglieder mit 5-Sterne-Piloting-Fertigkeit zu.</t>
-    <t id="120">Alle Nicht-Zugewiesenen zuweisen</t>
+    <t id="120">Alle nicht zugewiesenen Personen ernennen</t>
     <t id="121">Nur 3 Sterne oder mehr</t>
     <t id="122">Nur 2 Sterne oder mehr</t>
     <t id="123">Nur unter 2 Sterne</t>
@@ -58,7 +58,7 @@
     <t id="134">Bis 2 Sterne trainieren</t>
     <t id="135">Bis 1 Stern trainieren</t>
     <t id="136">Bis 5 Sterne ausbilden</t>
-    <t id="150">Weist nicht zugewiesene Besatzungsmitglieder der Galaxie unabhängig von Fähigkeiten als Kapitän zu.</t>
+    <t id="150">Ernennen Sie nicht zugewiesene Personen in der Galaxie in der Reihenfolge ihrer höchsten Fertigkeitsstufen.</t>
     <t id="151">Wählt und weist Mitglieder mit Piloting-Fertigkeit 3 Sterne oder mehr zu.</t>
     <t id="152">Wählt und weist Mitglieder mit Piloting-Fertigkeit 2 Sterne oder mehr zu.</t>
     <t id="153">Wählt und weist Mitglieder mit Piloting-Fertigkeit unter 2 Sterne zu.</t>

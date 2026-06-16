@@ -41,7 +41,7 @@
     <t id="93">Otras Funciones del Capitán</t>
     <t id="110">Solo habilidad 5 estrellas</t>
     <t id="111">Selecciona y asigna solo miembros no asignados con habilidad de pilotaje de 5 estrellas.</t>
-    <t id="120">Asignar todos los no asignados</t>
+    <t id="120">任命所有未分配人员</t>
     <t id="121">Solo 3 estrellas o más</t>
     <t id="122">Solo 2 estrellas o más</t>
     <t id="123">Solo menos de 2 estrellas</t>
@@ -58,7 +58,7 @@
     <t id="134">Entrenar hasta 2 estrellas</t>
     <t id="135">Entrenar hasta 1 estrella</t>
     <t id="136">Entrenar a 5 estrellas</t>
-    <t id="150">Asigna miembros no asignados de la galaxia al puesto de capitán, independientemente de la habilidad.</t>
+    <t id="150">按技能等级从高到低的顺序任命银河系中的未分配人员。</t>
     <t id="151">Selecciona y asigna miembros con habilidad de pilotaje 3 estrellas o más.</t>
     <t id="152">Selecciona y asigna miembros con habilidad de pilotaje 2 estrellas o más.</t>
     <t id="153">Selecciona y asigna miembros con habilidad de pilotaje menos de 2 estrellas.</t>
