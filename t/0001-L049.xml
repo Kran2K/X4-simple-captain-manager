@@ -105,5 +105,16 @@
     <t id="415">Nicht genügend nicht zugewiesenes Personal; Kapitäne werden nur auf einigen Schiffen ernannt.</t>
     <t id="416">Kapitäne bereits auf %1 Schiffen ernannt; Ernennungen erfolgen nur auf %2 Schiffen.</t>
     <t id="417">Kapitäne bereits auf %1 Schiffen ernannt und unzugewiesenes Personal ist knapp; Ernennungen erfolgen nur auf %2 Schiffen.</t>
+    <t id="418">Kein nicht zugewiesenes Personal verfügbar.</t>
+    <t id="419">Kein nicht zugewiesenes 5-Sterne-Personal verfügbar.</t>
+    <t id="420">Kein nicht zugewiesenes Personal mit 4 oder mehr Sternen verfügbar.</t>
+    <t id="421">Kein nicht zugewiesenes Personal mit 3 oder mehr Sternen verfügbar.</t>
+    <t id="422">Kein nicht zugewiesenes Personal mit 2 oder mehr Sternen verfügbar.</t>
+    <t id="423">Kein nicht zugewiesenes Personal mit 1 oder mehr Sternen verfügbar.</t>
+    <t id="424">Kein nicht zugewiesenes Personal unter 5 Sternen verfügbar.</t>
+    <t id="425">Kein nicht zugewiesenes Personal unter 4 Sternen verfügbar.</t>
+    <t id="426">Kein nicht zugewiesenes Personal unter 3 Sternen verfügbar.</t>
+    <t id="427">Kein nicht zugewiesenes Personal unter 2 Sternen verfügbar.</t>
+    <t id="428">Kein nicht zugewiesenes Personal unter 1 Stern verfügbar.</t>
   </page>
 </language>

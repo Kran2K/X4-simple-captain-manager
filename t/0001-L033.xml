@@ -105,5 +105,16 @@
     <t id="415">Pas assez d'équipage non assigné ; les capitaines ne seront nommés que pour certains vaisseaux.</t>
     <t id="416">Capitaines déjà nommés pour %1 vaisseaux ; les nominations ne seront faites que pour %2 vaisseaux.</t>
     <t id="417">Capitaines déjà nommés pour %1 vaisseaux et manque d'équipage non assigné ; les nominations ne seront faites que pour %2 vaisseaux.</t>
+    <t id="418">Aucun équipage non assigné disponible.</t>
+    <t id="419">Aucun équipage non assigné 5 étoiles disponible.</t>
+    <t id="420">Aucun équipage non assigné de 4 étoiles ou plus disponible.</t>
+    <t id="421">Aucun équipage non assigné de 3 étoiles ou plus disponible.</t>
+    <t id="422">Aucun équipage non assigné de 2 étoiles ou plus disponible.</t>
+    <t id="423">Aucun équipage non assigné de 1 étoile ou plus disponible.</t>
+    <t id="424">Aucun équipage non assigné de moins de 5 étoiles disponible.</t>
+    <t id="425">Aucun équipage non assigné de moins de 4 étoiles disponible.</t>
+    <t id="426">Aucun équipage non assigné de moins de 3 étoiles disponible.</t>
+    <t id="427">Aucun équipage non assigné de moins de 2 étoiles disponible.</t>
+    <t id="428">Aucun équipage non assigné de moins de 1 étoile disponible.</t>
   </page>
 </language>

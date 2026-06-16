@@ -105,5 +105,16 @@
     <t id="415">Equipaggio non assegnato insufficiente; i capitani verranno nominati solo per alcune navi.</t>
     <t id="416">Capitani già nominati per %1 navi; le nomine verranno effettuate solo per %2 navi.</t>
     <t id="417">Capitani già nominati per %1 navi e carenza di equipaggio non assegnato; le nomine verranno effettuate solo per %2 navi.</t>
+    <t id="418">Nessun personale non assegnato disponibile.</t>
+    <t id="419">Nessun personale non assegnato a 5 stelle disponibile.</t>
+    <t id="420">Nessun personale non assegnato a 4 o più stelle disponibile.</t>
+    <t id="421">Nessun personale non assegnato a 3 o più stelle disponibile.</t>
+    <t id="422">Nessun personale non assegnato a 2 o più stelle disponibile.</t>
+    <t id="423">Nessun personale non assegnato a 1 o più stelle disponibile.</t>
+    <t id="424">Nessun personale non assegnato con meno di 5 stelle disponibile.</t>
+    <t id="425">Nessun personale non assegnato con meno di 4 stelle disponibile.</t>
+    <t id="426">Nessun personale non assegnato con meno di 3 stelle disponibile.</t>
+    <t id="427">Nessun personale non assegnato con meno di 2 stelle disponibile.</t>
+    <t id="428">Nessun personale non assegnato con meno di 1 stella disponibile.</t>
   </page>
 </language>

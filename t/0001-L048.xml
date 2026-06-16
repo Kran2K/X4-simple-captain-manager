@@ -105,5 +105,16 @@
     <t id="415">Niewystarczająca liczba nieprzydzielonej załogi; kapitanowie zostaną mianowani tylko na niektórych statkach.</t>
     <t id="416">Kapitanowie zostali już mianowani na %1 statkach; mianowania zostaną dokonane tylko na %2 statkach.</t>
     <t id="417">Kapitanowie zostali już mianowani na %1 statkach i brakuje nieprzydzielonej załogi; mianowania zostaną dokonane tylko na %2 statkach.</t>
+    <t id="418">Brak dostępnego nieprzydzielonego personelu.</t>
+    <t id="419">Brak dostępnego nieprzydzielonego 5-gwiazdkowego personelu.</t>
+    <t id="420">Brak dostępnego nieprzydzielonego personelu z 4 lub więcej gwiazdkami.</t>
+    <t id="421">Brak dostępnego nieprzydzielonego personelu z 3 lub więcej gwiazdkami.</t>
+    <t id="422">Brak dostępnego nieprzydzielonego personelu z 2 lub więcej gwiazdkami.</t>
+    <t id="423">Brak dostępnego nieprzydzielonego personelu z 1 lub więcej gwiazdkami.</t>
+    <t id="424">Brak dostępnego nieprzydzielonego personelu z mniej niż 5 gwiazdkami.</t>
+    <t id="425">Brak dostępnego nieprzydzielonego personelu z mniej niż 4 gwiazdkami.</t>
+    <t id="426">Brak dostępnego nieprzydzielonego personelu z mniej niż 3 gwiazdkami.</t>
+    <t id="427">Brak dostępnego nieprzydzielonego personelu z mniej niż 2 gwiazdkami.</t>
+    <t id="428">Brak dostępnego nieprzydzielonego personelu z mniej niż 1 gwiazdką.</t>
   </page>
 </language>

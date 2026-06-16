@@ -105,5 +105,16 @@
     <t id="415">Not enough unassigned crew; captains will be appointed to some ships only.</t>
     <t id="416">Captains already appointed to %1 ships; appointments will be made to %2 ships only.</t>
     <t id="417">Captains already appointed to %1 ships and unassigned crew is short; appointments will be made to %2 ships only.</t>
+    <t id="418">No unassigned crew members available.</t>
+    <t id="419">No 5-star unassigned crew available.</t>
+    <t id="420">No 4-star or higher unassigned crew available.</t>
+    <t id="421">No 3-star or higher unassigned crew available.</t>
+    <t id="422">No 2-star or higher unassigned crew available.</t>
+    <t id="423">No 1-star or higher unassigned crew available.</t>
+    <t id="424">No under 5-star unassigned crew available.</t>
+    <t id="425">No under 4-star unassigned crew available.</t>
+    <t id="426">No under 3-star unassigned crew available.</t>
+    <t id="427">No under 2-star unassigned crew available.</t>
+    <t id="428">No under 1-star unassigned crew available.</t>
   </page>
 </language>

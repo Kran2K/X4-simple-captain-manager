@@ -105,5 +105,16 @@
     <t id="415">Nedostatek nepřiřazené posádky; kapitáni budou jmenováni pouze na některých lodích.</t>
     <t id="416">Kapitáni již byli jmenováni na %1 lodích; jmenování budou provedena pouze na %2 lodích.</t>
     <t id="417">Kapitáni již byli jmenováni na %1 lodích a nepřiřazená posádka je nedostatečná; jmenování budou provedena pouze na %2 lodích.</t>
+    <t id="418">Není k dispozici žádný nepřiřazený personál.</t>
+    <t id="419">Není k dispozici žádný nepřiřazený 5hvězdičkový personál.</t>
+    <t id="420">Není k dispozici žádný nepřiřazený personál se 4 a více hvězdičkami.</t>
+    <t id="421">Není k dispozici žádný nepřiřazený personál se 3 a více hvězdičkami.</t>
+    <t id="422">Není k dispozici žádný nepřiřazený personál se 2 a více hvězdičkami.</t>
+    <t id="423">Není k dispozici žádný nepřiřazený personál s 1 a více hvězdičkami.</t>
+    <t id="424">Není k dispozici žádný nepřiřazený personál s méně než 5 hvězdičkami.</t>
+    <t id="425">Není k dispozici žádný nepřiřazený personál s méně než 4 hvězdičkami.</t>
+    <t id="426">Není k dispozici žádný nepřiřazený personál s méně než 3 hvězdičkami.</t>
+    <t id="427">Není k dispozici žádný nepřiřazený personál s méně než 2 hvězdičkami.</t>
+    <t id="428">Není k dispozici žádný nepřiřazený personál s méně než 1 hvězdičkou.</t>
   </page>
 </language>

@@ -129,17 +129,17 @@
             <set_value name="$Active_assign_under_1star" exact="$ReqAssignCount gt 0 and $Avail_under1 gt 0" />
 
             <!-- Set up Assign Tooltips based on Active status of each option -->
-            <set_value name="$AssignMouseover_all" exact="if not $Active_assign_all then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{210}) else readtext.{98765}.{210}" />
-            <set_value name="$AssignMouseover_5star" exact="if not $Active_assign_5star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{209}) else readtext.{98765}.{209}" />
-            <set_value name="$AssignMouseover_4star" exact="if not $Active_assign_4star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{214}) else readtext.{98765}.{214}" />
-            <set_value name="$AssignMouseover_3star" exact="if not $Active_assign_3star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{211}) else readtext.{98765}.{211}" />
-            <set_value name="$AssignMouseover_2star" exact="if not $Active_assign_2star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{212}) else readtext.{98765}.{212}" />
-            <set_value name="$AssignMouseover_1star" exact="if not $Active_assign_1star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{215}) else readtext.{98765}.{215}" />
-            <set_value name="$AssignMouseover_under_5star" exact="if not $Active_assign_under_5star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{216}) else readtext.{98765}.{216}" />
-            <set_value name="$AssignMouseover_under_4star" exact="if not $Active_assign_under_4star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{217}) else readtext.{98765}.{217}" />
-            <set_value name="$AssignMouseover_under_3star" exact="if not $Active_assign_under_3star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{218}) else readtext.{98765}.{218}" />
-            <set_value name="$AssignMouseover_under_2star" exact="if not $Active_assign_under_2star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{213}) else readtext.{98765}.{213}" />
-            <set_value name="$AssignMouseover_under_1star" exact="if not $Active_assign_under_1star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{219}) else readtext.{98765}.{219}" />
+            <set_value name="$AssignMouseover_all" exact="if not $Active_assign_all then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{418}) else readtext.{98765}.{210}" />
+            <set_value name="$AssignMouseover_5star" exact="if not $Active_assign_5star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{419}) else readtext.{98765}.{209}" />
+            <set_value name="$AssignMouseover_4star" exact="if not $Active_assign_4star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{420}) else readtext.{98765}.{214}" />
+            <set_value name="$AssignMouseover_3star" exact="if not $Active_assign_3star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{421}) else readtext.{98765}.{211}" />
+            <set_value name="$AssignMouseover_2star" exact="if not $Active_assign_2star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{422}) else readtext.{98765}.{212}" />
+            <set_value name="$AssignMouseover_1star" exact="if not $Active_assign_1star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{423}) else readtext.{98765}.{215}" />
+            <set_value name="$AssignMouseover_under_5star" exact="if not $Active_assign_under_5star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{424}) else readtext.{98765}.{216}" />
+            <set_value name="$AssignMouseover_under_4star" exact="if not $Active_assign_under_4star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{425}) else readtext.{98765}.{217}" />
+            <set_value name="$AssignMouseover_under_3star" exact="if not $Active_assign_under_3star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{426}) else readtext.{98765}.{218}" />
+            <set_value name="$AssignMouseover_under_2star" exact="if not $Active_assign_under_2star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{427}) else readtext.{98765}.{213}" />
+            <set_value name="$AssignMouseover_under_1star" exact="if not $Active_assign_under_1star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{428}) else readtext.{98765}.{219}" />
 
             <!-- Add shortage/mixed warning strings when unassigned crew is insufficient or selection is mixed -->
             <do_if value="$ReqAssignCount gt 0">

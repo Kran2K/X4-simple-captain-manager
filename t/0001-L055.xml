@@ -105,5 +105,16 @@
     <t id="415">Falta de tripulação não atribuída; capitães serão nomeados apenas para algumas naves.</t>
     <t id="416">Capitães já nomeados para %1 naves; as nomeações serão feitas apenas para %2 naves.</t>
     <t id="417">Capitães já nomeados para %1 naves e falta tripulação não atribuída; as nomeações serão feitas apenas para %2 naves.</t>
+    <t id="418">Nenhum pessoal não atribuído disponível.</t>
+    <t id="419">Nenhum pessoal não atribuído de 5 estrelas disponível.</t>
+    <t id="420">Nenhum pessoal não atribuído de 4 estrelas ou mais disponível.</t>
+    <t id="421">Nenhum pessoal não atribuído de 3 estrelas ou mais disponível.</t>
+    <t id="422">Nenhum pessoal não atribuído de 2 estrelas ou mais disponível.</t>
+    <t id="423">Nenhum pessoal não atribuído de 1 estrela ou mais disponível.</t>
+    <t id="424">Nenhum pessoal não atribuído de menos de 5 estrelas disponível.</t>
+    <t id="425">Nenhum pessoal não atribuído de menos de 4 estrelas disponível.</t>
+    <t id="426">Nenhum pessoal não atribuído de menos de 3 estrelas disponível.</t>
+    <t id="427">Nenhum pessoal não atribuído de menos de 2 estrelas disponível.</t>
+    <t id="428">Nenhum pessoal não atribuído de menos de 1 estrela disponível.</t>
   </page>
 </language>

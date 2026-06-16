@@ -105,5 +105,16 @@
     <t id="415">No hay suficiente tripulación sin asignar; los capitanes solo se asignarán a algunas naves.</t>
     <t id="416">Capitanes ya asignados a %1 naves; las asignaciones solo se realizarán a %2 naves.</t>
     <t id="417">Capitanes ya asignados a %1 naves y falta tripulación sin asignar; las asignaciones solo se realizarán a %2 naves.</t>
+    <t id="418">No hay personal sin asignar disponible.</t>
+    <t id="419">No hay personal sin asignar de 5 estrellas disponible.</t>
+    <t id="420">No hay personal sin asignar de 4 estrellas o más disponible.</t>
+    <t id="421">No hay personal sin asignar de 3 estrellas o más disponible.</t>
+    <t id="422">No hay personal sin asignar de 2 estrellas o más disponible.</t>
+    <t id="423">No hay personal sin asignar de 1 estrella o más disponible.</t>
+    <t id="424">No hay personal sin asignar de menos de 5 estrellas disponible.</t>
+    <t id="425">No hay personal sin asignar de menos de 4 estrellas disponible.</t>
+    <t id="426">No hay personal sin asignar de menos de 3 estrellas disponible.</t>
+    <t id="427">No hay personal sin asignar de menos de 2 estrellas disponible.</t>
+    <t id="428">No hay personal sin asignar de menos de 1 estrella disponible.</t>
   </page>
 </language>
