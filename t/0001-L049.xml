@@ -79,5 +79,10 @@
     <t id="202">Die für diese Ausbildung erforderlichen Seminare (Grund, 1 Stern oder 2 Sterne) fehlen.</t>
     <t id="203">Die für diese Ausbildung erforderlichen Seminare (Grund, 1 Stern, 2 Sterne oder 3 Sterne) fehlen.</t>
     <t id="204">Es befinden sich keine Piloten-Seminare in deinem Inventar.</t>
+    <t id="205">Es fehlen die erforderlichen Seminare. (Fehlt: Grund x%1)</t>
+    <t id="206">Es fehlen die erforderlichen Seminare. (Fehlt: Grund x%1, 1 Stern x%2)</t>
+    <t id="207">Es fehlen die erforderlichen Seminare. (Fehlt: Grund x%1, 1 Stern x%2, 2 Sterne x%3)</t>
+    <t id="208">Es fehlen die erforderlichen Seminare. (Fehlt: Grund x%1, 1 Stern x%2, 2 Sterne x%3, 3 Sterne x%4)</t>
+    <t id="209">Es fehlen die erforderlichen Seminare. (Fehlt: Grund x%1, 1 Stern x%2, 2 Sterne x%3, 3 Sterne x%4, 4 Sterne x%5)</t>
   </page>
 </language>

@@ -79,5 +79,10 @@
     <t id="202">Manque les séminaires de pilotage (de base, 1 ou 2 étoiles) requis pour cette formation.</t>
     <t id="203">Manque les séminaires de pilotage (de base, 1, 2 ou 3 étoiles) requis pour cette formation.</t>
     <t id="204">Il n'y a pas de séminaires de pilotage dans votre inventaire.</t>
+    <t id="205">Manque les séminaires requis pour cette formation. (Manque: De base x%1)</t>
+    <t id="206">Manque les séminaires requis pour cette formation. (Manque: De base x%1, 1 étoile x%2)</t>
+    <t id="207">Manque les séminaires requis pour cette formation. (Manque: De base x%1, 1 étoile x%2, 2 étoiles x%3)</t>
+    <t id="208">Manque les séminaires requis pour cette formation. (Manque: De base x%1, 1 étoile x%2, 2 étoiles x%3, 3 étoiles x%4)</t>
+    <t id="209">Manque les séminaires requis pour cette formation. (Manque: De base x%1, 1 étoile x%2, 2 étoiles x%3, 3 étoiles x%4, 4 étoiles x%5)</t>
   </page>
 </language>

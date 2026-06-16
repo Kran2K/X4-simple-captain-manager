@@ -211,11 +211,6 @@
           <!-- 2. Use Seminars Group -->
           <do_if value="not $IsStation">
             <set_value name="$SeminarActive" exact="false" />
-            <do_all exact="$Ships.count" counter="$i">
-              <do_if value="@$Ships.{$i}.pilot.exists">
-                <set_value name="$SeminarActive" exact="true" />
-              </do_if>
-            </do_all>
 
             <set_value name="$HasSem_0" exact="player.entity.inventory.{ware.inv_seminar_piloting_0}.count" />
             <set_value name="$HasSem_1" exact="player.entity.inventory.{ware.inv_seminar_piloting_1}.count" />
@@ -224,23 +219,169 @@
             <set_value name="$HasSem_4" exact="player.entity.inventory.{ware.inv_seminar_piloting_4}.count" />
             <set_value name="$AnySeminar" exact="$HasSem_0 + $HasSem_1 + $HasSem_2 + $HasSem_3 + $HasSem_4 gt 0" />
 
+            <set_value name="$Req1_0" exact="0" />
+            <set_value name="$Req2_0" exact="0" />
+            <set_value name="$Req2_1" exact="0" />
+            <set_value name="$Req3_0" exact="0" />
+            <set_value name="$Req3_1" exact="0" />
+            <set_value name="$Req3_2" exact="0" />
+            <set_value name="$Req4_0" exact="0" />
+            <set_value name="$Req4_1" exact="0" />
+            <set_value name="$Req4_2" exact="0" />
+            <set_value name="$Req4_3" exact="0" />
+            <set_value name="$ReqMax_0" exact="0" />
+            <set_value name="$ReqMax_1" exact="0" />
+            <set_value name="$ReqMax_2" exact="0" />
+            <set_value name="$ReqMax_3" exact="0" />
+            <set_value name="$ReqMax_4" exact="0" />
+            <set_value name="$ReqSingle_0" exact="0" />
+            <set_value name="$ReqSingle_1" exact="0" />
+            <set_value name="$ReqSingle_2" exact="0" />
+            <set_value name="$ReqSingle_3" exact="0" />
+            <set_value name="$ReqSingle_4" exact="0" />
+
+            <do_all exact="$Ships.count" counter="$i">
+              <do_if value="@$Ships.{$i}.pilot.exists">
+                <set_value name="$SeminarActive" exact="true" />
+                <set_value name="$Piloting" exact="$Ships.{$i}.pilot.skill.piloting" />
+
+                <!-- 1star (up to 3) -->
+                <do_if value="$Piloting lt 3">
+                  <set_value name="$Req1_0" exact="$Req1_0 + 1" />
+                </do_if>
+
+                <!-- 2star (up to 6) -->
+                <do_if value="$Piloting lt 3">
+                  <set_value name="$Req2_0" exact="$Req2_0 + 1" />
+                  <set_value name="$Req2_1" exact="$Req2_1 + 1" />
+                </do_if>
+                <do_elseif value="$Piloting ge 3 and $Piloting lt 6">
+                  <set_value name="$Req2_1" exact="$Req2_1 + 1" />
+                </do_elseif>
+
+                <!-- 3star (up to 9) -->
+                <do_if value="$Piloting lt 3">
+                  <set_value name="$Req3_0" exact="$Req3_0 + 1" />
+                  <set_value name="$Req3_1" exact="$Req3_1 + 1" />
+                  <set_value name="$Req3_2" exact="$Req3_2 + 1" />
+                </do_if>
+                <do_elseif value="$Piloting ge 3 and $Piloting lt 6">
+                  <set_value name="$Req3_1" exact="$Req3_1 + 1" />
+                  <set_value name="$Req3_2" exact="$Req3_2 + 1" />
+                </do_elseif>
+                <do_elseif value="$Piloting ge 6 and $Piloting lt 9">
+                  <set_value name="$Req3_2" exact="$Req3_2 + 1" />
+                </do_elseif>
+
+                <!-- 4star (up to 12) -->
+                <do_if value="$Piloting lt 3">
+                  <set_value name="$Req4_0" exact="$Req4_0 + 1" />
+                  <set_value name="$Req4_1" exact="$Req4_1 + 1" />
+                  <set_value name="$Req4_2" exact="$Req4_2 + 1" />
+                  <set_value name="$Req4_3" exact="$Req4_3 + 1" />
+                </do_if>
+                <do_elseif value="$Piloting ge 3 and $Piloting lt 6">
+                  <set_value name="$Req4_1" exact="$Req4_1 + 1" />
+                  <set_value name="$Req4_2" exact="$Req4_2 + 1" />
+                  <set_value name="$Req4_3" exact="$Req4_3 + 1" />
+                </do_elseif>
+                <do_elseif value="$Piloting ge 6 and $Piloting lt 9">
+                  <set_value name="$Req4_2" exact="$Req4_2 + 1" />
+                  <set_value name="$Req4_3" exact="$Req4_3 + 1" />
+                </do_elseif>
+                <do_elseif value="$Piloting ge 9 and $Piloting lt 12">
+                  <set_value name="$Req4_3" exact="$Req4_3 + 1" />
+                </do_elseif>
+
+                <!-- Max (up to 15) -->
+                <do_if value="$Piloting lt 3">
+                  <set_value name="$ReqMax_0" exact="$ReqMax_0 + 1" />
+                  <set_value name="$ReqMax_1" exact="$ReqMax_1 + 1" />
+                  <set_value name="$ReqMax_2" exact="$ReqMax_2 + 1" />
+                  <set_value name="$ReqMax_3" exact="$ReqMax_3 + 1" />
+                  <set_value name="$ReqMax_4" exact="$ReqMax_4 + 1" />
+                </do_if>
+                <do_elseif value="$Piloting ge 3 and $Piloting lt 6">
+                  <set_value name="$ReqMax_1" exact="$ReqMax_1 + 1" />
+                  <set_value name="$ReqMax_2" exact="$ReqMax_2 + 1" />
+                  <set_value name="$ReqMax_3" exact="$ReqMax_3 + 1" />
+                  <set_value name="$ReqMax_4" exact="$ReqMax_4 + 1" />
+                </do_elseif>
+                <do_elseif value="$Piloting ge 6 and $Piloting lt 9">
+                  <set_value name="$ReqMax_2" exact="$ReqMax_2 + 1" />
+                  <set_value name="$ReqMax_3" exact="$ReqMax_3 + 1" />
+                  <set_value name="$ReqMax_4" exact="$ReqMax_4 + 1" />
+                </do_elseif>
+                <do_elseif value="$Piloting ge 9 and $Piloting lt 12">
+                  <set_value name="$ReqMax_3" exact="$ReqMax_3 + 1" />
+                  <set_value name="$ReqMax_4" exact="$ReqMax_4 + 1" />
+                </do_elseif>
+                <do_elseif value="$Piloting ge 12 and $Piloting lt 15">
+                  <set_value name="$ReqMax_4" exact="$ReqMax_4 + 1" />
+                </do_elseif>
+
+                <!-- Single (only 1 level) -->
+                <do_if value="$Piloting lt 3">
+                  <set_value name="$ReqSingle_0" exact="$ReqSingle_0 + 1" />
+                </do_if>
+                <do_elseif value="$Piloting ge 3 and $Piloting lt 6">
+                  <set_value name="$ReqSingle_1" exact="$ReqSingle_1 + 1" />
+                </do_elseif>
+                <do_elseif value="$Piloting ge 6 and $Piloting lt 9">
+                  <set_value name="$ReqSingle_2" exact="$ReqSingle_2 + 1" />
+                </do_elseif>
+                <do_elseif value="$Piloting ge 9 and $Piloting lt 12">
+                  <set_value name="$ReqSingle_3" exact="$ReqSingle_3 + 1" />
+                </do_elseif>
+                <do_elseif value="$Piloting ge 12 and $Piloting lt 15">
+                  <set_value name="$ReqSingle_4" exact="$ReqSingle_4 + 1" />
+                </do_elseif>
+              </do_if>
+            </do_all>
+
             <set_value name="$SubmenuActive" exact="$SeminarActive and $AnySeminar" />
 
-            <!-- Enable tiers only if all preceding seminar tiers are available in inventory -->
-            <set_value name="$Active_1star" exact="$SubmenuActive and ($HasSem_0 gt 0)" />
-            <set_value name="$Active_2star" exact="$SubmenuActive and ($HasSem_0 gt 0) and ($HasSem_1 gt 0)" />
-            <set_value name="$Active_3star" exact="$SubmenuActive and ($HasSem_0 gt 0) and ($HasSem_1 gt 0) and ($HasSem_2 gt 0)" />
-            <set_value name="$Active_4star" exact="$SubmenuActive and ($HasSem_0 gt 0) and ($HasSem_1 gt 0) and ($HasSem_2 gt 0) and ($HasSem_3 gt 0)" />
-            <set_value name="$Active_max" exact="$SubmenuActive" />
-            <set_value name="$Active_single" exact="$SubmenuActive" />
+            <!-- Calculate shortages -->
+            <set_value name="$Short1_0" exact="if ($Req1_0 - $HasSem_0) gt 0 then ($Req1_0 - $HasSem_0) else 0" />
+
+            <set_value name="$Short2_0" exact="if ($Req2_0 - $HasSem_0) gt 0 then ($Req2_0 - $HasSem_0) else 0" />
+            <set_value name="$Short2_1" exact="if ($Req2_1 - $HasSem_1) gt 0 then ($Req2_1 - $HasSem_1) else 0" />
+
+            <set_value name="$Short3_0" exact="if ($Req3_0 - $HasSem_0) gt 0 then ($Req3_0 - $HasSem_0) else 0" />
+            <set_value name="$Short3_1" exact="if ($Req3_1 - $HasSem_1) gt 0 then ($Req3_1 - $HasSem_1) else 0" />
+            <set_value name="$Short3_2" exact="if ($Req3_2 - $HasSem_2) gt 0 then ($Req3_2 - $HasSem_2) else 0" />
+
+            <set_value name="$Short4_0" exact="if ($Req4_0 - $HasSem_0) gt 0 then ($Req4_0 - $HasSem_0) else 0" />
+            <set_value name="$Short4_1" exact="if ($Req4_1 - $HasSem_1) gt 0 then ($Req4_1 - $HasSem_1) else 0" />
+            <set_value name="$Short4_2" exact="if ($Req4_2 - $HasSem_2) gt 0 then ($Req4_2 - $HasSem_2) else 0" />
+            <set_value name="$Short4_3" exact="if ($Req4_3 - $HasSem_3) gt 0 then ($Req4_3 - $HasSem_3) else 0" />
+
+            <set_value name="$ShortMax_0" exact="if ($ReqMax_0 - $HasSem_0) gt 0 then ($ReqMax_0 - $HasSem_0) else 0" />
+            <set_value name="$ShortMax_1" exact="if ($ReqMax_1 - $HasSem_1) gt 0 then ($ReqMax_1 - $HasSem_1) else 0" />
+            <set_value name="$ShortMax_2" exact="if ($ReqMax_2 - $HasSem_2) gt 0 then ($ReqMax_2 - $HasSem_2) else 0" />
+            <set_value name="$ShortMax_3" exact="if ($ReqMax_3 - $HasSem_3) gt 0 then ($ReqMax_3 - $HasSem_3) else 0" />
+            <set_value name="$ShortMax_4" exact="if ($ReqMax_4 - $HasSem_4) gt 0 then ($ReqMax_4 - $HasSem_4) else 0" />
+
+            <set_value name="$ShortSingle_0" exact="if ($ReqSingle_0 - $HasSem_0) gt 0 then ($ReqSingle_0 - $HasSem_0) else 0" />
+            <set_value name="$ShortSingle_1" exact="if ($ReqSingle_1 - $HasSem_1) gt 0 then ($ReqSingle_1 - $HasSem_1) else 0" />
+            <set_value name="$ShortSingle_2" exact="if ($ReqSingle_2 - $HasSem_2) gt 0 then ($ReqSingle_2 - $HasSem_2) else 0" />
+            <set_value name="$ShortSingle_3" exact="if ($ReqSingle_3 - $HasSem_3) gt 0 then ($ReqSingle_3 - $HasSem_3) else 0" />
+            <set_value name="$ShortSingle_4" exact="if ($ReqSingle_4 - $HasSem_4) gt 0 then ($ReqSingle_4 - $HasSem_4) else 0" />
+
+            <set_value name="$Active_1star" exact="$SubmenuActive and ($Short1_0 == 0)" />
+            <set_value name="$Active_2star" exact="$SubmenuActive and ($Short2_0 == 0) and ($Short2_1 == 0)" />
+            <set_value name="$Active_3star" exact="$SubmenuActive and ($Short3_0 == 0) and ($Short3_1 == 0) and ($Short3_2 == 0)" />
+            <set_value name="$Active_4star" exact="$SubmenuActive and ($Short4_0 == 0) and ($Short4_1 == 0) and ($Short4_2 == 0) and ($Short4_3 == 0)" />
+            <set_value name="$Active_max" exact="$SubmenuActive and ($ShortMax_0 == 0) and ($ShortMax_1 == 0) and ($ShortMax_2 == 0) and ($ShortMax_3 == 0) and ($ShortMax_4 == 0)" />
+            <set_value name="$Active_single" exact="$SubmenuActive and ($ShortSingle_0 == 0) and ($ShortSingle_1 == 0) and ($ShortSingle_2 == 0) and ($ShortSingle_3 == 0) and ($ShortSingle_4 == 0)" />
 
             <!-- Set up Seminar Tooltips based on Active status and inventory availability -->
-            <set_value name="$SeminarMouseover_1star" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_1star then readtext.{98765}.{200} else readtext.{98765}.{165}))" />
-            <set_value name="$SeminarMouseover_2star" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_2star then readtext.{98765}.{201} else readtext.{98765}.{164}))" />
-            <set_value name="$SeminarMouseover_3star" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_3star then readtext.{98765}.{202} else readtext.{98765}.{162}))" />
-            <set_value name="$SeminarMouseover_4star" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_4star then readtext.{98765}.{203} else readtext.{98765}.{161}))" />
-            <set_value name="$SeminarMouseover_max" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else readtext.{98765}.{160})" />
-            <set_value name="$SeminarMouseover_single" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else readtext.{98765}.{163})" />
+            <set_value name="$SeminarMouseover_1star" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_1star then readtext.{98765}.{205}.[$Short1_0] else readtext.{98765}.{165}))" />
+            <set_value name="$SeminarMouseover_2star" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_2star then readtext.{98765}.{206}.[$Short2_0, $Short2_1] else readtext.{98765}.{164}))" />
+            <set_value name="$SeminarMouseover_3star" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_3star then readtext.{98765}.{207}.[$Short3_0, $Short3_1, $Short3_2] else readtext.{98765}.{162}))" />
+            <set_value name="$SeminarMouseover_4star" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_4star then readtext.{98765}.{208}.[$Short4_0, $Short4_1, $Short4_2, $Short4_3] else readtext.{98765}.{161}))" />
+            <set_value name="$SeminarMouseover_max" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_max then readtext.{98765}.{209}.[$ShortMax_0, $ShortMax_1, $ShortMax_2, $ShortMax_3, $ShortMax_4] else readtext.{98765}.{160}))" />
+            <set_value name="$SeminarMouseover_single" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_single then readtext.{98765}.{209}.[$ShortSingle_0, $ShortSingle_1, $ShortSingle_2, $ShortSingle_3, $ShortSingle_4] else readtext.{98765}.{163}))" />
 
             <!-- 2.1 Max Training -->
             <signal_cue_instantly
