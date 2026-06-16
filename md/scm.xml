@@ -690,6 +690,23 @@
           <find_ship name="$PlayerShips" owner="faction.player" multiple="true" space="player.galaxy" recursive="true" />
           <debug_text text="'[SCM] Galaxy player ships found: ' + $PlayerShips.count" filter="general" />
 
+          <!-- Create unified candidates cache to scan galaxy-wide unassigned crew only once -->
+          <create_list name="$CandidateList" />
+          <do_all exact="$PlayerShips.count" counter="$j">
+            <set_value name="$PShip" exact="$PlayerShips.{$j}" />
+            <set_value name="$ShipPeople" exact="$PShip.people.list" />
+            <do_all exact="$ShipPeople.count" counter="$k">
+              <set_value name="$Template" exact="$ShipPeople.{$k}" />
+              <set_value name="$Role" exact="$PShip.people.{$Template}.role" />
+              <set_value name="$Seed" exact="@$PShip.people.{$Template}.seed" />
+              <set_value name="$NPC_Piloting" exact="$PShip.people.{$Template}.skill.{skilltype.piloting}" />
+              <do_if value="$Role == entityrole.unassigned and $NPC_Piloting ge $MinSkill and $NPC_Piloting lt $MaxSkill">
+                <append_to_list name="$CandidateList" exact="table[$template = $Template, $source = $PShip, $seed = $Seed, $piloting = $NPC_Piloting]" />
+              </do_if>
+            </do_all>
+          </do_all>
+          <debug_text text="'[SCM] Galaxy-wide unassigned candidates cached: ' + $CandidateList.count" filter="general" />
+
           <!-- Lists to prevent duplicate assignments -->
           <create_list name="$AssignedCandidates" />
           <create_list name="$AssignedSeeds" />
@@ -698,62 +715,35 @@
           <do_all exact="$SortedShips.count" counter="$i">
             <set_value name="$Ship" exact="$SortedShips.{$i}" />
 
-            <set_value name="$BestCandidate" exact="null" />
+            <set_value name="$BestCandidateIdx" exact="0" />
             <set_value name="$BestPiloting" exact="-1" />
-            <set_value name="$BestSource" exact="null" />
-            <set_value name="$BestSeed" exact="0" />
 
-            <!-- Step 1: Search for the best unassigned crew template within the target ship itself -->
-            <set_value name="$LocalPeople" exact="$Ship.people.list" />
-            <do_all exact="$LocalPeople.count" counter="$k">
-              <set_value name="$Template" exact="$LocalPeople.{$k}" />
-              <set_value name="$Role" exact="$Ship.people.{$Template}.role" />
-              <set_value name="$Seed" exact="@$Ship.people.{$Template}.seed" />
-              <set_value name="$NPC_Piloting" exact="$Ship.people.{$Template}.skill.{skilltype.piloting}" />
-              <set_value name="$IsAlreadyAssigned" exact="$AssignedCandidates.indexof.{$Template} or ($Seed gt 0 and $AssignedSeeds.indexof.{$Seed})" />
+            <!-- Find the candidate with the highest piloting skill in our cached list -->
+            <!-- Priority 1: Highest piloting skill (primary) -->
+            <!-- Priority 2: Current ship local crew (tie-breaker to avoid unnecessary relocation) -->
+            <do_all exact="$CandidateList.count" counter="$idx">
+              <set_value name="$Cand" exact="$CandidateList.{$idx}" />
+              <set_value name="$Score" exact="$Cand.$piloting * 10" />
+              <do_if value="$Cand.$source == $Ship">
+                <set_value name="$Score" exact="$Score + 1" />
+              </do_if>
               
-              <!-- Only templates that are unassigned, match skill criteria and haven't been selected yet in this batch run -->
-              <do_if value="$Role == entityrole.unassigned and not $IsAlreadyAssigned">
-                <do_if value="$NPC_Piloting gt $BestPiloting and $NPC_Piloting ge $MinSkill and $NPC_Piloting lt $MaxSkill">
-                  <set_value name="$BestPiloting" exact="$NPC_Piloting" />
-                  <set_value name="$BestCandidate" exact="$Template" />
-                  <set_value name="$BestSource" exact="$Ship" />
-                  <set_value name="$BestSeed" exact="$Seed" />
-                </do_if>
+              <do_if value="$Score gt $BestPiloting">
+                <set_value name="$BestPiloting" exact="$Score" />
+                <set_value name="$BestCandidateIdx" exact="$idx" />
               </do_if>
             </do_all>
 
-            <!-- Step 2: If none found locally, search remote ships for unassigned crew templates -->
-            <do_if value="not $BestCandidate">
-              <do_all exact="$PlayerShips.count" counter="$j">
-                <set_value name="$PShip" exact="$PlayerShips.{$j}" />
-                <do_if value="$PShip != $Ship">
-                  <set_value name="$RemotePeople" exact="$PShip.people.list" />
-                  
-                  <do_all exact="$RemotePeople.count" counter="$k">
-                    <set_value name="$Template" exact="$RemotePeople.{$k}" />
-                    <set_value name="$Role" exact="$PShip.people.{$Template}.role" />
-                    <set_value name="$Seed" exact="@$PShip.people.{$Template}.seed" />
-                    <set_value name="$NPC_Piloting" exact="$PShip.people.{$Template}.skill.{skilltype.piloting}" />
-                    <set_value name="$IsAlreadyAssigned" exact="$AssignedCandidates.indexof.{$Template} or ($Seed gt 0 and $AssignedSeeds.indexof.{$Seed})" />
-                    
-                    <do_if value="$Role == entityrole.unassigned and not $IsAlreadyAssigned">
-                      <do_if value="$NPC_Piloting gt $BestPiloting and $NPC_Piloting ge $MinSkill and $NPC_Piloting lt $MaxSkill">
-                        <set_value name="$BestPiloting" exact="$NPC_Piloting" />
-                        <set_value name="$BestCandidate" exact="$Template" />
-                        <set_value name="$BestSource" exact="$PShip" />
-                        <set_value name="$BestSeed" exact="$Seed" />
-                      </do_if>
-                    </do_if>
-                  </do_all>
-                </do_if>
-              </do_all>
-            </do_if>
-
-            <!-- Assign candidate if found -->
-            <do_if value="$BestCandidate">
-              <debug_text text="'[SCM] Candidate selected: ' + $BestCandidate + ' (skill: ' + $BestPiloting + ') from ' + $BestSource.knownname + ' (seed=' + $BestSeed + ')'" filter="general" />
+            <do_if value="$BestCandidateIdx gt 0">
+              <set_value name="$BestCandTable" exact="$CandidateList.{$BestCandidateIdx}" />
+              <set_value name="$BestCandidate" exact="$BestCandTable.$template" />
+              <set_value name="$BestSource" exact="$BestCandTable.$source" />
+              <set_value name="$BestSeed" exact="$BestCandTable.$seed" />
+              <set_value name="$RealPiloting" exact="$BestCandTable.$piloting" />
               
+              <!-- Pop selected candidate from cache -->
+              <remove_from_list name="$CandidateList" exact="$BestCandTable" />
+
               <!-- Check if the template already has an active NPC entity -->
               <set_value name="$TargetActor" exact="$BestSource.roleentity.{$BestCandidate}" />
 
@@ -763,7 +753,7 @@
               </do_if>
 
               <do_if value="$TargetActor">
-                <debug_text text="'[SCM] Assigning ' + $TargetActor.knownname + ' (skill ' + $BestPiloting + ') to ' + $Ship.knownname" filter="general" />
+                <debug_text text="'[SCM] Assigning ' + $TargetActor.knownname + ' (skill ' + $RealPiloting + ') to ' + $Ship.knownname" filter="general" />
                 <assign_control_entity actor="$TargetActor" object="$Ship" post="controlpost.aipilot" transfer="true" init="true" />
                 
                 <!-- Add selected template and seed to lists to prevent double assignment -->
@@ -777,7 +767,7 @@
                   <remove_npc_template object="$BestSource" template="$BestCandidate" />
                 </do_if>
 
-                <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{23}.[$Ship.knownname, ($BestPiloting / 3), $TargetActor.knownname]" />
+                <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{23}.[$Ship.knownname, ($RealPiloting / 3), $TargetActor.knownname]" />
               </do_if>
               <do_else>
                 <debug_text text="'[SCM] Failed to instantiate candidate: ' + $BestCandidate + ' for ' + $Ship.knownname" filter="general" />
