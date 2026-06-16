@@ -18,7 +18,7 @@
     <t id="23">Capitano [%3] da %2 stelle assegnato alla nave %1.</t>
     <t id="24">Trasferiti %2 membri dell'equipaggio non assegnati su %1.</t>
     <t id="25">Addestramento completato: %1 capitani promossi. [Consumato: base x%2, 1-stella x%3, 2-stelle x%4, 3-stelle x%5, 4-stelle x%6]</t>
-    <t id="26">[Attenzione] Per fare spazio al capitano congedato sulla nave %1, il membro dell'equipaggio meno qualificato %2 stelle [%3] è stato licenziato automaticamente.</t>
+    <t id="26">[Attenzione] Per fare spazio al capitano congedato sulla nave %1, il membro dell'equipaggio meno qualificato [%2 stelle [%3]] è stato licenziato automaticamente.</t>
     <t id="27">[Attenzione] Mancanza di equipaggio non assegnato; impossibile assegnare i capitani a %1 delle %2 navi richieste.</t>
     <t id="28">A causa della capacità limitata su %1, sono stati trasferiti solo %2 su %3 membri dell'equipaggio non assegnati disponibili.</t>
     <t id="29">[Attenzione] Mancanza di equipaggio non assegnato; impossibile assegnare un capitano alla nave %1.</t>
@@ -51,14 +51,14 @@
     <t id="127">Solo meno di 4 stelle</t>
     <t id="128">Solo meno di 3 stelle</t>
     <t id="129">Solo meno di 1 stella</t>
-    <t id="130">Allena al livello massimo</t>
-    <t id="131">Allena fino a 4 stelle</t>
-    <t id="132">Allena fino a 3 stelle</t>
+    <t id="130">Allena al livello massimo [tutti i seminari]</t>
+    <t id="131">Allena fino a 4 stelle [seminari fino a 3 stelle]</t>
+    <t id="132">Allena fino a 3 stelle [seminari fino a 2 stelle]</t>
     <t id="133">Usa solo 1 seminario</t>
-    <t id="134">Allena fino a 2 stelle</t>
-    <t id="135">Allena fino a 1 stella</t>
+    <t id="134">Allena fino a 2 stelle [seminari fino a 1 stella]</t>
+    <t id="135">Allena fino a 1 stella [seminari di base]</t>
     <t id="136">Addestra a 5 stelle</t>
-    <t id="150">Nomina il personale non assegnato nella galassia in ordine di livello di abilità più alto.</t>
+    <t id="150">Nomina l'equipaggio non assegnato in tutta la galassia in ordine di livello di abilità più alto.</t>
     <t id="151">Seleziona e assegna i membri con abilità di pilotaggio 3 stelle o più.</t>
     <t id="152">Seleziona e assegna i membri con abilità di pilotaggio 2 stelle o più.</t>
     <t id="153">Seleziona e assegna i membri con abilità di pilotaggio meno di 2 stelle.</t>
@@ -83,7 +83,7 @@
     <t id="207">Mancano i seminari richiesti per questo addestramento. [Mancante: Base x%1, 1 stella x%2, 2 stelle x%3]</t>
     <t id="208">Mancano i seminari richiesti per questo addestramento. [Mancante: Base x%1, 1 stella x%2, 2 stelle x%3, 3 stelle x%4]</t>
     <t id="209">Mancano i seminari richiesti per questo addestramento. [Mancante: Base x%1, 1 stella x%2, 2 stelle x%3, 3 stelle x%4, 4 stelle x%5]</t>
-    <t id="210">Personale non assegnato insufficiente; i capitani verranno assegnati solo ad alcune navi.</t>
+    <t id="210">Equipaggio non assegnato insufficiente; i capitani verranno nominati solo per alcune navi.</t>
     <t id="211">Piloti non assegnati totali: %1</t>
     <t id="212">Piloti a 5 stelle: %1</t>
     <t id="213">Piloti da 4 stelle in su: %1</t>
@@ -95,7 +95,7 @@
     <t id="219">Piloti con meno di 3 stelle: %1</t>
     <t id="220">Piloti con meno di 2 stelle: %1</t>
     <t id="221">Piloti con meno di 1 stella: %1</t>
-    <t id="222">Capitani già assegnati a %1 navi; le assegnazioni verranno effettuate solo a %2 navi.</t>
-    <t id="223">Capitani già assegnati a %1 navi e carenza di personale; le assegnazioni verranno effettuate solo a %2 navi.</t>
+    <t id="222">Capitani già nominati per %1 navi; le nomine verranno effettuate solo per %2 navi.</t>
+    <t id="223">Capitani già nominati per %1 navi e carenza di equipaggio non assegnato; le nomine verranno effettuate solo per %2 navi.</t>
   </page>
 </language>

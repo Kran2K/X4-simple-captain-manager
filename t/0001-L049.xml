@@ -18,7 +18,7 @@
     <t id="23">%2-Sterne-Kapitän [%3] dem Schiff %1 zugewiesen.</t>
     <t id="24">%2 nicht zugewiesene Besatzungsmitglieder auf %1 übertragen.</t>
     <t id="25">Seminarausbildung abgeschlossen: %1 Kapitäne befördert. [Verbraucht: Einfach x%2, 1-Stern x%3, 2-Sterne x%4, 3-Sterne x%5, 4-Sterne x%6]</t>
-    <t id="26">[Warnung] Um Platz für den entlassenen Kapitän auf Schiff %1 zu schaffen, wurde das am wenigsten qualifizierte Besatzungsmitglied %2-Sterne [%3] automatisch gefeuert.</t>
+    <t id="26">[Warnung] Um Platz für den entlassenen Kapitän auf Schiff %1 zu schaffen, wurde das am wenigsten qualifizierte Besatzungsmitglied [%2-Sterne [%3]] automatisch gefeuert.</t>
     <t id="27">[Warnung] Mangel an nicht zugewiesener Besatzung; Zuweisung von Kapitänen an %1 von %2 angeforderten Schiffen fehlgeschlagen.</t>
     <t id="28">Aufgrund begrenzter Kapazität auf %1 wurden nur %2 von %3 verfügbaren nicht zugewiesenen Besatzungsmitgliedern übertragen.</t>
     <t id="29">[Warnung] Mangel an nicht zugewiesener Besatzung; Zuweisung eines Kapitäns an Schiff %1 fehlgeschlagen.</t>
@@ -51,14 +51,14 @@
     <t id="127">Nur unter 4 Sterne</t>
     <t id="128">Nur unter 3 Sterne</t>
     <t id="129">Nur unter 1 Stern</t>
-    <t id="130">Bis zum Maximal-Level trainieren</t>
-    <t id="131">Bis 4 Sterne trainieren</t>
-    <t id="132">Bis 3 Sterne trainieren</t>
+    <t id="130">Bis zum Maximal-Level trainieren [alle Seminare sequenziell]</t>
+    <t id="131">Bis 4 Sterne trainieren [Seminare bis 3 Sterne]</t>
+    <t id="132">Bis 3 Sterne trainieren [Seminare bis 2 Sterne]</t>
     <t id="133">Nur 1 Seminar verwenden</t>
-    <t id="134">Bis 2 Sterne trainieren</t>
-    <t id="135">Bis 1 Stern trainieren</t>
+    <t id="134">Bis 2 Sterne trainieren [Seminare bis 1 Stern]</t>
+    <t id="135">Bis 1 Stern trainieren [Grundseminare]</t>
     <t id="136">Bis 5 Sterne ausbilden</t>
-    <t id="150">Ernennen Sie nicht zugewiesene Personen in der Galaxie in der Reihenfolge ihrer höchsten Fertigkeitsstufen.</t>
+    <t id="150">Ernennen Sie unzugewiesenes Personal galaxieweit in der Reihenfolge der höchsten Fähigkeiten.</t>
     <t id="151">Wählt und weist Mitglieder mit Piloting-Fertigkeit 3 Sterne oder mehr zu.</t>
     <t id="152">Wählt und weist Mitglieder mit Piloting-Fertigkeit 2 Sterne oder mehr zu.</t>
     <t id="153">Wählt und weist Mitglieder mit Piloting-Fertigkeit unter 2 Sterne zu.</t>
@@ -74,7 +74,7 @@
     <t id="163">Verbraucht 1 passendes Seminar, um die Fertigkeit um 1 Stufe zu steigern.</t>
     <t id="164">Verbraucht Seminare von Basis bis 1 Stern, um 2-Sterne-Fertigkeit zu erreichen.</t>
     <t id="165">Verbraucht Grundseminare, um 1-Sterne-Fertigkeit zu erreichen.</t>
-    <t id="166">Verbraucht nacheinander Grund- bis 4-Sterne-Seminare, um die Pilotenfertigkeit auf 5 Sterne zu steigern.</t>
+    <t id="166">Verbraucht nacheinander Seminare der Stufen Basis bis 4 Sterne, um die Pilotenfähigkeit auf 5 Sterne zu trainieren.</t>
     <t id="190">Das Zielschiff oder die Zielstation hat keinen freien Platz.</t>
     <t id="200">Es fehlt das für diese Ausbildung erforderliche Grundseminar.</t>
     <t id="204">Es befinden sich keine Seminare in deinem Inventar.</t>
@@ -83,7 +83,7 @@
     <t id="207">Es fehlen die erforderlichen Seminare. [Fehlt: Grund- x%1, 1-Sterne- x%2, 2-Sterne-Seminar x%3]</t>
     <t id="208">Es fehlen die erforderlichen Seminare. [Fehlt: Grund- x%1, 1-Sterne- x%2, 2-Sterne- x%3, 3-Sterne-Seminar x%4]</t>
     <t id="209">Es fehlen die erforderlichen Seminare. [Fehlt: Grund- x%1, 1-Sterne- x%2, 2-Sterne- x%3, 3-Sterne- x%4, 4-Sterne-Seminar x%5]</t>
-    <t id="210">Nicht genügend nicht zugewiesenes Personal; Kapitän wird nur für einige Schiffe ernannt.</t>
+    <t id="210">Nicht genügend nicht zugewiesenes Personal; Kapitäne werden nur auf einigen Schiffen ernannt.</t>
     <t id="211">Alle nicht zugewiesenen Piloten: %1</t>
     <t id="212">5-Sterne-Piloten: %1</t>
     <t id="213">4-Sterne und höhere Piloten: %1</t>
@@ -95,7 +95,7 @@
     <t id="219">Unter 3-Sterne-Piloten: %1</t>
     <t id="220">Unter 2-Sterne-Piloten: %1</t>
     <t id="221">Unter 1-Sterne-Piloten: %1</t>
-    <t id="222">Kapitän bereits für %1 Schiffe ernannt; Ernennungen werden nur für %2 Schiffe vorgenommen.</t>
-    <t id="223">Kapitän bereits für %1 Schiffe ernannt und Personalmangel; Ernennungen werden nur für %2 Schiffe vorgenommen.</t>
+    <t id="222">Kapitäne bereits auf %1 Schiffen ernannt; Ernennungen erfolgen nur auf %2 Schiffen.</t>
+    <t id="223">Kapitäne bereits auf %1 Schiffen ernannt und unzugewiesenes Personal ist knapp; Ernennungen erfolgen nur auf %2 Schiffen.</t>
   </page>
 </language>

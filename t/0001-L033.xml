@@ -18,7 +18,7 @@
     <t id="23">Capitaine [%3] [%2 étoiles] assigné au vaisseau %1.</t>
     <t id="24">Transfert de %2 membres d'équipage non assignés vers %1.</t>
     <t id="25">Formation terminée : %1 capitaines promus. [Consommé : basique x%2, 1-étoile x%3, 2-étoiles x%4, 3-étoiles x%5, 4-étoiles x%6]</t>
-    <t id="26">[Attention] Pour faire de la place au capitaine démis sur le vaisseau %1, le membre d'équipage le moins qualifié %2 étoiles [%3] a été automatiquement licencié.</t>
+    <t id="26">[Attention] Pour faire de la place au capitaine démis sur le vaisseau %1, le membre d'équipage le moins qualifié [%2 étoiles [%3]] a été automatiquement licencié.</t>
     <t id="27">[Attention] Manque d'équipage non assigné ; échec de l'assignation des capitaines à %1 des %2 vaisseaux demandés.</t>
     <t id="28">En raison de la capacité limitée sur %1, seuls %2 sur %3 membres d'équipage non assignés disponibles ont été transférés.</t>
     <t id="29">[Attention] Manque d'équipage non assigné ; échec de l'assignation d'un capitaine au vaisseau %1.</t>
@@ -51,14 +51,14 @@
     <t id="127">Moins de 4 étoiles uniquement</t>
     <t id="128">Moins de 3 étoiles uniquement</t>
     <t id="129">Moins de 1 étoile uniquement</t>
-    <t id="130">Former au niveau max</t>
-    <t id="131">Former jusqu'à 4 étoiles</t>
-    <t id="132">Former jusqu'à 3 étoiles</t>
+    <t id="130">Former au niveau max [tous les séminaires séquentiellement]</t>
+    <t id="131">Former jusqu'à 4 étoiles [séminaires jusqu'à 3 étoiles]</t>
+    <t id="132">Former jusqu'à 3 étoiles [séminaires jusqu'à 2 étoiles]</t>
     <t id="133">Utiliser 1 seul séminaire</t>
-    <t id="134">Former jusqu'à 2 étoiles</t>
-    <t id="135">Former jusqu'à 1 étoile</t>
+    <t id="134">Former jusqu'à 2 étoiles [séminaires jusqu'à 1 étoile]</t>
+    <t id="135">Former jusqu'à 1 étoile [séminaires de base]</t>
     <t id="136">Entraîner jusqu'à 5 étoiles</t>
-    <t id="150">Nomme le personnel non assigné de la galaxie par ordre de niveau de compétence le plus élevé.</t>
+    <t id="150">Nomme l'équipage non assigné dans toute la galaxie par ordre de niveau de compétence le plus élevé.</t>
     <t id="151">Sélectionne et assigne les membres avec un niveau de pilotage 3 étoiles ou plus.</t>
     <t id="152">Sélectionne et assigne les membres avec un niveau de pilotage 2 étoiles ou plus.</t>
     <t id="153">Sélectionne et assigne les membres avec un niveau de pilotage inférieur à 2 étoiles.</t>
@@ -74,7 +74,7 @@
     <t id="163">Consomme 1 séminaire adapté pour progresser d'un niveau de compétence.</t>
     <t id="164">Consomme les séminaires de base à 1 étoile pour atteindre 2 étoiles.</t>
     <t id="165">Consomme les séminaires de base pour atteindre 1 étoile.</t>
-    <t id="166">Consomme séquentiellement les séminaires basiques à 4 étoiles pour entraîner la compétence de pilotage à 5 étoiles.</t>
+    <t id="166">Consomme séquentiellement les séminaires de base à 4 étoiles pour former la compétence de pilotage à 5 étoiles.</t>
     <t id="190">Le vaisseau ou la station cible n'a plus de place disponible.</t>
     <t id="200">Il manque le Séminaire basique requis pour cette formation.</t>
     <t id="204">Il n'y a pas de séminaires dans votre inventaire.</t>
@@ -83,7 +83,7 @@
     <t id="207">Il manque les séminaires requis pour cette formation. [Manquant : Basique x%1, 1 étoile x%2, 2 étoiles x%3]</t>
     <t id="208">Il manque les séminaires requis pour cette formation. [Manquant : Basique x%1, 1 étoile x%2, 2 étoiles x%3, 3 étoiles x%4]</t>
     <t id="209">Il manque les séminaires requis pour cette formation. [Manquant : Basique x%1, 1 étoile x%2, 2 étoiles x%3, 3 étoiles x%4, 4 étoile x%5]</t>
-    <t id="210">Pas assez de personnel non assigné ; les capitaines ne seront nommés que pour certains vaisseaux.</t>
+    <t id="210">Pas assez d'équipage non assigné ; les capitaines ne seront nommés que pour certains vaisseaux.</t>
     <t id="211">Pilotes non assignés totaux : %1</t>
     <t id="212">Pilotes 5 étoiles : %1</t>
     <t id="213">Pilotes de 4 étoiles et plus : %1</t>
@@ -96,6 +96,6 @@
     <t id="220">Pilotes de moins de 2 étoiles : %1</t>
     <t id="221">Pilotes de moins de 1 étoile : %1</t>
     <t id="222">Capitaines déjà nommés pour %1 vaisseaux ; les nominations ne seront faites que pour %2 vaisseaux.</t>
-    <t id="223">Capitaines déjà nommés pour %1 vaisseaux et manque de personnel ; les nominations ne seront faites que pour %2 vaisseaux.</t>
+    <t id="223">Capitaines déjà nommés pour %1 vaisseaux et manque d'équipage non assigné ; les nominations ne seront faites que pour %2 vaisseaux.</t>
   </page>
 </language>
