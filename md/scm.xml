@@ -72,13 +72,23 @@
             <!-- Count unassigned crew galaxy-wide if there is at least one empty ship -->
             <do_if value="$ReqAssignCount gt 0">
               <find_ship name="$PlayerShipsForCount" owner="faction.player" multiple="true" space="player.galaxy" recursive="true" />
-              <do_all exact="$PlayerShipsForCount.count" counter="$j">
-                <set_value name="$PShip" exact="$PlayerShipsForCount.{$j}" />
-                <set_value name="$ShipPeople" exact="$PShip.people.list" />
-                <do_all exact="$ShipPeople.count" counter="$k">
-                  <set_value name="$Template" exact="$ShipPeople.{$k}" />
-                  <do_if value="$PShip.people.{$Template}.role == entityrole.unassigned">
-                    <set_value name="$Skill" exact="$PShip.people.{$Template}.skill.{skilltype.piloting}" />
+              <find_station name="$PlayerStationsForCount" owner="faction.player" multiple="true" space="player.galaxy" />
+
+              <create_list name="$AllSourcesForCount" />
+              <do_all exact="$PlayerShipsForCount.count" counter="$s">
+                <append_to_list name="$AllSourcesForCount" exact="$PlayerShipsForCount.{$s}" />
+              </do_all>
+              <do_all exact="$PlayerStationsForCount.count" counter="$s">
+                <append_to_list name="$AllSourcesForCount" exact="$PlayerStationsForCount.{$s}" />
+              </do_all>
+
+              <do_all exact="$AllSourcesForCount.count" counter="$j">
+                <set_value name="$PSource" exact="$AllSourcesForCount.{$j}" />
+                <set_value name="$SourcePeople" exact="$PSource.people.list" />
+                <do_all exact="$SourcePeople.count" counter="$k">
+                  <set_value name="$Template" exact="$SourcePeople.{$k}" />
+                  <do_if value="$PSource.people.{$Template}.role == entityrole.unassigned">
+                    <set_value name="$Skill" exact="$PSource.people.{$Template}.skill.{skilltype.piloting}" />
                     <set_value name="$Avail_all" exact="$Avail_all + 1" />
                     <do_if value="$Skill ge 15">
                       <set_value name="$Avail_5star" exact="$Avail_5star + 1" />
@@ -1161,22 +1171,30 @@
 
           <debug_text text="'[SCM] Sorted target ships count: ' + $SortedShips.count" filter="general" />
 
-          <!-- List of all player-owned ships (for candidate search; recursive="true" is required to find docked ships) -->
+          <!-- List of all player-owned ships and stations (for candidate search) -->
           <find_ship name="$PlayerShips" owner="faction.player" multiple="true" space="player.galaxy" recursive="true" />
-          <debug_text text="'[SCM] Galaxy player ships found: ' + $PlayerShips.count" filter="general" />
+          <find_station name="$PlayerStations" owner="faction.player" multiple="true" space="player.galaxy" />
+
+          <create_list name="$AllSources" />
+          <do_all exact="$PlayerShips.count" counter="$s">
+            <append_to_list name="$AllSources" exact="$PlayerShips.{$s}" />
+          </do_all>
+          <do_all exact="$PlayerStations.count" counter="$s">
+            <append_to_list name="$AllSources" exact="$PlayerStations.{$s}" />
+          </do_all>
 
           <!-- Create unified candidates cache to scan galaxy-wide unassigned crew only once -->
           <create_list name="$CandidateList" />
-          <do_all exact="$PlayerShips.count" counter="$j">
-            <set_value name="$PShip" exact="$PlayerShips.{$j}" />
-            <set_value name="$ShipPeople" exact="$PShip.people.list" />
-            <do_all exact="$ShipPeople.count" counter="$k">
-              <set_value name="$Template" exact="$ShipPeople.{$k}" />
-              <set_value name="$Role" exact="$PShip.people.{$Template}.role" />
-              <set_value name="$Seed" exact="@$PShip.people.{$Template}.seed" />
-              <set_value name="$NPC_Piloting" exact="$PShip.people.{$Template}.skill.{skilltype.piloting}" />
+          <do_all exact="$AllSources.count" counter="$j">
+            <set_value name="$PSource" exact="$AllSources.{$j}" />
+            <set_value name="$SourcePeople" exact="$PSource.people.list" />
+            <do_all exact="$SourcePeople.count" counter="$k">
+              <set_value name="$Template" exact="$SourcePeople.{$k}" />
+              <set_value name="$Role" exact="$PSource.people.{$Template}.role" />
+              <set_value name="$Seed" exact="@$PSource.people.{$Template}.seed" />
+              <set_value name="$NPC_Piloting" exact="$PSource.people.{$Template}.skill.{skilltype.piloting}" />
               <do_if value="$Role == entityrole.unassigned and $NPC_Piloting ge $MinSkill and $NPC_Piloting lt $MaxSkill">
-                <append_to_list name="$CandidateList" exact="table[$template = $Template, $source = $PShip, $seed = $Seed, $piloting = $NPC_Piloting]" />
+                <append_to_list name="$CandidateList" exact="table[$template = $Template, $source = $PSource, $seed = $Seed, $piloting = $NPC_Piloting]" />
               </do_if>
             </do_all>
           </do_all>
