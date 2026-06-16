@@ -111,7 +111,7 @@
                 $callback = scm_assign_callback,
                 ]" />
 
-            <!-- 1.3 Assign 3-star and higher -->
+            <!-- 1.4 Assign 3-star and higher -->
             <signal_cue_instantly
               cue="md.Interact_Menu_API.Add_Action"
               param="table[
@@ -123,7 +123,7 @@
                 $callback = scm_assign_callback,
                 ]" />
 
-            <!-- 1.4 Assign 2-star and higher -->
+            <!-- 1.5 Assign 2-star and higher -->
             <signal_cue_instantly
               cue="md.Interact_Menu_API.Add_Action"
               param="table[
@@ -135,7 +135,7 @@
                 $callback = scm_assign_callback,
                 ]" />
 
-            <!-- 1.5 Assign 1-star and higher -->
+            <!-- 1.6 Assign 1-star and higher -->
             <signal_cue_instantly
               cue="md.Interact_Menu_API.Add_Action"
               param="table[
@@ -147,7 +147,7 @@
                 $callback = scm_assign_callback,
                 ]" />
 
-            <!-- 1.6 Assign under 5-star -->
+            <!-- 1.7 Assign under 5-star -->
             <signal_cue_instantly
               cue="md.Interact_Menu_API.Add_Action"
               param="table[
@@ -159,7 +159,7 @@
                 $callback = scm_assign_callback,
                 ]" />
 
-            <!-- 1.7 Assign under 4-star -->
+            <!-- 1.8 Assign under 4-star -->
             <signal_cue_instantly
               cue="md.Interact_Menu_API.Add_Action"
               param="table[
@@ -171,7 +171,7 @@
                 $callback = scm_assign_callback,
                 ]" />
 
-            <!-- 1.8 Assign under 3-star -->
+            <!-- 1.9 Assign under 3-star -->
             <signal_cue_instantly
               cue="md.Interact_Menu_API.Add_Action"
               param="table[
@@ -183,7 +183,7 @@
                 $callback = scm_assign_callback,
                 ]" />
 
-            <!-- 1.9 Assign under 2-star -->
+            <!-- 1.10 Assign under 2-star -->
             <signal_cue_instantly
               cue="md.Interact_Menu_API.Add_Action"
               param="table[
@@ -195,7 +195,7 @@
                 $callback = scm_assign_callback,
                 ]" />
 
-            <!-- 1.10 Assign under 1-star -->
+            <!-- 1.11 Assign under 1-star -->
             <signal_cue_instantly
               cue="md.Interact_Menu_API.Add_Action"
               param="table[
@@ -412,8 +412,6 @@
             
             <!-- Prevent crew capacity overflow: If no free slot, auto-fire the lowest skilled crew member -->
             <do_if value="$Ship.people.free le 0">
-              <set_value name="$WorstCrew" exact="null" />
-              <set_value name="$WorstSkill" exact="9999" />
               <set_value name="$CrewList" exact="$Ship.people.list" />
               <do_all exact="$CrewList.count" counter="$k">
                 <set_value name="$Template" exact="$CrewList.{$k}" />
@@ -751,7 +749,7 @@
 
               <do_if value="not $TargetActor">
                 <!-- No active entity; instantiate NPC from template -->
-                <create_npc_from_template name="$TargetActor" object="$BestSource" template="$BestCandidate" owner="faction.player" placementobject="$Ship" required="true" />
+                <create_npc_from_template name="$TargetActor" object="$BestSource" template="$BestCandidate" owner="faction.player" placementobject="$Ship" required="false" />
               </do_if>
 
               <do_if value="$TargetActor">
@@ -875,17 +873,18 @@
               <set_value name="$LoopCount" exact="if $FreeSlots lt $Candidates.count then $FreeSlots else $Candidates.count" />
 
               <do_all exact="$LoopCount">
-                <set_value name="$BestIdx" exact="0" />
+                <set_value name="$BestEntry" exact="null" />
                 <set_value name="$BestScore" exact="-1" />
                 <do_all exact="$Candidates.count" counter="$idx">
                   <do_if value="$Candidates.{$idx}.$score gt $BestScore">
                     <set_value name="$BestScore" exact="$Candidates.{$idx}.$score" />
-                    <set_value name="$BestIdx" exact="$idx" />
+                    <set_value name="$BestEntry" exact="$Candidates.{$idx}" />
                   </do_if>
                 </do_all>
-                <do_if value="$BestIdx gt 0">
-                  <append_to_list name="$SelectedCandidates" exact="$Candidates.{$BestIdx}" />
-                  <remove_from_list name="$Candidates" exact="$Candidates.{$BestIdx}" />
+                <!-- Use entry reference directly to avoid stale index after list shrinks -->
+                <do_if value="$BestEntry">
+                  <append_to_list name="$SelectedCandidates" exact="$BestEntry" />
+                  <remove_from_list name="$Candidates" exact="$BestEntry" />
                 </do_if>
               </do_all>
 
