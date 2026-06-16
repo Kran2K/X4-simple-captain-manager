@@ -84,5 +84,16 @@
     <t id="208">Faltan los seminarios requeridos para este entrenamiento. [Falta: Básico x%1, 1 estrella x%2, 2 estrellas x%3, 3 estrellas x%4]</t>
     <t id="209">Faltan los seminarios requeridos para este entrenamiento. [Falta: Básico x%1, 1 estrella x%2, 2 estrellas x%3, 3 estrellas x%4, 4 estrellas x%5]</t>
     <t id="210">未分配人员不足，将仅为部分舰船任命舰长。[缺少人数: %1]</t>
+    <t id="211">所有未分配飞行员数 : %1</t>
+    <t id="212">5星飞行员数 : %1</t>
+    <t id="213">4星及以上飞行员数 : %1</t>
+    <t id="214">3星及以上飞行员数 : %1</t>
+    <t id="215">2星及以上飞行员数 : %1</t>
+    <t id="216">1星及以上飞行员数 : %1</t>
+    <t id="217">5星以下飞行员数 : %1</t>
+    <t id="218">4星以下飞行员数 : %1</t>
+    <t id="219">3星以下飞行员数 : %1</t>
+    <t id="220">2星以下飞行员数 : %1</t>
+    <t id="221">1星以下飞行员数 : %1</t>
   </page>
 </language>

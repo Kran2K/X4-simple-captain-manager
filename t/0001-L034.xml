@@ -84,5 +84,16 @@
     <t id="208">Faltan los seminarios requeridos para este entrenamiento. [Falta: Básico x%1, 1 estrella x%2, 2 estrellas x%3, 3 estrellas x%4]</t>
     <t id="209">Faltan los seminarios requeridos para este entrenamiento. [Falta: Básico x%1, 1 estrella x%2, 2 estrellas x%3, 3 estrellas x%4, 4 estrellas x%5]</t>
     <t id="210">No hay suficiente personal sin asignar; los capitanes solo se asignarán a algunos barcos. [Faltan: %1]</t>
+    <t id="211">Pilotos sin asignar totales: %1</t>
+    <t id="212">Pilotos de 5 estrellas: %1</t>
+    <t id="213">Pilotos de 4 estrellas o más: %1</t>
+    <t id="214">Pilotos de 3 estrellas o más: %1</t>
+    <t id="215">Pilotos de 2 estrellas o más: %1</t>
+    <t id="216">Pilotos de 1 estrella o más: %1</t>
+    <t id="217">Pilotos de menos de 5 estrellas: %1</t>
+    <t id="218">Pilotos de menos de 4 estrellas: %1</t>
+    <t id="219">Pilotos de menos de 3 estrellas: %1</t>
+    <t id="220">Pilotos de menos de 2 estrellas: %1</t>
+    <t id="221">Pilotos de menos de 1 estrella: %1</t>
   </page>
 </language>

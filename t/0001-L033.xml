@@ -84,5 +84,16 @@
     <t id="208">Il manque les séminaires requis pour cette formation. [Manquant : Basique x%1, 1 étoile x%2, 2 étoiles x%3, 3 étoiles x%4]</t>
     <t id="209">Il manque les séminaires requis pour cette formation. [Manquant : Basique x%1, 1 étoile x%2, 2 étoiles x%3, 3 étoiles x%4, 4 étoile x%5]</t>
     <t id="210">Pas assez de personnel non assigné ; les capitaines ne seront nommés que pour certains vaisseaux. [Manquant : %1]</t>
+    <t id="211">Pilotes non assignés totaux : %1</t>
+    <t id="212">Pilotes 5 étoiles : %1</t>
+    <t id="213">Pilotes de 4 étoiles et plus : %1</t>
+    <t id="214">Pilotes de 3 étoiles et plus : %1</t>
+    <t id="215">Pilotes de 2 étoiles et plus : %1</t>
+    <t id="216">Pilotes de 1 étoile et plus : %1</t>
+    <t id="217">Pilotes de moins de 5 étoiles : %1</t>
+    <t id="218">Pilotes de moins de 4 étoiles : %1</t>
+    <t id="219">Pilotes de moins de 3 étoiles : %1</t>
+    <t id="220">Pilotes de moins de 2 étoiles : %1</t>
+    <t id="221">Pilotes de moins de 1 étoile : %1</t>
   </page>
 </language>

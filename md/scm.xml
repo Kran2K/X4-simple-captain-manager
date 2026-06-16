@@ -188,6 +188,19 @@
               <do_if value="$ShortCrew_under1 gt 0">
                 <set_value name="$AssignMouseover_under_1star" exact="$AssignMouseover_under_1star + '\n' + readtext.{98765}.{210}.[$ShortCrew_under1]" />
               </do_if>
+
+              <!-- Append rank-specific unassigned pilot counts to tooltips -->
+              <set_value name="$AssignMouseover_all" exact="$AssignMouseover_all + '\n' + readtext.{98765}.{211}.[$Avail_all]" />
+              <set_value name="$AssignMouseover_5star" exact="$AssignMouseover_5star + '\n' + readtext.{98765}.{212}.[$Avail_5star]" />
+              <set_value name="$AssignMouseover_4star" exact="$AssignMouseover_4star + '\n' + readtext.{98765}.{213}.[$Avail_4star]" />
+              <set_value name="$AssignMouseover_3star" exact="$AssignMouseover_3star + '\n' + readtext.{98765}.{214}.[$Avail_3star]" />
+              <set_value name="$AssignMouseover_2star" exact="$AssignMouseover_2star + '\n' + readtext.{98765}.{215}.[$Avail_2star]" />
+              <set_value name="$AssignMouseover_1star" exact="$AssignMouseover_1star + '\n' + readtext.{98765}.{216}.[$Avail_1star]" />
+              <set_value name="$AssignMouseover_under_5star" exact="$AssignMouseover_under_5star + '\n' + readtext.{98765}.{217}.[$Avail_under5]" />
+              <set_value name="$AssignMouseover_under_4star" exact="$AssignMouseover_under_4star + '\n' + readtext.{98765}.{218}.[$Avail_under4]" />
+              <set_value name="$AssignMouseover_under_3star" exact="$AssignMouseover_under_3star + '\n' + readtext.{98765}.{219}.[$Avail_under3]" />
+              <set_value name="$AssignMouseover_under_2star" exact="$AssignMouseover_under_2star + '\n' + readtext.{98765}.{220}.[$Avail_under2]" />
+              <set_value name="$AssignMouseover_under_1star" exact="$AssignMouseover_under_1star + '\n' + readtext.{98765}.{221}.[$Avail_under1]" />
             </do_if>
 
             <!-- 1.1 Assign All -->
