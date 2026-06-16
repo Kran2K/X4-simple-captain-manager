@@ -83,7 +83,7 @@
     <t id="207">Es fehlen die erforderlichen Seminare. [Fehlt: Grund- x%1, 1-Sterne- x%2, 2-Sterne-Seminar x%3]</t>
     <t id="208">Es fehlen die erforderlichen Seminare. [Fehlt: Grund- x%1, 1-Sterne- x%2, 2-Sterne- x%3, 3-Sterne-Seminar x%4]</t>
     <t id="209">Es fehlen die erforderlichen Seminare. [Fehlt: Grund- x%1, 1-Sterne- x%2, 2-Sterne- x%3, 3-Sterne- x%4, 4-Sterne-Seminar x%5]</t>
-    <t id="210">Nicht genügend nicht zugewiesenes Personal; Kapitän wird nur für einige Schiffe ernannt. [Mangel: %1]</t>
+    <t id="210">Nicht genügend nicht zugewiesenes Personal; Kapitän wird nur für einige Schiffe ernannt.</t>
     <t id="211">Alle nicht zugewiesenen Piloten: %1</t>
     <t id="212">5-Sterne-Piloten: %1</t>
     <t id="213">4-Sterne und höhere Piloten: %1</t>
@@ -95,5 +95,7 @@
     <t id="219">Unter 3-Sterne-Piloten: %1</t>
     <t id="220">Unter 2-Sterne-Piloten: %1</t>
     <t id="221">Unter 1-Sterne-Piloten: %1</t>
+    <t id="222">Kapitän bereits für %1 Schiffe ernannt; Ernennungen werden nur für %2 Schiffe vorgenommen.</t>
+    <t id="223">Kapitän bereits für %1 Schiffe ernannt und Personalmangel; Ernennungen werden nur für %2 Schiffe vorgenommen.</t>
   </page>
 </language>

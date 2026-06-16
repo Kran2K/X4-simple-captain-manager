@@ -83,7 +83,7 @@
     <t id="207">培训所需的研讨会不足。［缺少：基础 x%1、1星 x%2、2星 x%3］</t>
     <t id="208">培训所需的研讨会不足。［缺少：基础 x%1、1星 x%2、2星 x%3、3星 x%4］</t>
     <t id="209">培训所需的研讨会不足。［缺少：基础 x%1、1星 x%2、2星 x%3、3星 x%4、4星 x%5］</t>
-    <t id="210">Not enough unassigned crew; captains will be appointed to some ships only. [Shortage: %1]</t>
+    <t id="210">Not enough unassigned crew; captains will be appointed to some ships only.</t>
     <t id="211">Total unassigned pilots: %1</t>
     <t id="212">5-star pilots: %1</t>
     <t id="213">4-star and higher pilots: %1</t>
@@ -95,5 +95,7 @@
     <t id="219">Under 3-star pilots: %1</t>
     <t id="220">Under 2-star pilots: %1</t>
     <t id="221">Under 1-star pilots: %1</t>
+    <t id="222">Captains already appointed to %1 ships; appointments will be made to %2 ships only.</t>
+    <t id="223">Captains already appointed to %1 ships and unassigned crew is short; appointments will be made to %2 ships only.</t>
   </page>
 </language>

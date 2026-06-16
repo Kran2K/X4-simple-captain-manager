@@ -141,7 +141,7 @@
             <set_value name="$AssignMouseover_under_2star" exact="if not $Active_assign_under_2star then (if $ReqAssignCount == 0 then readtext.{98765}.{32} else readtext.{98765}.{153}) else readtext.{98765}.{153}" />
             <set_value name="$AssignMouseover_under_1star" exact="if not $Active_assign_under_1star then (if $ReqAssignCount == 0 then readtext.{98765}.{32} else readtext.{98765}.{159}) else readtext.{98765}.{159}" />
 
-            <!-- Add shortage warning strings when unassigned crew is insufficient -->
+            <!-- Add shortage/mixed warning strings when unassigned crew is insufficient or selection is mixed -->
             <do_if value="$ReqAssignCount gt 0">
               <set_value name="$ShortCrew_all" exact="if ($ReqAssignCount - $Avail_all) gt 0 then ($ReqAssignCount - $Avail_all) else 0" />
               <set_value name="$ShortCrew_5star" exact="if ($ReqAssignCount - $Avail_5star) gt 0 then ($ReqAssignCount - $Avail_5star) else 0" />
@@ -155,39 +155,172 @@
               <set_value name="$ShortCrew_under2" exact="if ($ReqAssignCount - $Avail_under2) gt 0 then ($ReqAssignCount - $Avail_under2) else 0" />
               <set_value name="$ShortCrew_under1" exact="if ($ReqAssignCount - $Avail_under1) gt 0 then ($ReqAssignCount - $Avail_under1) else 0" />
 
-              <do_if value="$ShortCrew_all gt 0">
-                <set_value name="$AssignMouseover_all" exact="$AssignMouseover_all + '\n' + readtext.{98765}.{210}.[$ShortCrew_all]" />
+              <set_value name="$AlreadyPilotShips" exact="$ShipsCount - $ReqAssignCount" />
+
+              <!-- 1. All -->
+              <do_if value="$AlreadyPilotShips gt 0">
+                <do_if value="$ShortCrew_all gt 0">
+                  <set_value name="$AssignMouseover_all" exact="$AssignMouseover_all + '\n' + readtext.{98765}.{223}.[$AlreadyPilotShips, $Avail_all]" />
+                </do_if>
+                <do_else>
+                  <set_value name="$AssignMouseover_all" exact="$AssignMouseover_all + '\n' + readtext.{98765}.{222}.[$AlreadyPilotShips, $ReqAssignCount]" />
+                </do_else>
               </do_if>
-              <do_if value="$ShortCrew_5star gt 0">
-                <set_value name="$AssignMouseover_5star" exact="$AssignMouseover_5star + '\n' + readtext.{98765}.{210}.[$ShortCrew_5star]" />
+              <do_else>
+                <do_if value="$ShortCrew_all gt 0">
+                  <set_value name="$AssignMouseover_all" exact="$AssignMouseover_all + '\n' + readtext.{98765}.{210}" />
+                </do_if>
+              </do_else>
+
+              <!-- 2. 5star -->
+              <do_if value="$AlreadyPilotShips gt 0">
+                <do_if value="$ShortCrew_5star gt 0">
+                  <set_value name="$AssignMouseover_5star" exact="$AssignMouseover_5star + '\n' + readtext.{98765}.{223}.[$AlreadyPilotShips, $Avail_5star]" />
+                </do_if>
+                <do_else>
+                  <set_value name="$AssignMouseover_5star" exact="$AssignMouseover_5star + '\n' + readtext.{98765}.{222}.[$AlreadyPilotShips, $ReqAssignCount]" />
+                </do_else>
               </do_if>
-              <do_if value="$ShortCrew_4star gt 0">
-                <set_value name="$AssignMouseover_4star" exact="$AssignMouseover_4star + '\n' + readtext.{98765}.{210}.[$ShortCrew_4star]" />
+              <do_else>
+                <do_if value="$ShortCrew_5star gt 0">
+                  <set_value name="$AssignMouseover_5star" exact="$AssignMouseover_5star + '\n' + readtext.{98765}.{210}" />
+                </do_if>
+              </do_else>
+
+              <!-- 3. 4star -->
+              <do_if value="$AlreadyPilotShips gt 0">
+                <do_if value="$ShortCrew_4star gt 0">
+                  <set_value name="$AssignMouseover_4star" exact="$AssignMouseover_4star + '\n' + readtext.{98765}.{223}.[$AlreadyPilotShips, $Avail_4star]" />
+                </do_if>
+                <do_else>
+                  <set_value name="$AssignMouseover_4star" exact="$AssignMouseover_4star + '\n' + readtext.{98765}.{222}.[$AlreadyPilotShips, $ReqAssignCount]" />
+                </do_else>
               </do_if>
-              <do_if value="$ShortCrew_3star gt 0">
-                <set_value name="$AssignMouseover_3star" exact="$AssignMouseover_3star + '\n' + readtext.{98765}.{210}.[$ShortCrew_3star]" />
+              <do_else>
+                <do_if value="$ShortCrew_4star gt 0">
+                  <set_value name="$AssignMouseover_4star" exact="$AssignMouseover_4star + '\n' + readtext.{98765}.{210}" />
+                </do_if>
+              </do_else>
+
+              <!-- 4. 3star -->
+              <do_if value="$AlreadyPilotShips gt 0">
+                <do_if value="$ShortCrew_3star gt 0">
+                  <set_value name="$AssignMouseover_3star" exact="$AssignMouseover_3star + '\n' + readtext.{98765}.{223}.[$AlreadyPilotShips, $Avail_3star]" />
+                </do_if>
+                <do_else>
+                  <set_value name="$AssignMouseover_3star" exact="$AssignMouseover_3star + '\n' + readtext.{98765}.{222}.[$AlreadyPilotShips, $ReqAssignCount]" />
+                </do_else>
               </do_if>
-              <do_if value="$ShortCrew_2star gt 0">
-                <set_value name="$AssignMouseover_2star" exact="$AssignMouseover_2star + '\n' + readtext.{98765}.{210}.[$ShortCrew_2star]" />
+              <do_else>
+                <do_if value="$ShortCrew_3star gt 0">
+                  <set_value name="$AssignMouseover_3star" exact="$AssignMouseover_3star + '\n' + readtext.{98765}.{210}" />
+                </do_if>
+              </do_else>
+
+              <!-- 5. 2star -->
+              <do_if value="$AlreadyPilotShips gt 0">
+                <do_if value="$ShortCrew_2star gt 0">
+                  <set_value name="$AssignMouseover_2star" exact="$AssignMouseover_2star + '\n' + readtext.{98765}.{223}.[$AlreadyPilotShips, $Avail_2star]" />
+                </do_if>
+                <do_else>
+                  <set_value name="$AssignMouseover_2star" exact="$AssignMouseover_2star + '\n' + readtext.{98765}.{222}.[$AlreadyPilotShips, $ReqAssignCount]" />
+                </do_else>
               </do_if>
-              <do_if value="$ShortCrew_1star gt 0">
-                <set_value name="$AssignMouseover_1star" exact="$AssignMouseover_1star + '\n' + readtext.{98765}.{210}.[$ShortCrew_1star]" />
+              <do_else>
+                <do_if value="$ShortCrew_2star gt 0">
+                  <set_value name="$AssignMouseover_2star" exact="$AssignMouseover_2star + '\n' + readtext.{98765}.{210}" />
+                </do_if>
+              </do_else>
+
+              <!-- 6. 1star -->
+              <do_if value="$AlreadyPilotShips gt 0">
+                <do_if value="$ShortCrew_1star gt 0">
+                  <set_value name="$AssignMouseover_1star" exact="$AssignMouseover_1star + '\n' + readtext.{98765}.{223}.[$AlreadyPilotShips, $Avail_1star]" />
+                </do_if>
+                <do_else>
+                  <set_value name="$AssignMouseover_1star" exact="$AssignMouseover_1star + '\n' + readtext.{98765}.{222}.[$AlreadyPilotShips, $ReqAssignCount]" />
+                </do_else>
               </do_if>
-              <do_if value="$ShortCrew_under5 gt 0">
-                <set_value name="$AssignMouseover_under_5star" exact="$AssignMouseover_under_5star + '\n' + readtext.{98765}.{210}.[$ShortCrew_under5]" />
+              <do_else>
+                <do_if value="$ShortCrew_1star gt 0">
+                  <set_value name="$AssignMouseover_1star" exact="$AssignMouseover_1star + '\n' + readtext.{98765}.{210}" />
+                </do_if>
+              </do_else>
+
+              <!-- 7. under5 -->
+              <do_if value="$AlreadyPilotShips gt 0">
+                <do_if value="$ShortCrew_under5 gt 0">
+                  <set_value name="$AssignMouseover_under_5star" exact="$AssignMouseover_under_5star + '\n' + readtext.{98765}.{223}.[$AlreadyPilotShips, $Avail_under5]" />
+                </do_if>
+                <do_else>
+                  <set_value name="$AssignMouseover_under_5star" exact="$AssignMouseover_under_5star + '\n' + readtext.{98765}.{222}.[$AlreadyPilotShips, $ReqAssignCount]" />
+                </do_else>
               </do_if>
-              <do_if value="$ShortCrew_under4 gt 0">
-                <set_value name="$AssignMouseover_under_4star" exact="$AssignMouseover_under_4star + '\n' + readtext.{98765}.{210}.[$ShortCrew_under4]" />
+              <do_else>
+                <do_if value="$ShortCrew_under5 gt 0">
+                  <set_value name="$AssignMouseover_under_5star" exact="$AssignMouseover_under_5star + '\n' + readtext.{98765}.{210}" />
+                </do_if>
+              </do_else>
+
+              <!-- 8. under4 -->
+              <do_if value="$AlreadyPilotShips gt 0">
+                <do_if value="$ShortCrew_under4 gt 0">
+                  <set_value name="$AssignMouseover_under_4star" exact="$AssignMouseover_under_4star + '\n' + readtext.{98765}.{223}.[$AlreadyPilotShips, $Avail_under4]" />
+                </do_if>
+                <do_else>
+                  <set_value name="$AssignMouseover_under_4star" exact="$AssignMouseover_under_4star + '\n' + readtext.{98765}.{222}.[$AlreadyPilotShips, $ReqAssignCount]" />
+                </do_else>
               </do_if>
-              <do_if value="$ShortCrew_under3 gt 0">
-                <set_value name="$AssignMouseover_under_3star" exact="$AssignMouseover_under_3star + '\n' + readtext.{98765}.{210}.[$ShortCrew_under3]" />
+              <do_else>
+                <do_if value="$ShortCrew_under4 gt 0">
+                  <set_value name="$AssignMouseover_under_4star" exact="$AssignMouseover_under_4star + '\n' + readtext.{98765}.{210}" />
+                </do_if>
+              </do_else>
+
+              <!-- 9. under3 -->
+              <do_if value="$AlreadyPilotShips gt 0">
+                <do_if value="$ShortCrew_under3 gt 0">
+                  <set_value name="$AssignMouseover_under_3star" exact="$AssignMouseover_under_3star + '\n' + readtext.{98765}.{223}.[$AlreadyPilotShips, $Avail_under3]" />
+                </do_if>
+                <do_else>
+                  <set_value name="$AssignMouseover_under_3star" exact="$AssignMouseover_under_3star + '\n' + readtext.{98765}.{222}.[$AlreadyPilotShips, $ReqAssignCount]" />
+                </do_else>
               </do_if>
-              <do_if value="$ShortCrew_under2 gt 0">
-                <set_value name="$AssignMouseover_under_2star" exact="$AssignMouseover_under_2star + '\n' + readtext.{98765}.{210}.[$ShortCrew_under2]" />
+              <do_else>
+                <do_if value="$ShortCrew_under3 gt 0">
+                  <set_value name="$AssignMouseover_under_3star" exact="$AssignMouseover_under_3star + '\n' + readtext.{98765}.{210}" />
+                </do_if>
+              </do_else>
+
+              <!-- 10. under2 -->
+              <do_if value="$AlreadyPilotShips gt 0">
+                <do_if value="$ShortCrew_under2 gt 0">
+                  <set_value name="$AssignMouseover_under_2star" exact="$AssignMouseover_under_2star + '\n' + readtext.{98765}.{223}.[$AlreadyPilotShips, $Avail_under2]" />
+                </do_if>
+                <do_else>
+                  <set_value name="$AssignMouseover_under_2star" exact="$AssignMouseover_under_2star + '\n' + readtext.{98765}.{222}.[$AlreadyPilotShips, $ReqAssignCount]" />
+                </do_else>
               </do_if>
-              <do_if value="$ShortCrew_under1 gt 0">
-                <set_value name="$AssignMouseover_under_1star" exact="$AssignMouseover_under_1star + '\n' + readtext.{98765}.{210}.[$ShortCrew_under1]" />
+              <do_else>
+                <do_if value="$ShortCrew_under2 gt 0">
+                  <set_value name="$AssignMouseover_under_2star" exact="$AssignMouseover_under_2star + '\n' + readtext.{98765}.{210}" />
+                </do_if>
+              </do_else>
+
+              <!-- 11. under1 -->
+              <do_if value="$AlreadyPilotShips gt 0">
+                <do_if value="$ShortCrew_under1 gt 0">
+                  <set_value name="$AssignMouseover_under_1star" exact="$AssignMouseover_under_1star + '\n' + readtext.{98765}.{223}.[$AlreadyPilotShips, $Avail_under1]" />
+                </do_if>
+                <do_else>
+                  <set_value name="$AssignMouseover_under_1star" exact="$AssignMouseover_under_1star + '\n' + readtext.{98765}.{222}.[$AlreadyPilotShips, $ReqAssignCount]" />
+                </do_else>
               </do_if>
+              <do_else>
+                <do_if value="$ShortCrew_under1 gt 0">
+                  <set_value name="$AssignMouseover_under_1star" exact="$AssignMouseover_under_1star + '\n' + readtext.{98765}.{210}" />
+                </do_if>
+              </do_else>
 
               <!-- Append rank-specific unassigned pilot counts to tooltips -->
               <set_value name="$AssignMouseover_all" exact="$AssignMouseover_all + '\n' + readtext.{98765}.{211}.[$Avail_all]" />
