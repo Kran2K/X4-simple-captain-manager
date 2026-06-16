@@ -17,7 +17,7 @@
     <t id="23">Capitano [%3] da %2 stelle assegnato alla nave %1.</t>
     <t id="24">Trasferiti %2 membri dell'equipaggio non assegnati su %1.</t>
     <t id="25">Addestramento completato: %1 capitani promossi. [Consumato: base x%2, 1-stella x%3, 2-stelle x%4, 3-stelle x%5, 4-stelle x%6]</t>
-    <t id="26">[Attenzione] Per fare spazio al capitano congedato sulla nave %1, il membro dell'equipaggio meno qualificato (%2 stelle [%3]) è stato licenziato automaticamente.</t>
+    <t id="26">[Attenzione] Per fare spazio al capitano congedato sulla nave %1, il membro dell'equipaggio meno qualificato %2 stelle [%3] è stato licenziato automaticamente.</t>
     <t id="27">[Attenzione] Mancanza di equipaggio non assegnato; impossibile assegnare i capitani a %1 delle %2 navi richieste.</t>
     <t id="28">A causa della capacità limitata su %1, sono stati trasferiti solo %2 su %3 membri dell'equipaggio non assegnati disponibili.</t>
     <t id="29">[Attenzione] Mancanza di equipaggio non assegnato; impossibile assegnare un capitano alla nave %1.</t>
@@ -30,7 +30,7 @@
     <t id="52">Nessun capitano da addestrare.</t>
     <t id="33">[Attenzione] Non ci sono membri dell'equipaggio non assegnati disponibili nella galassia da trasferire su %1.</t>
     <t id="8">Espelli carico</t>
-    <t id="34">Tutto il carico (%2 tipi di merci) della nave %1 è stato espulso nello spazio.</t>
+    <t id="34">Tutto il carico [%2 tipi di merci] della nave %1 è stato espulso nello spazio.</t>
     <t id="53">Espelle tutto il carico nello spazio.</t>
     <t id="54">Nessun carico da espellere.</t>
     <t id="50">Trasferisce i membri dell'equipaggio non assegnati per riempire la nave secondo la priorità.</t>

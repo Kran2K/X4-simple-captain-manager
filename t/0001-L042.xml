@@ -17,7 +17,7 @@
     <t id="23">Přiřazen %2hvězdičkový kapitán [%3] k lodi %1.</t>
     <t id="24">Převedeno %2 nepřidělených členů posádky na %1.</t>
     <t id="25">Školení semináře dokončeno: %1 kapitáni povýšeni. [Spotřebováno: základní x%2, 1hvězdičkový x%3, 2hvězdičkový x%4, 3hvězdičkový x%5, 4hvězdičkový x%6]</t>
-    <t id="26">[Varování] Aby se uvolnilo místo pro propuštěného kapitána na lodi %1, byl nejméně kvalifikovaný člen posádky (%2hvězdičkový [%3]) automaticky vyhozen.</t>
+    <t id="26">[Varování] Aby se uvolnilo místo pro propuštěného kapitána na lodi %1, byl nejméně kvalifikovaný člen posádky %2hvězdičkový [%3] automaticky vyhozen.</t>
     <t id="27">[Varování] Nedostatek nepřiřazené posádky; nepodařilo se přiřadit kapitány k %1 z %2 požadovaných lodí.</t>
     <t id="28">Vzhledem k omezené kapacitě na %1 bylo převedeno pouze %2 z %3 dostupných nepřidělených členů posádky.</t>
     <t id="29">[Varování] Nedostatek nepřiřazené posádky; nepodařilo se přiřadit kapitána k lodi %1.</t>
@@ -30,7 +30,7 @@
     <t id="52">Žádný kapitán k vyškolení.</t>
     <t id="33">[Varování] V galaxii nejsou k dispozici žádní nepřidělení členové posádky, které by bylo možné převést na %1.</t>
     <t id="8">Vyhodit náklad</t>
-    <t id="34">Veškerý náklad (%2 druhů zboží) lodi %1 byl vyhozen do vesmíru.</t>
+    <t id="34">Veškerý náklad [%2 druhů zboží] lodi %1 byl vyhozen do vesmíru.</t>
     <t id="53">Vyhodí veškerý náklad do vesmíru.</t>
     <t id="54">Žádný náklad k vyhození.</t>
     <t id="50">Přemísťuje nepřiřazené členy posádky pro doplnění lodi podle priority.</t>

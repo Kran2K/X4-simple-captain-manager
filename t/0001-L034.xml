@@ -17,7 +17,7 @@
     <t id="23">Capitán [%3] de %2 estrellas asignado a la nave %1.</t>
     <t id="24">Se transfirieron %2 miembros de la tripulación sin asignar a %1.</t>
     <t id="25">Formación completada: %1 capitanes promovidos. [Consumido: básico x%2, 1-estrella x%3, 2-estrellas x%4, 3-estrellas x%5, 4-estrellas x%6]</t>
-    <t id="26">[Atención] Para hacer espacio para el capitán destituido en la nave %1, el miembro de la tripulación menos calificado (%2 estrellas [%3]) fue despedido automáticamente.</t>
+    <t id="26">[Atención] Para hacer espacio para el capitán destituido en la nave %1, el miembro de la tripulación menos calificado %2 estrellas [%3] fue despedido automáticamente.</t>
     <t id="27">[Atención] Falta de tripulación no asignada; error al asignar capitanes a %1 de las %2 naves solicitadas.</t>
     <t id="28">Debido a la capacidad limitada en %1, solo se transfirieron %2 de %3 miembros de la tripulación sin asignar disponibles.</t>
     <t id="29">[Atención] Falta de tripulación no asignada; error al asignar un capitán a la nave %1.</t>
@@ -30,7 +30,7 @@
     <t id="52">No hay capitanes que entrenar.</t>
     <t id="33">[Advertencia] No hay miembros de la tripulación sin asignar disponibles en la galaxia para transferir a %1.</t>
     <t id="8">Arrojar carga</t>
-    <t id="34">Se ha arrojado al espacio toda la carga (%2 tipos de mercancías) de la nave %1.</t>
+    <t id="34">Se ha arrojado al espacio toda la carga [%2 tipos de mercancías] de la nave %1.</t>
     <t id="53">Arroja toda la carga al espacio.</t>
     <t id="54">No hay carga para arrojar.</t>
     <t id="50">Transfiere tripulantes no asignados para llenar la nave según la prioridad.</t>
