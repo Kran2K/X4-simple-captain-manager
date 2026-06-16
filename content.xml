@@ -9,19 +9,19 @@
                       ▀▀                              ▀▀                                                           ▀▀▀              
 -->
 <content id="simple_captain_manager" name="Simple Captain Manager" description="Allows batch personnel management for captains of selected ships in the right-click interaction menu." author="kran2k" version="100" date="2026-06-15" save="false">
-  <text language="7" name="Simple Captain Manager" description="Позволяет выполнять пакетное управление персоналом для капитанов выбранных кораблей в контекстном меню правого клика."/>
-  <text language="33" name="Simple Captain Manager" description="Permet la gestion collective du personnel pour les capitaines des vaisseaux sélectionnés dans le menu d'interaction du clic droit."/>
-  <text language="34" name="Simple Captain Manager" description="Permite la gestión de personal por lotes para los capitanes de las naves seleccionadas en el menú de interacción del clic derecho."/>
-  <text language="39" name="Simple Captain Manager" description="Consente la gestione batch del personale per i capitani delle navi selezionate nel menu di interazione con tasto destro."/>
-  <text language="42" name="Simple Captain Manager" description="Umožňuje hromadnou správu personálu pro kapitány vybraných lodí v interaktivní nabídce pravého tlačítka myši."/>
-  <text language="48" name="Simple Captain Manager" description="Umożliwia masowe zarządzanie personelem (kapitanami) wybranych statków w menu interakcji prawego przycisku myszy."/>
-  <text language="49" name="Simple Captain Manager" description="Ermöglicht die gesammelte Personalverwaltung für die Kapitäne ausgewählter Schiffe über das Rechtsklick-Interaktionsmenü."/>
-  <text language="52" name="Simple Captain Manager" description="Permite la gestión de personal por lotes para los capitanes de las naves seleccionadas en el menú de interacción del clic derecho."/>
-  <text language="55" name="Simple Captain Manager" description="Permite a gestão em lote de pessoal para os capitães das naves selecionadas no menu de interação do clique direito."/>
-  <text language="81" name="Simple Captain Manager" description="右クリックのインタラクションメニューから、選択した艦船の艦長に対する人事管理を一括処理できるようにします。"/>
-  <text language="82" name="Simple Captain Manager" description="우클릭 상호작용 메뉴에서 선택한 함선들의 함장에 대한 인사 관리를 일괄적으로 처리할 수 있게 해줍니다."/>
-  <text language="86" name="Simple Captain Manager" description="允许在右键交互菜单中对所选飞船的舰长进行批量人事管理。"/>
-  <text language="88" name="Simple Captain Manager" description="允許在右鍵交互選單中對所選飛船的艦長進行批量人事管理。"/>
+  <text language="7" name="Простое управление капитанами" description="Позволяет выполнять пакетное управление персоналом для капитанов выбранных кораблей в контекстном меню правого клика."/>
+  <text language="33" name="Gestion simple des capitaines" description="Permet la gestion collective du personnel pour les capitaines des vaisseaux sélectionnés dans le menu d'interaction du clic droit."/>
+  <text language="34" name="Gestión sencilla de capitanes" description="Permite la gestión de personal por lotes para los capitanes de las naves seleccionadas en el menú de interacción del clic derecho."/>
+  <text language="39" name="Gestione semplice dei capitani" description="Consente la gestione batch del personale per i capitani delle navi selezionate nel menu di interazione con tasto destro."/>
+  <text language="42" name="Jednoduchá správa kapitánů" description="Umožňuje hromadnou správu personálu pro kapitány vybraných lodí v interaktivní nabídce pravého tlačítka myši."/>
+  <text language="48" name="Proste zarządzanie kapitanami" description="Umożliwia masowe zarządzanie personelem (kapitanami) wybranych statków w menu interakcji prawego przycisku myszy."/>
+  <text language="49" name="Einfache Kapitänsverwaltung" description="Ermöglicht die gesammelte Personalverwaltung für die Kapitäne ausgewählter Schiffe über das Rechtsklick-Interaktionsmenü."/>
+  <text language="52" name="Gestión sencilla de capitanes" description="Permite la gestión de personal por lotes para los capitanes de las naves seleccionadas en el menú de interacción del clic derecho."/>
+  <text language="55" name="Gerenciamento Simples de Capitães" description="Permite a gestão em lote de pessoal para os capitães das naves selecionadas no menu de interação do clique direito."/>
+  <text language="81" name="簡易艦長管理" description="右クリックのインタラクションメニューから、選択した艦船の艦長に対する人事管理を一括処理できるようにします。"/>
+  <text language="82" name="간단한 함장 관리" description="우클릭 상호작용 메뉴에서 선택한 함선들의 함장에 대한 인사 관리를 일괄적으로 처리할 수 있게 해줍니다."/>
+  <text language="86" name="简易舰长管理" description="允许在右键交互菜单中对所选飞船的舰长进行批量人事管理。"/>
+  <text language="88" name="簡易艦長管理" description="允許在右鍵交互選單中對所選飛船的艦長進行批量人事管理。"/>
   <dependency id="sn_mod_support_apis" optional="true" name="Sir Nuke's Mod Support APIs" />
   <dependency id="ws_2042901274" optional="true" name="Sir Nuke's Mod Support APIs" />
   <dependency id="kuertee_ui_extensions" optional="true" name="UI Extensions" />
