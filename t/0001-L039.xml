@@ -49,28 +49,28 @@
     <t id="127">Solo meno di 4 stelle</t>
     <t id="128">Solo meno di 3 stelle</t>
     <t id="129">Solo meno di 1 stella</t>
-    <t id="130">Allena al livello massimo (tutti i seminari)</t>
-    <t id="131">Allena fino a 4 stelle (seminari fino a 3 stelle)</t>
-    <t id="132">Allena fino a 3 stelle (seminari fino a 2 stelle)</t>
-    <t id="133">Usa solo 1 seminario (comportamento originale)</t>
-    <t id="134">Allena fino a 2 stelle (seminari fino a 1 stella)</t>
-    <t id="135">Allena fino a 1 stella (seminari di base)</t>
+    <t id="130">Allena al livello massimo</t>
+    <t id="131">Allena fino a 4 stelle</t>
+    <t id="132">Allena fino a 3 stelle</t>
+    <t id="133">Usa solo 1 seminario</t>
+    <t id="134">Allena fino a 2 stelle</t>
+    <t id="135">Allena fino a 1 stella</t>
     <t id="150">Assegna i membri non assegnati della galassia al ruolo di capitano, indipendentemente dall'abilità.</t>
-    <t id="151">Seleziona e assegna i membri con abilità di pilotaggio 3 stelle o più (valore &gt;=9).</t>
-    <t id="152">Seleziona e assegna i membri con abilità di pilotaggio 2 stelle o più (valore &gt;=6).</t>
-    <t id="153">Seleziona e assegna i membri con abilità di pilotaggio meno di 2 stelle (valore &lt;6).</t>
-    <t id="154">Seleziona e assegna i membri con abilità di pilotaggio 4 stelle o più (valore &gt;=12).</t>
-    <t id="155">Seleziona e assegna i membri con abilità di pilotaggio 1 stella o più (valore &gt;=3).</t>
-    <t id="156">Seleziona e assegna i membri con abilità di pilotaggio meno di 5 stelle (valore &lt;15).</t>
-    <t id="157">Seleziona e assegna i membri con abilità di pilotaggio meno di 4 stelle (valore &lt;12).</t>
-    <t id="158">Seleziona e assegna i membri con abilità di pilotaggio meno di 3 stelle (valore &lt;9).</t>
-    <t id="159">Seleziona e assegna i membri con abilità di pilotaggio meno di 1 stella (valore &lt;3).</t>
-    <t id="160">Consuma sequenzialmente tutti i seminari disponibili (0-4 stelle) per raggiungere 5 stelle (max).</t>
-    <t id="161">Consuma i seminari da base a 3 stelle per raggiungere 4 stelle. (Conserva i seminari 4 stelle)</t>
-    <t id="162">Consuma i seminari da base a 2 stelle per raggiungere 3 stelle. (Conserva i seminari 3 e 4 stelle)</t>
+    <t id="151">Seleziona e assegna i membri con abilità di pilotaggio 3 stelle o più.</t>
+    <t id="152">Seleziona e assegna i membri con abilità di pilotaggio 2 stelle o più.</t>
+    <t id="153">Seleziona e assegna i membri con abilità di pilotaggio meno di 2 stelle.</t>
+    <t id="154">Seleziona e assegna i membri con abilità di pilotaggio 4 stelle o più.</t>
+    <t id="155">Seleziona e assegna i membri con abilità di pilotaggio 1 stella o più.</t>
+    <t id="156">Seleziona e assegna i membri con abilità di pilotaggio meno di 5 stelle.</t>
+    <t id="157">Seleziona e assegna i membri con abilità di pilotaggio meno di 4 stelle.</t>
+    <t id="158">Seleziona e assegna i membri con abilità di pilotaggio meno di 3 stelle.</t>
+    <t id="159">Seleziona e assegna i membri con abilità di pilotaggio meno di 1 stella.</t>
+    <t id="160">Consuma sequenzialmente tutti i seminari disponibili per raggiungere 5 stelle.</t>
+    <t id="161">Consuma i seminari da base a 3 stelle per raggiungere 4 stelle.</t>
+    <t id="162">Consuma i seminari da base a 2 stelle per raggiungere 3 stelle.</t>
     <t id="163">Consuma 1 seminario adatto per avanzare di un livello di abilità.</t>
-    <t id="164">Consuma i seminari da base a 1 stella per raggiungere 2 stelle. (Conserva i seminari 2, 3 e 4 stelle)</t>
-    <t id="165">Consuma i seminari di base per raggiungere 1 stella. (Conserva i seminari 1, 2, 3 e 4 stelle)</t>
+    <t id="164">Consuma i seminari da base a 1 stella per raggiungere 2 stelle.</t>
+    <t id="165">Consuma i seminari di base per raggiungere 1 stella.</t>
     <t id="190">La nave o la stazione bersaglio non ha spazio libero.</t>
     <t id="35">L'equipaggio della nave è al completo. Per fare spazio al capitano congedato, il membro dell'equipaggio meno qualificato verrà licenziato automaticamente.</t>
     <t id="36">L'equipaggio di alcune navi è al completo. Per fare spazio ai capitani congedati, il membro dell'equipaggio meno qualificato su quelle navi verrà licenziato automaticamente.</t>
@@ -84,5 +84,7 @@
     <t id="207">Mancano i seminari richiesti per questo addestramento. [Mancante: Base x%1, 1 stella x%2, 2 stelle x%3]</t>
     <t id="208">Mancano i seminari richiesti per questo addestramento. [Mancante: Base x%1, 1 stella x%2, 2 stelle x%3, 3 stelle x%4]</t>
     <t id="209">Mancano i seminari richiesti per questo addestramento. [Mancante: Base x%1, 1 stella x%2, 2 stelle x%3, 3 stelle x%4, 4 stelle x%5]</t>
-  <t id="136">Addestra a 5 stelle</t><t id="166">Consuma in sequenza i seminari da base a 4 stelle per addestrare l'abilità di pilotaggio a 5 stelle [max]. [Disabilitato se mancano i seminari]</t></page>
+    <t id="136">Addestra a 5 stelle</t>
+    <t id="166">Consuma in sequenza i seminari da base a 4 stelle per addestrare l'abilità di pilotaggio a 5 stelle [max]. [Disabilitato se mancano i seminari]</t>
+  </page>
 </language>

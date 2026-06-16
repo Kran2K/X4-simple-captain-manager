@@ -49,28 +49,28 @@
     <t id="127">Tylko poniżej 4 gwiazdek</t>
     <t id="128">Tylko poniżej 3 gwiazdek</t>
     <t id="129">Tylko poniżej 1 gwiazdki</t>
-    <t id="130">Trenuj do max poziomu (wszystkie seminaria)</t>
-    <t id="131">Trenuj do 4 gwiazdek (seminaria do 3 gwiazdek)</t>
-    <t id="132">Trenuj do 3 gwiazdek (seminaria do 2 gwiazdek)</t>
-    <t id="133">Użyj tylko 1 seminarium (oryginalne zachowanie)</t>
-    <t id="134">Trenuj do 2 gwiazdek (seminaria do 1 gwiazdki)</t>
-    <t id="135">Trenuj do 1 gwiazdki (seminaria podstawowe)</t>
+    <t id="130">Trenuj do max poziomu</t>
+    <t id="131">Trenuj do 4 gwiazdek</t>
+    <t id="132">Trenuj do 3 gwiazdek</t>
+    <t id="133">Użyj tylko 1 seminarium</t>
+    <t id="134">Trenuj do 2 gwiazdek</t>
+    <t id="135">Trenuj do 1 gwiazdki</t>
     <t id="150">Przypisuje nieprzypisanych do roli kapitana niezależnie od umiejętności.</t>
-    <t id="151">Wybiera i przypisuje nieprzypisanych z umiejętnością pilotowania 3 gwiazdki lub więcej (wart. &gt;=9).</t>
-    <t id="152">Wybiera i przypisuje nieprzypisanych z umiejętnością pilotowania 2 gwiazdki lub więcej (wart. &gt;=6).</t>
-    <t id="153">Wybiera i przypisuje nieprzypisanych z umiejętnością pilotowania poniżej 2 gwiazdek (wart. &lt;6).</t>
-    <t id="154">Wybiera i przypisuje nieprzypisanych z umiejętnością pilotowania 4 gwiazdki lub więcej (wart. &gt;=12).</t>
-    <t id="155">Wybiera i przypisuje nieprzypisanych z umiejętnością pilotowania 1 gwiazdka lub więcej (wart. &gt;=3).</t>
-    <t id="156">Wybiera i przypisuje nieprzypisanych z umiejętnością pilotowania poniżej 5 gwiazdek (wart. &lt;15).</t>
-    <t id="157">Wybiera i przypisuje nieprzypisanych z umiejętnością pilotowania poniżej 4 gwiazdek (wart. &lt;12).</t>
-    <t id="158">Wybiera i przypisuje nieprzypisanych z umiejętnością pilotowania poniżej 3 gwiazdek (wart. &lt;9).</t>
-    <t id="159">Wybiera i przypisuje nieprzypisanych z umiejętnością pilotowania poniżej 1 gwiazdki (wart. &lt;3).</t>
-    <t id="160">Kolejno zużywa wszystkie dostępne seminaria (0-4 gwiazdki), aby osiągnąć 5 gwiazdek (max).</t>
-    <t id="161">Zużywa seminaria od podstawowych do 3 gwiazdek, aby osiągnąć 4 gwiazdki. (Zachowuje seminaria 4 gwiazdek)</t>
-    <t id="162">Zużywa seminaria od podstawowych do 2 gwiazdek, aby osiągnąć 3 gwiazdki. (Zachowuje seminaria 3 i 4 gwiazdek)</t>
+    <t id="151">Wybiera i przypisuje nieprzypisanych z umiejętnością pilotowania 3 gwiazdki lub więcej.</t>
+    <t id="152">Wybiera i przypisuje nieprzypisanych z umiejętnością pilotowania 2 gwiazdki lub więcej.</t>
+    <t id="153">Wybiera i przypisuje nieprzypisanych z umiejętnością pilotowania poniżej 2 gwiazdek.</t>
+    <t id="154">Wybiera i przypisuje nieprzypisanych z umiejętnością pilotowania 4 gwiazdki lub więcej.</t>
+    <t id="155">Wybiera i przypisuje nieprzypisanych z umiejętnością pilotowania 1 gwiazdka lub więcej.</t>
+    <t id="156">Wybiera i przypisuje nieprzypisanych z umiejętnością pilotowania poniżej 5 gwiazdek.</t>
+    <t id="157">Wybiera i przypisuje nieprzypisanych z umiejętnością pilotowania poniżej 4 gwiazdek.</t>
+    <t id="158">Wybiera i przypisuje nieprzypisanych z umiejętnością pilotowania poniżej 3 gwiazdek.</t>
+    <t id="159">Wybiera i przypisuje nieprzypisanych z umiejętnością pilotowania poniżej 1 gwiazdki.</t>
+    <t id="160">Kolejno zużywa wszystkie dostępne seminaria, aby osiągnąć 5 gwiazdek.</t>
+    <t id="161">Zużywa seminaria od podstawowych do 3 gwiazdek, aby osiągnąć 4 gwiazdki.</t>
+    <t id="162">Zużywa seminaria od podstawowych do 2 gwiazdek, aby osiągnąć 3 gwiazdki.</t>
     <t id="163">Zużywa 1 odpowiednie seminarium, aby awansować o 1 poziom.</t>
-    <t id="164">Zużywa seminaria od podstawowych do 1 gwiazdki, aby osiągnąć 2 gwiazdki. (Zachowuje seminaria 2, 3 i 4 gwiazdek)</t>
-    <t id="165">Zużywa seminaria podstawowe, aby osiągnąć 1 gwiazdkę. (Zachowuje seminaria 1, 2, 3 i 4 gwiazdek)</t>
+    <t id="164">Zużywa seminaria od podstawowych do 1 gwiazdki, aby osiągnąć 2 gwiazdki.</t>
+    <t id="165">Zużywa seminaria podstawowe, aby osiągnąć 1 gwiazdkę.</t>
     <t id="190">Docelowy statek lub stacja nie ma wolnego miejsca.</t>
     <t id="35">Załoga statku jest pełna. Aby zrobić miejsce dla odwołanego kapitana, najmniej wykwalifikowany członek załogi zostanie automatycznie zwolniony.</t>
     <t id="36">Załoga niektórych statków jest pełna. Aby zrobić miejsce dla odwołanych kapitanów, najmniej wykwalifikowany członek załogi na tych statkach zostanie automatycznie zwolniony.</t>
@@ -84,5 +84,7 @@
     <t id="207">Brak seminariów wymaganych do tego szkolenia. [Brak: Podstawowe x%1, 1-gwiazdkowe x%2, 2-gwiazdkowe x%3]</t>
     <t id="208">Brak seminariów wymaganych do tego szkolenia. [Brak: Podstawowe x%1, 1-gwiazdkowe x%2, 2-gwiazdkowe x%3, 3-gwiazdkowe x%4]</t>
     <t id="209">Brak seminariów wymaganych do tego szkolenia. [Brak: Podstawowe x%1, 1-gwiazdkowe x%2, 2-gwiazdkowe x%3, 3-gwiazdkowe x%4, 4-gwiazdkowe x%5]</t>
-  <t id="136">Szkolenie do 5 gwiazdek</t><t id="166">Kolejno zużywa seminaria od podstawowych do 4-gwiazdkowych, aby wyszkolić pilotaż na 5 gwiazdek [maks]. [Wyłączone w przypadku braku seminariów]</t></page>
+    <t id="136">Szkolenie do 5 gwiazdek</t>
+    <t id="166">Kolejno zużywa seminaria od podstawowych do 4-gwiazdkowych, aby wyszkolić pilotaż na 5 gwiazdek [maks]. [Wyłączone w przypadku braku seminariów]</t>
+  </page>
 </language>

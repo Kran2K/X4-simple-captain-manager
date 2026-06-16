@@ -49,28 +49,28 @@
     <t id="127">Pouze méně než 4 hvězdy</t>
     <t id="128">Pouze méně než 3 hvězdy</t>
     <t id="129">Pouze méně než 1 hvězda</t>
-    <t id="130">Trénovat na maximální úroveň (všechny semináře)</t>
-    <t id="131">Trénovat na 4 hvězdy (semináře do 3 hvězd)</t>
-    <t id="132">Trénovat na 3 hvězdy (semináře do 2 hvězd)</t>
-    <t id="133">Použít pouze 1 seminář (původní chování)</t>
-    <t id="134">Trénovat na 2 hvězdy (semináře do 1 hvězdy)</t>
-    <t id="135">Trénovat na 1 hvězdu (základní semináře)</t>
+    <t id="130">Trénovat na maximální úroveň</t>
+    <t id="131">Trénovat na 4 hvězdy</t>
+    <t id="132">Trénovat na 3 hvězdy</t>
+    <t id="133">Použít pouze 1 seminář</t>
+    <t id="134">Trénovat na 2 hvězdy</t>
+    <t id="135">Trénovat na 1 hvězdu</t>
     <t id="150">Přiřadí nepřiřazené členy posádky na místo kapitána bez ohledu na dovednosti.</t>
-    <t id="151">Vybere a přiřadí nepřiřazené s dovedností pilotáže 3 hvězdy nebo více (hod. &gt;=9).</t>
-    <t id="152">Vybere a přiřadí nepřiřazené s dovedností pilotáže 2 hvězdy nebo více (hod. &gt;=6).</t>
-    <t id="153">Vybere a přiřadí nepřiřazené s dovedností pilotáže méně než 2 hvězdy (hod. &lt;6).</t>
-    <t id="154">Vybere a přiřadí nepřiřazené s dovedností pilotáže 4 hvězdy nebo více (hod. &gt;=12).</t>
-    <t id="155">Vybere a přiřadí nepřiřazené s dovedností pilotáže 1 hvězda nebo více (hod. &gt;=3).</t>
-    <t id="156">Vybere a přiřadí nepřiřazené s dovedností pilotáže méně než 5 hvězd (hod. &lt;15).</t>
-    <t id="157">Vybere a přiřadí nepřiřazené s dovedností pilotáže méně než 4 hvězdy (hod. &lt;12).</t>
-    <t id="158">Vybere a přiřadí nepřiřazené s dovedností pilotáže méně než 3 hvězdy (hod. &lt;9).</t>
-    <t id="159">Vybere a přiřadí nepřiřazené s dovedností pilotáže méně než 1 hvězda (hod. &lt;3).</t>
-    <t id="160">Sekvenčně spotřebuje všechny dostupné semináře (0-4 hvězdy) pro dosažení 5-hvězdičkového pilotáže (max).</t>
-    <t id="161">Spotřebuje semináře od základní do 3 hvězd pro dosažení 4 hvězd. (Uchová semináře 4 hvězd)</t>
-    <t id="162">Spotřebuje semináře od základní do 2 hvězd pro dosažení 3 hvězd. (Uchová semináře 3 a 4 hvězd)</t>
+    <t id="151">Vybere a přiřadí nepřiřazené s dovedností pilotáže 3 hvězdy nebo více.</t>
+    <t id="152">Vybere a přiřadí nepřiřazené s dovedností pilotáže 2 hvězdy nebo více.</t>
+    <t id="153">Vybere a přiřadí nepřiřazené s dovedností pilotáže méně než 2 hvězdy.</t>
+    <t id="154">Vybere a přiřadí nepřiřazené s dovedností pilotáže 4 hvězdy nebo více.</t>
+    <t id="155">Vybere a přiřadí nepřiřazené s dovedností pilotáže 1 hvězda nebo více.</t>
+    <t id="156">Vybere a přiřadí nepřiřazené s dovedností pilotáže méně než 5 hvězd.</t>
+    <t id="157">Vybere a přiřadí nepřiřazené s dovedností pilotáže méně než 4 hvězdy.</t>
+    <t id="158">Vybere a přiřadí nepřiřazené s dovedností pilotáže méně než 3 hvězdy.</t>
+    <t id="159">Vybere a přiřadí nepřiřazené s dovedností pilotáže méně než 1 hvězda.</t>
+    <t id="160">Sekvenčně spotřebuje všechny dostupné semináře pro dosažení 5-hvězdičkového pilotáže.</t>
+    <t id="161">Spotřebuje semináře od základní do 3 hvězd pro dosažení 4 hvězd.</t>
+    <t id="162">Spotřebuje semináře od základní do 2 hvězd pro dosažení 3 hvězd.</t>
     <t id="163">Spotřebuje 1 vhodný seminář pro postup o úroveň dovednosti.</t>
-    <t id="164">Spotřebuje semináře od základní do 1 hvězdy pro dosažení 2 hvězd. (Uchová semináře 2, 3 a 4 hvězd)</t>
-    <t id="165">Spotřebuje základní semináře pro dosažení 1 hvězdy. (Uchová semináře 1, 2, 3 a 4 hvězd)</t>
+    <t id="164">Spotřebuje semináře od základní do 1 hvězdy pro dosažení 2 hvězd.</t>
+    <t id="165">Spotřebuje základní semináře pro dosažení 1 hvězdy.</t>
     <t id="190">Cílová loď nebo stanice nemá volné místo.</t>
     <t id="35">Posádka lodi je plná. Aby se uvolnilo místo pro propuštěného kapitána, bude nejméně kvalifikovaný člen posádky automaticky propuštěn.</t>
     <t id="36">Posádka některých lodí je plná. Aby se uvolnilo místo pro propuštěné kapitány, bude nejméně kvalifikovaný člen posádky na těchto lodích automaticky propuštěn.</t>
@@ -84,5 +84,7 @@
     <t id="207">Chybí semináře vyžadované pro tento výcvik. [Chybí: Základní x%1, 1hvězdičkový x%2, 2hvězdičkový x%3]</t>
     <t id="208">Chybí semináře vyžadované pro tento výcvik. [Chybí: Základní x%1, 1hvězdičkový x%2, 2hvězdičkový x%3, 3hvězdičkový x%4]</t>
     <t id="209">Chybí semináře vyžadované pro tento výcvik. [Chybí: Základní x%1, 1hvězdičkový x%2, 2hvězdičkový x%3, 3hvězdičkový x%4, 4hvězdičkový x%5]</t>
-  <t id="136">Vycvičit na 5 hvězdiček</t><t id="166">Postupně spotřebovává základní až 4hvězdičkové semináře k výcviku pilotáže na 5 hvězdiček [max]. [Zakázáno, pokud chybí semináře]</t></page>
+    <t id="136">Vycvičit na 5 hvězdiček</t>
+    <t id="166">Postupně spotřebovává základní až 4hvězdičkové semináře k výcviku pilotáže na 5 hvězdiček [max]. [Zakázáno, pokud chybí semináře]</t>
+  </page>
 </language>

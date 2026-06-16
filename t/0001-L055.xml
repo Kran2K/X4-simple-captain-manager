@@ -49,28 +49,28 @@
     <t id="127">Apenas menos de 4 estrelas</t>
     <t id="128">Apenas menos de 3 estrelas</t>
     <t id="129">Apenas menos de 1 estrela</t>
-    <t id="130">Treinar até o nível máximo (todos os seminários)</t>
-    <t id="131">Treinar até 4 estrelas (seminários até 3 estrelas)</t>
-    <t id="132">Treinar até 3 estrelas (seminários até 2 estrelas)</t>
-    <t id="133">Usar apenas 1 seminário (comportamento original)</t>
-    <t id="134">Treinar até 2 estrelas (seminários até 1 estrela)</t>
-    <t id="135">Treinar até 1 estrela (seminários básicos)</t>
+    <t id="130">Treinar até o nível máximo</t>
+    <t id="131">Treinar até 4 estrelas</t>
+    <t id="132">Treinar até 3 estrelas</t>
+    <t id="133">Usar apenas 1 seminário</t>
+    <t id="134">Treinar até 2 estrelas</t>
+    <t id="135">Treinar até 1 estrela</t>
     <t id="150">Atribui membros não atribuídos da galáxia ao posto de capitão, independentemente da habilidade.</t>
-    <t id="151">Seleciona e atribui membros com habilidade de pilotagem 3 estrelas ou mais (valor &gt;=9).</t>
-    <t id="152">Seleciona e atribui membros com habilidade de pilotagem 2 estrelas ou mais (valor &gt;=6).</t>
-    <t id="153">Seleciona e atribui membros com habilidade de pilotagem menos de 2 estrelas (valor &lt;6).</t>
-    <t id="154">Seleciona e atribui membros com habilidade de pilotagem 4 estrelas ou mais (valor &gt;=12).</t>
-    <t id="155">Seleciona e atribui membros com habilidade de pilotagem 1 estrela ou mais (valor &gt;=3).</t>
-    <t id="156">Seleciona e atribui membros com habilidade de pilotagem menos de 5 estrelas (valor &lt;15).</t>
-    <t id="157">Seleciona e atribui membros com habilidade de pilotagem menos de 4 estrelas (valor &lt;12).</t>
-    <t id="158">Seleciona e atribui membros com habilidade de pilotagem menos de 3 estrelas (valor &lt;9).</t>
-    <t id="159">Seleciona e atribui membros com habilidade de pilotagem menos de 1 estrela (valor &lt;3).</t>
-    <t id="160">Consome sequencialmente todos os seminários disponíveis (0-4 estrelas) para atingir 5 estrelas (máx).</t>
-    <t id="161">Consome seminários do básico até 3 estrelas para atingir 4 estrelas. (Preserva seminários de 4 estrelas)</t>
-    <t id="162">Consome seminários do básico até 2 estrelas para atingir 3 estrelas. (Preserva seminários de 3 e 4 estrelas)</t>
+    <t id="151">Seleciona e atribui membros com habilidade de pilotagem 3 estrelas ou mais.</t>
+    <t id="152">Seleciona e atribui membros com habilidade de pilotagem 2 estrelas ou mais.</t>
+    <t id="153">Seleciona e atribui membros com habilidade de pilotagem menos de 2 estrelas.</t>
+    <t id="154">Seleciona e atribui membros com habilidade de pilotagem 4 estrelas ou mais.</t>
+    <t id="155">Seleciona e atribui membros com habilidade de pilotagem 1 estrela ou mais.</t>
+    <t id="156">Seleciona e atribui membros com habilidade de pilotagem menos de 5 estrelas.</t>
+    <t id="157">Seleciona e atribui membros com habilidade de pilotagem menos de 4 estrelas.</t>
+    <t id="158">Seleciona e atribui membros com habilidade de pilotagem menos de 3 estrelas.</t>
+    <t id="159">Seleciona e atribui membros com habilidade de pilotagem menos de 1 estrela.</t>
+    <t id="160">Consome sequencialmente todos os seminários disponíveis para atingir 5 estrelas.</t>
+    <t id="161">Consome seminários do básico até 3 estrelas para atingir 4 estrelas.</t>
+    <t id="162">Consome seminários do básico até 2 estrelas para atingir 3 estrelas.</t>
     <t id="163">Consome 1 seminário adequado para avançar 1 nível de habilidade.</t>
-    <t id="164">Consome seminários do básico até 1 estrela para atingir 2 estrelas. (Preserva seminários de 2, 3 e 4 estrelas)</t>
-    <t id="165">Consome seminários básicos para atingir 1 estrela. (Preserva seminários de 1, 2, 3 e 4 estrelas)</t>
+    <t id="164">Consome seminários do básico até 1 estrela para atingir 2 estrelas.</t>
+    <t id="165">Consome seminários básicos para atingir 1 estrela.</t>
     <t id="190">A nave ou estação alvo não tem espaço livre.</t>
     <t id="35">A tripulação da nave está cheia. Para abrir espaço para o capitão demitido, o tripulante menos qualificado será demitido automaticamente.</t>
     <t id="36">A tripulação de algumas naves está cheia. Para abrir espaço para os capitães demitidos, o tripulante menos qualificado nessas naves será demitido automaticamente.</t>
@@ -84,5 +84,7 @@
     <t id="207">Faltam os seminários necessários para este treinamento. [Falta: Básico x%1, 1 estrela x%2, 2 estrelas x%3]</t>
     <t id="208">Faltam os seminários necessários para este treinamento. [Falta: Básico x%1, 1 estrela x%2, 2 estrelas x%3, 3 estrelas x%4]</t>
     <t id="209">Faltam os seminários necessários para este treinamento. [Falta: Básico x%1, 1 estrela x%2, 2 estrelas x%3, 3 estrelas x%4, 4 estrelas x%5]</t>
-  <t id="136">Treinar até 5 estrelas</t><t id="166">Consome sequencialmente seminários básicos a 4 estrelas para treinar a habilidade de pilotagem para 5 estrelas [máx]. [Desativado si faltarem seminários]</t></page>
+    <t id="136">Treinar até 5 estrelas</t>
+    <t id="166">Consome sequencialmente seminários básicos a 4 estrelas para treinar a habilidade de pilotagem para 5 estrelas [máx]. [Desativado si faltarem seminários]</t>
+  </page>
 </language>

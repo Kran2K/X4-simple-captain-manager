@@ -49,28 +49,28 @@
     <t id="127">Nur unter 4 Sterne</t>
     <t id="128">Nur unter 3 Sterne</t>
     <t id="129">Nur unter 1 Stern</t>
-    <t id="130">Bis zum Maximal-Level trainieren (alle Seminare sequenziell)</t>
-    <t id="131">Bis 4 Sterne trainieren (Seminare bis 3 Sterne)</t>
-    <t id="132">Bis 3 Sterne trainieren (Seminare bis 2 Sterne)</t>
-    <t id="133">Nur 1 Seminar verwenden (ursprüngliches Verhalten)</t>
-    <t id="134">Bis 2 Sterne trainieren (Seminare bis 1 Stern)</t>
-    <t id="135">Bis 1 Stern trainieren (Grundseminare)</t>
+    <t id="130">Bis zum Maximal-Level trainieren</t>
+    <t id="131">Bis 4 Sterne trainieren</t>
+    <t id="132">Bis 3 Sterne trainieren</t>
+    <t id="133">Nur 1 Seminar verwenden</t>
+    <t id="134">Bis 2 Sterne trainieren</t>
+    <t id="135">Bis 1 Stern trainieren</t>
     <t id="150">Weist nicht zugewiesene Besatzungsmitglieder der Galaxie unabhängig von Fähigkeiten als Kapitän zu.</t>
-    <t id="151">Wählt und weist Mitglieder mit Piloting-Fertigkeit 3 Sterne oder mehr (Wert &gt;=9) zu.</t>
-    <t id="152">Wählt und weist Mitglieder mit Piloting-Fertigkeit 2 Sterne oder mehr (Wert &gt;=6) zu.</t>
-    <t id="153">Wählt und weist Mitglieder mit Piloting-Fertigkeit unter 2 Sterne (Wert &lt;6) zu.</t>
-    <t id="154">Wählt und weist Mitglieder mit Piloting-Fertigkeit 4 Sterne oder mehr (Wert &gt;=12) zu.</t>
-    <t id="155">Wählt und weist Mitglieder mit Piloting-Fertigkeit 1 Stern oder mehr (Wert &gt;=3) zu.</t>
-    <t id="156">Wählt und weist Mitglieder mit Piloting-Fertigkeit unter 5 Sterne (Wert &lt;15) zu.</t>
-    <t id="157">Wählt und weist Mitglieder mit Piloting-Fertigkeit unter 4 Sterne (Wert &lt;12) zu.</t>
-    <t id="158">Wählt und weist Mitglieder mit Piloting-Fertigkeit unter 3 Sterne (Wert &lt;9) zu.</t>
-    <t id="159">Wählt und weist Mitglieder mit Piloting-Fertigkeit unter 1 Stern (Wert &lt;3) zu.</t>
-    <t id="160">Verbraucht nacheinander alle verfügbaren Seminare (0-4 Sterne), um 5-Sterne-Fertigkeit (Max) zu erreichen.</t>
-    <t id="161">Verbraucht Seminare von Basis bis 3 Sterne, um 4-Sterne-Fertigkeit zu erreichen. (Spart 4-Sterne-Seminare)</t>
-    <t id="162">Verbraucht Seminare von Basis bis 2 Sterne, um 3-Sterne-Fertigkeit zu erreichen. (Spart 3 und 4-Sterne-Seminare)</t>
+    <t id="151">Wählt und weist Mitglieder mit Piloting-Fertigkeit 3 Sterne oder mehr zu.</t>
+    <t id="152">Wählt und weist Mitglieder mit Piloting-Fertigkeit 2 Sterne oder mehr zu.</t>
+    <t id="153">Wählt und weist Mitglieder mit Piloting-Fertigkeit unter 2 Sterne zu.</t>
+    <t id="154">Wählt und weist Mitglieder mit Piloting-Fertigkeit 4 Sterne oder mehr zu.</t>
+    <t id="155">Wählt und weist Mitglieder mit Piloting-Fertigkeit 1 Stern oder mehr zu.</t>
+    <t id="156">Wählt und weist Mitglieder mit Piloting-Fertigkeit unter 5 Sterne zu.</t>
+    <t id="157">Wählt und weist Mitglieder mit Piloting-Fertigkeit unter 4 Sterne zu.</t>
+    <t id="158">Wählt und weist Mitglieder mit Piloting-Fertigkeit unter 3 Sterne zu.</t>
+    <t id="159">Wählt und weist Mitglieder mit Piloting-Fertigkeit unter 1 Stern zu.</t>
+    <t id="160">Verbraucht nacheinander alle verfügbaren Seminare, um 5-Sterne-Fertigkeit zu erreichen.</t>
+    <t id="161">Verbraucht Seminare von Basis bis 3 Sterne, um 4-Sterne-Fertigkeit zu erreichen.</t>
+    <t id="162">Verbraucht Seminare von Basis bis 2 Sterne, um 3-Sterne-Fertigkeit zu erreichen.</t>
     <t id="163">Verbraucht 1 passendes Seminar, um die Fertigkeit um 1 Stufe zu steigern.</t>
-    <t id="164">Verbraucht Seminare von Basis bis 1 Stern, um 2-Sterne-Fertigkeit zu erreichen. (Spart 2, 3 und 4-Sterne-Seminare)</t>
-    <t id="165">Verbraucht Grundseminare, um 1-Sterne-Fertigkeit zu erreichen. (Spart 1, 2, 3 und 4-Sterne-Seminare)</t>
+    <t id="164">Verbraucht Seminare von Basis bis 1 Stern, um 2-Sterne-Fertigkeit zu erreichen.</t>
+    <t id="165">Verbraucht Grundseminare, um 1-Sterne-Fertigkeit zu erreichen.</t>
     <t id="190">Das Zielschiff oder die Zielstation hat keinen freien Platz.</t>
     <t id="35">Die Schiffsbesatzung ist voll. Um Platz für den entlassenen Kapitän zu schaffen, wird das Besatzungsmitglied mit den geringsten Fähigkeiten automatisch gefeuert.</t>
     <t id="36">Einige Schiffe sind voll besetzt. Um Platz für die entlassenen Kapitäne zu schaffen, wird das Besatzungsmitglied mit den geringsten Fähigkeiten auf diesen Schiffen automatisch gefeuert.</t>
@@ -84,5 +84,7 @@
     <t id="207">Es fehlen die erforderlichen Seminare. [Fehlt: Grund- x%1, 1-Sterne- x%2, 2-Sterne-Seminar x%3]</t>
     <t id="208">Es fehlen die erforderlichen Seminare. [Fehlt: Grund- x%1, 1-Sterne- x%2, 2-Sterne- x%3, 3-Sterne-Seminar x%4]</t>
     <t id="209">Es fehlen die erforderlichen Seminare. [Fehlt: Grund- x%1, 1-Sterne- x%2, 2-Sterne- x%3, 3-Sterne- x%4, 4-Sterne-Seminar x%5]</t>
-  <t id="136">Bis 5 Sterne ausbilden</t><t id="166">Verbraucht nacheinander Grund- bis 4-Sterne-Seminare, um die Pilotenfertigkeit auf 5 Sterne [Maximum] zu steigern. [Deaktiviert bei Mangel an Seminaren]</t></page>
+    <t id="136">Bis 5 Sterne ausbilden</t>
+    <t id="166">Verbraucht nacheinander Grund- bis 4-Sterne-Seminare, um die Pilotenfertigkeit auf 5 Sterne [Maximum] zu steigern. [Deaktiviert bei Mangel an Seminaren]</t>
+  </page>
 </language>

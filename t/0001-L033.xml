@@ -49,28 +49,28 @@
     <t id="127">Moins de 4 étoiles uniquement</t>
     <t id="128">Moins de 3 étoiles uniquement</t>
     <t id="129">Moins de 1 étoile uniquement</t>
-    <t id="130">Former au niveau max (tous les séminaires séquentiellement)</t>
-    <t id="131">Former jusqu'à 4 étoiles (séminaires jusqu'à 3 étoiles)</t>
-    <t id="132">Former jusqu'à 3 étoiles (séminaires jusqu'à 2 étoiles)</t>
-    <t id="133">Utiliser 1 seul séminaire (comportement d'origine)</t>
-    <t id="134">Former jusqu'à 2 étoiles (séminaires jusqu'à 1 étoile)</t>
-    <t id="135">Former jusqu'à 1 étoile (séminaires de base)</t>
+    <t id="130">Former au niveau max</t>
+    <t id="131">Former jusqu'à 4 étoiles</t>
+    <t id="132">Former jusqu'à 3 étoiles</t>
+    <t id="133">Utiliser 1 seul séminaire</t>
+    <t id="134">Former jusqu'à 2 étoiles</t>
+    <t id="135">Former jusqu'à 1 étoile</t>
     <t id="150">Assigne les membres non affectés de la galaxie au poste de capitaine, sans critère de compétence.</t>
-    <t id="151">Sélectionne et assigne les membres avec un niveau de pilotage 3 étoiles ou plus (valeur &gt;=9).</t>
-    <t id="152">Sélectionne et assigne les membres avec un niveau de pilotage 2 étoiles ou plus (valeur &gt;=6).</t>
-    <t id="153">Sélectionne et assigne les membres avec un niveau de pilotage inférieur à 2 étoiles (valeur &lt;6).</t>
-    <t id="154">Sélectionne et assigne les membres avec un niveau de pilotage 4 étoiles ou plus (valeur &gt;=12).</t>
-    <t id="155">Sélectionne et assigne les membres avec un niveau de pilotage 1 étoile ou plus (valeur &gt;=3).</t>
-    <t id="156">Sélectionne et assigne les membres avec un niveau de pilotage inférieur à 5 étoiles (valeur &lt;15).</t>
-    <t id="157">Sélectionne et assigne les membres avec un niveau de pilotage inférieur à 4 étoiles (valeur &lt;12).</t>
-    <t id="158">Sélectionne et assigne les membres avec un niveau de pilotage inférieur à 3 étoiles (valeur &lt;9).</t>
-    <t id="159">Sélectionne et assigne les membres avec un niveau de pilotage inférieur à 1 étoile (valeur &lt;3).</t>
-    <t id="160">Consomme séquentiellement tous les séminaires disponibles (0-4 étoiles) pour atteindre 5 étoiles (max).</t>
-    <t id="161">Consomme les séminaires de base à 3 étoiles pour atteindre 4 étoiles. (Conserve les séminaires 4 étoiles)</t>
-    <t id="162">Consomme les séminaires de base à 2 étoiles pour atteindre 3 étoiles. (Conserve les séminaires 3 et 4 étoiles)</t>
+    <t id="151">Sélectionne et assigne les membres avec un niveau de pilotage 3 étoiles ou plus.</t>
+    <t id="152">Sélectionne et assigne les membres avec un niveau de pilotage 2 étoiles ou plus.</t>
+    <t id="153">Sélectionne et assigne les membres avec un niveau de pilotage inférieur à 2 étoiles.</t>
+    <t id="154">Sélectionne et assigne les membres avec un niveau de pilotage 4 étoiles ou plus.</t>
+    <t id="155">Sélectionne et assigne les membres avec un niveau de pilotage 1 étoile ou plus.</t>
+    <t id="156">Sélectionne et assigne les membres avec un niveau de pilotage inférieur à 5 étoiles.</t>
+    <t id="157">Sélectionne et assigne les membres avec un niveau de pilotage inférieur à 4 étoiles.</t>
+    <t id="158">Sélectionne et assigne les membres avec un niveau de pilotage inférieur à 3 étoiles.</t>
+    <t id="159">Sélectionne et assigne les membres avec un niveau de pilotage inférieur à 1 étoile.</t>
+    <t id="160">Consomme séquentiellement tous les séminaires disponibles pour atteindre 5 étoiles.</t>
+    <t id="161">Consomme les séminaires de base à 3 étoiles pour atteindre 4 étoiles.</t>
+    <t id="162">Consomme les séminaires de base à 2 étoiles pour atteindre 3 étoiles.</t>
     <t id="163">Consomme 1 séminaire adapté pour progresser d'un niveau de compétence.</t>
-    <t id="164">Consomme les séminaires de base à 1 étoile pour atteindre 2 étoiles. (Conserve les séminaires 2, 3 et 4 étoiles)</t>
-    <t id="165">Consomme les séminaires de base pour atteindre 1 étoile. (Conserve les séminaires 1, 2, 3 et 4 étoiles)</t>
+    <t id="164">Consomme les séminaires de base à 1 étoile pour atteindre 2 étoiles.</t>
+    <t id="165">Consomme les séminaires de base pour atteindre 1 étoile.</t>
     <t id="190">Le vaisseau ou la station cible n'a plus de place disponible.</t>
     <t id="35">L'équipage du vaisseau est complet. Pour faire de la place au capitaine destitué, le membre d'équipage le moins qualifié sera automatiquement licencié.</t>
     <t id="36">L'équipage de certains vaisseaux est complet. Pour faire de la place aux capitaines destitués, le membre d'équipage le moins qualifié sur ces vaisseaux sera automatiquement licencié.</t>
@@ -84,5 +84,7 @@
     <t id="207">Il manque les séminaires requis pour cette formation. [Manquant : Basique x%1, 1 étoile x%2, 2 étoiles x%3]</t>
     <t id="208">Il manque les séminaires requis pour cette formation. [Manquant : Basique x%1, 1 étoile x%2, 2 étoiles x%3, 3 étoiles x%4]</t>
     <t id="209">Il manque les séminaires requis pour cette formation. [Manquant : Basique x%1, 1 étoile x%2, 2 étoiles x%3, 3 étoiles x%4, 4 étoile x%5]</t>
-  <t id="136">Entraîner jusqu'à 5 étoiles</t><t id="166">Consomme séquentiellement les séminaires basiques à 4 étoiles pour entraîner la compétence de pilotage à 5 étoiles [max]. [Désactivé si les séminaires manquent]</t></page>
+    <t id="136">Entraîner jusqu'à 5 étoiles</t>
+    <t id="166">Consomme séquentiellement les séminaires basiques à 4 étoiles pour entraîner la compétence de pilotage à 5 étoiles [max]. [Désactivé si les séminaires manquent]</t>
+  </page>
 </language>

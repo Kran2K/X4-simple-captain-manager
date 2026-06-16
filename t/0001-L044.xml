@@ -49,28 +49,28 @@
     <t id="127">Assign under 4-Star only</t>
     <t id="128">Assign under 3-Star only</t>
     <t id="129">Assign under 1-Star only</t>
-    <t id="130">Train to Max Skill (use all seminars sequentially)</t>
-    <t id="131">Train to 4-Star (use up to 3-star seminars)</t>
-    <t id="132">Train to 3-Star (use up to 2-star seminars)</t>
-    <t id="133">Use only 1 seminar (original behavior)</t>
-    <t id="134">Train to 2-Star (use up to 1-star seminars)</t>
-    <t id="135">Train to 1-Star (use basic seminars)</t>
+    <t id="130">Train to Max Skill</t>
+    <t id="131">Train to 4-Star</t>
+    <t id="132">Train to 3-Star</t>
+    <t id="133">Use only 1 seminar</t>
+    <t id="134">Train to 2-Star</t>
+    <t id="135">Train to 1-Star</t>
     <t id="150">Assigns unassigned crew members in the galaxy to the captain slot, regardless of skill.</t>
-    <t id="151">Selects and assigns only unassigned crew members with a piloting skill of 3-star or higher (skill value 9+) to the captain slot.</t>
-    <t id="152">Selects and assigns only unassigned crew members with a piloting skill of 2-star or higher (skill value 6+) to the captain slot.</t>
-    <t id="153">Selects and assigns only unassigned crew members with a piloting skill under 2-star (skill value under 6) to the captain slot.</t>
-    <t id="154">Selects and assigns only unassigned crew members with a piloting skill of 4-star or higher (skill value 12+) to the captain slot.</t>
-    <t id="155">Selects and assigns only unassigned crew members with a piloting skill of 1-star or higher (skill value 3+) to the captain slot.</t>
-    <t id="156">Selects and assigns only unassigned crew members with a piloting skill under 5-star (skill value under 15) to the captain slot.</t>
-    <t id="157">Selects and assigns only unassigned crew members with a piloting skill under 4-star (skill value under 12) to the captain slot.</t>
-    <t id="158">Selects and assigns only unassigned crew members with a piloting skill under 3-star (skill value under 9) to the captain slot.</t>
-    <t id="159">Selects and assigns only unassigned crew members with a piloting skill under 1-star (skill value under 3) to the captain slot.</t>
-    <t id="160">Sequentially consumes all available seminars (0-4 star) in your inventory to train the captain's piloting skill to 5-star (max).</t>
-    <t id="161">Sequentially consumes basic to 3-star seminars to train piloting skill up to 4-star. (Saves 4-star seminars)</t>
-    <t id="162">Sequentially consumes basic to 2-star seminars to train piloting skill up to 3-star. (Saves 3 and 4-star seminars)</t>
+    <t id="151">Selects and assigns only unassigned crew members with a piloting skill of 3-star or higher to the captain slot.</t>
+    <t id="152">Selects and assigns only unassigned crew members with a piloting skill of 2-star or higher to the captain slot.</t>
+    <t id="153">Selects and assigns only unassigned crew members with a piloting skill under 2-star to the captain slot.</t>
+    <t id="154">Selects and assigns only unassigned crew members with a piloting skill of 4-star or higher to the captain slot.</t>
+    <t id="155">Selects and assigns only unassigned crew members with a piloting skill of 1-star or higher to the captain slot.</t>
+    <t id="156">Selects and assigns only unassigned crew members with a piloting skill under 5-star to the captain slot.</t>
+    <t id="157">Selects and assigns only unassigned crew members with a piloting skill under 4-star to the captain slot.</t>
+    <t id="158">Selects and assigns only unassigned crew members with a piloting skill under 3-star to the captain slot.</t>
+    <t id="159">Selects and assigns only unassigned crew members with a piloting skill under 1-star to the captain slot.</t>
+    <t id="160">Sequentially consumes all available seminars in your inventory to train the captain's piloting skill to 5-star.</t>
+    <t id="161">Sequentially consumes basic to 3-star seminars to train piloting skill up to 4-star.</t>
+    <t id="162">Sequentially consumes basic to 2-star seminars to train piloting skill up to 3-star.</t>
     <t id="163">Consumes 1 seminar appropriate for the captain's current skill to promote the piloting skill by 1 tier.</t>
-    <t id="164">Sequentially consumes basic to 1-star seminars to train piloting skill up to 2-star. (Saves 2, 3 and 4-star seminars)</t>
-    <t id="165">Sequentially consumes basic seminars to train piloting skill up to 1-star. (Saves 1, 2, 3 and 4-star seminars)</t>
+    <t id="164">Sequentially consumes basic to 1-star seminars to train piloting skill up to 2-star.</t>
+    <t id="165">Sequentially consumes basic seminars to train piloting skill up to 1-star.</t>
     <t id="190">The target ship or station has no free space.</t>
     <t id="35">The ship's crew quarters are full. To make room for the dismissed captain, the lowest-skilled crew member will be automatically fired.</t>
     <t id="36">Some ships have full crew quarters. To make room for the dismissed captains, the lowest-skilled crew member on those ships will be automatically fired.</t>
@@ -84,5 +84,7 @@
     <t id="207">Lacks required seminars for this training. [Missing: Basic x%1, 1-Star x%2, 2-Star x%3]</t>
     <t id="208">Lacks required seminars for this training. [Missing: Basic x%1, 1-Star x%2, 2-Star x%3, 3-Star x%4]</t>
     <t id="209">Lacks required seminars for this training. [Missing: Basic x%1, 1-Star x%2, 2-Star x%3, 3-Star x%4, 4-Star x%5]</t>
-  <t id="136">Train to 5-Star</t><t id="166">Sequentially consumes basic to 4-star seminars to train piloting skill to 5-star [max]. [Disabled if seminars are lacking]</t></page>
+    <t id="136">Train to 5-Star</t>
+    <t id="166">Sequentially consumes basic to 4-star seminars to train piloting skill to 5-star [max]. [Disabled if seminars are lacking]</t>
+  </page>
 </language>
