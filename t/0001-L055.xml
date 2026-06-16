@@ -68,7 +68,7 @@
     <t id="160">Consome sequencialmente todos os seminários disponíveis (0-4 estrelas) para atingir 5 estrelas (máx).</t>
     <t id="161">Consome seminários do básico até 3 estrelas para atingir 4 estrelas. (Preserva seminários de 4 estrelas)</t>
     <t id="162">Consome seminários do básico até 2 estrelas para atingir 3 estrelas. (Preserva seminários de 3 e 4 estrelas)</t>
-    <t id="163">Consome exatamente 1 seminário adequado para avançar 1 nível de habilidade.</t>
+    <t id="163">Consome 1 seminário adequado para avançar 1 nível de habilidade.</t>
     <t id="164">Consome seminários do básico até 1 estrela para atingir 2 estrelas. (Preserva seminários de 2, 3 e 4 estrelas)</t>
     <t id="165">Consome seminários básicos para atingir 1 estrela. (Preserva seminários de 1, 2, 3 e 4 estrelas)</t>
     <t id="190">A nave ou estação alvo não tem espaço livre.</t>

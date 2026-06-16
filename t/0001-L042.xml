@@ -68,7 +68,7 @@
     <t id="160">Sekvenčně spotřebuje všechny dostupné semináře (0-4 hvězdy) pro dosažení 5-hvězdičkového pilotáže (max).</t>
     <t id="161">Spotřebuje semináře od základní do 3 hvězd pro dosažení 4 hvězd. (Uchová semináře 4 hvězd)</t>
     <t id="162">Spotřebuje semináře od základní do 2 hvězd pro dosažení 3 hvězd. (Uchová semináře 3 a 4 hvězd)</t>
-    <t id="163">Spotřebuje přesně 1 vhodný seminář pro postup o úroveň dovednosti.</t>
+    <t id="163">Spotřebuje 1 vhodný seminář pro postup o úroveň dovednosti.</t>
     <t id="164">Spotřebuje semináře od základní do 1 hvězdy pro dosažení 2 hvězd. (Uchová semináře 2, 3 a 4 hvězd)</t>
     <t id="165">Spotřebuje základní semináře pro dosažení 1 hvězdy. (Uchová semináře 1, 2, 3 a 4 hvězd)</t>
     <t id="190">Cílová loď nebo stanice nemá volné místo.</t>

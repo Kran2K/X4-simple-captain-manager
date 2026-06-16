@@ -68,7 +68,7 @@
     <t id="160">Sequentially consumes all available seminars (0-4 star) in your inventory to train the captain's piloting skill to 5-star (max).</t>
     <t id="161">Sequentially consumes basic to 3-star seminars to train piloting skill up to 4-star. (Saves 4-star seminars)</t>
     <t id="162">Sequentially consumes basic to 2-star seminars to train piloting skill up to 3-star. (Saves 3 and 4-star seminars)</t>
-    <t id="163">Consumes exactly 1 seminar appropriate for the captain's current skill to promote the piloting skill by 1 tier.</t>
+    <t id="163">Consumes 1 seminar appropriate for the captain's current skill to promote the piloting skill by 1 tier.</t>
     <t id="164">Sequentially consumes basic to 1-star seminars to train piloting skill up to 2-star. (Saves 2, 3 and 4-star seminars)</t>
     <t id="165">Sequentially consumes basic seminars to train piloting skill up to 1-star. (Saves 1, 2, 3 and 4-star seminars)</t>
     <t id="190">The target ship or station has no free space.</t>
