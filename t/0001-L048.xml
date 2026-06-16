@@ -74,15 +74,15 @@
     <t id="190">Docelowy statek lub stacja nie ma wolnego miejsca.</t>
     <t id="35">Załoga statku jest pełna. Aby zrobić miejsce dla odwołanego kapitana, najmniej wykwalifikowany członek załogi zostanie automatycznie zwolniony.</t>
     <t id="36">Załoga niektórych statków jest pełna. Aby zrobić miejsce dla odwołanych kapitanów, najmniej wykwalifikowany członek załogi na tych statkach zostanie automatycznie zwolniony.</t>
-    <t id="200">Brak Podstawowego seminarium [Pilotaż] wymaganego do tego szkolenia.</t>
-    <t id="201">Brak seminariów [podstawowych lub 1-gwiazdkowych [Pilotaż]] wymaganych do tego szkolenia.</t>
-    <t id="202">Brak seminariów [podstawowych, 1-gwiazdkowych lub 2-gwiazdkowych [Pilotaż]] wymaganych do tego szkolenia.</t>
-    <t id="203">Brak seminariów [podstawowych, 1-gwiazdkowych, 2-gwiazdkowych lub 3-gwiazdkowych [Pilotaż]] wymaganych do tego szkolenia.</t>
-    <t id="204">W Twoim ekwipunku nie ma żadnych seminariów [Pilotaż].</t>
-    <t id="205">Brak seminariów wymaganych do tego szkolenia. [Brak: Podstawowe [Pilotaż] x%1]</t>
-    <t id="206">Brak seminariów wymaganych do tego szkolenia. [Brak: Podstawowe x%1, 1-gwiazdkowe x%2 [Pilotaż]]</t>
-    <t id="207">Brak seminariów wymaganych do tego szkolenia. [Brak: Podstawowe x%1, 1-gwiazdkowe x%2, 2-gwiazdkowe x%3 [Pilotaż]]</t>
-    <t id="208">Brak seminariów wymaganych do tego szkolenia. [Brak: Podstawowe x%1, 1-gwiazdkowe x%2, 2-gwiazdkowe x%3, 3-gwiazdkowe x%4 [Pilotaż]]</t>
-    <t id="209">Brak seminariów wymaganych do tego szkolenia. [Brak: Podstawowe x%1, 1-gwiazdkowe x%2, 2-gwiazdkowe x%3, 3-gwiazdkowe x%4, 4-gwiazdkowe x%5 [Pilotaż]]</t>
+    <t id="200">Brak Podstawowego seminarium wymaganego do tego szkolenia.</t>
+    <t id="201">Brak seminariów [podstawowych lub 1-gwiazdkowych] wymaganych do tego szkolenia.</t>
+    <t id="202">Brak seminariów [podstawowych, 1-gwiazdkowych lub 2-gwiazdkowych] wymaganych do tego szkolenia.</t>
+    <t id="203">Brak seminariów [podstawowych, 1-gwiazdkowych, 2-gwiazdkowych lub 3-gwiazdkowych] wymaganych do tego szkolenia.</t>
+    <t id="204">W Twoim ekwipunku nie ma żadnych seminariów.</t>
+    <t id="205">Brak seminariów wymaganych do tego szkolenia. [Brak: Podstawowe x%1]</t>
+    <t id="206">Brak seminariów wymaganych do tego szkolenia. [Brak: Podstawowe x%1, 1-gwiazdkowe x%2]</t>
+    <t id="207">Brak seminariów wymaganych do tego szkolenia. [Brak: Podstawowe x%1, 1-gwiazdkowe x%2, 2-gwiazdkowe x%3]</t>
+    <t id="208">Brak seminariów wymaganych do tego szkolenia. [Brak: Podstawowe x%1, 1-gwiazdkowe x%2, 2-gwiazdkowe x%3, 3-gwiazdkowe x%4]</t>
+    <t id="209">Brak seminariów wymaganych do tego szkolenia. [Brak: Podstawowe x%1, 1-gwiazdkowe x%2, 2-gwiazdkowe x%3, 3-gwiazdkowe x%4, 4-gwiazdkowe x%5]</t>
   </page>
 </language>

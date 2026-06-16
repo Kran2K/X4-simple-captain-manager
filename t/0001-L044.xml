@@ -74,15 +74,15 @@
     <t id="190">The target ship or station has no free space.</t>
     <t id="35">The ship's crew quarters are full. To make room for the dismissed captain, the lowest-skilled crew member will be automatically fired.</t>
     <t id="36">Some ships have full crew quarters. To make room for the dismissed captains, the lowest-skilled crew member on those ships will be automatically fired.</t>
-    <t id="200">Lacks the Basic Seminar [Piloting] required for this training.</t>
-    <t id="201">Lacks the Seminars [Basic or 1-Star [Piloting]] required for this training.</t>
-    <t id="202">Lacks the Seminars [Basic, 1-Star, or 2-Star [Piloting]] required for this training.</t>
-    <t id="203">Lacks the Seminars [Basic, 1-Star, 2-Star, or 3-Star [Piloting]] required for this training.</t>
-    <t id="204">There are no Seminars [Piloting] in your inventory.</t>
-    <t id="205">Lacks required seminars for this training. [Missing: Basic Seminar [Piloting] x%1]</t>
-    <t id="206">Lacks required seminars for this training. [Missing: Basic x%1, 1-Star x%2 [Piloting]]</t>
-    <t id="207">Lacks required seminars for this training. [Missing: Basic x%1, 1-Star x%2, 2-Star x%3 [Piloting]]</t>
-    <t id="208">Lacks required seminars for this training. [Missing: Basic x%1, 1-Star x%2, 2-Star x%3, 3-Star x%4 [Piloting]]</t>
-    <t id="209">Lacks required seminars for this training. [Missing: Basic x%1, 1-Star x%2, 2-Star x%3, 3-Star x%4, 4-Star x%5 [Piloting]]</t>
+    <t id="200">Lacks the Basic Seminar required for this training.</t>
+    <t id="201">Lacks the Seminars [Basic or 1-Star] required for this training.</t>
+    <t id="202">Lacks the Seminars [Basic, 1-Star, or 2-Star] required for this training.</t>
+    <t id="203">Lacks the Seminars [Basic, 1-Star, 2-Star, or 3-Star] required for this training.</t>
+    <t id="204">There are no Seminars in your inventory.</t>
+    <t id="205">Lacks required seminars for this training. [Missing: Basic Seminar x%1]</t>
+    <t id="206">Lacks required seminars for this training. [Missing: Basic x%1, 1-Star x%2]</t>
+    <t id="207">Lacks required seminars for this training. [Missing: Basic x%1, 1-Star x%2, 2-Star x%3]</t>
+    <t id="208">Lacks required seminars for this training. [Missing: Basic x%1, 1-Star x%2, 2-Star x%3, 3-Star x%4]</t>
+    <t id="209">Lacks required seminars for this training. [Missing: Basic x%1, 1-Star x%2, 2-Star x%3, 3-Star x%4, 4-Star x%5]</t>
   </page>
 </language>

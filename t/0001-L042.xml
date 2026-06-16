@@ -74,15 +74,15 @@
     <t id="190">Cílová loď nebo stanice nemá volné místo.</t>
     <t id="35">Posádka lodi je plná. Aby se uvolnilo místo pro propuštěného kapitána, bude nejméně kvalifikovaný člen posádky automaticky propuštěn.</t>
     <t id="36">Posádka některých lodí je plná. Aby se uvolnilo místo pro propuštěné kapitány, bude nejméně kvalifikovaný člen posádky na těchto lodích automaticky propuštěn.</t>
-    <t id="200">Chybí Základní seminář [Pilotáž] vyžadovaný pro tento výcvik.</t>
-    <t id="201">Chybí semináře [základní nebo 1hvězdičkový [Pilotáž]] vyžadované pro tento výcvik.</t>
-    <t id="202">Chybí semináře [základní, 1hvězdičkový nebo 2hvězdičkový [Pilotáž]] vyžadované pro tento výcvik.</t>
-    <t id="203">Chybí semináře [základní, 1hvězdičkový, 2hvězdičkový nebo 3hvězdičkový [Pilotáž]] vyžadované pro tento výcvik.</t>
-    <t id="204">Ve vašem inventáři nejsou žádné semináře [Pilotáž].</t>
-    <t id="205">Chybí semináře vyžadované pro tento výcvik. [Chybí: Základní [Pilotáž] x%1]</t>
-    <t id="206">Chybí semináře vyžadované pro tento výcvik. [Chybí: Základní x%1, 1hvězdičkový x%2 [Pilotáž]]</t>
-    <t id="207">Chybí semináře vyžadované pro tento výcvik. [Chybí: Základní x%1, 1hvězdičkový x%2, 2hvězdičkový x%3 [Pilotáž]]</t>
-    <t id="208">Chybí semináře vyžadované pro tento výcvik. [Chybí: Základní x%1, 1hvězdičkový x%2, 2hvězdičkový x%3, 3hvězdičkový x%4 [Pilotáž]]</t>
-    <t id="209">Chybí semináře vyžadované pro tento výcvik. [Chybí: Základní x%1, 1hvězdičkový x%2, 2hvězdičkový x%3, 3hvězdičkový x%4, 4hvězdičkový x%5 [Pilotáž]]</t>
+    <t id="200">Chybí Základní seminář vyžadovaný pro tento výcvik.</t>
+    <t id="201">Chybí semináře [základní nebo 1hvězdičkový] vyžadované pro tento výcvik.</t>
+    <t id="202">Chybí semináře [základní, 1hvězdičkový nebo 2hvězdičkový] vyžadované pro tento výcvik.</t>
+    <t id="203">Chybí semináře [základní, 1hvězdičkový, 2hvězdičkový nebo 3hvězdičkový] vyžadované pro tento výcvik.</t>
+    <t id="204">Ve vašem inventáři nejsou žádné semináře.</t>
+    <t id="205">Chybí semináře vyžadované pro tento výcvik. [Chybí: Základní x%1]</t>
+    <t id="206">Chybí semináře vyžadované pro tento výcvik. [Chybí: Základní x%1, 1hvězdičkový x%2]</t>
+    <t id="207">Chybí semináře vyžadované pro tento výcvik. [Chybí: Základní x%1, 1hvězdičkový x%2, 2hvězdičkový x%3]</t>
+    <t id="208">Chybí semináře vyžadované pro tento výcvik. [Chybí: Základní x%1, 1hvězdičkový x%2, 2hvězdičkový x%3, 3hvězdičkový x%4]</t>
+    <t id="209">Chybí semináře vyžadované pro tento výcvik. [Chybí: Základní x%1, 1hvězdičkový x%2, 2hvězdičkový x%3, 3hvězdičkový x%4, 4hvězdičkový x%5]</t>
   </page>
 </language>

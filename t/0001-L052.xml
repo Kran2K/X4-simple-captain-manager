@@ -74,15 +74,15 @@
     <t id="190">La nave o estación objetivo no tiene espacio libre.</t>
     <t id="35">La tripulación de la nave está completa. Para hacer espacio para el capitán destituido, el tripulante con menor cualificación será despedido automáticamente.</t>
     <t id="36">La tripulación de algunas naves está completa. Para hacer espacio para los capitanes destituidos, el tripulante con menor cualificación en esas naves será despedido automáticamente.</t>
-    <t id="200">Falta el Seminario básico [Pilotaje] requerido para este entrenamiento.</t>
-    <t id="201">Faltan los seminarios [básico o 1 estrella [Pilotaje]] requeridos para este entrenamiento.</t>
-    <t id="202">Faltan los seminarios [básico, 1 o 2 estrellas [Pilotaje]] requeridos para este entrenamiento.</t>
-    <t id="203">Faltan los seminarios [básico, 1, 2 o 3 estrellas [Pilotaje]] requeridos para este entrenamiento.</t>
-    <t id="204">No hay seminarios [Pilotaje] en tu inventario.</t>
-    <t id="205">Faltan los seminarios requeridos para este entrenamiento. [Falta: Seminario básico [Pilotaje] x%1]</t>
-    <t id="206">Faltan los seminarios requeridos para este entrenamiento. [Falta: Básico x%1, 1 estrella x%2 [Pilotaje]]</t>
-    <t id="207">Faltan los seminarios requeridos para este entrenamiento. [Falta: Básico x%1, 1 estrella x%2, 2 estrellas x%3 [Pilotaje]]</t>
-    <t id="208">Faltan los seminarios requeridos para este entrenamiento. [Falta: Básico x%1, 1 estrella x%2, 2 estrellas x%3, 3 estrellas x%4 [Pilotaje]]</t>
-    <t id="209">Faltan los seminarios requeridos para este entrenamiento. [Falta: Básico x%1, 1 estrella x%2, 2 estrellas x%3, 3 estrellas x%4, 4 estrellas x%5 [Pilotaje]]</t>
+    <t id="200">Falta el Seminario básico requerido para este entrenamiento.</t>
+    <t id="201">Faltan los seminarios [básico o 1 estrella] requeridos para este entrenamiento.</t>
+    <t id="202">Faltan los seminarios [básico, 1 o 2 estrellas] requeridos para este entrenamiento.</t>
+    <t id="203">Faltan los seminarios [básico, 1, 2 o 3 estrellas] requeridos para este entrenamiento.</t>
+    <t id="204">No hay seminarios en tu inventario.</t>
+    <t id="205">Faltan los seminarios requeridos para este entrenamiento. [Falta: Seminario básico x%1]</t>
+    <t id="206">Faltan los seminarios requeridos para este entrenamiento. [Falta: Básico x%1, 1 estrella x%2]</t>
+    <t id="207">Faltan los seminarios requeridos para este entrenamiento. [Falta: Básico x%1, 1 estrella x%2, 2 estrellas x%3]</t>
+    <t id="208">Faltan los seminarios requeridos para este entrenamiento. [Falta: Básico x%1, 1 estrella x%2, 2 estrellas x%3, 3 estrellas x%4]</t>
+    <t id="209">Faltan los seminarios requeridos para este entrenamiento. [Falta: Básico x%1, 1 estrella x%2, 2 estrellas x%3, 3 estrellas x%4, 4 estrellas x%5]</t>
   </page>
 </language>

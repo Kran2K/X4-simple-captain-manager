@@ -74,15 +74,15 @@
     <t id="190">Das Zielschiff oder die Zielstation hat keinen freien Platz.</t>
     <t id="35">Die Schiffsbesatzung ist voll. Um Platz für den entlassenen Kapitän zu schaffen, wird das Besatzungsmitglied mit den geringsten Fähigkeiten automatisch gefeuert.</t>
     <t id="36">Einige Schiffe sind voll besetzt. Um Platz für die entlassenen Kapitäne zu schaffen, wird das Besatzungsmitglied mit den geringsten Fähigkeiten auf diesen Schiffen automatisch gefeuert.</t>
-    <t id="200">Es fehlt das für diese Ausbildung erforderliche Grundseminar [Piloten].</t>
-    <t id="201">Die für diese Ausbildung erforderlichen Seminare [Grund- oder 1-Sterne-Seminar [Piloten]] fehlen.</t>
-    <t id="202">Die für diese Ausbildung erforderlichen Seminare [Grund-, 1-Sterne- oder 2-Sterne-Seminar [Piloten]] fehlen.</t>
-    <t id="203">Die für diese Ausbildung erforderlichen Seminare [Grund-, 1-Sterne-, 2-Sterne- oder 3-Sterne-Seminar [Piloten]] fehlen.</t>
-    <t id="204">Es befinden sich keine Seminare [Piloten] in deinem Inventar.</t>
-    <t id="205">Es fehlen die erforderlichen Seminare. [Fehlt: Grundseminar [Piloten] x%1]</t>
-    <t id="206">Es fehlen die erforderlichen Seminare. [Fehlt: Grund- x%1, 1-Sterne-Seminar x%2 [Piloten]]</t>
-    <t id="207">Es fehlen die erforderlichen Seminare. [Fehlt: Grund- x%1, 1-Sterne- x%2, 2-Sterne-Seminar x%3 [Piloten]]</t>
-    <t id="208">Es fehlen die erforderlichen Seminare. [Fehlt: Grund- x%1, 1-Sterne- x%2, 2-Sterne- x%3, 3-Sterne-Seminar x%4 [Piloten]]</t>
-    <t id="209">Es fehlen die erforderlichen Seminare. [Fehlt: Grund- x%1, 1-Sterne- x%2, 2-Sterne- x%3, 3-Sterne- x%4, 4-Sterne-Seminar x%5 [Piloten]]</t>
+    <t id="200">Es fehlt das für diese Ausbildung erforderliche Grundseminar.</t>
+    <t id="201">Die für diese Ausbildung erforderlichen Seminare [Grund- oder 1-Sterne-Seminar] fehlen.</t>
+    <t id="202">Die für diese Ausbildung erforderlichen Seminare [Grund-, 1-Sterne- oder 2-Sterne-Seminar] fehlen.</t>
+    <t id="203">Die für diese Ausbildung erforderlichen Seminare [Grund-, 1-Sterne-, 2-Sterne- oder 3-Sterne-Seminar] fehlen.</t>
+    <t id="204">Es befinden sich keine Seminare in deinem Inventar.</t>
+    <t id="205">Es fehlen die erforderlichen Seminare. [Fehlt: Grundseminar x%1]</t>
+    <t id="206">Es fehlen die erforderlichen Seminare. [Fehlt: Grund- x%1, 1-Sterne-Seminar x%2]</t>
+    <t id="207">Es fehlen die erforderlichen Seminare. [Fehlt: Grund- x%1, 1-Sterne- x%2, 2-Sterne-Seminar x%3]</t>
+    <t id="208">Es fehlen die erforderlichen Seminare. [Fehlt: Grund- x%1, 1-Sterne- x%2, 2-Sterne- x%3, 3-Sterne-Seminar x%4]</t>
+    <t id="209">Es fehlen die erforderlichen Seminare. [Fehlt: Grund- x%1, 1-Sterne- x%2, 2-Sterne- x%3, 3-Sterne- x%4, 4-Sterne-Seminar x%5]</t>
   </page>
 </language>
