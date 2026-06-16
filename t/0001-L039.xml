@@ -74,15 +74,15 @@
     <t id="190">La nave o la stazione bersaglio non ha spazio libero.</t>
     <t id="35">L'equipaggio della nave è al completo. Per fare spazio al capitano congedato, il membro dell'equipaggio meno qualificato verrà licenziato automaticamente.</t>
     <t id="36">L'equipaggio di alcune navi è al completo. Per fare spazio ai capitani congedati, il membro dell'equipaggio meno qualificato su quelle navi verrà licenziato automaticamente.</t>
-    <t id="200">Manca il seminario di base (pilotaggio) richiesto per questo addestramento.</t>
-    <t id="201">Mancano i seminari di pilotaggio (di base o 1 stella) richiesti per questo addestramento.</t>
-    <t id="202">Mancano i seminari di pilotaggio (di base, 1 o 2 stelle) richiesti per questo addestramento.</t>
-    <t id="203">Mancano i seminari di pilotaggio (di base, 1, 2 o 3 stelle) richiesti per questo addestramento.</t>
-    <t id="204">Non ci sono seminari di pilotaggio nel tuo inventario.</t>
-    <t id="205">Mancano i seminari richiesti per questo addestramento. (Manca: Di base x%1)</t>
-    <t id="206">Mancano i seminari richiesti per questo addestramento. (Manca: Di base x%1, 1 stella x%2)</t>
-    <t id="207">Mancano i seminari richiesti per questo addestramento. (Manca: Di base x%1, 1 stella x%2, 2 stelle x%3)</t>
-    <t id="208">Mancano i seminari richiesti per questo addestramento. (Manca: Di base x%1, 1 stella x%2, 2 stelle x%3, 3 stelle x%4)</t>
-    <t id="209">Mancano i seminari richiesti per questo addestramento. (Manca: Di base x%1, 1 stella x%2, 2 stelle x%3, 3 stelle x%4, 4 stella x%5)</t>
+    <t id="200">Manca il Seminario base (Pilotaggio) richiesto per questo addestramento.</t>
+    <t id="201">Mancano i seminari (base o 1 stella (Pilotaggio)) richiesti per questo addestramento.</t>
+    <t id="202">Mancano i seminari (base, 1 o 2 stelle (Pilotaggio)) richiesti per questo addestramento.</t>
+    <t id="203">Mancano i seminari (base, 1, 2 o 3 stelle (Pilotaggio)) richiesti per questo addestramento.</t>
+    <t id="204">Non ci sono seminari (Pilotaggio) nel tuo inventario.</t>
+    <t id="205">Mancano i seminari richiesti per questo addestramento. (Mancante: Seminario base (Pilotaggio) x%1)</t>
+    <t id="206">Mancano i seminari richiesti per questo addestramento. (Mancante: Base x%1, 1 stella x%2 (Pilotaggio))</t>
+    <t id="207">Mancano i seminari richiesti per questo addestramento. (Mancante: Base x%1, 1 stella x%2, 2 stelle x%3 (Pilotaggio))</t>
+    <t id="208">Mancano i seminari richiesti per questo addestramento. (Mancante: Base x%1, 1 stella x%2, 2 stelle x%3, 3 stelle x%4 (Pilotaggio))</t>
+    <t id="209">Mancano i seminari richiesti per questo addestramento. (Mancante: Base x%1, 1 stella x%2, 2 stelle x%3, 3 stelle x%4, 4 stelle x%5 (Pilotaggio))</t>
   </page>
 </language>
