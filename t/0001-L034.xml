@@ -83,5 +83,6 @@
     <t id="207">Faltan los seminarios requeridos para este entrenamiento. [Falta: Básico x%1, 1 estrella x%2, 2 estrellas x%3]</t>
     <t id="208">Faltan los seminarios requeridos para este entrenamiento. [Falta: Básico x%1, 1 estrella x%2, 2 estrellas x%3, 3 estrellas x%4]</t>
     <t id="209">Faltan los seminarios requeridos para este entrenamiento. [Falta: Básico x%1, 1 estrella x%2, 2 estrellas x%3, 3 estrellas x%4, 4 estrellas x%5]</t>
+    <t id="210">[Advertencia] No hay suficiente personal sin asignar; los capitanes solo se asignarán a algunos barcos. [Faltan: %1]</t>
   </page>
 </language>

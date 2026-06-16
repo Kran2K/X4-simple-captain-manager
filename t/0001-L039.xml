@@ -83,5 +83,6 @@
     <t id="207">Mancano i seminari richiesti per questo addestramento. [Mancante: Base x%1, 1 stella x%2, 2 stelle x%3]</t>
     <t id="208">Mancano i seminari richiesti per questo addestramento. [Mancante: Base x%1, 1 stella x%2, 2 stelle x%3, 3 stelle x%4]</t>
     <t id="209">Mancano i seminari richiesti per questo addestramento. [Mancante: Base x%1, 1 stella x%2, 2 stelle x%3, 3 stelle x%4, 4 stelle x%5]</t>
+    <t id="210">[Avviso] Personale non assegnato insufficiente; i capitani verranno assegnati solo ad alcune navi. [Mancanti: %1]</t>
   </page>
 </language>

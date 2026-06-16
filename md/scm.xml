@@ -75,6 +75,119 @@
             <set_value name="$AssignMouseover_under_2star" exact="if not $AssignActive then readtext.{98765}.{32} else readtext.{98765}.{153}" />
             <set_value name="$AssignMouseover_under_1star" exact="if not $AssignActive then readtext.{98765}.{32} else readtext.{98765}.{159}" />
 
+            <!-- Check for shortage of unassigned crew when multiple ships are selected -->
+            <do_if value="$AssignActive and $ShipsCount gt 1">
+              <set_value name="$ReqAssignCount" exact="0" />
+              <do_all exact="$Ships.count" counter="$i">
+                <do_if value="not @$Ships.{$i}.pilot">
+                  <set_value name="$ReqAssignCount" exact="$ReqAssignCount + 1" />
+                </do_if>
+              </do_all>
+
+              <do_if value="$ReqAssignCount gt 0">
+                <set_value name="$Avail_all" exact="0" />
+                <set_value name="$Avail_5star" exact="0" />
+                <set_value name="$Avail_4star" exact="0" />
+                <set_value name="$Avail_3star" exact="0" />
+                <set_value name="$Avail_2star" exact="0" />
+                <set_value name="$Avail_1star" exact="0" />
+                <set_value name="$Avail_under5" exact="0" />
+                <set_value name="$Avail_under4" exact="0" />
+                <set_value name="$Avail_under3" exact="0" />
+                <set_value name="$Avail_under2" exact="0" />
+                <set_value name="$Avail_under1" exact="0" />
+
+                <find_ship name="$PlayerShipsForCount" owner="faction.player" multiple="true" space="player.galaxy" recursive="true" />
+                <do_all exact="$PlayerShipsForCount.count" counter="$j">
+                  <set_value name="$PShip" exact="$PlayerShipsForCount.{$j}" />
+                  <set_value name="$ShipPeople" exact="$PShip.people.list" />
+                  <do_all exact="$ShipPeople.count" counter="$k">
+                    <set_value name="$Template" exact="$ShipPeople.{$k}" />
+                    <do_if value="$PShip.people.{$Template}.role == entityrole.unassigned">
+                      <set_value name="$Skill" exact="$PShip.people.{$Template}.skill.{skilltype.piloting}" />
+                      <set_value name="$Avail_all" exact="$Avail_all + 1" />
+                      <do_if value="$Skill ge 15">
+                        <set_value name="$Avail_5star" exact="$Avail_5star + 1" />
+                      </do_if>
+                      <do_if value="$Skill ge 12">
+                        <set_value name="$Avail_4star" exact="$Avail_4star + 1" />
+                      </do_if>
+                      <do_if value="$Skill ge 9">
+                        <set_value name="$Avail_3star" exact="$Avail_3star + 1" />
+                      </do_if>
+                      <do_if value="$Skill ge 6">
+                        <set_value name="$Avail_2star" exact="$Avail_2star + 1" />
+                      </do_if>
+                      <do_if value="$Skill ge 3">
+                        <set_value name="$Avail_1star" exact="$Avail_1star + 1" />
+                      </do_if>
+                      <do_if value="$Skill lt 15">
+                        <set_value name="$Avail_under5" exact="$Avail_under5 + 1" />
+                      </do_if>
+                      <do_if value="$Skill lt 12">
+                        <set_value name="$Avail_under4" exact="$Avail_under4 + 1" />
+                      </do_if>
+                      <do_if value="$Skill lt 9">
+                        <set_value name="$Avail_under3" exact="$Avail_under3 + 1" />
+                      </do_if>
+                      <do_if value="$Skill lt 6">
+                        <set_value name="$Avail_under2" exact="$Avail_under2 + 1" />
+                      </do_if>
+                      <do_if value="$Skill lt 3">
+                        <set_value name="$Avail_under1" exact="$Avail_under1 + 1" />
+                      </do_if>
+                    </do_if>
+                  </do_all>
+                </do_all>
+
+                <set_value name="$ShortCrew_all" exact="if ($ReqAssignCount - $Avail_all) gt 0 then ($ReqAssignCount - $Avail_all) else 0" />
+                <set_value name="$ShortCrew_5star" exact="if ($ReqAssignCount - $Avail_5star) gt 0 then ($ReqAssignCount - $Avail_5star) else 0" />
+                <set_value name="$ShortCrew_4star" exact="if ($ReqAssignCount - $Avail_4star) gt 0 then ($ReqAssignCount - $Avail_4star) else 0" />
+                <set_value name="$ShortCrew_3star" exact="if ($ReqAssignCount - $Avail_3star) gt 0 then ($ReqAssignCount - $Avail_3star) else 0" />
+                <set_value name="$ShortCrew_2star" exact="if ($ReqAssignCount - $Avail_2star) gt 0 then ($ReqAssignCount - $Avail_2star) else 0" />
+                <set_value name="$ShortCrew_1star" exact="if ($ReqAssignCount - $Avail_1star) gt 0 then ($ReqAssignCount - $Avail_1star) else 0" />
+                <set_value name="$ShortCrew_under5" exact="if ($ReqAssignCount - $Avail_under5) gt 0 then ($ReqAssignCount - $Avail_under5) else 0" />
+                <set_value name="$ShortCrew_under4" exact="if ($ReqAssignCount - $Avail_under4) gt 0 then ($ReqAssignCount - $Avail_under4) else 0" />
+                <set_value name="$ShortCrew_under3" exact="if ($ReqAssignCount - $Avail_under3) gt 0 then ($ReqAssignCount - $Avail_under3) else 0" />
+                <set_value name="$ShortCrew_under2" exact="if ($ReqAssignCount - $Avail_under2) gt 0 then ($ReqAssignCount - $Avail_under2) else 0" />
+                <set_value name="$ShortCrew_under1" exact="if ($ReqAssignCount - $Avail_under1) gt 0 then ($ReqAssignCount - $Avail_under1) else 0" />
+
+                <do_if value="$ShortCrew_all gt 0">
+                  <set_value name="$AssignMouseover_all" exact="$AssignMouseover_all + '\n' + readtext.{98765}.{210}.[$ShortCrew_all]" />
+                </do_if>
+                <do_if value="$ShortCrew_5star gt 0">
+                  <set_value name="$AssignMouseover_5star" exact="$AssignMouseover_5star + '\n' + readtext.{98765}.{210}.[$ShortCrew_5star]" />
+                </do_if>
+                <do_if value="$ShortCrew_4star gt 0">
+                  <set_value name="$AssignMouseover_4star" exact="$AssignMouseover_4star + '\n' + readtext.{98765}.{210}.[$ShortCrew_4star]" />
+                </do_if>
+                <do_if value="$ShortCrew_3star gt 0">
+                  <set_value name="$AssignMouseover_3star" exact="$AssignMouseover_3star + '\n' + readtext.{98765}.{210}.[$ShortCrew_3star]" />
+                </do_if>
+                <do_if value="$ShortCrew_2star gt 0">
+                  <set_value name="$AssignMouseover_2star" exact="$AssignMouseover_2star + '\n' + readtext.{98765}.{210}.[$ShortCrew_2star]" />
+                </do_if>
+                <do_if value="$ShortCrew_1star gt 0">
+                  <set_value name="$AssignMouseover_1star" exact="$AssignMouseover_1star + '\n' + readtext.{98765}.{210}.[$ShortCrew_1star]" />
+                </do_if>
+                <do_if value="$ShortCrew_under5 gt 0">
+                  <set_value name="$AssignMouseover_under_5star" exact="$AssignMouseover_under_5star + '\n' + readtext.{98765}.{210}.[$ShortCrew_under5]" />
+                </do_if>
+                <do_if value="$ShortCrew_under4 gt 0">
+                  <set_value name="$AssignMouseover_under_4star" exact="$AssignMouseover_under_4star + '\n' + readtext.{98765}.{210}.[$ShortCrew_under4]" />
+                </do_if>
+                <do_if value="$ShortCrew_under3 gt 0">
+                  <set_value name="$AssignMouseover_under_3star" exact="$AssignMouseover_under_3star + '\n' + readtext.{98765}.{210}.[$ShortCrew_under3]" />
+                </do_if>
+                <do_if value="$ShortCrew_under2 gt 0">
+                  <set_value name="$AssignMouseover_under_2star" exact="$AssignMouseover_under_2star + '\n' + readtext.{98765}.{210}.[$ShortCrew_under2]" />
+                </do_if>
+                <do_if value="$ShortCrew_under1 gt 0">
+                  <set_value name="$AssignMouseover_under_1star" exact="$AssignMouseover_under_1star + '\n' + readtext.{98765}.{210}.[$ShortCrew_under1]" />
+                </do_if>
+              </do_if>
+            </do_if>
+
             <!-- 1.1 Assign All -->
             <signal_cue_instantly
               cue="md.Interact_Menu_API.Add_Action"
