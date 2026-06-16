@@ -402,6 +402,7 @@
 
         <debug_text text="'[SCM] Unassign start: ' + $Ships.count + ' ships'" filter="general" />
 
+        <do_if value="$Ships.count gt 0">
         <set_value name="$SuccessCount" exact="0" />
         <do_all exact="$Ships.count" counter="$i">
           <set_value name="$Ship" exact="$Ships.{$i}" />
@@ -493,6 +494,7 @@
         <do_if value="$SuccessCount gt 0">
           <show_notification text="readtext.{98765}.{11}.[$SuccessCount]" timeout="6s" />
         </do_if>
+      </do_if>
       </actions>
     </cue>
 
@@ -520,6 +522,7 @@
 
         <debug_text text="'[SCM] Fire start: ' + $Ships.count + ' ships'" filter="general" />
 
+        <do_if value="$Ships.count gt 0">
         <set_value name="$SuccessCount" exact="0" />
         <do_all exact="$Ships.count" counter="$i">
           <set_value name="$Ship" exact="$Ships.{$i}" />
@@ -541,6 +544,7 @@
         <do_if value="$SuccessCount gt 0">
           <show_notification text="readtext.{98765}.{13}.[$SuccessCount]" timeout="6s" sound="notification_warning" />
         </do_if>
+      </do_if>
       </actions>
     </cue>
 
@@ -567,6 +571,7 @@
           </do_if>
         </do_all>
 
+        <do_if value="$Ships.count gt 0">
         <!-- Identify minimum/maximum skill limits based on action ID -->
         <set_value name="$ActionId" exact="event.param.$id" />
         <set_value name="$MinSkill" exact="-1" />
@@ -574,6 +579,7 @@
         
         <do_if value="$ActionId == 'scm_assign_5star'">
           <set_value name="$MinSkill" exact="15" />
+          <set_value name="$MaxSkill" exact="16" /><!-- Explicit upper bound: vanilla 5-star max is 15 -->
         </do_if>
         <do_elseif value="$ActionId == 'scm_assign_4star'">
           <set_value name="$MinSkill" exact="12" />
@@ -796,6 +802,7 @@
             </do_else>
           </do_if>
         </do_if>
+        </do_if>
       </actions>
     </cue>
 
@@ -968,6 +975,7 @@
 
         <set_value name="$ActionId" exact="event.param.$id" />
 
+        <do_if value="$Ships.count gt 0">
         <do_all exact="$Ships.count" counter="$i">
           <set_value name="$Ship" exact="$Ships.{$i}" />
           <do_if value="@$Ship.pilot">
@@ -1076,6 +1084,7 @@
           <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{25}.[$SuccessCount, $Used_0, $Used_1, $Used_2, $Used_3, $Used_4]" post="true" />
           <show_notification text="readtext.{98765}.{25}.[$SuccessCount, $Used_0, $Used_1, $Used_2, $Used_3, $Used_4]" timeout="6s" />
         </do_if>
+      </do_if>
       </actions>
     </cue>
 
@@ -1101,6 +1110,7 @@
         </do_all>
 
         <debug_text text="'[SCM] Drop Cargo start: ' + $Ships.count + ' ships'" filter="general" />
+        <do_if value="$Ships.count gt 0">
         <do_all exact="$Ships.count" counter="$i">
           <set_value name="$Ship" exact="$Ships.{$i}" />
           <do_if value="$Ship.cargo.count gt 0">
@@ -1122,6 +1132,7 @@
             <show_notification text="readtext.{98765}.{34}.[$Ship.knownname, $WaresCount]" timeout="6s" />
           </do_if>
         </do_all>
+      </do_if>
       </actions>
     </cue>
 

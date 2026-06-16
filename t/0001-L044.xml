@@ -8,9 +8,9 @@
     <t id="5">Allows batch personnel management for captains of selected ships in the right-click interaction menu.</t>
     <t id="6">Transfer Unassigned Crew</t>
     <t id="7">Use Seminars</t>
-    <t id="11">Dismissed %1 captain.</t>
-    <t id="12">Assigned captain to %1 ship.</t>
-    <t id="13">Fired %1 captain.</t>
+    <t id="11">Dismissed %1 captain(s).</t>
+    <t id="12">Assigned captains to %1 ship(s).</t>
+    <t id="13">Fired %1 captain(s).</t>
     <t id="20">Automatically assigns unassigned crew to captains based on priority.</t>
     <t id="21">Dismissed %2-star captain [%3] of ship %1.</t>
     <t id="22">Fired %2-star captain [%3] of ship %1.</t>
