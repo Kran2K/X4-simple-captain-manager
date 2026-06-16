@@ -74,5 +74,10 @@
     <t id="190">Das Zielschiff oder die Zielstation hat keinen freien Platz.</t>
     <t id="35">Die Schiffsbesatzung ist voll. Um Platz für den entlassenen Kapitän zu schaffen, wird das Besatzungsmitglied mit den geringsten Fähigkeiten automatisch gefeuert.</t>
     <t id="36">Einige Schiffe sind voll besetzt. Um Platz für die entlassenen Kapitäne zu schaffen, wird das Besatzungsmitglied mit den geringsten Fähigkeiten auf diesen Schiffen automatisch gefeuert.</t>
+    <t id="200">Es fehlt das für diese Ausbildung erforderliche Grundseminar (Pilot).</t>
+    <t id="201">Die für diese Ausbildung erforderlichen Seminare (Grund oder 1 Stern) fehlen.</t>
+    <t id="202">Die für diese Ausbildung erforderlichen Seminare (Grund, 1 Stern oder 2 Sterne) fehlen.</t>
+    <t id="203">Die für diese Ausbildung erforderlichen Seminare (Grund, 1 Stern, 2 Sterne oder 3 Sterne) fehlen.</t>
+    <t id="204">Es befinden sich keine Piloten-Seminare in deinem Inventar.</t>
   </page>
 </language>

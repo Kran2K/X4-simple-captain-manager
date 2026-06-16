@@ -74,5 +74,10 @@
     <t id="190">Cílová loď nebo stanice nemá volné místo.</t>
     <t id="35">Posádka lodi je plná. Aby se uvolnilo místo pro propuštěného kapitána, bude nejméně kvalifikovaný člen posádky automaticky propuštěn.</t>
     <t id="36">Posádka některých lodí je plná. Aby se uvolnilo místo pro propuštěné kapitány, bude nejméně kvalifikovaný člen posádky na těchto lodích automaticky propuštěn.</t>
+    <t id="200">Chybí základní seminář (pilotáž) požadovaný pro tento trénink.</t>
+    <t id="201">Chybí semináře pilotáže (základní nebo 1 hvězda) požadované pro tento trénink.</t>
+    <t id="202">Chybí semináře pilotáže (základní, 1 nebo 2 hvězdy) požadované pro tento trénink.</t>
+    <t id="203">Chybí semináře pilotáže (základní, 1, 2 nebo 3 hvězdy) požadované pro tento trénink.</t>
+    <t id="204">Ve vašem inventáři nejsou žádné semináře pilotáže.</t>
   </page>
 </language>

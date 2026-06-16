@@ -74,5 +74,10 @@
     <t id="190">The target ship or station has no free space.</t>
     <t id="35">The ship's crew quarters are full. To make room for the dismissed captain, the lowest-skilled crew member will be automatically fired.</t>
     <t id="36">Some ships have full crew quarters. To make room for the dismissed captains, the lowest-skilled crew member on those ships will be automatically fired.</t>
+    <t id="200">Lacks the Basic Seminar (Piloting) required for this training.</t>
+    <t id="201">Lacks the Piloting Seminars (Basic or 1-Star) required for this training.</t>
+    <t id="202">Lacks the Piloting Seminars (Basic, 1-Star, or 2-Star) required for this training.</t>
+    <t id="203">Lacks the Piloting Seminars (Basic, 1-Star, 2-Star, or 3-Star) required for this training.</t>
+    <t id="204">There are no piloting seminars in your inventory.</t>
   </page>
 </language>

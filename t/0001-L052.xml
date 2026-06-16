@@ -74,5 +74,10 @@
     <t id="190">La nave o estación objetivo no tiene espacio libre.</t>
     <t id="35">La tripulación de la nave está completa. Para hacer espacio para el capitán destituido, el tripulante con menor cualificación será despedido automáticamente.</t>
     <t id="36">La tripulación de algunas naves está completa. Para hacer espacio para los capitanes destituidos, el tripulante con menor cualificación en esas naves será despedido automáticamente.</t>
+    <t id="200">Falta el seminario básico (pilotaje) requerido para este entrenamiento.</t>
+    <t id="201">Faltan los seminarios de pilotaje (básico o 1 estrella) requeridos para este entrenamiento.</t>
+    <t id="202">Faltan los seminarios de pilotaje (básico, 1 o 2 estrellas) requeridos para este entrenamiento.</t>
+    <t id="203">Faltan los seminarios de pilotaje (básico, 1, 2 o 3 estrellas) requeridos para este entrenamiento.</t>
+    <t id="204">No hay seminarios de pilotaje en tu inventario.</t>
   </page>
 </language>

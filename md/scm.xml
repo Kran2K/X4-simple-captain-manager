@@ -217,13 +217,30 @@
               </do_if>
             </do_all>
 
-            <!-- Set up Seminar Tooltips based on Active status -->
-            <set_value name="$SeminarMouseover_max" exact="if not $SeminarActive then readtext.{98765}.{52} else readtext.{98765}.{160}" />
-            <set_value name="$SeminarMouseover_4star" exact="if not $SeminarActive then readtext.{98765}.{52} else readtext.{98765}.{161}" />
-            <set_value name="$SeminarMouseover_3star" exact="if not $SeminarActive then readtext.{98765}.{52} else readtext.{98765}.{162}" />
-            <set_value name="$SeminarMouseover_2star" exact="if not $SeminarActive then readtext.{98765}.{52} else readtext.{98765}.{164}" />
-            <set_value name="$SeminarMouseover_1star" exact="if not $SeminarActive then readtext.{98765}.{52} else readtext.{98765}.{165}" />
-            <set_value name="$SeminarMouseover_single" exact="if not $SeminarActive then readtext.{98765}.{52} else readtext.{98765}.{163}" />
+            <set_value name="$HasSem_0" exact="player.entity.inventory.{ware.inv_seminar_piloting_0}.count" />
+            <set_value name="$HasSem_1" exact="player.entity.inventory.{ware.inv_seminar_piloting_1}.count" />
+            <set_value name="$HasSem_2" exact="player.entity.inventory.{ware.inv_seminar_piloting_2}.count" />
+            <set_value name="$HasSem_3" exact="player.entity.inventory.{ware.inv_seminar_piloting_3}.count" />
+            <set_value name="$HasSem_4" exact="player.entity.inventory.{ware.inv_seminar_piloting_4}.count" />
+            <set_value name="$AnySeminar" exact="$HasSem_0 + $HasSem_1 + $HasSem_2 + $HasSem_3 + $HasSem_4 gt 0" />
+
+            <set_value name="$SubmenuActive" exact="$SeminarActive and $AnySeminar" />
+
+            <!-- Enable tiers only if all preceding seminar tiers are available in inventory -->
+            <set_value name="$Active_1star" exact="$SubmenuActive and ($HasSem_0 gt 0)" />
+            <set_value name="$Active_2star" exact="$SubmenuActive and ($HasSem_0 gt 0) and ($HasSem_1 gt 0)" />
+            <set_value name="$Active_3star" exact="$SubmenuActive and ($HasSem_0 gt 0) and ($HasSem_1 gt 0) and ($HasSem_2 gt 0)" />
+            <set_value name="$Active_4star" exact="$SubmenuActive and ($HasSem_0 gt 0) and ($HasSem_1 gt 0) and ($HasSem_2 gt 0) and ($HasSem_3 gt 0)" />
+            <set_value name="$Active_max" exact="$SubmenuActive" />
+            <set_value name="$Active_single" exact="$SubmenuActive" />
+
+            <!-- Set up Seminar Tooltips based on Active status and inventory availability -->
+            <set_value name="$SeminarMouseover_1star" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_1star then readtext.{98765}.{200} else readtext.{98765}.{165}))" />
+            <set_value name="$SeminarMouseover_2star" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_2star then readtext.{98765}.{201} else readtext.{98765}.{164}))" />
+            <set_value name="$SeminarMouseover_3star" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_3star then readtext.{98765}.{202} else readtext.{98765}.{162}))" />
+            <set_value name="$SeminarMouseover_4star" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_4star then readtext.{98765}.{203} else readtext.{98765}.{161}))" />
+            <set_value name="$SeminarMouseover_max" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else readtext.{98765}.{160})" />
+            <set_value name="$SeminarMouseover_single" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else readtext.{98765}.{163})" />
 
             <!-- 2.1 Max Training -->
             <signal_cue_instantly
@@ -233,7 +250,7 @@
                 $section  = $s_seminar,
                 $text     = readtext.{98765}.{130},
                 $mouseover = $SeminarMouseover_max,
-                $active   = $SeminarActive,
+                $active   = $Active_max,
                 $callback = SCM_use_seminar_callback,
                 ]" />
 
@@ -245,7 +262,7 @@
                 $section  = $s_seminar,
                 $text     = readtext.{98765}.{131},
                 $mouseover = $SeminarMouseover_4star,
-                $active   = $SeminarActive,
+                $active   = $Active_4star,
                 $callback = SCM_use_seminar_callback,
                 ]" />
 
@@ -257,7 +274,7 @@
                 $section  = $s_seminar,
                 $text     = readtext.{98765}.{132},
                 $mouseover = $SeminarMouseover_3star,
-                $active   = $SeminarActive,
+                $active   = $Active_3star,
                 $callback = SCM_use_seminar_callback,
                 ]" />
 
@@ -269,7 +286,7 @@
                 $section  = $s_seminar,
                 $text     = readtext.{98765}.{134},
                 $mouseover = $SeminarMouseover_2star,
-                $active   = $SeminarActive,
+                $active   = $Active_2star,
                 $callback = SCM_use_seminar_callback,
                 ]" />
 
@@ -281,7 +298,7 @@
                 $section  = $s_seminar,
                 $text     = readtext.{98765}.{135},
                 $mouseover = $SeminarMouseover_1star,
-                $active   = $SeminarActive,
+                $active   = $Active_1star,
                 $callback = SCM_use_seminar_callback,
                 ]" />
 
@@ -293,7 +310,7 @@
                 $section  = $s_seminar,
                 $text     = readtext.{98765}.{133},
                 $mouseover = $SeminarMouseover_single,
-                $active   = $SeminarActive,
+                $active   = $Active_single,
                 $callback = SCM_use_seminar_callback,
                 ]" />
           </do_if>

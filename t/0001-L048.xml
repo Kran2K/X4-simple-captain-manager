@@ -74,5 +74,10 @@
     <t id="190">Docelowy statek lub stacja nie ma wolnego miejsca.</t>
     <t id="35">Załoga statku jest pełna. Aby zrobić miejsce dla odwołanego kapitana, najmniej wykwalifikowany członek załogi zostanie automatycznie zwolniony.</t>
     <t id="36">Załoga niektórych statków jest pełna. Aby zrobić miejsce dla odwołanych kapitanów, najmniej wykwalifikowany członek załogi na tych statkach zostanie automatycznie zwolniony.</t>
+    <t id="200">Brak podstawowego seminarium (pilotaż) wymaganego do tego szkolenia.</t>
+    <t id="201">Brak seminariów pilotażowych (podstawowych lub 1-gwiazdkowych) wymaganych do tego szkolenia.</t>
+    <t id="202">Brak seminariów pilotażowych (podstawowych, 1-gwiazdkowych lub 2-gwiazdkowych) wymaganych do tego szkolenia.</t>
+    <t id="203">Brak seminariów pilotażowych (podstawowych, 1, 2 lub 3-gwiazdkowych) wymaganych do tego szkolenia.</t>
+    <t id="204">W Twoim ekwipunku nie ma żadnych seminariów pilotażowych.</t>
   </page>
 </language>

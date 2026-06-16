@@ -74,5 +74,10 @@
     <t id="190">La nave o la stazione bersaglio non ha spazio libero.</t>
     <t id="35">L'equipaggio della nave è al completo. Per fare spazio al capitano congedato, il membro dell'equipaggio meno qualificato verrà licenziato automaticamente.</t>
     <t id="36">L'equipaggio di alcune navi è al completo. Per fare spazio ai capitani congedati, il membro dell'equipaggio meno qualificato su quelle navi verrà licenziato automaticamente.</t>
+    <t id="200">Manca il seminario di base (pilotaggio) richiesto per questo addestramento.</t>
+    <t id="201">Mancano i seminari di pilotaggio (di base o 1 stella) richiesti per questo addestramento.</t>
+    <t id="202">Mancano i seminari di pilotaggio (di base, 1 o 2 stelle) richiesti per questo addestramento.</t>
+    <t id="203">Mancano i seminari di pilotaggio (di base, 1, 2 o 3 stelle) richiesti per questo addestramento.</t>
+    <t id="204">Non ci sono seminari di pilotaggio nel tuo inventario.</t>
   </page>
 </language>
