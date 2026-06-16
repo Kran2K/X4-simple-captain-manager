@@ -321,15 +321,19 @@
 
             <!-- 3.2 relief (dismiss) and fire Captain checks (Check if any ship in selection has a captain) -->
             <set_value name="$HasAnyPilot" exact="false" />
+            <set_value name="$HasFullShipWithPilot" exact="false" />
             <do_all exact="$Ships.count" counter="$i">
               <do_if value="@$Ships.{$i}.pilot.exists">
                 <set_value name="$HasAnyPilot" exact="true" />
+                <do_if value="$Ships.{$i}.people.free le 0">
+                  <set_value name="$HasFullShipWithPilot" exact="true" />
+                </do_if>
               </do_if>
             </do_all>
 
             <!-- 3.2 Dismiss Captain (Relief) -->
             <set_value name="$UnassignActive" exact="$HasAnyPilot" />
-            <set_value name="$UnassignMouseover" exact="if not $UnassignActive then readtext.{98765}.{31} else readtext.{98765}.{30}" />
+            <set_value name="$UnassignMouseover" exact="if not $UnassignActive then readtext.{98765}.{31} else (if $HasFullShipWithPilot then (readtext.{98765}.{30} + '\n' + readtext.{98765}.{35}) else readtext.{98765}.{30})" />
             <signal_cue_instantly
               cue="md.Interact_Menu_API.Add_Action"
               param="table[
