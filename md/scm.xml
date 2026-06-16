@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mdscript name="scm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="md.xsd">
+<mdscript name="SCM" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="md.xsd">
   <cues>
 
     <!-- ============================================================
          1. Register Actions on Menu Open
          - SN Mod Support APIs: md.Interact_Menu_API.Get_Actions
          ============================================================ -->
-    <cue name="scm_get_actions" instantiate="true">
+    <cue name="SCM_get_actions" instantiate="true">
       <conditions>
         <event_cue_signalled cue="@md.Interact_Menu_API.Get_Actions" />
         <check_value value="@event.param.$object.isclass.ship or @event.param.$object.isclass.station" />
@@ -84,7 +84,7 @@
                 $text     = readtext.{98765}.{120},
                 $mouseover = $AssignMouseover_all,
                 $active   = $AssignActive,
-                $callback = scm_assign_callback,
+                $callback = SCM_assign_callback,
                 ]" />
 
             <!-- 1.2 Assign 5-star only -->
@@ -96,7 +96,7 @@
                 $text     = readtext.{98765}.{110},
                 $mouseover = $AssignMouseover_5star,
                 $active   = $AssignActive,
-                $callback = scm_assign_callback,
+                $callback = SCM_assign_callback,
                 ]" />
 
             <!-- 1.3 Assign 4-star and higher -->
@@ -108,7 +108,7 @@
                 $text     = readtext.{98765}.{124},
                 $mouseover = $AssignMouseover_4star,
                 $active   = $AssignActive,
-                $callback = scm_assign_callback,
+                $callback = SCM_assign_callback,
                 ]" />
 
             <!-- 1.4 Assign 3-star and higher -->
@@ -120,7 +120,7 @@
                 $text     = readtext.{98765}.{121},
                 $mouseover = $AssignMouseover_3star,
                 $active   = $AssignActive,
-                $callback = scm_assign_callback,
+                $callback = SCM_assign_callback,
                 ]" />
 
             <!-- 1.5 Assign 2-star and higher -->
@@ -132,7 +132,7 @@
                 $text     = readtext.{98765}.{122},
                 $mouseover = $AssignMouseover_2star,
                 $active   = $AssignActive,
-                $callback = scm_assign_callback,
+                $callback = SCM_assign_callback,
                 ]" />
 
             <!-- 1.6 Assign 1-star and higher -->
@@ -144,7 +144,7 @@
                 $text     = readtext.{98765}.{125},
                 $mouseover = $AssignMouseover_1star,
                 $active   = $AssignActive,
-                $callback = scm_assign_callback,
+                $callback = SCM_assign_callback,
                 ]" />
 
             <!-- 1.7 Assign under 5-star -->
@@ -156,7 +156,7 @@
                 $text     = readtext.{98765}.{126},
                 $mouseover = $AssignMouseover_under_5star,
                 $active   = $AssignActive,
-                $callback = scm_assign_callback,
+                $callback = SCM_assign_callback,
                 ]" />
 
             <!-- 1.8 Assign under 4-star -->
@@ -168,7 +168,7 @@
                 $text     = readtext.{98765}.{127},
                 $mouseover = $AssignMouseover_under_4star,
                 $active   = $AssignActive,
-                $callback = scm_assign_callback,
+                $callback = SCM_assign_callback,
                 ]" />
 
             <!-- 1.9 Assign under 3-star -->
@@ -180,7 +180,7 @@
                 $text     = readtext.{98765}.{128},
                 $mouseover = $AssignMouseover_under_3star,
                 $active   = $AssignActive,
-                $callback = scm_assign_callback,
+                $callback = SCM_assign_callback,
                 ]" />
 
             <!-- 1.10 Assign under 2-star -->
@@ -192,7 +192,7 @@
                 $text     = readtext.{98765}.{123},
                 $mouseover = $AssignMouseover_under_2star,
                 $active   = $AssignActive,
-                $callback = scm_assign_callback,
+                $callback = SCM_assign_callback,
                 ]" />
 
             <!-- 1.11 Assign under 1-star -->
@@ -204,7 +204,7 @@
                 $text     = readtext.{98765}.{129},
                 $mouseover = $AssignMouseover_under_1star,
                 $active   = $AssignActive,
-                $callback = scm_assign_callback,
+                $callback = SCM_assign_callback,
                 ]" />
           </do_if>
   
@@ -234,7 +234,7 @@
                 $text     = readtext.{98765}.{130},
                 $mouseover = $SeminarMouseover_max,
                 $active   = $SeminarActive,
-                $callback = scm_use_seminar_callback,
+                $callback = SCM_use_seminar_callback,
                 ]" />
 
             <!-- 2.2 Train to 4-Star -->
@@ -246,7 +246,7 @@
                 $text     = readtext.{98765}.{131},
                 $mouseover = $SeminarMouseover_4star,
                 $active   = $SeminarActive,
-                $callback = scm_use_seminar_callback,
+                $callback = SCM_use_seminar_callback,
                 ]" />
 
             <!-- 2.3 Train to 3-Star -->
@@ -258,7 +258,7 @@
                 $text     = readtext.{98765}.{132},
                 $mouseover = $SeminarMouseover_3star,
                 $active   = $SeminarActive,
-                $callback = scm_use_seminar_callback,
+                $callback = SCM_use_seminar_callback,
                 ]" />
 
             <!-- 2.4 Train to 2-Star -->
@@ -270,7 +270,7 @@
                 $text     = readtext.{98765}.{134},
                 $mouseover = $SeminarMouseover_2star,
                 $active   = $SeminarActive,
-                $callback = scm_use_seminar_callback,
+                $callback = SCM_use_seminar_callback,
                 ]" />
 
             <!-- 2.5 Train to 1-Star -->
@@ -282,7 +282,7 @@
                 $text     = readtext.{98765}.{135},
                 $mouseover = $SeminarMouseover_1star,
                 $active   = $SeminarActive,
-                $callback = scm_use_seminar_callback,
+                $callback = SCM_use_seminar_callback,
                 ]" />
 
             <!-- 2.6 Use Single Seminar -->
@@ -294,7 +294,7 @@
                 $text     = readtext.{98765}.{133},
                 $mouseover = $SeminarMouseover_single,
                 $active   = $SeminarActive,
-                $callback = scm_use_seminar_callback,
+                $callback = SCM_use_seminar_callback,
                 ]" />
           </do_if>
   
@@ -315,7 +315,7 @@
                   $text     = readtext.{98765}.{6},
                   $mouseover = $FillMouseover,
                   $active   = $FillActive,
-                  $callback = scm_fill_unassigned_callback,
+                  $callback = SCM_fill_unassigned_callback,
                   ]" />
             </do_if>
 
@@ -342,7 +342,7 @@
                 $text     = readtext.{98765}.{3},
                 $mouseover = $UnassignMouseover,
                 $active   = $UnassignActive,
-                $callback = scm_unassign_callback,
+                $callback = SCM_unassign_callback,
                 ]" />
   
             <!-- 3.3 Fire Captain -->
@@ -356,7 +356,7 @@
                 $text     = readtext.{98765}.{4},
                 $mouseover = $FireMouseover,
                 $active   = $FireActive,
-                $callback = scm_fire_callback,
+                $callback = SCM_fire_callback,
                 ]" />
 
             <!-- 3.4 Drop Cargo (original text: id="8") -->
@@ -375,7 +375,7 @@
                 $text     = readtext.{98765}.{8},
                 $mouseover = $DropCargoMouseover,
                 $active   = $DropCargoActive,
-                $callback = scm_drop_cargo_callback,
+                $callback = SCM_drop_cargo_callback,
                 ]" />
           </do_if>
         </do_if>
@@ -387,7 +387,7 @@
          2. Batch Dismiss Captain Callback
          - Empty the pilot slot only (NPC remains on the ship as unassigned crew)
          ============================================================ -->
-    <cue name="scm_unassign_callback" instantiate="true">
+    <cue name="SCM_unassign_callback" instantiate="true">
       <conditions>
         <event_cue_signalled />
       </conditions>
@@ -459,7 +459,7 @@
                 <set_value name="$WorstCrewName" exact="$Ship.people.{$WorstCrew}.name" />
                 <debug_text text="'[SCM] Ship full. Firing worst crew ' + $WorstCrewName + ' (score: ' + $WorstSkill + ') to make space for dismissed pilot.'" filter="general" />
                 <remove_npc_template object="$Ship" template="$WorstCrew" />
-                <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{26}.[$Ship.knownname, $WorstCrewStars, $WorstCrewName]" post="true" />
+                <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{26}.[$Ship.knownname, $WorstCrewStars, $WorstCrewName]" />
               </do_if>
             </do_if>
 
@@ -490,7 +490,7 @@
               <debug_text text="'[SCM] Warning: No npctemplate found for pilot!'" filter="general" />
             </do_else>
             
-            <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{21}.[$Ship.knownname, ($Pilot.skill.piloting / 3), $Pilot.knownname]" post="true" />
+            <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{21}.[$Ship.knownname, ($Pilot.skill.piloting / 3), $Pilot.knownname]" />
             <set_value name="$SuccessCount" exact="$SuccessCount + 1" />
           </do_if>
         </do_all>
@@ -507,7 +507,7 @@
          3. Batch Fire Captain Callback
          - Empty the pilot slot and destroy the NPC entity
          ============================================================ -->
-    <cue name="scm_fire_callback" instantiate="true">
+    <cue name="SCM_fire_callback" instantiate="true">
       <conditions>
         <event_cue_signalled />
       </conditions>
@@ -540,7 +540,7 @@
             <dismiss_control_entity actor="$Pilot" object="$Ship" />
             <destroy_object object="$Pilot" />
             
-            <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{22}.[$Ship.knownname, ($PilotPiloting / 3), $PilotName]" post="true" />
+            <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{22}.[$Ship.knownname, ($PilotPiloting / 3), $PilotName]" />
             <set_value name="$SuccessCount" exact="$SuccessCount + 1" />
           </do_if>
         </do_all>
@@ -558,7 +558,7 @@
          - Find the best unassigned crew member with the highest piloting skill from player-owned ships galaxy-wide
          - Sort target ships by 16 priority classes (XL > L > M > S and fight > trade > mine > build)
          ============================================================ -->
-    <cue name="scm_assign_callback" instantiate="true">
+    <cue name="SCM_assign_callback" instantiate="true">
       <conditions>
         <event_cue_signalled />
       </conditions>
@@ -764,7 +764,7 @@
 
               <do_if value="$TargetActor">
                 <debug_text text="'[SCM] Assigning ' + $TargetActor.knownname + ' (skill ' + $BestPiloting + ') to ' + $Ship.knownname" filter="general" />
-                <assign_control_entity actor="$TargetActor" object="$Ship" role="controlrole.pilot" post="controlpost.aipilot" transfer="true" init="true" />
+                <assign_control_entity actor="$TargetActor" object="$Ship" post="controlpost.aipilot" transfer="true" init="true" />
                 
                 <!-- Add selected template and seed to lists to prevent double assignment -->
                 <append_to_list name="$AssignedCandidates" exact="$BestCandidate" />
@@ -777,7 +777,7 @@
                   <remove_npc_template object="$BestSource" template="$BestCandidate" />
                 </do_if>
 
-                <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{23}.[$Ship.knownname, ($BestPiloting / 3), $TargetActor.knownname]" post="true" />
+                <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{23}.[$Ship.knownname, ($BestPiloting / 3), $TargetActor.knownname]" />
               </do_if>
               <do_else>
                 <debug_text text="'[SCM] Failed to instantiate candidate: ' + $BestCandidate + ' for ' + $Ship.knownname" filter="general" />
@@ -790,18 +790,18 @@
 
           <!-- Report results -->
           <do_if value="$AssignedCandidates.count gt 0">
-            <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{12}.[$AssignedCandidates.count]" post="true" />
+            <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{12}.[$AssignedCandidates.count]" />
             <show_notification text="readtext.{98765}.{12}.[$AssignedCandidates.count]" timeout="6s" />
           </do_if>
 
           <set_value name="$FailedCount" exact="$SortedShips.count - $AssignedCandidates.count" />
           <do_if value="$FailedCount gt 0">
             <do_if value="$SortedShips.count == 1">
-              <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{29}.[$SortedShips.{1}.knownname]" post="true" />
+              <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{29}.[$SortedShips.{1}.knownname]" />
               <show_notification text="readtext.{98765}.{29}.[$SortedShips.{1}.knownname]" timeout="6s" sound="notification_warning" />
             </do_if>
             <do_else>
-              <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{27}.[$FailedCount, $SortedShips.count]" post="true" />
+              <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{27}.[$FailedCount, $SortedShips.count]" />
               <show_notification text="readtext.{98765}.{27}.[$FailedCount, $SortedShips.count]" timeout="6s" sound="notification_warning" />
             </do_else>
           </do_if>
@@ -815,7 +815,7 @@
          - Find all unassigned crew members from all player-owned ships and stations
          - Sort them by (highest_skill * 3 + morale) and transfer the best crew members to fill the target ship
          ============================================================ -->
-    <cue name="scm_fill_unassigned_callback" instantiate="true">
+    <cue name="SCM_fill_unassigned_callback" instantiate="true">
       <conditions>
         <event_cue_signalled />
       </conditions>
@@ -930,17 +930,17 @@
               <!-- 5. Write to logbook and show notification -->
               <do_if value="$TotalTransferred gt 0">
                 <do_if value="$TotalCandidatesCount gt $TotalTransferred">
-                  <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{28}.[$Ship.knownname, $TotalTransferred, $TotalCandidatesCount]" post="true" />
+                  <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{28}.[$Ship.knownname, $TotalTransferred, $TotalCandidatesCount]" />
                   <show_notification text="readtext.{98765}.{28}.[$Ship.knownname, $TotalTransferred, $TotalCandidatesCount]" timeout="6s" />
                 </do_if>
                 <do_else>
-                  <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{24}.[$Ship.knownname, $TotalTransferred]" post="true" />
+                  <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{24}.[$Ship.knownname, $TotalTransferred]" />
                   <show_notification text="readtext.{98765}.{24}.[$Ship.knownname, $TotalTransferred]" timeout="6s" />
                 </do_else>
               </do_if>
             </do_if>
             <do_else>
-              <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{33}.[$Ship.knownname]" post="true" />
+              <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{33}.[$Ship.knownname]" />
               <show_notification text="readtext.{98765}.{33}.[$Ship.knownname]" timeout="6s" sound="notification_warning" />
             </do_else>
           </do_if>
@@ -953,7 +953,7 @@
          - Check piloting skill of captains on selected ships
          - Check inventory for required piloting seminars, consume, and raise skill
          ============================================================ -->
-    <cue name="scm_use_seminar_callback" instantiate="true">
+    <cue name="SCM_use_seminar_callback" instantiate="true">
       <conditions>
         <event_cue_signalled />
       </conditions>
@@ -1085,7 +1085,7 @@
 
         <!-- Show feedback and notify player -->
         <do_if value="$SuccessCount gt 0">
-          <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{25}.[$SuccessCount, $Used_0, $Used_1, $Used_2, $Used_3, $Used_4]" post="true" />
+          <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{25}.[$SuccessCount, $Used_0, $Used_1, $Used_2, $Used_3, $Used_4]" />
           <show_notification text="readtext.{98765}.{25}.[$SuccessCount, $Used_0, $Used_1, $Used_2, $Used_3, $Used_4]" timeout="6s" />
         </do_if>
       </do_if>
@@ -1096,7 +1096,7 @@
          7. Batch Drop Cargo Callback
          - Eject all container/cargo items of selected ships into space
          ============================================================ -->
-    <cue name="scm_drop_cargo_callback" instantiate="true">
+    <cue name="SCM_drop_cargo_callback" instantiate="true">
       <conditions>
         <event_cue_signalled />
       </conditions>
@@ -1132,7 +1132,7 @@
             </do_all>
             
             <!-- Output success to logbook and show notification -->
-            <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{34}.[$Ship.knownname, $WaresCount]" post="true" />
+            <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{34}.[$Ship.knownname, $WaresCount]" />
             <show_notification text="readtext.{98765}.{34}.[$Ship.knownname, $WaresCount]" timeout="6s" />
           </do_if>
         </do_all>
