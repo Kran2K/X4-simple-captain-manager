@@ -74,15 +74,15 @@
     <t id="190">Le vaisseau ou la station cible n'a plus de place disponible.</t>
     <t id="35">L'équipage du vaisseau est complet. Pour faire de la place au capitaine destitué, le membre d'équipage le moins qualifié sera automatiquement licencié.</t>
     <t id="36">L'équipage de certains vaisseaux est complet. Pour faire de la place aux capitaines destitués, le membre d'équipage le moins qualifié sur ces vaisseaux sera automatiquement licencié.</t>
-    <t id="200">Il manque le Séminaire basique (Pilotage) requis pour cette formation.</t>
-    <t id="201">Il manque les Séminaires (basique ou 1 étoile (Pilotage)) requis pour cette formation.</t>
-    <t id="202">Il manque les Séminaires (basique, 1 ou 2 étoiles (Pilotage)) requis pour cette formation.</t>
-    <t id="203">Il manque les Séminaires (basique, 1, 2 ou 3 étoiles (Pilotage)) requis pour cette formation.</t>
-    <t id="204">Il n'y a pas de séminaires (Pilotage) dans votre inventaire.</t>
-    <t id="205">Il manque les séminaires requis pour cette formation. (Manquant : Séminaire basique (Pilotage) x%1)</t>
-    <t id="206">Il manque les séminaires requis pour cette formation. (Manquant : Basique x%1, 1 étoile x%2 (Pilotage))</t>
-    <t id="207">Il manque les séminaires requis pour cette formation. (Manquant : Basique x%1, 1 étoile x%2, 2 étoiles x%3 (Pilotage))</t>
-    <t id="208">Il manque les séminaires requis pour cette formation. (Manquant : Basique x%1, 1 étoile x%2, 2 étoiles x%3, 3 étoiles x%4 (Pilotage))</t>
-    <t id="209">Il manque les séminaires requis pour cette formation. (Manquant : Basique x%1, 1 étoile x%2, 2 étoiles x%3, 3 étoiles x%4, 4 étoiles x%5 (Pilotage))</t>
+    <t id="200">Il manque le Séminaire basique [Pilotage] requis pour cette formation.</t>
+    <t id="201">Il manque les Séminaires [basique ou 1 étoile [Pilotage]] requis pour cette formation.</t>
+    <t id="202">Il manque les Séminaires [basique, 1 ou 2 étoiles [Pilotage]] requis pour cette formation.</t>
+    <t id="203">Il manque les Séminaires [basique, 1, 2 ou 3 étoiles [Pilotage]] requis pour cette formation.</t>
+    <t id="204">Il n'y a pas de séminaires [Pilotage] dans votre inventaire.</t>
+    <t id="205">Il manque les séminaires requis pour cette formation. [Manquant : Séminaire basique [Pilotage] x%1]</t>
+    <t id="206">Il manque les séminaires requis pour cette formation. [Manquant : Basique x%1, 1 étoile x%2 [Pilotage]]</t>
+    <t id="207">Il manque les séminaires requis pour cette formation. [Manquant : Basique x%1, 1 étoile x%2, 2 étoiles x%3 [Pilotage]]</t>
+    <t id="208">Il manque les séminaires requis pour cette formation. [Manquant : Basique x%1, 1 étoile x%2, 2 étoiles x%3, 3 étoiles x%4 [Pilotage]]</t>
+    <t id="209">Il manque les séminaires requis pour cette formation. [Manquant : Basique x%1, 1 étoile x%2, 2 étoiles x%3, 3 étoiles x%4, 4 étoiles x%5 [Pilotage]]</t>
   </page>
 </language>
