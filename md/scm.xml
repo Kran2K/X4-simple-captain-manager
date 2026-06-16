@@ -35,13 +35,21 @@
  
         <set_value name="$ShipsCount" exact="$Ships.count" />
         <do_if value="$ShipsCount gt 0">
-          <!-- Determine Kuertee UI Extensions section name based on selection count and register group (Captain Management main menu) -->
-          <set_value name="$section" exact="if $ShipsCount gt 1 then 'orders_scm_group' else 'actions_scm_group'" />
-          <raise_lua_event name="'Interact_Menu_API.Add_Custom_Actions_Group_Id'" param="$section" />
-          <raise_lua_event name="'Interact_Menu_API.Add_Custom_Actions_Group_Text'" param="readtext.{98765}.{1}" />
- 
+          <!-- Determine Kuertee UI Extensions section names based on selection count and register groups -->
+          <set_value name="$s_assign" exact="if $ShipsCount gt 1 then 'orders_scm_assign' else 'actions_scm_assign'" />
+          <raise_lua_event name="'Interact_Menu_API.Add_Custom_Actions_Group_Id'" param="$s_assign" />
+          <raise_lua_event name="'Interact_Menu_API.Add_Custom_Actions_Group_Text'" param="readtext.{98765}.{90}" />
+
+          <set_value name="$s_seminar" exact="if $ShipsCount gt 1 then 'orders_scm_seminar' else 'actions_scm_seminar'" />
+          <raise_lua_event name="'Interact_Menu_API.Add_Custom_Actions_Group_Id'" param="$s_seminar" />
+          <raise_lua_event name="'Interact_Menu_API.Add_Custom_Actions_Group_Text'" param="readtext.{98765}.{91}" />
+
+          <set_value name="$s_other" exact="if $ShipsCount gt 1 then 'orders_scm_other' else 'actions_scm_other'" />
+          <raise_lua_event name="'Interact_Menu_API.Add_Custom_Actions_Group_Id'" param="$s_other" />
+          <raise_lua_event name="'Interact_Menu_API.Add_Custom_Actions_Group_Text'" param="readtext.{98765}.{93}" />
+  
+          <!-- 1. Assign Captain Group -->
           <do_if value="not $IsStation">
-            <!-- Determine if a pilot exists when a single ship is selected -->
             <set_value name="$SingleShipHasPilot" exact="false" />
             <do_if value="$ShipsCount == 1">
               <do_if value="@$Ships.{1}.pilot.exists">
@@ -49,119 +57,317 @@
               </do_if>
             </do_if>
 
-            <!-- 1. Auto Assign Captain (id="2") -->
             <set_value name="$AssignActive" exact="true" />
-            <set_value name="$AssignMouseover" exact="readtext.{98765}.{20}" />
             <do_if value="$ShipsCount == 1 and $SingleShipHasPilot">
               <set_value name="$AssignActive" exact="false" />
-              <set_value name="$AssignMouseover" exact="readtext.{98765}.{32}" />
             </do_if>
+
+            <!-- Set up Assign Tooltips based on Active status -->
+            <set_value name="$AssignMouseover_all" exact="if not $AssignActive then readtext.{98765}.{32} else readtext.{98765}.{150}" />
+            <set_value name="$AssignMouseover_5star" exact="if not $AssignActive then readtext.{98765}.{32} else readtext.{98765}.{111}" />
+            <set_value name="$AssignMouseover_4star" exact="if not $AssignActive then readtext.{98765}.{32} else readtext.{98765}.{154}" />
+            <set_value name="$AssignMouseover_3star" exact="if not $AssignActive then readtext.{98765}.{32} else readtext.{98765}.{151}" />
+            <set_value name="$AssignMouseover_2star" exact="if not $AssignActive then readtext.{98765}.{32} else readtext.{98765}.{152}" />
+            <set_value name="$AssignMouseover_1star" exact="if not $AssignActive then readtext.{98765}.{32} else readtext.{98765}.{155}" />
+            <set_value name="$AssignMouseover_under_5star" exact="if not $AssignActive then readtext.{98765}.{32} else readtext.{98765}.{156}" />
+            <set_value name="$AssignMouseover_under_4star" exact="if not $AssignActive then readtext.{98765}.{32} else readtext.{98765}.{157}" />
+            <set_value name="$AssignMouseover_under_3star" exact="if not $AssignActive then readtext.{98765}.{32} else readtext.{98765}.{158}" />
+            <set_value name="$AssignMouseover_under_2star" exact="if not $AssignActive then readtext.{98765}.{32} else readtext.{98765}.{153}" />
+            <set_value name="$AssignMouseover_under_1star" exact="if not $AssignActive then readtext.{98765}.{32} else readtext.{98765}.{159}" />
+
+            <!-- 1.1 Assign All -->
             <signal_cue_instantly
               cue="md.Interact_Menu_API.Add_Action"
               param="table[
-                $id       = 'scm_assign_pilot',
-                $section  = $section,
-                $text     = readtext.{98765}.{2},
-                $mouseover = $AssignMouseover,
+                $id       = 'scm_assign_all',
+                $section  = $s_assign,
+                $text     = readtext.{98765}.{120},
+                $mouseover = $AssignMouseover_all,
                 $active   = $AssignActive,
                 $callback = scm_assign_callback,
                 ]" />
+
+            <!-- 1.2 Assign 5-star only -->
+            <signal_cue_instantly
+              cue="md.Interact_Menu_API.Add_Action"
+              param="table[
+                $id       = 'scm_assign_5star',
+                $section  = $s_assign,
+                $text     = readtext.{98765}.{110},
+                $mouseover = $AssignMouseover_5star,
+                $active   = $AssignActive,
+                $callback = scm_assign_callback,
+                ]" />
+
+            <!-- 1.3 Assign 4-star and higher -->
+            <signal_cue_instantly
+              cue="md.Interact_Menu_API.Add_Action"
+              param="table[
+                $id       = 'scm_assign_4star',
+                $section  = $s_assign,
+                $text     = readtext.{98765}.{124},
+                $mouseover = $AssignMouseover_4star,
+                $active   = $AssignActive,
+                $callback = scm_assign_callback,
+                ]" />
+
+            <!-- 1.3 Assign 3-star and higher -->
+            <signal_cue_instantly
+              cue="md.Interact_Menu_API.Add_Action"
+              param="table[
+                $id       = 'scm_assign_3star',
+                $section  = $s_assign,
+                $text     = readtext.{98765}.{121},
+                $mouseover = $AssignMouseover_3star,
+                $active   = $AssignActive,
+                $callback = scm_assign_callback,
+                ]" />
+
+            <!-- 1.4 Assign 2-star and higher -->
+            <signal_cue_instantly
+              cue="md.Interact_Menu_API.Add_Action"
+              param="table[
+                $id       = 'scm_assign_2star',
+                $section  = $s_assign,
+                $text     = readtext.{98765}.{122},
+                $mouseover = $AssignMouseover_2star,
+                $active   = $AssignActive,
+                $callback = scm_assign_callback,
+                ]" />
+
+            <!-- 1.5 Assign 1-star and higher -->
+            <signal_cue_instantly
+              cue="md.Interact_Menu_API.Add_Action"
+              param="table[
+                $id       = 'scm_assign_1star',
+                $section  = $s_assign,
+                $text     = readtext.{98765}.{125},
+                $mouseover = $AssignMouseover_1star,
+                $active   = $AssignActive,
+                $callback = scm_assign_callback,
+                ]" />
+
+            <!-- 1.6 Assign under 5-star -->
+            <signal_cue_instantly
+              cue="md.Interact_Menu_API.Add_Action"
+              param="table[
+                $id       = 'scm_assign_under_5star',
+                $section  = $s_assign,
+                $text     = readtext.{98765}.{126},
+                $mouseover = $AssignMouseover_under_5star,
+                $active   = $AssignActive,
+                $callback = scm_assign_callback,
+                ]" />
+
+            <!-- 1.7 Assign under 4-star -->
+            <signal_cue_instantly
+              cue="md.Interact_Menu_API.Add_Action"
+              param="table[
+                $id       = 'scm_assign_under_4star',
+                $section  = $s_assign,
+                $text     = readtext.{98765}.{127},
+                $mouseover = $AssignMouseover_under_4star,
+                $active   = $AssignActive,
+                $callback = scm_assign_callback,
+                ]" />
+
+            <!-- 1.8 Assign under 3-star -->
+            <signal_cue_instantly
+              cue="md.Interact_Menu_API.Add_Action"
+              param="table[
+                $id       = 'scm_assign_under_3star',
+                $section  = $s_assign,
+                $text     = readtext.{98765}.{128},
+                $mouseover = $AssignMouseover_under_3star,
+                $active   = $AssignActive,
+                $callback = scm_assign_callback,
+                ]" />
+
+            <!-- 1.9 Assign under 2-star -->
+            <signal_cue_instantly
+              cue="md.Interact_Menu_API.Add_Action"
+              param="table[
+                $id       = 'scm_assign_rookie',
+                $section  = $s_assign,
+                $text     = readtext.{98765}.{123},
+                $mouseover = $AssignMouseover_under_2star,
+                $active   = $AssignActive,
+                $callback = scm_assign_callback,
+                ]" />
+
+            <!-- 1.10 Assign under 1-star -->
+            <signal_cue_instantly
+              cue="md.Interact_Menu_API.Add_Action"
+              param="table[
+                $id       = 'scm_assign_under_1star',
+                $section  = $s_assign,
+                $text     = readtext.{98765}.{129},
+                $mouseover = $AssignMouseover_under_1star,
+                $active   = $AssignActive,
+                $callback = scm_assign_callback,
+                ]" />
+          </do_if>
   
-            <!-- 2. Dismiss Captain (id="3") -->
-            <set_value name="$UnassignActive" exact="true" />
-            <set_value name="$UnassignMouseover" exact="readtext.{98765}.{30}" />
-            <do_if value="$ShipsCount == 1 and not $SingleShipHasPilot">
-              <set_value name="$UnassignActive" exact="false" />
-              <set_value name="$UnassignMouseover" exact="readtext.{98765}.{31}" />
+          <!-- 2. Use Seminars Group -->
+          <do_if value="not $IsStation">
+            <set_value name="$SeminarActive" exact="false" />
+            <do_all exact="$Ships.count" counter="$i">
+              <do_if value="@$Ships.{$i}.pilot.exists">
+                <set_value name="$SeminarActive" exact="true" />
+              </do_if>
+            </do_all>
+
+            <!-- Set up Seminar Tooltips based on Active status -->
+            <set_value name="$SeminarMouseover_max" exact="if not $SeminarActive then readtext.{98765}.{52} else readtext.{98765}.{160}" />
+            <set_value name="$SeminarMouseover_4star" exact="if not $SeminarActive then readtext.{98765}.{52} else readtext.{98765}.{161}" />
+            <set_value name="$SeminarMouseover_3star" exact="if not $SeminarActive then readtext.{98765}.{52} else readtext.{98765}.{162}" />
+            <set_value name="$SeminarMouseover_2star" exact="if not $SeminarActive then readtext.{98765}.{52} else readtext.{98765}.{164}" />
+            <set_value name="$SeminarMouseover_1star" exact="if not $SeminarActive then readtext.{98765}.{52} else readtext.{98765}.{165}" />
+            <set_value name="$SeminarMouseover_single" exact="if not $SeminarActive then readtext.{98765}.{52} else readtext.{98765}.{163}" />
+
+            <!-- 2.1 Max Training -->
+            <signal_cue_instantly
+              cue="md.Interact_Menu_API.Add_Action"
+              param="table[
+                $id       = 'scm_seminar_max',
+                $section  = $s_seminar,
+                $text     = readtext.{98765}.{130},
+                $mouseover = $SeminarMouseover_max,
+                $active   = $SeminarActive,
+                $callback = scm_use_seminar_callback,
+                ]" />
+
+            <!-- 2.2 Train to 4-Star -->
+            <signal_cue_instantly
+              cue="md.Interact_Menu_API.Add_Action"
+              param="table[
+                $id       = 'scm_seminar_4star',
+                $section  = $s_seminar,
+                $text     = readtext.{98765}.{131},
+                $mouseover = $SeminarMouseover_4star,
+                $active   = $SeminarActive,
+                $callback = scm_use_seminar_callback,
+                ]" />
+
+            <!-- 2.3 Train to 3-Star -->
+            <signal_cue_instantly
+              cue="md.Interact_Menu_API.Add_Action"
+              param="table[
+                $id       = 'scm_seminar_3star',
+                $section  = $s_seminar,
+                $text     = readtext.{98765}.{132},
+                $mouseover = $SeminarMouseover_3star,
+                $active   = $SeminarActive,
+                $callback = scm_use_seminar_callback,
+                ]" />
+
+            <!-- 2.4 Train to 2-Star -->
+            <signal_cue_instantly
+              cue="md.Interact_Menu_API.Add_Action"
+              param="table[
+                $id       = 'scm_seminar_2star',
+                $section  = $s_seminar,
+                $text     = readtext.{98765}.{134},
+                $mouseover = $SeminarMouseover_2star,
+                $active   = $SeminarActive,
+                $callback = scm_use_seminar_callback,
+                ]" />
+
+            <!-- 2.5 Train to 1-Star -->
+            <signal_cue_instantly
+              cue="md.Interact_Menu_API.Add_Action"
+              param="table[
+                $id       = 'scm_seminar_1star',
+                $section  = $s_seminar,
+                $text     = readtext.{98765}.{135},
+                $mouseover = $SeminarMouseover_1star,
+                $active   = $SeminarActive,
+                $callback = scm_use_seminar_callback,
+                ]" />
+
+            <!-- 2.6 Use Single Seminar -->
+            <signal_cue_instantly
+              cue="md.Interact_Menu_API.Add_Action"
+              param="table[
+                $id       = 'scm_seminar_single',
+                $section  = $s_seminar,
+                $text     = readtext.{98765}.{133},
+                $mouseover = $SeminarMouseover_single,
+                $active   = $SeminarActive,
+                $callback = scm_use_seminar_callback,
+                ]" />
+          </do_if>
+  
+          <!-- 3. Other Management Group -->
+          <do_if value="not $IsStation">
+            <!-- 3.1 Fill Unassigned Crew (original text: id="6") -->
+            <do_if value="$ShipsCount == 1">
+              <set_value name="$FillActive" exact="true" />
+              <do_if value="$Ships.{1}.people.free le 0">
+                <set_value name="$FillActive" exact="false" />
+              </do_if>
+              <set_value name="$FillMouseover" exact="if not $FillActive then readtext.{98765}.{190} else readtext.{98765}.{50}" />
+              <signal_cue_instantly
+                cue="md.Interact_Menu_API.Add_Action"
+                param="table[
+                  $id       = 'scm_fill_unassigned',
+                  $section  = $s_other,
+                  $text     = readtext.{98765}.{6},
+                  $mouseover = $FillMouseover,
+                  $active   = $FillActive,
+                  $callback = scm_fill_unassigned_callback,
+                  ]" />
             </do_if>
+
+            <!-- 3.2 relief (dismiss) and fire Captain checks (Check if any ship in selection has a captain) -->
+            <set_value name="$HasAnyPilot" exact="false" />
+            <do_all exact="$Ships.count" counter="$i">
+              <do_if value="@$Ships.{$i}.pilot.exists">
+                <set_value name="$HasAnyPilot" exact="true" />
+              </do_if>
+            </do_all>
+
+            <!-- 3.2 Dismiss Captain (Relief) -->
+            <set_value name="$UnassignActive" exact="$HasAnyPilot" />
+            <set_value name="$UnassignMouseover" exact="if not $UnassignActive then readtext.{98765}.{31} else readtext.{98765}.{30}" />
             <signal_cue_instantly
               cue="md.Interact_Menu_API.Add_Action"
               param="table[
                 $id       = 'scm_unassign_pilot',
-                $section  = $section,
+                $section  = $s_other,
                 $text     = readtext.{98765}.{3},
                 $mouseover = $UnassignMouseover,
                 $active   = $UnassignActive,
                 $callback = scm_unassign_callback,
                 ]" />
   
-            <!-- 3. Fire Captain (id="4") -->
-            <set_value name="$FireActive" exact="true" />
-            <set_value name="$FireMouseover" exact="readtext.{98765}.{40}" />
-            <do_if value="$ShipsCount == 1 and not $SingleShipHasPilot">
-              <set_value name="$FireActive" exact="false" />
-              <set_value name="$FireMouseover" exact="readtext.{98765}.{41}" />
-            </do_if>
+            <!-- 3.3 Fire Captain -->
+            <set_value name="$FireActive" exact="$HasAnyPilot" />
+            <set_value name="$FireMouseover" exact="if not $FireActive then readtext.{98765}.{41} else readtext.{98765}.{40}" />
             <signal_cue_instantly
               cue="md.Interact_Menu_API.Add_Action"
               param="table[
                 $id       = 'scm_fire_pilot',
-                $section  = $section,
+                $section  = $s_other,
                 $text     = readtext.{98765}.{4},
                 $mouseover = $FireMouseover,
                 $active   = $FireActive,
                 $callback = scm_fire_callback,
                 ]" />
-          </do_if>
-  
-          <!-- 4. Transfer Unassigned Crew (id="5") -->
-          <do_if value="$ShipsCount == 1">
-            <set_value name="$FillActive" exact="true" />
-            <set_value name="$FillMouseover" exact="readtext.{98765}.{50}" />
-            <do_if value="$Ships.{1}.people.free le 0">
-              <set_value name="$FillActive" exact="false" />
-            </do_if>
-            <signal_cue_instantly
-              cue="md.Interact_Menu_API.Add_Action"
-              param="table[
-                $id       = 'scm_fill_unassigned',
-                $section  = $section,
-                $text     = readtext.{98765}.{6},
-                $mouseover = $FillMouseover,
-                $active   = $FillActive,
-                $callback = scm_fill_unassigned_callback,
-                ]" />
-          </do_if>
-  
-          <do_if value="not $IsStation">
-            <!-- 5. Batch Use Seminars (id="6") -->
-            <set_value name="$SeminarActive" exact="false" />
-            <set_value name="$SeminarMouseover" exact="readtext.{98765}.{51}" />
-            <do_all exact="$Ships.count" counter="$i">
-              <do_if value="@$Ships.{$i}.pilot.exists">
-                <set_value name="$SeminarActive" exact="true" />
-              </do_if>
-            </do_all>
-            <do_if value="not $SeminarActive">
-              <set_value name="$SeminarMouseover" exact="readtext.{98765}.{52}" />
-            </do_if>
-            <signal_cue_instantly
-              cue="md.Interact_Menu_API.Add_Action"
-              param="table[
-                $id       = 'scm_use_seminar',
-                $section  = $section,
-                $text     = readtext.{98765}.{7},
-                $mouseover = $SeminarMouseover,
-                $active   = $SeminarActive,
-                $callback = scm_use_seminar_callback,
-                ]" />
-  
-            <!-- 6. Batch Drop Cargo (id="8") -->
+
+            <!-- 3.4 Drop Cargo (original text: id="8") -->
             <set_value name="$DropCargoActive" exact="false" />
-            <set_value name="$DropCargoMouseover" exact="readtext.{98765}.{53}" />
             <do_all exact="$Ships.count" counter="$i">
               <do_if value="$Ships.{$i}.cargo.count gt 0">
                 <set_value name="$DropCargoActive" exact="true" />
               </do_if>
             </do_all>
-            <do_if value="not $DropCargoActive">
-              <set_value name="$DropCargoMouseover" exact="readtext.{98765}.{54}" />
-            </do_if>
+            <set_value name="$DropCargoMouseover" exact="if not $DropCargoActive then readtext.{98765}.{54} else readtext.{98765}.{53}" />
             <signal_cue_instantly
               cue="md.Interact_Menu_API.Add_Action"
               param="table[
                 $id       = 'scm_drop_cargo',
-                $section  = $section,
+                $section  = $s_other,
                 $text     = readtext.{98765}.{8},
                 $mouseover = $DropCargoMouseover,
                 $active   = $DropCargoActive,
@@ -195,10 +401,14 @@
         </do_all>
 
         <debug_text text="'[SCM] Unassign start: ' + $Ships.count + ' ships'" filter="general" />
+
+        <set_value name="$SuccessCount" exact="0" />
         <do_all exact="$Ships.count" counter="$i">
           <set_value name="$Ship" exact="$Ships.{$i}" />
           <do_if value="@$Ship.pilot">
             <set_value name="$Pilot" exact="$Ship.pilot" />
+            <set_value name="$WorstCrew" exact="null" />
+            <set_value name="$WorstSkill" exact="9999" />
             
             <!-- Prevent crew capacity overflow: If no free slot, auto-fire the lowest skilled crew member -->
             <do_if value="$Ship.people.free le 0">
@@ -278,8 +488,13 @@
             </do_else>
             
             <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{21}.[$Ship.knownname, ($Pilot.skill.piloting / 3), $Pilot.knownname]" post="true" />
+            <set_value name="$SuccessCount" exact="$SuccessCount + 1" />
           </do_if>
         </do_all>
+
+        <do_if value="$SuccessCount gt 0">
+          <show_notification text="readtext.{98765}.{11}.[$SuccessCount]" timeout="6s" />
+        </do_if>
       </actions>
     </cue>
 
@@ -305,7 +520,9 @@
           </do_if>
         </do_all>
 
-        <debug_text text="'[SCM] Fire: ' + $Ships.count + ' ships'" filter="general" />
+        <debug_text text="'[SCM] Fire start: ' + $Ships.count + ' ships'" filter="general" />
+
+        <set_value name="$SuccessCount" exact="0" />
         <do_all exact="$Ships.count" counter="$i">
           <set_value name="$Ship" exact="$Ships.{$i}" />
           <do_if value="@$Ship.pilot">
@@ -319,8 +536,13 @@
             <destroy_object object="$Pilot" />
             
             <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{22}.[$Ship.knownname, ($PilotPiloting / 3), $PilotName]" post="true" />
+            <set_value name="$SuccessCount" exact="$SuccessCount + 1" />
           </do_if>
         </do_all>
+
+        <do_if value="$SuccessCount gt 0">
+          <show_notification text="readtext.{98765}.{13}.[$SuccessCount]" timeout="6s" sound="notification_warning" />
+        </do_if>
       </actions>
     </cue>
 
@@ -347,17 +569,59 @@
           </do_if>
         </do_all>
 
-        <debug_text text="'[SCM] Assign Callback Started. Target Ships Count: ' + $Ships.count" filter="general" />
+        <!-- Identify minimum/maximum skill limits based on action ID -->
+        <set_value name="$ActionId" exact="event.param.$id" />
+        <set_value name="$MinSkill" exact="-1" />
+        <set_value name="$MaxSkill" exact="9999" />
+        
+        <do_if value="$ActionId == 'scm_assign_5star'">
+          <set_value name="$MinSkill" exact="15" />
+        </do_if>
+        <do_elseif value="$ActionId == 'scm_assign_4star'">
+          <set_value name="$MinSkill" exact="12" />
+        </do_elseif>
+        <do_elseif value="$ActionId == 'scm_assign_3star'">
+          <set_value name="$MinSkill" exact="9" />
+        </do_elseif>
+        <do_elseif value="$ActionId == 'scm_assign_2star'">
+          <set_value name="$MinSkill" exact="6" />
+        </do_elseif>
+        <do_elseif value="$ActionId == 'scm_assign_1star'">
+          <set_value name="$MinSkill" exact="3" />
+        </do_elseif>
+        <do_elseif value="$ActionId == 'scm_assign_under_5star'">
+          <set_value name="$MaxSkill" exact="15" />
+        </do_elseif>
+        <do_elseif value="$ActionId == 'scm_assign_under_4star'">
+          <set_value name="$MaxSkill" exact="12" />
+        </do_elseif>
+        <do_elseif value="$ActionId == 'scm_assign_under_3star'">
+          <set_value name="$MaxSkill" exact="9" />
+        </do_elseif>
+        <do_elseif value="$ActionId == 'scm_assign_rookie'">
+          <set_value name="$MaxSkill" exact="6" />
+        </do_elseif>
+        <do_elseif value="$ActionId == 'scm_assign_under_1star'">
+          <set_value name="$MaxSkill" exact="3" />
+        </do_elseif>
 
-        <!-- Create split lists to sort by Priority 1: Class (XL > L > M > S) and Priority 2: Category (Combat > Civilian) -->
-        <create_list name="$Ships_XL" />
-        <create_list name="$Ships_L" />
-        <create_list name="$Ships_M" />
-        <create_list name="$Ships_S" />
-
+        <create_list name="$TargetShips" />
         <do_all exact="$Ships.count" counter="$i">
           <set_value name="$Ship" exact="$Ships.{$i}" />
           <do_if value="not @$Ship.pilot">
+            <append_to_list name="$TargetShips" exact="$Ship" />
+          </do_if>
+        </do_all>
+
+        <do_if value="$TargetShips.count gt 0">
+          <!-- Create split lists to sort by Priority 1: Class (XL > L > M > S) and Priority 2: Category (Combat > Civilian) -->
+          <create_list name="$Ships_XL" />
+          <create_list name="$Ships_L" />
+          <create_list name="$Ships_M" />
+          <create_list name="$Ships_S" />
+
+          <do_all exact="$TargetShips.count" counter="$i">
+            <set_value name="$Ship" exact="$TargetShips.{$i}" />
             <do_if value="$Ship.isclass.ship_xl">
               <append_to_list name="$Ships_XL" exact="$Ship" />
             </do_if>
@@ -370,163 +634,169 @@
             <do_elseif value="$Ship.isclass.ship_s">
               <append_to_list name="$Ships_S" exact="$Ship" />
             </do_elseif>
-          </do_if>
-        </do_all>
+          </do_all>
 
-        <create_list name="$SortedShips" />
+          <create_list name="$SortedShips" />
 
-        <!-- Define ship purpose priority list (fight > trade > mine > build) -->
-        <create_list name="$Purposes" />
-        <append_to_list name="$Purposes" exact="purpose.fight" />
-        <append_to_list name="$Purposes" exact="purpose.trade" />
-        <append_to_list name="$Purposes" exact="purpose.mine" />
-        <append_to_list name="$Purposes" exact="purpose.build" />
+          <!-- Define ship purpose priority list (fight > trade > mine > build) -->
+          <create_list name="$Purposes" />
+          <append_to_list name="$Purposes" exact="purpose.fight" />
+          <append_to_list name="$Purposes" exact="purpose.trade" />
+          <append_to_list name="$Purposes" exact="purpose.mine" />
+          <append_to_list name="$Purposes" exact="purpose.build" />
 
-        <!-- Collection of class lists for sorting loop -->
-        <create_list name="$ClassLists" />
-        <append_to_list name="$ClassLists" exact="$Ships_XL" />
-        <append_to_list name="$ClassLists" exact="$Ships_L" />
-        <append_to_list name="$ClassLists" exact="$Ships_M" />
-        <append_to_list name="$ClassLists" exact="$Ships_S" />
+          <!-- Collection of class lists for sorting loop -->
+          <create_list name="$ClassLists" />
+          <append_to_list name="$ClassLists" exact="$Ships_XL" />
+          <append_to_list name="$ClassLists" exact="$Ships_L" />
+          <append_to_list name="$ClassLists" exact="$Ships_M" />
+          <append_to_list name="$ClassLists" exact="$Ships_S" />
 
-        <!-- Iterate by class (XL -> L -> M -> S) and sort by purpose -->
-        <do_all exact="$ClassLists.count" counter="$c">
-          <set_value name="$CurrentClassList" exact="$ClassLists.{$c}" />
+          <!-- Iterate by class (XL -> L -> M -> S) and sort by purpose -->
+          <do_all exact="$ClassLists.count" counter="$c">
+            <set_value name="$CurrentClassList" exact="$ClassLists.{$c}" />
 
-          <!-- Step 1: Merge according to defined purposes -->
-          <do_all exact="$Purposes.count" counter="$p">
-            <set_value name="$CurrentPurpose" exact="$Purposes.{$p}" />
+            <!-- Step 1: Merge according to defined purposes -->
+            <do_all exact="$Purposes.count" counter="$p">
+              <set_value name="$CurrentPurpose" exact="$Purposes.{$p}" />
+              <do_all exact="$CurrentClassList.count" counter="$i">
+                <set_value name="$Ship" exact="$CurrentClassList.{$i}" />
+                <do_if value="$Ship.primarypurpose == $CurrentPurpose">
+                  <append_to_list name="$SortedShips" exact="$Ship" />
+                </do_if>
+              </do_all>
+            </do_all>
+
+            <!-- Step 2: Append ships with other (miscellaneous) purposes -->
             <do_all exact="$CurrentClassList.count" counter="$i">
               <set_value name="$Ship" exact="$CurrentClassList.{$i}" />
-              <do_if value="$Ship.primarypurpose == $CurrentPurpose">
+              <do_if value="not $Purposes.indexof.{$Ship.primarypurpose}">
                 <append_to_list name="$SortedShips" exact="$Ship" />
               </do_if>
             </do_all>
           </do_all>
 
-          <!-- Step 2: Append ships with other (miscellaneous) purposes -->
-          <do_all exact="$CurrentClassList.count" counter="$i">
-            <set_value name="$Ship" exact="$CurrentClassList.{$i}" />
-            <do_if value="not $Purposes.indexof.{$Ship.primarypurpose}">
-              <append_to_list name="$SortedShips" exact="$Ship" />
-            </do_if>
-          </do_all>
-        </do_all>
+          <debug_text text="'[SCM] Sorted target ships count: ' + $SortedShips.count" filter="general" />
 
-        <debug_text text="'[SCM] Sorted target ships count: ' + $SortedShips.count" filter="general" />
+          <!-- List of all player-owned ships (for candidate search; recursive="true" is required to find docked ships) -->
+          <find_ship name="$PlayerShips" owner="faction.player" multiple="true" space="player.galaxy" recursive="true" />
+          <debug_text text="'[SCM] Galaxy player ships found: ' + $PlayerShips.count" filter="general" />
 
-        <!-- List of all player-owned ships (for candidate search; recursive="true" is required to find docked ships) -->
-        <find_ship name="$PlayerShips" owner="faction.player" multiple="true" space="player.galaxy" recursive="true" />
-        <debug_text text="'[SCM] Galaxy player ships found: ' + $PlayerShips.count" filter="general" />
+          <!-- Lists to prevent duplicate assignments -->
+          <create_list name="$AssignedCandidates" />
+          <create_list name="$AssignedSeeds" />
 
-        <!-- Lists to prevent duplicate assignments -->
-        <create_list name="$AssignedCandidates" />
-        <create_list name="$AssignedSeeds" />
+          <!-- Now iterate through the sorted ships list and assign captains -->
+          <do_all exact="$SortedShips.count" counter="$i">
+            <set_value name="$Ship" exact="$SortedShips.{$i}" />
 
-        <!-- Now iterate through the sorted ships list and assign captains -->
-        <do_all exact="$SortedShips.count" counter="$i">
-          <set_value name="$Ship" exact="$SortedShips.{$i}" />
+            <set_value name="$BestCandidate" exact="null" />
+            <set_value name="$BestPiloting" exact="-1" />
+            <set_value name="$BestSource" exact="null" />
+            <set_value name="$BestSeed" exact="0" />
 
-          <set_value name="$BestCandidate" exact="null" />
-          <set_value name="$BestPiloting" exact="-1" />
-          <set_value name="$BestSource" exact="null" />
-          <set_value name="$BestSeed" exact="0" />
-
-          <!-- Step 1: Search for the best unassigned crew template within the target ship itself -->
-          <set_value name="$LocalPeople" exact="$Ship.people.list" />
-          <do_all exact="$LocalPeople.count" counter="$k">
-            <set_value name="$Template" exact="$LocalPeople.{$k}" />
-            <set_value name="$Role" exact="$Ship.people.{$Template}.role" />
-            <set_value name="$Seed" exact="@$Ship.people.{$Template}.seed" />
-            <set_value name="$NPC_Piloting" exact="$Ship.people.{$Template}.skill.{skilltype.piloting}" />
-            <set_value name="$IsAlreadyAssigned" exact="$AssignedCandidates.indexof.{$Template} or ($Seed gt 0 and $AssignedSeeds.indexof.{$Seed})" />
-            
-            <!-- Only templates that are unassigned and haven't been selected yet in this batch run -->
-            <do_if value="$Role == entityrole.unassigned and not $IsAlreadyAssigned">
-              <do_if value="$NPC_Piloting gt $BestPiloting">
-                <set_value name="$BestPiloting" exact="$NPC_Piloting" />
-                <set_value name="$BestCandidate" exact="$Template" />
-                <set_value name="$BestSource" exact="$Ship" />
-                <set_value name="$BestSeed" exact="$Seed" />
-              </do_if>
-            </do_if>
-          </do_all>
-
-          <!-- Step 2: If none found locally, search remote ships for unassigned crew templates -->
-          <do_if value="not $BestCandidate">
-            <do_all exact="$PlayerShips.count" counter="$j">
-              <set_value name="$PShip" exact="$PlayerShips.{$j}" />
-              <do_if value="$PShip != $Ship">
-                <set_value name="$RemotePeople" exact="$PShip.people.list" />
-                
-                <do_all exact="$RemotePeople.count" counter="$k">
-                  <set_value name="$Template" exact="$RemotePeople.{$k}" />
-                  <set_value name="$Role" exact="$PShip.people.{$Template}.role" />
-                  <set_value name="$Seed" exact="@$PShip.people.{$Template}.seed" />
-                  <set_value name="$NPC_Piloting" exact="$PShip.people.{$Template}.skill.{skilltype.piloting}" />
-                  <set_value name="$IsAlreadyAssigned" exact="$AssignedCandidates.indexof.{$Template} or ($Seed gt 0 and $AssignedSeeds.indexof.{$Seed})" />
-                  
-                  <do_if value="$Role == entityrole.unassigned and not $IsAlreadyAssigned">
-                    <do_if value="$NPC_Piloting gt $BestPiloting">
-                      <set_value name="$BestPiloting" exact="$NPC_Piloting" />
-                      <set_value name="$BestCandidate" exact="$Template" />
-                      <set_value name="$BestSource" exact="$PShip" />
-                      <set_value name="$BestSeed" exact="$Seed" />
-                    </do_if>
-                  </do_if>
-                </do_all>
+            <!-- Step 1: Search for the best unassigned crew template within the target ship itself -->
+            <set_value name="$LocalPeople" exact="$Ship.people.list" />
+            <do_all exact="$LocalPeople.count" counter="$k">
+              <set_value name="$Template" exact="$LocalPeople.{$k}" />
+              <set_value name="$Role" exact="$Ship.people.{$Template}.role" />
+              <set_value name="$Seed" exact="@$Ship.people.{$Template}.seed" />
+              <set_value name="$NPC_Piloting" exact="$Ship.people.{$Template}.skill.{skilltype.piloting}" />
+              <set_value name="$IsAlreadyAssigned" exact="$AssignedCandidates.indexof.{$Template} or ($Seed gt 0 and $AssignedSeeds.indexof.{$Seed})" />
+              
+              <!-- Only templates that are unassigned, match skill criteria and haven't been selected yet in this batch run -->
+              <do_if value="$Role == entityrole.unassigned and not $IsAlreadyAssigned">
+                <do_if value="$NPC_Piloting gt $BestPiloting and $NPC_Piloting ge $MinSkill and $NPC_Piloting lt $MaxSkill">
+                  <set_value name="$BestPiloting" exact="$NPC_Piloting" />
+                  <set_value name="$BestCandidate" exact="$Template" />
+                  <set_value name="$BestSource" exact="$Ship" />
+                  <set_value name="$BestSeed" exact="$Seed" />
+                </do_if>
               </do_if>
             </do_all>
-          </do_if>
 
-          <!-- Assign candidate if found -->
-          <do_if value="$BestCandidate">
-            <debug_text text="'[SCM] Candidate selected: ' + $BestCandidate + ' (skill: ' + $BestPiloting + ') from ' + $BestSource.knownname + ' (seed=' + $BestSeed + ')'" filter="general" />
-            
-            <!-- Check if the template already has an active NPC entity -->
-            <set_value name="$TargetActor" exact="$BestSource.roleentity.{$BestCandidate}" />
-
-            <do_if value="not $TargetActor">
-              <!-- No active entity; instantiate NPC from template -->
-              <create_npc_from_template name="$TargetActor" object="$BestSource" template="$BestCandidate" owner="faction.player" placementobject="$Ship" required="true" />
+            <!-- Step 2: If none found locally, search remote ships for unassigned crew templates -->
+            <do_if value="not $BestCandidate">
+              <do_all exact="$PlayerShips.count" counter="$j">
+                <set_value name="$PShip" exact="$PlayerShips.{$j}" />
+                <do_if value="$PShip != $Ship">
+                  <set_value name="$RemotePeople" exact="$PShip.people.list" />
+                  
+                  <do_all exact="$RemotePeople.count" counter="$k">
+                    <set_value name="$Template" exact="$RemotePeople.{$k}" />
+                    <set_value name="$Role" exact="$PShip.people.{$Template}.role" />
+                    <set_value name="$Seed" exact="@$PShip.people.{$Template}.seed" />
+                    <set_value name="$NPC_Piloting" exact="$PShip.people.{$Template}.skill.{skilltype.piloting}" />
+                    <set_value name="$IsAlreadyAssigned" exact="$AssignedCandidates.indexof.{$Template} or ($Seed gt 0 and $AssignedSeeds.indexof.{$Seed})" />
+                    
+                    <do_if value="$Role == entityrole.unassigned and not $IsAlreadyAssigned">
+                      <do_if value="$NPC_Piloting gt $BestPiloting and $NPC_Piloting ge $MinSkill and $NPC_Piloting lt $MaxSkill">
+                        <set_value name="$BestPiloting" exact="$NPC_Piloting" />
+                        <set_value name="$BestCandidate" exact="$Template" />
+                        <set_value name="$BestSource" exact="$PShip" />
+                        <set_value name="$BestSeed" exact="$Seed" />
+                      </do_if>
+                    </do_if>
+                  </do_all>
+                </do_if>
+              </do_all>
             </do_if>
 
-            <do_if value="$TargetActor">
-              <debug_text text="'[SCM] Assigning ' + $TargetActor.knownname + ' (skill ' + $BestPiloting + ') to ' + $Ship.knownname" filter="general" />
-              <assign_control_entity actor="$TargetActor" object="$Ship" role="controlrole.pilot" post="controlpost.aipilot" transfer="true" init="true" />
+            <!-- Assign candidate if found -->
+            <do_if value="$BestCandidate">
+              <debug_text text="'[SCM] Candidate selected: ' + $BestCandidate + ' (skill: ' + $BestPiloting + ') from ' + $BestSource.knownname + ' (seed=' + $BestSeed + ')'" filter="general" />
               
-              <!-- Add selected template and seed to lists to prevent double assignment -->
-              <append_to_list name="$AssignedCandidates" exact="$BestCandidate" />
-              <do_if value="$BestSeed gt 0">
-                <append_to_list name="$AssignedSeeds" exact="$BestSeed" />
+              <!-- Check if the template already has an active NPC entity -->
+              <set_value name="$TargetActor" exact="$BestSource.roleentity.{$BestCandidate}" />
+
+              <do_if value="not $TargetActor">
+                <!-- No active entity; instantiate NPC from template -->
+                <create_npc_from_template name="$TargetActor" object="$BestSource" template="$BestCandidate" owner="faction.player" placementobject="$Ship" required="true" />
               </do_if>
 
-              <!-- Template transferred; remove template from the source ship -->
-              <do_if value="$BestSource.people.{$BestCandidate}.exists">
-                <remove_npc_template object="$BestSource" template="$BestCandidate" />
-              </do_if>
+              <do_if value="$TargetActor">
+                <debug_text text="'[SCM] Assigning ' + $TargetActor.knownname + ' (skill ' + $BestPiloting + ') to ' + $Ship.knownname" filter="general" />
+                <assign_control_entity actor="$TargetActor" object="$Ship" role="controlrole.pilot" post="controlpost.aipilot" transfer="true" init="true" />
+                
+                <!-- Add selected template and seed to lists to prevent double assignment -->
+                <append_to_list name="$AssignedCandidates" exact="$BestCandidate" />
+                <do_if value="$BestSeed gt 0">
+                  <append_to_list name="$AssignedSeeds" exact="$BestSeed" />
+                </do_if>
 
-              <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{23}.[$Ship.knownname, ($BestPiloting / 3), $TargetActor.knownname]" post="true" />
+                <!-- Template transferred; remove template from the source ship -->
+                <do_if value="$BestSource.people.{$BestCandidate}.exists">
+                  <remove_npc_template object="$BestSource" template="$BestCandidate" />
+                </do_if>
+
+                <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{23}.[$Ship.knownname, ($BestPiloting / 3), $TargetActor.knownname]" post="true" />
+              </do_if>
+              <do_else>
+                <debug_text text="'[SCM] Failed to instantiate candidate: ' + $BestCandidate + ' for ' + $Ship.knownname" filter="general" />
+              </do_else>
             </do_if>
             <do_else>
-              <debug_text text="'[SCM] Failed to instantiate candidate: ' + $BestCandidate + ' for ' + $Ship.knownname" filter="general" />
+              <debug_text text="'[SCM] Failed to find candidate for ' + $Ship.knownname" filter="general" />
+            </do_else>
+          </do_all>
+
+          <!-- Report results -->
+          <do_if value="$AssignedCandidates.count gt 0">
+            <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{12}.[$AssignedCandidates.count]" post="true" />
+            <show_notification text="readtext.{98765}.{12}.[$AssignedCandidates.count]" timeout="6s" />
+          </do_if>
+
+          <set_value name="$FailedCount" exact="$SortedShips.count - $AssignedCandidates.count" />
+          <do_if value="$FailedCount gt 0">
+            <do_if value="$SortedShips.count == 1">
+              <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{29}.[$SortedShips.{1}.knownname]" post="true" />
+              <show_notification text="readtext.{98765}.{29}.[$SortedShips.{1}.knownname]" timeout="6s" sound="notification_warning" />
+            </do_if>
+            <do_else>
+              <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{27}.[$FailedCount, $SortedShips.count]" post="true" />
+              <show_notification text="readtext.{98765}.{27}.[$FailedCount, $SortedShips.count]" timeout="6s" sound="notification_warning" />
             </do_else>
           </do_if>
-          <do_else>
-            <debug_text text="'[SCM] Failed to find candidate for ' + $Ship.knownname" filter="general" />
-          </do_else>
-        </do_all>
-
-        <set_value name="$FailedCount" exact="$SortedShips.count - $AssignedCandidates.count" />
-        <do_if value="$FailedCount gt 0">
-          <do_if value="$SortedShips.count == 1">
-            <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{29}.[$SortedShips.{1}.knownname]" post="true" />
-            <show_notification text="readtext.{98765}.{29}.[$SortedShips.{1}.knownname]" timeout="6s" sound="notification_warning" />
-          </do_if>
-          <do_else>
-            <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{27}.[$FailedCount, $SortedShips.count]" post="true" />
-            <show_notification text="readtext.{98765}.{27}.[$FailedCount, $SortedShips.count]" timeout="6s" sound="notification_warning" />
-          </do_else>
         </do_if>
       </actions>
     </cue>
@@ -545,6 +815,9 @@
         <do_if value="(@$Ship.isclass.ship or @$Ship.isclass.station) and $Ship.isplayerowned">
           <set_value name="$FreeSlots" exact="$Ship.people.free" />
           <do_if value="$FreeSlots gt 0">
+            <set_value name="$MinSkill" exact="-1" />
+            <set_value name="$MaxSkill" exact="9999" />
+
             <!-- 1. Find player-owned ships and stations -->
             <find_ship name="$PlayerShips" owner="faction.player" multiple="true" space="player.galaxy" recursive="true" />
             <find_station name="$PlayerStations" owner="faction.player" multiple="true" space="player.galaxy" />
@@ -576,14 +849,18 @@
                       $Source.people.{$Template}.skill.boarding,
                       $Source.people.{$Template}.skill.management
                     ].max" />
-                    <set_value name="$Morale" exact="$Source.people.{$Template}.skill.morale" />
-                    <set_value name="$Score" exact="($MaxBase * 3) + $Morale" />
+                    
+                    <!-- Filter based on skill criteria -->
+                    <do_if value="$MaxBase ge $MinSkill and $MaxBase lt $MaxSkill">
+                      <set_value name="$Morale" exact="$Source.people.{$Template}.skill.morale" />
+                      <set_value name="$Score" exact="($MaxBase * 3) + $Morale" />
 
-                    <append_to_list name="$Candidates" exact="table[
-                      $source = $Source,
-                      $template = $Template,
-                      $score = $Score
-                    ]" />
+                      <append_to_list name="$Candidates" exact="table[
+                        $source = $Source,
+                        $template = $Template,
+                        $score = $Score
+                      ]" />
+                    </do_if>
                   </do_if>
                 </do_all>
               </do_if>
@@ -591,64 +868,66 @@
 
             <debug_text text="'[SCM] Found ' + $Candidates.count + ' unassigned candidates. Capacity left: ' + $FreeSlots" filter="general" />
 
-            <!-- 3. Select the highest scoring crew members up to $FreeSlots -->
-            <set_value name="$TotalCandidatesCount" exact="$Candidates.count" />
-            <create_list name="$SelectedCandidates" />
-            <set_value name="$LoopCount" exact="if $FreeSlots lt $Candidates.count then $FreeSlots else $Candidates.count" />
+            <do_if value="$Candidates.count gt 0">
+              <!-- 3. Select the highest scoring crew members up to $FreeSlots -->
+              <set_value name="$TotalCandidatesCount" exact="$Candidates.count" />
+              <create_list name="$SelectedCandidates" />
+              <set_value name="$LoopCount" exact="if $FreeSlots lt $Candidates.count then $FreeSlots else $Candidates.count" />
 
-            <do_all exact="$LoopCount">
-              <set_value name="$BestIdx" exact="0" />
-              <set_value name="$BestScore" exact="-1" />
-              <do_all exact="$Candidates.count" counter="$idx">
-                <do_if value="$Candidates.{$idx}.$score gt $BestScore">
-                  <set_value name="$BestScore" exact="$Candidates.{$idx}.$score" />
-                  <set_value name="$BestIdx" exact="$idx" />
+              <do_all exact="$LoopCount">
+                <set_value name="$BestIdx" exact="0" />
+                <set_value name="$BestScore" exact="-1" />
+                <do_all exact="$Candidates.count" counter="$idx">
+                  <do_if value="$Candidates.{$idx}.$score gt $BestScore">
+                    <set_value name="$BestScore" exact="$Candidates.{$idx}.$score" />
+                    <set_value name="$BestIdx" exact="$idx" />
+                  </do_if>
+                </do_all>
+                <do_if value="$BestIdx gt 0">
+                  <append_to_list name="$SelectedCandidates" exact="$Candidates.{$BestIdx}" />
+                  <remove_from_list name="$Candidates" exact="$Candidates.{$BestIdx}" />
                 </do_if>
               </do_all>
-              <do_if value="$BestIdx gt 0">
-                <append_to_list name="$SelectedCandidates" exact="$Candidates.{$BestIdx}" />
-                <remove_from_list name="$Candidates" exact="$Candidates.{$BestIdx}" />
-              </do_if>
-            </do_all>
 
-            <!-- 4. Group by source object and transfer -->
-            <create_list name="$UniqueSources" />
-            <do_all exact="$SelectedCandidates.count" counter="$i">
-              <set_value name="$Src" exact="$SelectedCandidates.{$i}.$source" />
-              <do_if value="not $UniqueSources.indexof.{$Src}">
-                <append_to_list name="$UniqueSources" exact="$Src" />
-              </do_if>
-            </do_all>
-
-            <set_value name="$TotalTransferred" exact="0" />
-            <do_all exact="$UniqueSources.count" counter="$s">
-              <set_value name="$Src" exact="$UniqueSources.{$s}" />
-              <create_list name="$LocalTemplates" />
+              <!-- 4. Group by source object and transfer -->
+              <create_list name="$UniqueSources" />
               <do_all exact="$SelectedCandidates.count" counter="$i">
-                <do_if value="$SelectedCandidates.{$i}.$source == $Src">
-                  <append_to_list name="$LocalTemplates" exact="$SelectedCandidates.{$i}.$template" />
+                <set_value name="$Src" exact="$SelectedCandidates.{$i}.$source" />
+                <do_if value="not $UniqueSources.indexof.{$Src}">
+                  <append_to_list name="$UniqueSources" exact="$Src" />
                 </do_if>
               </do_all>
 
-              <do_if value="$LocalTemplates.count gt 0">
-                <debug_text text="'[SCM] Transferring ' + $LocalTemplates.count + ' templates from ' + $Src.knownname + ' to ' + $Ship.knownname" filter="general" />
-                <transfer_people object="$Ship" otherobject="$Src" result="$Transferred" force="true">
-                  <existing_people people="$LocalTemplates" />
-                </transfer_people>
-                <set_value name="$TotalTransferred" exact="$TotalTransferred + $Transferred.count" />
-              </do_if>
-            </do_all>
+              <set_value name="$TotalTransferred" exact="0" />
+              <do_all exact="$UniqueSources.count" counter="$s">
+                <set_value name="$Src" exact="$UniqueSources.{$s}" />
+                <create_list name="$LocalTemplates" />
+                <do_all exact="$SelectedCandidates.count" counter="$i">
+                  <do_if value="$SelectedCandidates.{$i}.$source == $Src">
+                    <append_to_list name="$LocalTemplates" exact="$SelectedCandidates.{$i}.$template" />
+                  </do_if>
+                </do_all>
 
-            <!-- 5. Write to logbook and show notification -->
-            <do_if value="$TotalTransferred gt 0">
-              <do_if value="$TotalCandidatesCount gt $TotalTransferred">
-                <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{28}.[$Ship.knownname, $TotalTransferred, $TotalCandidatesCount]" post="true" />
-                <show_notification text="readtext.{98765}.{28}.[$Ship.knownname, $TotalTransferred, $TotalCandidatesCount]" timeout="6s" />
+                <do_if value="$LocalTemplates.count gt 0">
+                  <debug_text text="'[SCM] Transferring ' + $LocalTemplates.count + ' templates from ' + $Src.knownname + ' to ' + $Ship.knownname" filter="general" />
+                  <transfer_people object="$Ship" otherobject="$Src" result="$Transferred" force="true">
+                    <existing_people people="$LocalTemplates" />
+                  </transfer_people>
+                  <set_value name="$TotalTransferred" exact="$TotalTransferred + $Transferred.count" />
+                </do_if>
+              </do_all>
+
+              <!-- 5. Write to logbook and show notification -->
+              <do_if value="$TotalTransferred gt 0">
+                <do_if value="$TotalCandidatesCount gt $TotalTransferred">
+                  <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{28}.[$Ship.knownname, $TotalTransferred, $TotalCandidatesCount]" post="true" />
+                  <show_notification text="readtext.{98765}.{28}.[$Ship.knownname, $TotalTransferred, $TotalCandidatesCount]" timeout="6s" />
+                </do_if>
+                <do_else>
+                  <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{24}.[$Ship.knownname, $TotalTransferred]" post="true" />
+                  <show_notification text="readtext.{98765}.{24}.[$Ship.knownname, $TotalTransferred]" timeout="6s" />
+                </do_else>
               </do_if>
-              <do_else>
-                <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{24}.[$Ship.knownname, $TotalTransferred]" post="true" />
-                <show_notification text="readtext.{98765}.{24}.[$Ship.knownname, $TotalTransferred]" timeout="6s" />
-              </do_else>
             </do_if>
             <do_else>
               <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{33}.[$Ship.knownname]" post="true" />
@@ -662,7 +941,7 @@
     <!-- ============================================================
          6. Batch Use Seminars Callback
          - Check piloting skill of captains on selected ships
-         - Check inventory for required piloting seminars, consume 1, and raise skill
+         - Check inventory for required piloting seminars, consume, and raise skill
          ============================================================ -->
     <cue name="scm_use_seminar_callback" instantiate="true">
       <conditions>
@@ -688,68 +967,106 @@
         <set_value name="$Used_3" exact="0" />
         <set_value name="$Used_4" exact="0" />
 
+        <set_value name="$ActionId" exact="event.param.$id" />
+
         <do_all exact="$Ships.count" counter="$i">
           <set_value name="$Ship" exact="$Ships.{$i}" />
           <do_if value="@$Ship.pilot">
             <set_value name="$Pilot" exact="$Ship.pilot" />
-            <set_value name="$Piloting" exact="$Pilot.skill.piloting" />
             
-            <do_if value="$Piloting lt 15">
-              <set_value name="$TargetSeminar" exact="null" />
-              <set_value name="$TargetSkillVal" exact="if ($Piloting + 3) gt 15 then 15 else ($Piloting + 3)" />
-              <set_value name="$SeminarIndex" exact="-1" />
+            <set_value name="$LoopEnded" exact="false" />
+            <!-- Max 5 upgrades can happen per pilot -->
+            <do_all exact="5">
+              <do_if value="not $LoopEnded">
+                <set_value name="$Piloting" exact="$Pilot.skill.piloting" />
+                <set_value name="$TargetSeminar" exact="null" />
+                <set_value name="$SeminarIndex" exact="-1" />
+                <set_value name="$TargetSkillVal" exact="if ($Piloting + 3) gt 15 then 15 else ($Piloting + 3)" />
 
-              <!-- Apply vanilla seminar mapping rules (5 tiers) -->
-              <do_if value="$Piloting lt 3">
-                <!-- Under 1-star -> Basic piloting seminar -->
-                <set_value name="$TargetSeminar" exact="ware.inv_seminar_piloting_0" />
-                <set_value name="$SeminarIndex" exact="0" />
-              </do_if>
-              <do_elseif value="$Piloting ge 3 and $Piloting lt 6">
-                <!-- 1-star range -> 1-star piloting seminar -->
-                <set_value name="$TargetSeminar" exact="ware.inv_seminar_piloting_1" />
-                <set_value name="$SeminarIndex" exact="1" />
-              </do_elseif>
-              <do_elseif value="$Piloting ge 6 and $Piloting lt 9">
-                <!-- 2-star range -> 2-star piloting seminar -->
-                <set_value name="$TargetSeminar" exact="ware.inv_seminar_piloting_2" />
-                <set_value name="$SeminarIndex" exact="2" />
-              </do_elseif>
-              <do_elseif value="$Piloting ge 9 and $Piloting lt 12">
-                <!-- 3-star range -> 3-star piloting seminar -->
-                <set_value name="$TargetSeminar" exact="ware.inv_seminar_piloting_3" />
-                <set_value name="$SeminarIndex" exact="3" />
-              </do_elseif>
-              <do_elseif value="$Piloting ge 12 and $Piloting lt 15">
-                <!-- 4-star range -> 4-star piloting seminar -->
-                <set_value name="$TargetSeminar" exact="ware.inv_seminar_piloting_4" />
-                <set_value name="$SeminarIndex" exact="4" />
-              </do_elseif>
+                <!-- Apply vanilla seminar mapping rules (5 tiers) -->
+                <do_if value="$Piloting lt 3">
+                  <!-- Under 1-star -> Basic piloting seminar -->
+                  <set_value name="$TargetSeminar" exact="ware.inv_seminar_piloting_0" />
+                  <set_value name="$SeminarIndex" exact="0" />
+                </do_if>
+                <do_elseif value="$Piloting ge 3 and $Piloting lt 6">
+                  <!-- 1-star range -> 1-star piloting seminar -->
+                  <set_value name="$TargetSeminar" exact="ware.inv_seminar_piloting_1" />
+                  <set_value name="$SeminarIndex" exact="1" />
+                </do_elseif>
+                <do_elseif value="$Piloting ge 6 and $Piloting lt 9">
+                  <!-- 2-star range -> 2-star piloting seminar -->
+                  <set_value name="$TargetSeminar" exact="ware.inv_seminar_piloting_2" />
+                  <set_value name="$SeminarIndex" exact="2" />
+                </do_elseif>
+                <do_elseif value="$Piloting ge 9 and $Piloting lt 12">
+                  <!-- 3-star range -> 3-star piloting seminar -->
+                  <set_value name="$TargetSeminar" exact="ware.inv_seminar_piloting_3" />
+                  <set_value name="$SeminarIndex" exact="3" />
+                </do_elseif>
+                <do_elseif value="$Piloting ge 12 and $Piloting lt 15">
+                  <!-- 4-star range -> 4-star piloting seminar -->
+                  <set_value name="$TargetSeminar" exact="ware.inv_seminar_piloting_4" />
+                  <set_value name="$SeminarIndex" exact="4" />
+                </do_elseif>
 
-              <!-- Check if the seminar exists in player inventory and consume it -->
-              <do_if value="$TargetSeminar != null and player.entity.inventory.{$TargetSeminar}.count gt 0">
-                <remove_inventory entity="player.entity" ware="$TargetSeminar" exact="1" />
-                <set_skill entity="$Pilot" type="skilltype.piloting" exact="$TargetSkillVal" />
-                
-                <set_value name="$SuccessCount" exact="$SuccessCount + 1" />
-                
-                <do_if value="$SeminarIndex == 0">
-                  <set_value name="$Used_0" exact="$Used_0 + 1" />
+                <!-- Check maximum skill limit based on ActionId -->
+                <set_value name="$LimitPass" exact="false" />
+                <do_if value="$TargetSeminar != null">
+                  <do_if value="$ActionId == 'scm_seminar_max'">
+                    <set_value name="$LimitPass" exact="true" />
+                  </do_if>
+                  <do_elseif value="$ActionId == 'scm_seminar_4star' and $Piloting lt 12">
+                    <set_value name="$LimitPass" exact="true" />
+                  </do_elseif>
+                  <do_elseif value="$ActionId == 'scm_seminar_3star' and $Piloting lt 9">
+                    <set_value name="$LimitPass" exact="true" />
+                  </do_elseif>
+                  <do_elseif value="$ActionId == 'scm_seminar_2star' and $Piloting lt 6">
+                    <set_value name="$LimitPass" exact="true" />
+                  </do_elseif>
+                  <do_elseif value="$ActionId == 'scm_seminar_1star' and $Piloting lt 3">
+                    <set_value name="$LimitPass" exact="true" />
+                  </do_elseif>
+                  <do_elseif value="$ActionId == 'scm_seminar_single'">
+                    <set_value name="$LimitPass" exact="true" />
+                  </do_elseif>
                 </do_if>
-                <do_if value="$SeminarIndex == 1">
-                  <set_value name="$Used_1" exact="$Used_1 + 1" />
+
+                <!-- Check if the seminar exists in player inventory and consume it -->
+                <do_if value="$LimitPass and player.entity.inventory.{$TargetSeminar}.count gt 0">
+                  <remove_inventory entity="player.entity" ware="$TargetSeminar" exact="1" />
+                  <set_skill entity="$Pilot" type="skilltype.piloting" exact="$TargetSkillVal" />
+                  
+                  <set_value name="$SuccessCount" exact="$SuccessCount + 1" />
+                  
+                  <do_if value="$SeminarIndex == 0">
+                    <set_value name="$Used_0" exact="$Used_0 + 1" />
+                  </do_if>
+                  <do_if value="$SeminarIndex == 1">
+                    <set_value name="$Used_1" exact="$Used_1 + 1" />
+                  </do_if>
+                  <do_if value="$SeminarIndex == 2">
+                    <set_value name="$Used_2" exact="$Used_2 + 1" />
+                  </do_if>
+                  <do_if value="$SeminarIndex == 3">
+                    <set_value name="$Used_3" exact="$Used_3 + 1" />
+                  </do_if>
+                  <do_if value="$SeminarIndex == 4">
+                    <set_value name="$Used_4" exact="$Used_4 + 1" />
+                  </do_if>
+                  
+                  <!-- If only single training mode, break loop immediately -->
+                  <do_if value="$ActionId == 'scm_seminar_single'">
+                    <set_value name="$LoopEnded" exact="true" />
+                  </do_if>
                 </do_if>
-                <do_if value="$SeminarIndex == 2">
-                  <set_value name="$Used_2" exact="$Used_2 + 1" />
-                </do_if>
-                <do_if value="$SeminarIndex == 3">
-                  <set_value name="$Used_3" exact="$Used_3 + 1" />
-                </do_if>
-                <do_if value="$SeminarIndex == 4">
-                  <set_value name="$Used_4" exact="$Used_4 + 1" />
-                </do_if>
+                <do_else>
+                  <!-- No available seminar or limit reached -> stop continuous training for this captain -->
+                  <set_value name="$LoopEnded" exact="true" />
+                </do_else>
               </do_if>
-            </do_if>
+            </do_all>
           </do_if>
         </do_all>
 
