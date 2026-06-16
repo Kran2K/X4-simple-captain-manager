@@ -38,15 +38,15 @@
           <!-- Determine Kuertee UI Extensions section names based on selection count and register groups -->
           <set_value name="$s_assign" exact="if $ShipsCount gt 1 then 'orders_scm_assign' else 'actions_scm_assign'" />
           <raise_lua_event name="'Interact_Menu_API.Add_Custom_Actions_Group_Id'" param="$s_assign" />
-          <raise_lua_event name="'Interact_Menu_API.Add_Custom_Actions_Group_Text'" param="readtext.{98765}.{90}" />
+          <raise_lua_event name="'Interact_Menu_API.Add_Custom_Actions_Group_Text'" param="readtext.{98765}.{10}" />
 
           <set_value name="$s_seminar" exact="if $ShipsCount gt 1 then 'orders_scm_seminar' else 'actions_scm_seminar'" />
           <raise_lua_event name="'Interact_Menu_API.Add_Custom_Actions_Group_Id'" param="$s_seminar" />
-          <raise_lua_event name="'Interact_Menu_API.Add_Custom_Actions_Group_Text'" param="readtext.{98765}.{91}" />
+          <raise_lua_event name="'Interact_Menu_API.Add_Custom_Actions_Group_Text'" param="readtext.{98765}.{11}" />
 
           <set_value name="$s_other" exact="if $ShipsCount gt 1 then 'orders_scm_other' else 'actions_scm_other'" />
           <raise_lua_event name="'Interact_Menu_API.Add_Custom_Actions_Group_Id'" param="$s_other" />
-          <raise_lua_event name="'Interact_Menu_API.Add_Custom_Actions_Group_Text'" param="readtext.{98765}.{93}" />
+          <raise_lua_event name="'Interact_Menu_API.Add_Custom_Actions_Group_Text'" param="readtext.{98765}.{12}" />
   
           <!-- 1. Assign Captain Group -->
           <do_if value="not $IsStation">
@@ -129,17 +129,17 @@
             <set_value name="$Active_assign_under_1star" exact="$ReqAssignCount gt 0 and $Avail_under1 gt 0" />
 
             <!-- Set up Assign Tooltips based on Active status of each option -->
-            <set_value name="$AssignMouseover_all" exact="if not $Active_assign_all then (if $ReqAssignCount == 0 then readtext.{98765}.{32} else readtext.{98765}.{150}) else readtext.{98765}.{150}" />
-            <set_value name="$AssignMouseover_5star" exact="if not $Active_assign_5star then (if $ReqAssignCount == 0 then readtext.{98765}.{32} else readtext.{98765}.{111}) else readtext.{98765}.{111}" />
-            <set_value name="$AssignMouseover_4star" exact="if not $Active_assign_4star then (if $ReqAssignCount == 0 then readtext.{98765}.{32} else readtext.{98765}.{154}) else readtext.{98765}.{154}" />
-            <set_value name="$AssignMouseover_3star" exact="if not $Active_assign_3star then (if $ReqAssignCount == 0 then readtext.{98765}.{32} else readtext.{98765}.{151}) else readtext.{98765}.{151}" />
-            <set_value name="$AssignMouseover_2star" exact="if not $Active_assign_2star then (if $ReqAssignCount == 0 then readtext.{98765}.{32} else readtext.{98765}.{152}) else readtext.{98765}.{152}" />
-            <set_value name="$AssignMouseover_1star" exact="if not $Active_assign_1star then (if $ReqAssignCount == 0 then readtext.{98765}.{32} else readtext.{98765}.{155}) else readtext.{98765}.{155}" />
-            <set_value name="$AssignMouseover_under_5star" exact="if not $Active_assign_under_5star then (if $ReqAssignCount == 0 then readtext.{98765}.{32} else readtext.{98765}.{156}) else readtext.{98765}.{156}" />
-            <set_value name="$AssignMouseover_under_4star" exact="if not $Active_assign_under_4star then (if $ReqAssignCount == 0 then readtext.{98765}.{32} else readtext.{98765}.{157}) else readtext.{98765}.{157}" />
-            <set_value name="$AssignMouseover_under_3star" exact="if not $Active_assign_under_3star then (if $ReqAssignCount == 0 then readtext.{98765}.{32} else readtext.{98765}.{158}) else readtext.{98765}.{158}" />
-            <set_value name="$AssignMouseover_under_2star" exact="if not $Active_assign_under_2star then (if $ReqAssignCount == 0 then readtext.{98765}.{32} else readtext.{98765}.{153}) else readtext.{98765}.{153}" />
-            <set_value name="$AssignMouseover_under_1star" exact="if not $Active_assign_under_1star then (if $ReqAssignCount == 0 then readtext.{98765}.{32} else readtext.{98765}.{159}) else readtext.{98765}.{159}" />
+            <set_value name="$AssignMouseover_all" exact="if not $Active_assign_all then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{210}) else readtext.{98765}.{210}" />
+            <set_value name="$AssignMouseover_5star" exact="if not $Active_assign_5star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{209}) else readtext.{98765}.{209}" />
+            <set_value name="$AssignMouseover_4star" exact="if not $Active_assign_4star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{214}) else readtext.{98765}.{214}" />
+            <set_value name="$AssignMouseover_3star" exact="if not $Active_assign_3star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{211}) else readtext.{98765}.{211}" />
+            <set_value name="$AssignMouseover_2star" exact="if not $Active_assign_2star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{212}) else readtext.{98765}.{212}" />
+            <set_value name="$AssignMouseover_1star" exact="if not $Active_assign_1star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{215}) else readtext.{98765}.{215}" />
+            <set_value name="$AssignMouseover_under_5star" exact="if not $Active_assign_under_5star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{216}) else readtext.{98765}.{216}" />
+            <set_value name="$AssignMouseover_under_4star" exact="if not $Active_assign_under_4star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{217}) else readtext.{98765}.{217}" />
+            <set_value name="$AssignMouseover_under_3star" exact="if not $Active_assign_under_3star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{218}) else readtext.{98765}.{218}" />
+            <set_value name="$AssignMouseover_under_2star" exact="if not $Active_assign_under_2star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{213}) else readtext.{98765}.{213}" />
+            <set_value name="$AssignMouseover_under_1star" exact="if not $Active_assign_under_1star then (if $ReqAssignCount == 0 then readtext.{98765}.{401} else readtext.{98765}.{219}) else readtext.{98765}.{219}" />
 
             <!-- Add shortage/mixed warning strings when unassigned crew is insufficient or selection is mixed -->
             <do_if value="$ReqAssignCount gt 0">
@@ -160,180 +160,180 @@
               <!-- 1. All -->
               <do_if value="$AlreadyPilotShips gt 0">
                 <do_if value="$ShortCrew_all gt 0">
-                  <set_value name="$AssignMouseover_all" exact="$AssignMouseover_all + '\n' + readtext.{98765}.{223}.[$AlreadyPilotShips, $Avail_all]" />
+                  <set_value name="$AssignMouseover_all" exact="$AssignMouseover_all + '\n' + readtext.{98765}.{417}.[$AlreadyPilotShips, $Avail_all]" />
                 </do_if>
                 <do_else>
-                  <set_value name="$AssignMouseover_all" exact="$AssignMouseover_all + '\n' + readtext.{98765}.{222}.[$AlreadyPilotShips, $ReqAssignCount]" />
+                  <set_value name="$AssignMouseover_all" exact="$AssignMouseover_all + '\n' + readtext.{98765}.{416}.[$AlreadyPilotShips, $ReqAssignCount]" />
                 </do_else>
               </do_if>
               <do_else>
                 <do_if value="$ShortCrew_all gt 0">
-                  <set_value name="$AssignMouseover_all" exact="$AssignMouseover_all + '\n' + readtext.{98765}.{210}" />
+                  <set_value name="$AssignMouseover_all" exact="$AssignMouseover_all + '\n' + readtext.{98765}.{415}" />
                 </do_if>
               </do_else>
 
               <!-- 2. 5star -->
               <do_if value="$AlreadyPilotShips gt 0">
                 <do_if value="$ShortCrew_5star gt 0">
-                  <set_value name="$AssignMouseover_5star" exact="$AssignMouseover_5star + '\n' + readtext.{98765}.{223}.[$AlreadyPilotShips, $Avail_5star]" />
+                  <set_value name="$AssignMouseover_5star" exact="$AssignMouseover_5star + '\n' + readtext.{98765}.{417}.[$AlreadyPilotShips, $Avail_5star]" />
                 </do_if>
                 <do_else>
-                  <set_value name="$AssignMouseover_5star" exact="$AssignMouseover_5star + '\n' + readtext.{98765}.{222}.[$AlreadyPilotShips, $ReqAssignCount]" />
+                  <set_value name="$AssignMouseover_5star" exact="$AssignMouseover_5star + '\n' + readtext.{98765}.{416}.[$AlreadyPilotShips, $ReqAssignCount]" />
                 </do_else>
               </do_if>
               <do_else>
                 <do_if value="$ShortCrew_5star gt 0">
-                  <set_value name="$AssignMouseover_5star" exact="$AssignMouseover_5star + '\n' + readtext.{98765}.{210}" />
+                  <set_value name="$AssignMouseover_5star" exact="$AssignMouseover_5star + '\n' + readtext.{98765}.{415}" />
                 </do_if>
               </do_else>
 
               <!-- 3. 4star -->
               <do_if value="$AlreadyPilotShips gt 0">
                 <do_if value="$ShortCrew_4star gt 0">
-                  <set_value name="$AssignMouseover_4star" exact="$AssignMouseover_4star + '\n' + readtext.{98765}.{223}.[$AlreadyPilotShips, $Avail_4star]" />
+                  <set_value name="$AssignMouseover_4star" exact="$AssignMouseover_4star + '\n' + readtext.{98765}.{417}.[$AlreadyPilotShips, $Avail_4star]" />
                 </do_if>
                 <do_else>
-                  <set_value name="$AssignMouseover_4star" exact="$AssignMouseover_4star + '\n' + readtext.{98765}.{222}.[$AlreadyPilotShips, $ReqAssignCount]" />
+                  <set_value name="$AssignMouseover_4star" exact="$AssignMouseover_4star + '\n' + readtext.{98765}.{416}.[$AlreadyPilotShips, $ReqAssignCount]" />
                 </do_else>
               </do_if>
               <do_else>
                 <do_if value="$ShortCrew_4star gt 0">
-                  <set_value name="$AssignMouseover_4star" exact="$AssignMouseover_4star + '\n' + readtext.{98765}.{210}" />
+                  <set_value name="$AssignMouseover_4star" exact="$AssignMouseover_4star + '\n' + readtext.{98765}.{415}" />
                 </do_if>
               </do_else>
 
               <!-- 4. 3star -->
               <do_if value="$AlreadyPilotShips gt 0">
                 <do_if value="$ShortCrew_3star gt 0">
-                  <set_value name="$AssignMouseover_3star" exact="$AssignMouseover_3star + '\n' + readtext.{98765}.{223}.[$AlreadyPilotShips, $Avail_3star]" />
+                  <set_value name="$AssignMouseover_3star" exact="$AssignMouseover_3star + '\n' + readtext.{98765}.{417}.[$AlreadyPilotShips, $Avail_3star]" />
                 </do_if>
                 <do_else>
-                  <set_value name="$AssignMouseover_3star" exact="$AssignMouseover_3star + '\n' + readtext.{98765}.{222}.[$AlreadyPilotShips, $ReqAssignCount]" />
+                  <set_value name="$AssignMouseover_3star" exact="$AssignMouseover_3star + '\n' + readtext.{98765}.{416}.[$AlreadyPilotShips, $ReqAssignCount]" />
                 </do_else>
               </do_if>
               <do_else>
                 <do_if value="$ShortCrew_3star gt 0">
-                  <set_value name="$AssignMouseover_3star" exact="$AssignMouseover_3star + '\n' + readtext.{98765}.{210}" />
+                  <set_value name="$AssignMouseover_3star" exact="$AssignMouseover_3star + '\n' + readtext.{98765}.{415}" />
                 </do_if>
               </do_else>
 
               <!-- 5. 2star -->
               <do_if value="$AlreadyPilotShips gt 0">
                 <do_if value="$ShortCrew_2star gt 0">
-                  <set_value name="$AssignMouseover_2star" exact="$AssignMouseover_2star + '\n' + readtext.{98765}.{223}.[$AlreadyPilotShips, $Avail_2star]" />
+                  <set_value name="$AssignMouseover_2star" exact="$AssignMouseover_2star + '\n' + readtext.{98765}.{417}.[$AlreadyPilotShips, $Avail_2star]" />
                 </do_if>
                 <do_else>
-                  <set_value name="$AssignMouseover_2star" exact="$AssignMouseover_2star + '\n' + readtext.{98765}.{222}.[$AlreadyPilotShips, $ReqAssignCount]" />
+                  <set_value name="$AssignMouseover_2star" exact="$AssignMouseover_2star + '\n' + readtext.{98765}.{416}.[$AlreadyPilotShips, $ReqAssignCount]" />
                 </do_else>
               </do_if>
               <do_else>
                 <do_if value="$ShortCrew_2star gt 0">
-                  <set_value name="$AssignMouseover_2star" exact="$AssignMouseover_2star + '\n' + readtext.{98765}.{210}" />
+                  <set_value name="$AssignMouseover_2star" exact="$AssignMouseover_2star + '\n' + readtext.{98765}.{415}" />
                 </do_if>
               </do_else>
 
               <!-- 6. 1star -->
               <do_if value="$AlreadyPilotShips gt 0">
                 <do_if value="$ShortCrew_1star gt 0">
-                  <set_value name="$AssignMouseover_1star" exact="$AssignMouseover_1star + '\n' + readtext.{98765}.{223}.[$AlreadyPilotShips, $Avail_1star]" />
+                  <set_value name="$AssignMouseover_1star" exact="$AssignMouseover_1star + '\n' + readtext.{98765}.{417}.[$AlreadyPilotShips, $Avail_1star]" />
                 </do_if>
                 <do_else>
-                  <set_value name="$AssignMouseover_1star" exact="$AssignMouseover_1star + '\n' + readtext.{98765}.{222}.[$AlreadyPilotShips, $ReqAssignCount]" />
+                  <set_value name="$AssignMouseover_1star" exact="$AssignMouseover_1star + '\n' + readtext.{98765}.{416}.[$AlreadyPilotShips, $ReqAssignCount]" />
                 </do_else>
               </do_if>
               <do_else>
                 <do_if value="$ShortCrew_1star gt 0">
-                  <set_value name="$AssignMouseover_1star" exact="$AssignMouseover_1star + '\n' + readtext.{98765}.{210}" />
+                  <set_value name="$AssignMouseover_1star" exact="$AssignMouseover_1star + '\n' + readtext.{98765}.{415}" />
                 </do_if>
               </do_else>
 
               <!-- 7. under5 -->
               <do_if value="$AlreadyPilotShips gt 0">
                 <do_if value="$ShortCrew_under5 gt 0">
-                  <set_value name="$AssignMouseover_under_5star" exact="$AssignMouseover_under_5star + '\n' + readtext.{98765}.{223}.[$AlreadyPilotShips, $Avail_under5]" />
+                  <set_value name="$AssignMouseover_under_5star" exact="$AssignMouseover_under_5star + '\n' + readtext.{98765}.{417}.[$AlreadyPilotShips, $Avail_under5]" />
                 </do_if>
                 <do_else>
-                  <set_value name="$AssignMouseover_under_5star" exact="$AssignMouseover_under_5star + '\n' + readtext.{98765}.{222}.[$AlreadyPilotShips, $ReqAssignCount]" />
+                  <set_value name="$AssignMouseover_under_5star" exact="$AssignMouseover_under_5star + '\n' + readtext.{98765}.{416}.[$AlreadyPilotShips, $ReqAssignCount]" />
                 </do_else>
               </do_if>
               <do_else>
                 <do_if value="$ShortCrew_under5 gt 0">
-                  <set_value name="$AssignMouseover_under_5star" exact="$AssignMouseover_under_5star + '\n' + readtext.{98765}.{210}" />
+                  <set_value name="$AssignMouseover_under_5star" exact="$AssignMouseover_under_5star + '\n' + readtext.{98765}.{415}" />
                 </do_if>
               </do_else>
 
               <!-- 8. under4 -->
               <do_if value="$AlreadyPilotShips gt 0">
                 <do_if value="$ShortCrew_under4 gt 0">
-                  <set_value name="$AssignMouseover_under_4star" exact="$AssignMouseover_under_4star + '\n' + readtext.{98765}.{223}.[$AlreadyPilotShips, $Avail_under4]" />
+                  <set_value name="$AssignMouseover_under_4star" exact="$AssignMouseover_under_4star + '\n' + readtext.{98765}.{417}.[$AlreadyPilotShips, $Avail_under4]" />
                 </do_if>
                 <do_else>
-                  <set_value name="$AssignMouseover_under_4star" exact="$AssignMouseover_under_4star + '\n' + readtext.{98765}.{222}.[$AlreadyPilotShips, $ReqAssignCount]" />
+                  <set_value name="$AssignMouseover_under_4star" exact="$AssignMouseover_under_4star + '\n' + readtext.{98765}.{416}.[$AlreadyPilotShips, $ReqAssignCount]" />
                 </do_else>
               </do_if>
               <do_else>
                 <do_if value="$ShortCrew_under4 gt 0">
-                  <set_value name="$AssignMouseover_under_4star" exact="$AssignMouseover_under_4star + '\n' + readtext.{98765}.{210}" />
+                  <set_value name="$AssignMouseover_under_4star" exact="$AssignMouseover_under_4star + '\n' + readtext.{98765}.{415}" />
                 </do_if>
               </do_else>
 
               <!-- 9. under3 -->
               <do_if value="$AlreadyPilotShips gt 0">
                 <do_if value="$ShortCrew_under3 gt 0">
-                  <set_value name="$AssignMouseover_under_3star" exact="$AssignMouseover_under_3star + '\n' + readtext.{98765}.{223}.[$AlreadyPilotShips, $Avail_under3]" />
+                  <set_value name="$AssignMouseover_under_3star" exact="$AssignMouseover_under_3star + '\n' + readtext.{98765}.{417}.[$AlreadyPilotShips, $Avail_under3]" />
                 </do_if>
                 <do_else>
-                  <set_value name="$AssignMouseover_under_3star" exact="$AssignMouseover_under_3star + '\n' + readtext.{98765}.{222}.[$AlreadyPilotShips, $ReqAssignCount]" />
+                  <set_value name="$AssignMouseover_under_3star" exact="$AssignMouseover_under_3star + '\n' + readtext.{98765}.{416}.[$AlreadyPilotShips, $ReqAssignCount]" />
                 </do_else>
               </do_if>
               <do_else>
                 <do_if value="$ShortCrew_under3 gt 0">
-                  <set_value name="$AssignMouseover_under_3star" exact="$AssignMouseover_under_3star + '\n' + readtext.{98765}.{210}" />
+                  <set_value name="$AssignMouseover_under_3star" exact="$AssignMouseover_under_3star + '\n' + readtext.{98765}.{415}" />
                 </do_if>
               </do_else>
 
               <!-- 10. under2 -->
               <do_if value="$AlreadyPilotShips gt 0">
                 <do_if value="$ShortCrew_under2 gt 0">
-                  <set_value name="$AssignMouseover_under_2star" exact="$AssignMouseover_under_2star + '\n' + readtext.{98765}.{223}.[$AlreadyPilotShips, $Avail_under2]" />
+                  <set_value name="$AssignMouseover_under_2star" exact="$AssignMouseover_under_2star + '\n' + readtext.{98765}.{417}.[$AlreadyPilotShips, $Avail_under2]" />
                 </do_if>
                 <do_else>
-                  <set_value name="$AssignMouseover_under_2star" exact="$AssignMouseover_under_2star + '\n' + readtext.{98765}.{222}.[$AlreadyPilotShips, $ReqAssignCount]" />
+                  <set_value name="$AssignMouseover_under_2star" exact="$AssignMouseover_under_2star + '\n' + readtext.{98765}.{416}.[$AlreadyPilotShips, $ReqAssignCount]" />
                 </do_else>
               </do_if>
               <do_else>
                 <do_if value="$ShortCrew_under2 gt 0">
-                  <set_value name="$AssignMouseover_under_2star" exact="$AssignMouseover_under_2star + '\n' + readtext.{98765}.{210}" />
+                  <set_value name="$AssignMouseover_under_2star" exact="$AssignMouseover_under_2star + '\n' + readtext.{98765}.{415}" />
                 </do_if>
               </do_else>
 
               <!-- 11. under1 -->
               <do_if value="$AlreadyPilotShips gt 0">
                 <do_if value="$ShortCrew_under1 gt 0">
-                  <set_value name="$AssignMouseover_under_1star" exact="$AssignMouseover_under_1star + '\n' + readtext.{98765}.{223}.[$AlreadyPilotShips, $Avail_under1]" />
+                  <set_value name="$AssignMouseover_under_1star" exact="$AssignMouseover_under_1star + '\n' + readtext.{98765}.{417}.[$AlreadyPilotShips, $Avail_under1]" />
                 </do_if>
                 <do_else>
-                  <set_value name="$AssignMouseover_under_1star" exact="$AssignMouseover_under_1star + '\n' + readtext.{98765}.{222}.[$AlreadyPilotShips, $ReqAssignCount]" />
+                  <set_value name="$AssignMouseover_under_1star" exact="$AssignMouseover_under_1star + '\n' + readtext.{98765}.{416}.[$AlreadyPilotShips, $ReqAssignCount]" />
                 </do_else>
               </do_if>
               <do_else>
                 <do_if value="$ShortCrew_under1 gt 0">
-                  <set_value name="$AssignMouseover_under_1star" exact="$AssignMouseover_under_1star + '\n' + readtext.{98765}.{210}" />
+                  <set_value name="$AssignMouseover_under_1star" exact="$AssignMouseover_under_1star + '\n' + readtext.{98765}.{415}" />
                 </do_if>
               </do_else>
 
               <!-- Append rank-specific unassigned pilot counts to tooltips -->
-              <set_value name="$AssignMouseover_all" exact="$AssignMouseover_all + '\n' + readtext.{98765}.{211}.[$Avail_all]" />
-              <set_value name="$AssignMouseover_5star" exact="$AssignMouseover_5star + '\n' + readtext.{98765}.{212}.[$Avail_5star]" />
-              <set_value name="$AssignMouseover_4star" exact="$AssignMouseover_4star + '\n' + readtext.{98765}.{213}.[$Avail_4star]" />
-              <set_value name="$AssignMouseover_3star" exact="$AssignMouseover_3star + '\n' + readtext.{98765}.{214}.[$Avail_3star]" />
-              <set_value name="$AssignMouseover_2star" exact="$AssignMouseover_2star + '\n' + readtext.{98765}.{215}.[$Avail_2star]" />
-              <set_value name="$AssignMouseover_1star" exact="$AssignMouseover_1star + '\n' + readtext.{98765}.{216}.[$Avail_1star]" />
-              <set_value name="$AssignMouseover_under_5star" exact="$AssignMouseover_under_5star + '\n' + readtext.{98765}.{217}.[$Avail_under5]" />
-              <set_value name="$AssignMouseover_under_4star" exact="$AssignMouseover_under_4star + '\n' + readtext.{98765}.{218}.[$Avail_under4]" />
-              <set_value name="$AssignMouseover_under_3star" exact="$AssignMouseover_under_3star + '\n' + readtext.{98765}.{219}.[$Avail_under3]" />
-              <set_value name="$AssignMouseover_under_2star" exact="$AssignMouseover_under_2star + '\n' + readtext.{98765}.{220}.[$Avail_under2]" />
-              <set_value name="$AssignMouseover_under_1star" exact="$AssignMouseover_under_1star + '\n' + readtext.{98765}.{221}.[$Avail_under1]" />
+              <set_value name="$AssignMouseover_all" exact="$AssignMouseover_all + '\n' + readtext.{98765}.{250}.[$Avail_all]" />
+              <set_value name="$AssignMouseover_5star" exact="$AssignMouseover_5star + '\n' + readtext.{98765}.{251}.[$Avail_5star]" />
+              <set_value name="$AssignMouseover_4star" exact="$AssignMouseover_4star + '\n' + readtext.{98765}.{252}.[$Avail_4star]" />
+              <set_value name="$AssignMouseover_3star" exact="$AssignMouseover_3star + '\n' + readtext.{98765}.{253}.[$Avail_3star]" />
+              <set_value name="$AssignMouseover_2star" exact="$AssignMouseover_2star + '\n' + readtext.{98765}.{254}.[$Avail_2star]" />
+              <set_value name="$AssignMouseover_1star" exact="$AssignMouseover_1star + '\n' + readtext.{98765}.{255}.[$Avail_1star]" />
+              <set_value name="$AssignMouseover_under_5star" exact="$AssignMouseover_under_5star + '\n' + readtext.{98765}.{256}.[$Avail_under5]" />
+              <set_value name="$AssignMouseover_under_4star" exact="$AssignMouseover_under_4star + '\n' + readtext.{98765}.{257}.[$Avail_under4]" />
+              <set_value name="$AssignMouseover_under_3star" exact="$AssignMouseover_under_3star + '\n' + readtext.{98765}.{258}.[$Avail_under3]" />
+              <set_value name="$AssignMouseover_under_2star" exact="$AssignMouseover_under_2star + '\n' + readtext.{98765}.{259}.[$Avail_under2]" />
+              <set_value name="$AssignMouseover_under_1star" exact="$AssignMouseover_under_1star + '\n' + readtext.{98765}.{260}.[$Avail_under1]" />
             </do_if>
 
             <!-- 1.1 Assign All -->
@@ -342,7 +342,7 @@
               param="table[
                 $id       = 'scm_assign_all',
                 $section  = $s_assign,
-                $text     = readtext.{98765}.{120},
+                $text     = readtext.{98765}.{100},
                 $mouseover = $AssignMouseover_all,
                 $active   = $Active_assign_all,
                 $callback = SCM_assign_callback,
@@ -354,7 +354,7 @@
               param="table[
                 $id       = 'scm_assign_5star',
                 $section  = $s_assign,
-                $text     = readtext.{98765}.{110},
+                $text     = readtext.{98765}.{101},
                 $mouseover = $AssignMouseover_5star,
                 $active   = $Active_assign_5star,
                 $callback = SCM_assign_callback,
@@ -366,7 +366,7 @@
               param="table[
                 $id       = 'scm_assign_4star',
                 $section  = $s_assign,
-                $text     = readtext.{98765}.{124},
+                $text     = readtext.{98765}.{102},
                 $mouseover = $AssignMouseover_4star,
                 $active   = $Active_assign_4star,
                 $callback = SCM_assign_callback,
@@ -378,7 +378,7 @@
               param="table[
                 $id       = 'scm_assign_3star',
                 $section  = $s_assign,
-                $text     = readtext.{98765}.{121},
+                $text     = readtext.{98765}.{103},
                 $mouseover = $AssignMouseover_3star,
                 $active   = $Active_assign_3star,
                 $callback = SCM_assign_callback,
@@ -390,7 +390,7 @@
               param="table[
                 $id       = 'scm_assign_2star',
                 $section  = $s_assign,
-                $text     = readtext.{98765}.{122},
+                $text     = readtext.{98765}.{104},
                 $mouseover = $AssignMouseover_2star,
                 $active   = $Active_assign_2star,
                 $callback = SCM_assign_callback,
@@ -402,7 +402,7 @@
               param="table[
                 $id       = 'scm_assign_1star',
                 $section  = $s_assign,
-                $text     = readtext.{98765}.{125},
+                $text     = readtext.{98765}.{105},
                 $mouseover = $AssignMouseover_1star,
                 $active   = $Active_assign_1star,
                 $callback = SCM_assign_callback,
@@ -414,7 +414,7 @@
               param="table[
                 $id       = 'scm_assign_under_5star',
                 $section  = $s_assign,
-                $text     = readtext.{98765}.{126},
+                $text     = readtext.{98765}.{106},
                 $mouseover = $AssignMouseover_under_5star,
                 $active   = $Active_assign_under_5star,
                 $callback = SCM_assign_callback,
@@ -426,7 +426,7 @@
               param="table[
                 $id       = 'scm_assign_under_4star',
                 $section  = $s_assign,
-                $text     = readtext.{98765}.{127},
+                $text     = readtext.{98765}.{107},
                 $mouseover = $AssignMouseover_under_4star,
                 $active   = $Active_assign_under_4star,
                 $callback = SCM_assign_callback,
@@ -438,7 +438,7 @@
               param="table[
                 $id       = 'scm_assign_under_3star',
                 $section  = $s_assign,
-                $text     = readtext.{98765}.{128},
+                $text     = readtext.{98765}.{108},
                 $mouseover = $AssignMouseover_under_3star,
                 $active   = $Active_assign_under_3star,
                 $callback = SCM_assign_callback,
@@ -450,7 +450,7 @@
               param="table[
                 $id       = 'scm_assign_rookie',
                 $section  = $s_assign,
-                $text     = readtext.{98765}.{123},
+                $text     = readtext.{98765}.{109},
                 $mouseover = $AssignMouseover_under_2star,
                 $active   = $Active_assign_under_2star,
                 $callback = SCM_assign_callback,
@@ -462,7 +462,7 @@
               param="table[
                 $id       = 'scm_assign_under_1star',
                 $section  = $s_assign,
-                $text     = readtext.{98765}.{129},
+                $text     = readtext.{98765}.{110},
                 $mouseover = $AssignMouseover_under_1star,
                 $active   = $Active_assign_under_1star,
                 $callback = SCM_assign_callback,
@@ -661,13 +661,13 @@
             </do_if>
 
             <!-- Set up Seminar Tooltips based on Active status and inventory availability -->
-            <set_value name="$SeminarMouseover_1star" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_1star then readtext.{98765}.{205}.[$Short1_0] else readtext.{98765}.{165}))" />
-            <set_value name="$SeminarMouseover_2star" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_2star then readtext.{98765}.{206}.[$Short2_0, $Short2_1] else readtext.{98765}.{164}))" />
-            <set_value name="$SeminarMouseover_3star" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_3star then readtext.{98765}.{207}.[$Short3_0, $Short3_1, $Short3_2] else readtext.{98765}.{162}))" />
-            <set_value name="$SeminarMouseover_4star" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_4star then readtext.{98765}.{208}.[$Short4_0, $Short4_1, $Short4_2, $Short4_3] else readtext.{98765}.{161}))" />
-            <set_value name="$SeminarMouseover_5star" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_5star then readtext.{98765}.{209}.[$ShortMax_0, $ShortMax_1, $ShortMax_2, $ShortMax_3, $ShortMax_4] else readtext.{98765}.{166}))" />
-            <set_value name="$SeminarMouseover_max" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else readtext.{98765}.{160})" />
-            <set_value name="$SeminarMouseover_single" exact="if not $SeminarActive then readtext.{98765}.{52} else (if not $AnySeminar then readtext.{98765}.{204} else (if not $Active_single then (if $SingleParams.count gt 0 then readtext.{98765}.{$SingleShortTid}.{$SingleParams} else readtext.{98765}.{$SingleShortTid}) else readtext.{98765}.{163}))" />
+            <set_value name="$SeminarMouseover_1star" exact="if not $SeminarActive then readtext.{98765}.{405} else (if not $AnySeminar then readtext.{98765}.{409} else (if not $Active_1star then readtext.{98765}.{410}.[$Short1_0] else readtext.{98765}.{225}))" />
+            <set_value name="$SeminarMouseover_2star" exact="if not $SeminarActive then readtext.{98765}.{405} else (if not $AnySeminar then readtext.{98765}.{409} else (if not $Active_2star then readtext.{98765}.{411}.[$Short2_0, $Short2_1] else readtext.{98765}.{224}))" />
+            <set_value name="$SeminarMouseover_3star" exact="if not $SeminarActive then readtext.{98765}.{405} else (if not $AnySeminar then readtext.{98765}.{409} else (if not $Active_3star then readtext.{98765}.{412}.[$Short3_0, $Short3_1, $Short3_2] else readtext.{98765}.{222}))" />
+            <set_value name="$SeminarMouseover_4star" exact="if not $SeminarActive then readtext.{98765}.{405} else (if not $AnySeminar then readtext.{98765}.{409} else (if not $Active_4star then readtext.{98765}.{413}.[$Short4_0, $Short4_1, $Short4_2, $Short4_3] else readtext.{98765}.{221}))" />
+            <set_value name="$SeminarMouseover_5star" exact="if not $SeminarActive then readtext.{98765}.{405} else (if not $AnySeminar then readtext.{98765}.{409} else (if not $Active_5star then readtext.{98765}.{414}.[$ShortMax_0, $ShortMax_1, $ShortMax_2, $ShortMax_3, $ShortMax_4] else readtext.{98765}.{226}))" />
+            <set_value name="$SeminarMouseover_max" exact="if not $SeminarActive then readtext.{98765}.{405} else (if not $AnySeminar then readtext.{98765}.{409} else readtext.{98765}.{220})" />
+            <set_value name="$SeminarMouseover_single" exact="if not $SeminarActive then readtext.{98765}.{405} else (if not $AnySeminar then readtext.{98765}.{409} else (if not $Active_single then (if $SingleParams.count gt 0 then readtext.{98765}.{$SingleShortTid}.{$SingleParams} else readtext.{98765}.{$SingleShortTid}) else readtext.{98765}.{223}))" />
 
             <!-- 2.1 Max Training -->
             <signal_cue_instantly
@@ -675,7 +675,7 @@
               param="table[
                 $id       = 'scm_seminar_max',
                 $section  = $s_seminar,
-                $text     = readtext.{98765}.{130},
+                $text     = readtext.{98765}.{120},
                 $mouseover = $SeminarMouseover_max,
                 $active   = $Active_max,
                 $callback = SCM_use_seminar_callback,
@@ -687,7 +687,7 @@
               param="table[
                 $id       = 'scm_seminar_5star',
                 $section  = $s_seminar,
-                $text     = readtext.{98765}.{136},
+                $text     = readtext.{98765}.{121},
                 $mouseover = $SeminarMouseover_5star,
                 $active   = $Active_5star,
                 $callback = SCM_use_seminar_callback,
@@ -699,7 +699,7 @@
               param="table[
                 $id       = 'scm_seminar_4star',
                 $section  = $s_seminar,
-                $text     = readtext.{98765}.{131},
+                $text     = readtext.{98765}.{122},
                 $mouseover = $SeminarMouseover_4star,
                 $active   = $Active_4star,
                 $callback = SCM_use_seminar_callback,
@@ -711,7 +711,7 @@
               param="table[
                 $id       = 'scm_seminar_3star',
                 $section  = $s_seminar,
-                $text     = readtext.{98765}.{132},
+                $text     = readtext.{98765}.{123},
                 $mouseover = $SeminarMouseover_3star,
                 $active   = $Active_3star,
                 $callback = SCM_use_seminar_callback,
@@ -723,7 +723,7 @@
               param="table[
                 $id       = 'scm_seminar_2star',
                 $section  = $s_seminar,
-                $text     = readtext.{98765}.{134},
+                $text     = readtext.{98765}.{124},
                 $mouseover = $SeminarMouseover_2star,
                 $active   = $Active_2star,
                 $callback = SCM_use_seminar_callback,
@@ -735,7 +735,7 @@
               param="table[
                 $id       = 'scm_seminar_1star',
                 $section  = $s_seminar,
-                $text     = readtext.{98765}.{135},
+                $text     = readtext.{98765}.{125},
                 $mouseover = $SeminarMouseover_1star,
                 $active   = $Active_1star,
                 $callback = SCM_use_seminar_callback,
@@ -747,7 +747,7 @@
               param="table[
                 $id       = 'scm_seminar_single',
                 $section  = $s_seminar,
-                $text     = readtext.{98765}.{133},
+                $text     = readtext.{98765}.{126},
                 $mouseover = $SeminarMouseover_single,
                 $active   = $Active_single,
                 $callback = SCM_use_seminar_callback,
@@ -762,13 +762,13 @@
               <do_if value="$Ships.{1}.people.free le 0">
                 <set_value name="$FillActive" exact="false" />
               </do_if>
-              <set_value name="$FillMouseover" exact="if not $FillActive then readtext.{98765}.{190} else readtext.{98765}.{50}" />
+              <set_value name="$FillMouseover" exact="if not $FillActive then readtext.{98765}.{407} else readtext.{98765}.{204}" />
               <signal_cue_instantly
                 cue="md.Interact_Menu_API.Add_Action"
                 param="table[
                   $id       = 'scm_fill_unassigned',
                   $section  = $s_other,
-                  $text     = readtext.{98765}.{6},
+                  $text     = readtext.{98765}.{5},
                   $mouseover = $FillMouseover,
                   $active   = $FillActive,
                   $callback = SCM_fill_unassigned_callback,
@@ -789,7 +789,7 @@
 
             <!-- 3.2 Dismiss Captain (Relief) -->
             <set_value name="$UnassignActive" exact="$HasAnyPilot" />
-            <set_value name="$UnassignMouseover" exact="if not $UnassignActive then readtext.{98765}.{31} else (if $HasFullShipWithPilot then (readtext.{98765}.{30} + '\n' + (if $Ships.count gt 1 then readtext.{98765}.{36} else readtext.{98765}.{35})) else readtext.{98765}.{30})" />
+            <set_value name="$UnassignMouseover" exact="if not $UnassignActive then readtext.{98765}.{400} else (if $HasFullShipWithPilot then (readtext.{98765}.{202} + '\n' + (if $Ships.count gt 1 then readtext.{98765}.{403} else readtext.{98765}.{402})) else readtext.{98765}.{202})" />
             <signal_cue_instantly
               cue="md.Interact_Menu_API.Add_Action"
               param="table[
@@ -803,7 +803,7 @@
   
             <!-- 3.3 Fire Captain -->
             <set_value name="$FireActive" exact="$HasAnyPilot" />
-            <set_value name="$FireMouseover" exact="if not $FireActive then readtext.{98765}.{41} else readtext.{98765}.{40}" />
+            <set_value name="$FireMouseover" exact="if not $FireActive then readtext.{98765}.{404} else readtext.{98765}.{203}" />
             <signal_cue_instantly
               cue="md.Interact_Menu_API.Add_Action"
               param="table[
@@ -822,13 +822,13 @@
                 <set_value name="$DropCargoActive" exact="true" />
               </do_if>
             </do_all>
-            <set_value name="$DropCargoMouseover" exact="if not $DropCargoActive then readtext.{98765}.{54} else readtext.{98765}.{53}" />
+            <set_value name="$DropCargoMouseover" exact="if not $DropCargoActive then readtext.{98765}.{406} else readtext.{98765}.{206}" />
             <signal_cue_instantly
               cue="md.Interact_Menu_API.Add_Action"
               param="table[
                 $id       = 'scm_drop_cargo',
                 $section  = $s_other,
-                $text     = readtext.{98765}.{8},
+                $text     = readtext.{98765}.{7},
                 $mouseover = $DropCargoMouseover,
                 $active   = $DropCargoActive,
                 $callback = SCM_drop_cargo_callback,
@@ -915,7 +915,7 @@
                 <set_value name="$WorstCrewName" exact="$Ship.people.{$WorstCrew}.name" />
                 <debug_text text="'[SCM] Ship full. Firing worst crew ' + $WorstCrewName + ' (score: ' + $WorstSkill + ') to make space for dismissed pilot.'" filter="general" />
                 <remove_npc_template object="$Ship" template="$WorstCrew" />
-                <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{26}.[$Ship.knownname, $WorstCrewStars, $WorstCrewName]" />
+                <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{308}.[$Ship.knownname, $WorstCrewStars, $WorstCrewName]" />
               </do_if>
             </do_if>
 
@@ -946,13 +946,13 @@
               <debug_text text="'[SCM] Warning: No npctemplate found for pilot!'" filter="general" />
             </do_else>
             
-            <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{21}.[$Ship.knownname, ($Pilot.skill.piloting / 3), $Pilot.knownname]" />
+            <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{303}.[$Ship.knownname, ($Pilot.skill.piloting / 3), $Pilot.knownname]" />
             <set_value name="$SuccessCount" exact="$SuccessCount + 1" />
           </do_if>
         </do_all>
 
         <do_if value="$SuccessCount gt 0">
-          <show_notification text="readtext.{98765}.{11}.[$SuccessCount]" timeout="6s" />
+          <show_notification text="readtext.{98765}.{300}.[$SuccessCount]" timeout="6s" />
         </do_if>
       </do_if>
       </actions>
@@ -996,13 +996,13 @@
             <dismiss_control_entity actor="$Pilot" object="$Ship" />
             <destroy_object object="$Pilot" />
             
-            <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{22}.[$Ship.knownname, ($PilotPiloting / 3), $PilotName]" />
+            <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{304}.[$Ship.knownname, ($PilotPiloting / 3), $PilotName]" />
             <set_value name="$SuccessCount" exact="$SuccessCount + 1" />
           </do_if>
         </do_all>
 
         <do_if value="$SuccessCount gt 0">
-          <show_notification text="readtext.{98765}.{13}.[$SuccessCount]" timeout="6s" sound="notification_warning" />
+          <show_notification text="readtext.{98765}.{302}.[$SuccessCount]" timeout="6s" sound="notification_warning" />
         </do_if>
       </do_if>
       </actions>
@@ -1223,7 +1223,7 @@
                   <remove_npc_template object="$BestSource" template="$BestCandidate" />
                 </do_if>
 
-                <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{23}.[$Ship.knownname, ($RealPiloting / 3), $TargetActor.knownname]" />
+                <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{305}.[$Ship.knownname, ($RealPiloting / 3), $TargetActor.knownname]" />
               </do_if>
               <do_else>
                 <debug_text text="'[SCM] Failed to instantiate candidate: ' + $BestCandidate + ' for ' + $Ship.knownname" filter="general" />
@@ -1236,19 +1236,19 @@
 
           <!-- Report results -->
           <do_if value="$AssignedCandidates.count gt 0">
-            <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{12}.[$AssignedCandidates.count]" />
-            <show_notification text="readtext.{98765}.{12}.[$AssignedCandidates.count]" timeout="6s" />
+            <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{301}.[$AssignedCandidates.count]" />
+            <show_notification text="readtext.{98765}.{301}.[$AssignedCandidates.count]" timeout="6s" />
           </do_if>
 
           <set_value name="$FailedCount" exact="$SortedShips.count - $AssignedCandidates.count" />
           <do_if value="$FailedCount gt 0">
             <do_if value="$SortedShips.count == 1">
-              <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{29}.[$SortedShips.{1}.knownname]" />
-              <show_notification text="readtext.{98765}.{29}.[$SortedShips.{1}.knownname]" timeout="6s" sound="notification_warning" />
+              <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{311}.[$SortedShips.{1}.knownname]" />
+              <show_notification text="readtext.{98765}.{311}.[$SortedShips.{1}.knownname]" timeout="6s" sound="notification_warning" />
             </do_if>
             <do_else>
-              <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{27}.[$FailedCount, $SortedShips.count]" />
-              <show_notification text="readtext.{98765}.{27}.[$FailedCount, $SortedShips.count]" timeout="6s" sound="notification_warning" />
+              <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{309}.[$FailedCount, $SortedShips.count]" />
+              <show_notification text="readtext.{98765}.{309}.[$FailedCount, $SortedShips.count]" timeout="6s" sound="notification_warning" />
             </do_else>
           </do_if>
         </do_if>
@@ -1376,18 +1376,18 @@
               <!-- 5. Write to logbook and show notification -->
               <do_if value="$TotalTransferred gt 0">
                 <do_if value="$TotalCandidatesCount gt $TotalTransferred">
-                  <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{28}.[$Ship.knownname, $TotalTransferred, $TotalCandidatesCount]" />
-                  <show_notification text="readtext.{98765}.{28}.[$Ship.knownname, $TotalTransferred, $TotalCandidatesCount]" timeout="6s" />
+                  <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{310}.[$Ship.knownname, $TotalTransferred, $TotalCandidatesCount]" />
+                  <show_notification text="readtext.{98765}.{310}.[$Ship.knownname, $TotalTransferred, $TotalCandidatesCount]" timeout="6s" />
                 </do_if>
                 <do_else>
-                  <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{24}.[$Ship.knownname, $TotalTransferred]" />
-                  <show_notification text="readtext.{98765}.{24}.[$Ship.knownname, $TotalTransferred]" timeout="6s" />
+                  <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{306}.[$Ship.knownname, $TotalTransferred]" />
+                  <show_notification text="readtext.{98765}.{306}.[$Ship.knownname, $TotalTransferred]" timeout="6s" />
                 </do_else>
               </do_if>
             </do_if>
             <do_else>
-              <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{33}.[$Ship.knownname]" />
-              <show_notification text="readtext.{98765}.{33}.[$Ship.knownname]" timeout="6s" sound="notification_warning" />
+              <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{312}.[$Ship.knownname]" />
+              <show_notification text="readtext.{98765}.{312}.[$Ship.knownname]" timeout="6s" sound="notification_warning" />
             </do_else>
           </do_if>
         </do_if>
@@ -1531,8 +1531,8 @@
 
         <!-- Show feedback and notify player -->
         <do_if value="$SuccessCount gt 0">
-          <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{25}.[$SuccessCount, $Used_0, $Used_1, $Used_2, $Used_3, $Used_4]" />
-          <show_notification text="readtext.{98765}.{25}.[$SuccessCount, $Used_0, $Used_1, $Used_2, $Used_3, $Used_4]" timeout="6s" />
+          <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{307}.[$SuccessCount, $Used_0, $Used_1, $Used_2, $Used_3, $Used_4]" />
+          <show_notification text="readtext.{98765}.{307}.[$SuccessCount, $Used_0, $Used_1, $Used_2, $Used_3, $Used_4]" timeout="6s" />
         </do_if>
       </do_if>
       </actions>
@@ -1578,8 +1578,8 @@
             </do_all>
             
             <!-- Output success to logbook and show notification -->
-            <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{34}.[$Ship.knownname, $WaresCount]" />
-            <show_notification text="readtext.{98765}.{34}.[$Ship.knownname, $WaresCount]" timeout="6s" />
+            <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{313}.[$Ship.knownname, $WaresCount]" />
+            <show_notification text="readtext.{98765}.{313}.[$Ship.knownname, $WaresCount]" timeout="6s" />
           </do_if>
         </do_all>
       </do_if>
