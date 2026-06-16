@@ -1,52 +1,61 @@
 # Simple Captain Manager (SCM) - X4: Foundations Mod
 
-이 모드는 X4: Foundations에서 여러 대의 함선을 다중 선택하여 우클릭 메뉴를 통해 함장(파일럿)을 대량으로 해제, 배정, 해고할 수 있게 도와주는 편의성(QOL) 모드입니다. 
+A QoL mod that drastically reduce your time of assigning captains and training them with seminars. By adding a batch control feature to the right-click context menu, you can now assign captains and handle seminar training for large fleets in just a few clicks.
 
-중후반 함대 규모가 커졌을 때, 기존 함선의 파일럿들을 새로 구매한 대형 함선(예: L급/XL급)으로 클릭 한 번에 재배치하는 시나리오를 매우 매끄럽게 처리할 수 있습니다.
+SCM will save you tons of time whether you need to quickly staff a newly purchased mining fleet, store your high skilled pilots to a safe spot before selling off a fleet, or bulk-train your fighter pilots' piloting skills to 5-star status.
 
----
+## Key Features
+*   **Batch Captain Auto-Assignment:** Assigns captains to all selected ships. It scans player-owned ships and stations galaxy-wide to find the best piloting candidates among your unassigned crew.
+*   **Batch Seminar Training:** Train selected captains simultaneously using the piloting seminars in your inventory. You can continuously train them up to your target level (Max, 5-Star, 4-Star, etc.) or just consume a single seminar per captain.
+*   **Unassigned Crew Relocation:** Scans unassigned crew members across your empire and bulk-transfers them to fill the target ship/station's empty slots in a single click.
+*   **Dismiss Captain:** Demotes the captain back to an unassigned crew member on the same ship.
+*   **Fire Captain:** Discharges selected captains permanently in bulk.
+*   **Drop Cargo:** Ejects all cargo of selected ships into space in bulk.
 
-## 🌟 주요 기능
+## Required Mods
+*   SirNukes' Mod Support APIs
+*   kuertee UI Extensions and HUD
 
-1. **함장 일괄 할당 해제 (Batch Unassign)**
-   - 선택된 모든 함선의 함장을 파일럿 직책에서 해제하여 해당 함선 내의 **미배정(Unassigned)** 승무원 상태로 변경합니다.
-   - 만약 함선의 정원이 가득 찬 상태라면, 조종술 + 엔지니어링 숙련도 합이 가장 낮은 최하위 선원(가장 쓸모없는 뉴비 선원)을 **자동으로 해고**하여 미배정 함장의 자리를 보장합니다.
-2. **함장 일괄 해고 (Batch Fire)**
-   - 선택된 모든 함선의 파일럿을 즉시 영구 해고하여 공석 상태로 만듭니다. (신조선 구매 시 기본으로 스폰되는 1성급 초보 함장들을 대량으로 처리할 때 매우 유용합니다.)
-3. **함장 일괄 배정 (Batch Assign)**
-   - 현재 함장이 공석인 빈 함선들을 다중 선택한 후 실행하면, 플레이어의 전 은하 자산에 흩어져 있는 미배정 선원 중 **조종술 숙련도가 가장 높은 순서**대로 자동 탐색하여 일괄 배정합니다.
-   - 이때 배정 우선순위는 함선의 등급(**XL > L > M > S**) 순이며, 동급 함선 내에서는 **선박의 주요 목적 및 최대 쉴드+선체 내구도의 합산 값**이 높은 함선에 우선적으로 탑승하도록 정밀하게 정렬되어 작동합니다.
+> [!NOTE]
+> Tested and fully working on X4: Foundations 9.00 official release.
 
----
+## Installation & Compatibility
+*   Safe to add to or remove from existing save files at any time without breaking your saves.
+*   No known mod conflicts.
 
-## 🛠️ 필수 의존성 모드 (Dependencies)
+## Supported languages
+*   SCM supports all 14 official X4 Foundations languages.
 
-*   **[필수] [SirNukes Mod Support APIs](https://www.nexusmods.com/x4foundations/mods/503)** (또는 스팀 창작마당 ID `ws_2042901274`): 인게임 내 우클릭 서브메뉴 출력 및 **ESC -> Extension Settings(확장 설정)** 메뉴에서 정렬 순서 옵션을 변경하고 저장하기 위해 필수적입니다.
-
----
-
-## ⚙️ Extension Settings 설정 (정렬 우선순위 조절)
-`SirNukes Mod Support APIs`를 통해 게임 내 **확장 설정(Extension Settings)** 메뉴에서 각 함선 역할군 정렬 우선순위의 기본값을 변경할 수 있습니다.
-- **전투함 (Fight)** (기본 우선순위 값: 4)
-- **무역선 (Trade)** (기본 우선순위 값: 3)
-- **채집선 (Mine)** (기본 우선순위 값: 2)
-- **건설선 (Build)** (기본 우선순위 값: 1)
-
-*우선순위 값이 높을수록 함장 배정 시 더 높은 우선순위로 간주되어 우수한 숙련도의 함장이 배정됩니다.*
+## Author's Note
+I got so sick and tired of assigning captains ship-by-ship that I decided to make this, my very first mod! If you run into any issues, have suggestions for new features, or want to report bugs, please feel free to leave a comment!
 
 ---
 
-## 💾 설치 방법
+함장 임명과 세미나 교육 등 함장의 인사 관리 작업을 일괄적으로 원클릭에 가능하게 하여 피로도를 획기적으로 줄여주는 QoL(편의성) 모드입니다. 우클릭 상호작용 메뉴에 일괄 제어 기능을 추가하여, 대규모 함대의 함장 임명과 세미나 교육을 단 몇 번의 클릭만으로 끝낼 수 있습니다.
 
-1. `simple_captain_manager` 폴더를 복사합니다.
-2. X4: Foundations의 게임 설치 경로 내 `extensions` 폴더에 붙여넣습니다.
-   - **스팀 기본 경로**: `C:\Program Files (x86)\Steam\steamapps\common\X4 Foundations\extensions\`
-   - 만약 `extensions` 폴더가 없다면 새 폴더를 생성하여 그 하위에 모드 폴더를 넣어주세요.
-3. 게임을 실행하여 확장 메뉴에서 모드가 활성화되어 있는지 확인합니다.
+새로 구입한 대규모 채굴 함대에 함장을 빠르게 채워야 하거나, 대규모 함대를 판매 하기 전에 고급 인력들을 한곳에 보관 한다던가, 전투기 편대 파일럿들의 조종 스킬을 일괄적으로 5성까지 교육하고 싶을 때 SCM이 큰 힘이 되어줄 것입니다.
 
----
+## 주요 기능
+*   **함장 일괄 자동 임명 :** 선택한 모든 함선에 함장을 임명합니다. 은하계 내의 플레이어 함선/스테이션들을 스캔하여 대기 중인 미배정 승무원 중 가장 조종 스킬이 높은 인원을 찾아냅니다.
+*   **일괄 세미나 교육 :** 인벤토리에 보유 중인 조종 세미나를 소모해 선택한 함장들을 동시에 교육합니다. 목표 성급(최대, 5성, 4성 등)까지 필요한 세미나를 연속 사용하거나, 함장당 딱 1개의 세미나만 소모하도록 교육할 수도 있습니다.
+*   **미배정 인원 일괄 이동 :** 은하계 전역에서 대기 중인 미배정 인원들을 검색하여, 한 번의 클릭으로 선택한 대상 함선/스테이션의 빈자리로 정렬 이송합니다.
+*   **함장 해임 :** 함장을 해당 함선에 미배정 인원으로 변경합니다.
+*   **함장 해고 :** 함장을 일괄 해고합니다.
+*   **화물 버리기 :** 우주 공간에 화물을 일괄 투하 합니다.
 
-## 📝 라이선스 (License)
+## 필요 모드
+*   SirNukes' Mod Support APIs
+*   kuertee UI Extensions and HUD
 
-*   **Creative Commons BY-NC-SA 4.0** (크리에이티브 커먼즈: 저작자표시-비상업적-동일조건변경허락)
-*   개인적인 수정 및 배포는 자유로우나 상업적 용도로는 사용할 수 없으며 변경된 조건 하에 배포 시 동일한 라이선스를 적용해야 합니다.
+> [!NOTE]
+> X4: Foundations 9.00 정식 버전을 기준으로 제작 및 작동이 검증되었습니다.
+
+## 설치 방법 & 호환성
+*   게임 도중 언제든 안전하게 추가하거나 삭제할 수 있으며 기존 세이브파일에 문제를 일으키지 않습니다.
+*   알려진 모드 충돌 현상은 없습니다.
+
+## 지원 언어
+*   SCM은 X4 Foundations 공식 지원 언어 14개를 모두 지원합니다.
+
+## 제작자 노트
+한대씩 함장 배정하다가 힘이 쪽 빠져서 직접 만들어본 첫 모드 입니다! 모드를 사용하시면서 불편한 점이나 추가하고 싶은 기능, 버그 제보가 있다면 언제든지 편하게 댓글을 남겨주세요!
