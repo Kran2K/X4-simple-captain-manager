@@ -85,6 +85,6 @@
     <t id="208">Mancano i seminari richiesti per questo addestramento. [Mancante: Base x%1, 1 stella x%2, 2 stelle x%3, 3 stelle x%4]</t>
     <t id="209">Mancano i seminari richiesti per questo addestramento. [Mancante: Base x%1, 1 stella x%2, 2 stelle x%3, 3 stelle x%4, 4 stelle x%5]</t>
     <t id="136">Addestra a 5 stelle</t>
-    <t id="166">Consuma in sequenza i seminari da base a 4 stelle per addestrare l'abilità di pilotaggio a 5 stelle [max]. [Disabilitato se mancano i seminari]</t>
+    <t id="166">Consuma in sequenza i seminari da base a 4 stelle per addestrare l'abilità di pilotaggio a 5 stelle [max].</t>
   </page>
 </language>

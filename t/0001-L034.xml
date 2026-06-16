@@ -85,6 +85,6 @@
     <t id="208">Faltan los seminarios requeridos para este entrenamiento. [Falta: Básico x%1, 1 estrella x%2, 2 estrellas x%3, 3 estrellas x%4]</t>
     <t id="209">Faltan los seminarios requeridos para este entrenamiento. [Falta: Básico x%1, 1 estrella x%2, 2 estrellas x%3, 3 estrellas x%4, 4 estrellas x%5]</t>
     <t id="136">Entrenar a 5 estrellas</t>
-    <t id="166">Consume secuencialmente seminarios básicos a 4 estrellas para entrenar la habilidad de pilotaje a 5 estrellas [máx]. [Desactivado si faltan seminarios]</t>
+    <t id="166">Consume secuencialmente seminarios básicos a 4 estrellas para entrenar la habilidad de pilotaje a 5 estrellas [máx].</t>
   </page>
 </language>
