@@ -141,8 +141,8 @@
             <set_value name="$AssignMouseover_under_2star" exact="if not $Active_assign_under_2star then (if $ReqAssignCount == 0 then readtext.{98765}.{32} else readtext.{98765}.{153}) else readtext.{98765}.{153}" />
             <set_value name="$AssignMouseover_under_1star" exact="if not $Active_assign_under_1star then (if $ReqAssignCount == 0 then readtext.{98765}.{32} else readtext.{98765}.{159}) else readtext.{98765}.{159}" />
 
-            <!-- Add shortage warning strings when multiple ships are selected and unassigned crew is insufficient -->
-            <do_if value="$ReqAssignCount gt 0 and $ShipsCount gt 1">
+            <!-- Add shortage warning strings when unassigned crew is insufficient -->
+            <do_if value="$ReqAssignCount gt 0">
               <set_value name="$ShortCrew_all" exact="if ($ReqAssignCount - $Avail_all) gt 0 then ($ReqAssignCount - $Avail_all) else 0" />
               <set_value name="$ShortCrew_5star" exact="if ($ReqAssignCount - $Avail_5star) gt 0 then ($ReqAssignCount - $Avail_5star) else 0" />
               <set_value name="$ShortCrew_4star" exact="if ($ReqAssignCount - $Avail_4star) gt 0 then ($ReqAssignCount - $Avail_4star) else 0" />
