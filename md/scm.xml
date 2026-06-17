@@ -52,7 +52,7 @@
           <do_if value="not $IsStation">
             <set_value name="$ReqAssignCount" exact="0" />
             <do_all exact="$Ships.count" counter="$i">
-              <do_if value="not @$Ships.{$i}.pilot">
+              <do_if value="not @$Ships.{$i}.pilot and $Ships.{$i} != player.controlled">
                 <set_value name="$ReqAssignCount" exact="$ReqAssignCount + 1" />
               </do_if>
             </do_all>
@@ -366,6 +366,33 @@
               </do_if>
             </do_if>
 
+            <!-- If single selected ship is player controlled, override assignment active status to false and tooltip to "Player is already on board." -->
+            <do_if value="$ShipsCount == 1 and $Ships.{1} == player.controlled">
+              <set_value name="$Active_assign_all" exact="false" />
+              <set_value name="$Active_assign_5star" exact="false" />
+              <set_value name="$Active_assign_4star" exact="false" />
+              <set_value name="$Active_assign_3star" exact="false" />
+              <set_value name="$Active_assign_2star" exact="false" />
+              <set_value name="$Active_assign_1star" exact="false" />
+              <set_value name="$Active_assign_under_5star" exact="false" />
+              <set_value name="$Active_assign_under_4star" exact="false" />
+              <set_value name="$Active_assign_under_3star" exact="false" />
+              <set_value name="$Active_assign_under_2star" exact="false" />
+              <set_value name="$Active_assign_under_1star" exact="false" />
+
+              <set_value name="$AssignMouseover_all" exact="readtext.{98765}.{428}" />
+              <set_value name="$AssignMouseover_5star" exact="readtext.{98765}.{428}" />
+              <set_value name="$AssignMouseover_4star" exact="readtext.{98765}.{428}" />
+              <set_value name="$AssignMouseover_3star" exact="readtext.{98765}.{428}" />
+              <set_value name="$AssignMouseover_2star" exact="readtext.{98765}.{428}" />
+              <set_value name="$AssignMouseover_1star" exact="readtext.{98765}.{428}" />
+              <set_value name="$AssignMouseover_under_5star" exact="readtext.{98765}.{428}" />
+              <set_value name="$AssignMouseover_under_4star" exact="readtext.{98765}.{428}" />
+              <set_value name="$AssignMouseover_under_3star" exact="readtext.{98765}.{428}" />
+              <set_value name="$AssignMouseover_under_2star" exact="readtext.{98765}.{428}" />
+              <set_value name="$AssignMouseover_under_1star" exact="readtext.{98765}.{428}" />
+            </do_if>
+
             <!-- 1.1 Assign All -->
             <signal_cue_instantly
               cue="md.Interact_Menu_API.Add_Action"
@@ -532,7 +559,7 @@
             <set_value name="$ReqSingle_4" exact="0" />
 
             <do_all exact="$Ships.count" counter="$i">
-              <do_if value="@$Ships.{$i}.pilot.exists">
+              <do_if value="@$Ships.{$i}.pilot.exists and $Ships.{$i} != player.controlled">
                 <set_value name="$SeminarActive" exact="true" />
                 <set_value name="$Piloting" exact="$Ships.{$i}.pilot.skill.piloting" />
 
@@ -699,6 +726,25 @@
             <set_value name="$SeminarMouseover_max" exact="if not $SeminarActive then readtext.{98765}.{405} else (if not $AnySeminar then readtext.{98765}.{408} else readtext.{98765}.{215})" />
             <set_value name="$SeminarMouseover_single" exact="if not $SeminarActive then readtext.{98765}.{405} else (if not $AnySeminar then readtext.{98765}.{408} else (if not $Active_single then (if $SingleParams.count gt 0 then readtext.{98765}.{$SingleShortTid}.{$SingleParams} else readtext.{98765}.{$SingleShortTid}) else readtext.{98765}.{218}))" />
 
+            <!-- If single selected ship is player controlled, override seminar active status to false and tooltip to "Player is already on board." -->
+            <do_if value="$ShipsCount == 1 and $Ships.{1} == player.controlled">
+              <set_value name="$Active_max" exact="false" />
+              <set_value name="$Active_5star" exact="false" />
+              <set_value name="$Active_4star" exact="false" />
+              <set_value name="$Active_3star" exact="false" />
+              <set_value name="$Active_2star" exact="false" />
+              <set_value name="$Active_1star" exact="false" />
+              <set_value name="$Active_single" exact="false" />
+
+              <set_value name="$SeminarMouseover_max" exact="readtext.{98765}.{428}" />
+              <set_value name="$SeminarMouseover_5star" exact="readtext.{98765}.{428}" />
+              <set_value name="$SeminarMouseover_4star" exact="readtext.{98765}.{428}" />
+              <set_value name="$SeminarMouseover_3star" exact="readtext.{98765}.{428}" />
+              <set_value name="$SeminarMouseover_2star" exact="readtext.{98765}.{428}" />
+              <set_value name="$SeminarMouseover_1star" exact="readtext.{98765}.{428}" />
+              <set_value name="$SeminarMouseover_single" exact="readtext.{98765}.{428}" />
+            </do_if>
+
             <!-- 2.1 Max Training -->
             <signal_cue_instantly
               cue="md.Interact_Menu_API.Add_Action"
@@ -809,7 +855,7 @@
             <set_value name="$HasAnyPilot" exact="false" />
             <set_value name="$HasFullShipWithPilot" exact="false" />
             <do_all exact="$Ships.count" counter="$i">
-              <do_if value="@$Ships.{$i}.pilot.exists">
+              <do_if value="@$Ships.{$i}.pilot.exists and $Ships.{$i} != player.controlled">
                 <set_value name="$HasAnyPilot" exact="true" />
                 <do_if value="$Ships.{$i}.people.free le 0">
                   <set_value name="$HasFullShipWithPilot" exact="true" />
@@ -818,8 +864,8 @@
             </do_all>
 
             <!-- 3.2 Dismiss Captain (Relief) -->
-            <set_value name="$UnassignActive" exact="$HasAnyPilot" />
-            <set_value name="$UnassignMouseover" exact="if not $UnassignActive then readtext.{98765}.{400} else (if $HasFullShipWithPilot then (readtext.{98765}.{200} + '\n' + (if $Ships.count gt 1 then readtext.{98765}.{403} else readtext.{98765}.{402})) else readtext.{98765}.{200})" />
+            <set_value name="$UnassignActive" exact="if $ShipsCount == 1 and $Ships.{1} == player.controlled then false else $HasAnyPilot" />
+            <set_value name="$UnassignMouseover" exact="if $ShipsCount == 1 and $Ships.{1} == player.controlled then readtext.{98765}.{428} else (if not $UnassignActive then readtext.{98765}.{400} else (if $HasFullShipWithPilot then (readtext.{98765}.{200} + '\n' + (if $Ships.count gt 1 then readtext.{98765}.{403} else readtext.{98765}.{402})) else readtext.{98765}.{200}))" />
             <signal_cue_instantly
               cue="md.Interact_Menu_API.Add_Action"
               param="table[
@@ -832,8 +878,8 @@
                 ]" />
   
             <!-- 3.3 Fire Captain -->
-            <set_value name="$FireActive" exact="$HasAnyPilot" />
-            <set_value name="$FireMouseover" exact="if not $FireActive then readtext.{98765}.{404} else readtext.{98765}.{201}" />
+            <set_value name="$FireActive" exact="if $ShipsCount == 1 and $Ships.{1} == player.controlled then false else $HasAnyPilot" />
+            <set_value name="$FireMouseover" exact="if $ShipsCount == 1 and $Ships.{1} == player.controlled then readtext.{98765}.{428} else (if not $FireActive then readtext.{98765}.{404} else readtext.{98765}.{201})" />
             <signal_cue_instantly
               cue="md.Interact_Menu_API.Add_Action"
               param="table[
@@ -896,7 +942,7 @@
         <set_value name="$SuccessCount" exact="0" />
         <do_all exact="$Ships.count" counter="$i">
           <set_value name="$Ship" exact="$Ships.{$i}" />
-          <do_if value="@$Ship.pilot">
+          <do_if value="@$Ship.pilot and $Ship != player.controlled">
             <set_value name="$Pilot" exact="$Ship.pilot" />
             <set_value name="$WorstCrew" exact="null" />
             <set_value name="$WorstSkill" exact="9999" />
@@ -1015,7 +1061,7 @@
         <set_value name="$SuccessCount" exact="0" />
         <do_all exact="$Ships.count" counter="$i">
           <set_value name="$Ship" exact="$Ships.{$i}" />
-          <do_if value="@$Ship.pilot">
+          <do_if value="@$Ship.pilot and $Ship != player.controlled">
             <set_value name="$Pilot" exact="$Ship.pilot" />
             <set_value name="$PilotName" exact="$Pilot.knownname" />
             <set_value name="$PilotPiloting" exact="$Pilot.skill.piloting" />
@@ -1101,7 +1147,7 @@
         <create_list name="$TargetShips" />
         <do_all exact="$Ships.count" counter="$i">
           <set_value name="$Ship" exact="$Ships.{$i}" />
-          <do_if value="not @$Ship.pilot">
+          <do_if value="not @$Ship.pilot and $Ship != player.controlled">
             <append_to_list name="$TargetShips" exact="$Ship" />
           </do_if>
         </do_all>
@@ -1445,7 +1491,7 @@
         <do_if value="$Ships.count gt 0">
         <do_all exact="$Ships.count" counter="$i">
           <set_value name="$Ship" exact="$Ships.{$i}" />
-          <do_if value="@$Ship.pilot">
+          <do_if value="@$Ship.pilot and $Ship != player.controlled">
             <set_value name="$Pilot" exact="$Ship.pilot" />
             
             <set_value name="$LoopEnded" exact="false" />
