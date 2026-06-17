@@ -668,24 +668,24 @@
             <set_value name="$Active_single" exact="$SubmenuActive and ($ShortSingle_0 == 0) and ($ShortSingle_1 == 0) and ($ShortSingle_2 == 0) and ($ShortSingle_3 == 0) and ($ShortSingle_4 == 0)" />
 
             <!-- Dynamic single training shortage tooltip configuration for single ship selection -->
-            <set_value name="$SingleShortTid" exact="209" />
+            <set_value name="$SingleShortTid" exact="413" />
             <set_value name="$SingleParams" exact="[$ShortSingle_0, $ShortSingle_1, $ShortSingle_2, $ShortSingle_3, $ShortSingle_4]" />
             <do_if value="$Ships.count == 1 and @$Ships.{1}.pilot.exists">
               <set_value name="$PilotSkill" exact="$Ships.{1}.pilot.skill.piloting" />
               <do_if value="$PilotSkill lt 3">
-                <set_value name="$SingleShortTid" exact="200" />
-                <set_value name="$SingleParams" exact="[]" />
+                <set_value name="$SingleShortTid" exact="409" />
+                <set_value name="$SingleParams" exact="[$ShortSingle_0]" />
               </do_if>
               <do_elseif value="$PilotSkill ge 3 and $PilotSkill lt 6">
-                <set_value name="$SingleShortTid" exact="206" />
+                <set_value name="$SingleShortTid" exact="410" />
                 <set_value name="$SingleParams" exact="[$ShortSingle_0, $ShortSingle_1]" />
               </do_elseif>
               <do_elseif value="$PilotSkill ge 6 and $PilotSkill lt 9">
-                <set_value name="$SingleShortTid" exact="207" />
+                <set_value name="$SingleShortTid" exact="411" />
                 <set_value name="$SingleParams" exact="[$ShortSingle_0, $ShortSingle_1, $ShortSingle_2]" />
               </do_elseif>
               <do_elseif value="$PilotSkill ge 9 and $PilotSkill lt 12">
-                <set_value name="$SingleShortTid" exact="208" />
+                <set_value name="$SingleShortTid" exact="412" />
                 <set_value name="$SingleParams" exact="[$ShortSingle_0, $ShortSingle_1, $ShortSingle_2, $ShortSingle_3]" />
               </do_elseif>
             </do_if>
