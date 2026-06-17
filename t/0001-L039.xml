@@ -24,12 +24,12 @@
     <t id="109">Solo meno di 2 stelle</t>
     <t id="110">Solo meno di 1 stella</t>
     <!-- Category D: Seminar Training Button Names (ID: 120 ~ 129) -->
-    <t id="120">Allena al livello massimo [tutti i seminari]</t>
+    <t id="120">Allena al livello massimo</t>
     <t id="121">Addestra a 5 stelle</t>
-    <t id="122">Allena fino a 4 stelle [seminari fino a 3 stelle]</t>
-    <t id="123">Allena fino a 3 stelle [seminari fino a 2 stelle]</t>
-    <t id="124">Allena fino a 2 stelle [seminari fino a 1 stella]</t>
-    <t id="125">Allena fino a 1 stella [seminari di base]</t>
+    <t id="122">Allena fino a 4 stelle</t>
+    <t id="123">Allena fino a 3 stelle</t>
+    <t id="124">Allena fino a 2 stelle</t>
+    <t id="125">Allena fino a 1 stella</t>
     <t id="126">Usa solo 1 seminario</t>
     <!-- Category E: UI Function Description Tooltips (ID: 200 ~ 249) -->
     <t id="200">Congeda il capitano e cambia il suo stato in equipaggio non assegnato.</t>

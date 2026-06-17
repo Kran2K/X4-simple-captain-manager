@@ -24,12 +24,12 @@
     <t id="109">Assign under 2-Star only</t>
     <t id="110">Assign under 1-Star only</t>
     <!-- Category D: Seminar Training Button Names (ID: 120 ~ 129) -->
-    <t id="120">Train to Max Skill [use all seminars sequentially]</t>
+    <t id="120">Train to Max Skill</t>
     <t id="121">Train to 5-Star</t>
-    <t id="122">Train to 4-Star [use up to 3-star seminars]</t>
-    <t id="123">Train to 3-Star [use up to 2-star seminars]</t>
-    <t id="124">Train to 2-Star [use up to 1-star seminars]</t>
-    <t id="125">Train to 1-Star [use basic seminars]</t>
+    <t id="122">Train to 4-Star</t>
+    <t id="123">Train to 3-Star</t>
+    <t id="124">Train to 2-Star</t>
+    <t id="125">Train to 1-Star</t>
     <t id="126">Use only 1 seminar</t>
     <!-- Category E: UI Function Description Tooltips (ID: 200 ~ 249) -->
     <t id="200">Dismisses the captain and changes their status to unassigned personnel.</t>

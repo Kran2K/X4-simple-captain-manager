@@ -24,12 +24,12 @@
     <t id="109">Moins de 2 étoiles uniquement</t>
     <t id="110">Moins de 1 étoile uniquement</t>
     <!-- Category D: Seminar Training Button Names (ID: 120 ~ 129) -->
-    <t id="120">Former au niveau max [tous les séminaires séquentiellement]</t>
+    <t id="120">Former au niveau max</t>
     <t id="121">Entraîner jusqu'à 5 étoiles</t>
-    <t id="122">Former jusqu'à 4 étoiles [séminaires jusqu'à 3 étoiles]</t>
-    <t id="123">Former jusqu'à 3 étoiles [séminaires jusqu'à 2 étoiles]</t>
-    <t id="124">Former jusqu'à 2 étoiles [séminaires jusqu'à 1 étoile]</t>
-    <t id="125">Former jusqu'à 1 étoile [séminaires de base]</t>
+    <t id="122">Former jusqu'à 4 étoiles</t>
+    <t id="123">Former jusqu'à 3 étoiles</t>
+    <t id="124">Former jusqu'à 2 étoiles</t>
+    <t id="125">Former jusqu'à 1 étoile</t>
     <t id="126">Utiliser 1 seul séminaire</t>
     <!-- Category E: UI Function Description Tooltips (ID: 200 ~ 249) -->
     <t id="200">Démet le capitaine de ses fonctions et change son statut en équipage non assigné.</t>

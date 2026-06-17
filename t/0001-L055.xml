@@ -24,12 +24,12 @@
     <t id="109">Apenas menos de 2 estrelas</t>
     <t id="110">Apenas menos de 1 estrela</t>
     <!-- Category D: Seminar Training Button Names (ID: 120 ~ 129) -->
-    <t id="120">Treinar até o nível máximo [todos os seminários]</t>
+    <t id="120">Treinar até o nível máximo</t>
     <t id="121">Treinar até 5 estrelas</t>
-    <t id="122">Treinar até 4 estrelas [seminários até 3 estrelas]</t>
-    <t id="123">Treinar até 3 estrelas [seminários até 2 estrelas]</t>
-    <t id="124">Treinar até 2 estrelas [seminários até 1 estrela]</t>
-    <t id="125">Treinar até 1 estrela [seminários básicos]</t>
+    <t id="122">Treinar até 4 estrelas</t>
+    <t id="123">Treinar até 3 estrelas</t>
+    <t id="124">Treinar até 2 estrelas</t>
+    <t id="125">Treinar até 1 estrela</t>
     <t id="126">Usar apenas 1 seminário</t>
     <!-- Category E: UI Function Description Tooltips (ID: 200 ~ 249) -->
     <t id="200">Dispensa o capitão e altera seu status para tripulação não atribuída.</t>

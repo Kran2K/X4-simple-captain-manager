@@ -24,12 +24,12 @@
     <t id="109">Nur unter 2 Sterne</t>
     <t id="110">Nur unter 1 Stern</t>
     <!-- Category D: Seminar Training Button Names (ID: 120 ~ 129) -->
-    <t id="120">Bis zum Maximal-Level trainieren [alle Seminare sequenziell]</t>
+    <t id="120">Bis zum Maximal-Level trainieren</t>
     <t id="121">Bis 5 Sterne ausbilden</t>
-    <t id="122">Bis 4 Sterne trainieren [Seminare bis 3 Sterne]</t>
-    <t id="123">Bis 3 Sterne trainieren [Seminare bis 2 Sterne]</t>
-    <t id="124">Bis 2 Sterne trainieren [Seminare bis 1 Stern]</t>
-    <t id="125">Bis 1 Stern trainieren [Grundseminare]</t>
+    <t id="122">Bis 4 Sterne trainieren</t>
+    <t id="123">Bis 3 Sterne trainieren</t>
+    <t id="124">Bis 2 Sterne trainieren</t>
+    <t id="125">Bis 1 Stern trainieren</t>
     <t id="126">Nur 1 Seminar verwenden</t>
     <!-- Category E: UI Function Description Tooltips (ID: 200 ~ 249) -->
     <t id="200">Entlässt den Kapitän und ändert seinen Status in nicht zugewiesene Besatzung.</t>

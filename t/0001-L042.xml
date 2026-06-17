@@ -24,12 +24,12 @@
     <t id="109">Pouze méně než 2 hvězdy</t>
     <t id="110">Pouze méně než 1 hvězda</t>
     <!-- Category D: Seminar Training Button Names (ID: 120 ~ 129) -->
-    <t id="120">Trénovat na maximální úroveň [všechny semináře]</t>
+    <t id="120">Trénovat na maximální úroveň</t>
     <t id="121">Vycvičit na 5 hvězdiček</t>
-    <t id="122">Trénovat na 4 hvězdy [semináře do 3 hvězd]</t>
-    <t id="123">Trénovat na 3 hvězdy [semináře do 2 hvězd]</t>
-    <t id="124">Trénovat na 2 hvězdy [semináře do 1 hvězdy]</t>
-    <t id="125">Trénovat na 1 hvězdu [základní semináře]</t>
+    <t id="122">Trénovat na 4 hvězdy</t>
+    <t id="123">Trénovat na 3 hvězdy</t>
+    <t id="124">Trénovat na 2 hvězdy</t>
+    <t id="125">Trénovat na 1 hvězdu</t>
     <t id="126">Použít pouze 1 seminář</t>
     <!-- Category E: UI Function Description Tooltips (ID: 200 ~ 249) -->
     <t id="200">Propustí kapitána a změní jeho stav na nepřiřazenou posádku.</t>
