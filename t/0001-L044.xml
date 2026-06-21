@@ -12,7 +12,7 @@
     <t id="11">Give Seminars</t>
     <t id="12">Other Captain Functions</t>
     <t id="13">Drop Inventory</t>
-    <t id="14">Drop Inventory (Lockbox)</t>
+    <t id="14">Drop Inventory into a lockbox</t>
     <!-- Category C: Auto Assign Button Names (ID: 100 ~ 119) -->
     <t id="100">Assign All Unassigned Crew</t>
     <t id="101">Assign 5-Star only</t>
