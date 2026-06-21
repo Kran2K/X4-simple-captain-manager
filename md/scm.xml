@@ -686,13 +686,13 @@
             <set_value name="$ShortSingle_3" exact="if ($ReqSingle_3 - $HasSem_3) gt 0 then ($ReqSingle_3 - $HasSem_3) else 0" />
             <set_value name="$ShortSingle_4" exact="if ($ReqSingle_4 - $HasSem_4) gt 0 then ($ReqSingle_4 - $HasSem_4) else 0" />
 
-            <set_value name="$Active_1star" exact="$SubmenuActive and ($Short1_0 == 0)" />
-            <set_value name="$Active_2star" exact="$SubmenuActive and ($Short2_0 == 0) and ($Short2_1 == 0)" />
-            <set_value name="$Active_3star" exact="$SubmenuActive and ($Short3_0 == 0) and ($Short3_1 == 0) and ($Short3_2 == 0)" />
-            <set_value name="$Active_4star" exact="$SubmenuActive and ($Short4_0 == 0) and ($Short4_1 == 0) and ($Short4_2 == 0) and ($Short4_3 == 0)" />
-            <set_value name="$Active_5star" exact="$SubmenuActive and ($ShortMax_0 == 0) and ($ShortMax_1 == 0) and ($ShortMax_2 == 0) and ($ShortMax_3 == 0) and ($ShortMax_4 == 0)" />
-            <set_value name="$Active_max" exact="$SubmenuActive" />
-            <set_value name="$Active_single" exact="$SubmenuActive and ($ShortSingle_0 == 0) and ($ShortSingle_1 == 0) and ($ShortSingle_2 == 0) and ($ShortSingle_3 == 0) and ($ShortSingle_4 == 0)" />
+            <set_value name="$Active_1star" exact="$SubmenuActive and ($Req1_0 gt 0) and ($Short1_0 == 0)" />
+            <set_value name="$Active_2star" exact="$SubmenuActive and (($Req2_0 + $Req2_1) gt 0) and ($Short2_0 == 0) and ($Short2_1 == 0)" />
+            <set_value name="$Active_3star" exact="$SubmenuActive and (($Req3_0 + $Req3_1 + $Req3_2) gt 0) and ($Short3_0 == 0) and ($Short3_1 == 0) and ($Short3_2 == 0)" />
+            <set_value name="$Active_4star" exact="$SubmenuActive and (($Req4_0 + $Req4_1 + $Req4_2 + $Req4_3) gt 0) and ($Short4_0 == 0) and ($Short4_1 == 0) and ($Short4_2 == 0) and ($Short4_3 == 0)" />
+            <set_value name="$Active_5star" exact="$SubmenuActive and (($ReqMax_0 + $ReqMax_1 + $ReqMax_2 + $ReqMax_3 + $ReqMax_4) gt 0) and ($ShortMax_0 == 0) and ($ShortMax_1 == 0) and ($ShortMax_2 == 0) and ($ShortMax_3 == 0) and ($ShortMax_4 == 0)" />
+            <set_value name="$Active_max" exact="$SubmenuActive and (($ReqMax_0 + $ReqMax_1 + $ReqMax_2 + $ReqMax_3 + $ReqMax_4) gt 0)" />
+            <set_value name="$Active_single" exact="$SubmenuActive and (($ReqSingle_0 + $ReqSingle_1 + $ReqSingle_2 + $ReqSingle_3 + $ReqSingle_4) gt 0) and ($ShortSingle_0 == 0) and ($ShortSingle_1 == 0) and ($ShortSingle_2 == 0) and ($ShortSingle_3 == 0) and ($ShortSingle_4 == 0)" />
 
             <!-- Dynamic single training shortage tooltip configuration for single ship selection -->
             <set_value name="$SingleShortTid" exact="413" />
@@ -718,13 +718,13 @@
             </do_if>
 
             <!-- Set up Seminar Tooltips based on Active status and inventory availability -->
-            <set_value name="$SeminarMouseover_1star" exact="if not $SeminarActive then readtext.{98765}.{405} else (if not $AnySeminar then readtext.{98765}.{408} else (if not $Active_1star then readtext.{98765}.{409}.[$Short1_0] else readtext.{98765}.{220}))" />
-            <set_value name="$SeminarMouseover_2star" exact="if not $SeminarActive then readtext.{98765}.{405} else (if not $AnySeminar then readtext.{98765}.{408} else (if not $Active_2star then readtext.{98765}.{410}.[$Short2_0, $Short2_1] else readtext.{98765}.{219}))" />
-            <set_value name="$SeminarMouseover_3star" exact="if not $SeminarActive then readtext.{98765}.{405} else (if not $AnySeminar then readtext.{98765}.{408} else (if not $Active_3star then readtext.{98765}.{411}.[$Short3_0, $Short3_1, $Short3_2] else readtext.{98765}.{217}))" />
-            <set_value name="$SeminarMouseover_4star" exact="if not $SeminarActive then readtext.{98765}.{405} else (if not $AnySeminar then readtext.{98765}.{408} else (if not $Active_4star then readtext.{98765}.{412}.[$Short4_0, $Short4_1, $Short4_2, $Short4_3] else readtext.{98765}.{216}))" />
-            <set_value name="$SeminarMouseover_5star" exact="if not $SeminarActive then readtext.{98765}.{405} else (if not $AnySeminar then readtext.{98765}.{408} else (if not $Active_5star then readtext.{98765}.{413}.[$ShortMax_0, $ShortMax_1, $ShortMax_2, $ShortMax_3, $ShortMax_4] else readtext.{98765}.{221}))" />
-            <set_value name="$SeminarMouseover_max" exact="if not $SeminarActive then readtext.{98765}.{405} else (if not $AnySeminar then readtext.{98765}.{408} else readtext.{98765}.{215})" />
-            <set_value name="$SeminarMouseover_single" exact="if not $SeminarActive then readtext.{98765}.{405} else (if not $AnySeminar then readtext.{98765}.{408} else (if not $Active_single then (if $SingleParams.count gt 0 then readtext.{98765}.{$SingleShortTid}.{$SingleParams} else readtext.{98765}.{$SingleShortTid}) else readtext.{98765}.{218}))" />
+            <set_value name="$SeminarMouseover_1star" exact="if not $SeminarActive then readtext.{98765}.{405} else (if not $AnySeminar then readtext.{98765}.{408} else (if $Req1_0 == 0 then (if $ShipsCount == 1 then readtext.{98765}.{432}.[1] else readtext.{98765}.{431}.[1]) else (if not $Active_1star then readtext.{98765}.{409}.[$Short1_0] else readtext.{98765}.{220})))" />
+            <set_value name="$SeminarMouseover_2star" exact="if not $SeminarActive then readtext.{98765}.{405} else (if not $AnySeminar then readtext.{98765}.{408} else (if ($Req2_0 + $Req2_1) == 0 then (if $ShipsCount == 1 then readtext.{98765}.{432}.[2] else readtext.{98765}.{431}.[2]) else (if not $Active_2star then readtext.{98765}.{410}.[$Short2_0, $Short2_1] else readtext.{98765}.{219})))" />
+            <set_value name="$SeminarMouseover_3star" exact="if not $SeminarActive then readtext.{98765}.{405} else (if not $AnySeminar then readtext.{98765}.{408} else (if ($Req3_0 + $Req3_1 + $Req3_2) == 0 then (if $ShipsCount == 1 then readtext.{98765}.{432}.[3] else readtext.{98765}.{431}.[3]) else (if not $Active_3star then readtext.{98765}.{411}.[$Short3_0, $Short3_1, $Short3_2] else readtext.{98765}.{217})))" />
+            <set_value name="$SeminarMouseover_4star" exact="if not $SeminarActive then readtext.{98765}.{405} else (if not $AnySeminar then readtext.{98765}.{408} else (if ($Req4_0 + $Req4_1 + $Req4_2 + $Req4_3) == 0 then (if $ShipsCount == 1 then readtext.{98765}.{432}.[4] else readtext.{98765}.{431}.[4]) else (if not $Active_4star then readtext.{98765}.{412}.[$Short4_0, $Short4_1, $Short4_2, $Short4_3] else readtext.{98765}.{216})))" />
+            <set_value name="$SeminarMouseover_5star" exact="if not $SeminarActive then readtext.{98765}.{405} else (if not $AnySeminar then readtext.{98765}.{408} else (if ($ReqMax_0 + $ReqMax_1 + $ReqMax_2 + $ReqMax_3 + $ReqMax_4) == 0 then (if $ShipsCount == 1 then readtext.{98765}.{432}.[5] else readtext.{98765}.{431}.[5]) else (if not $Active_5star then readtext.{98765}.{413}.[$ShortMax_0, $ShortMax_1, $ShortMax_2, $ShortMax_3, $ShortMax_4] else readtext.{98765}.{221})))" />
+            <set_value name="$SeminarMouseover_max" exact="if not $SeminarActive then readtext.{98765}.{405} else (if not $AnySeminar then readtext.{98765}.{408} else (if ($ReqMax_0 + $ReqMax_1 + $ReqMax_2 + $ReqMax_3 + $ReqMax_4) == 0 then (if $ShipsCount == 1 then readtext.{98765}.{432}.[5] else readtext.{98765}.{431}.[5]) else readtext.{98765}.{215}))" />
+            <set_value name="$SeminarMouseover_single" exact="if not $SeminarActive then readtext.{98765}.{405} else (if not $AnySeminar then readtext.{98765}.{408} else (if ($ReqSingle_0 + $ReqSingle_1 + $ReqSingle_2 + $ReqSingle_3 + $ReqSingle_4) == 0 then (if $ShipsCount == 1 then readtext.{98765}.{432}.[5] else readtext.{98765}.{431}.[5]) else (if not $Active_single then (if $SingleParams.count gt 0 then readtext.{98765}.{$SingleShortTid}.{$SingleParams} else readtext.{98765}.{$SingleShortTid}) else readtext.{98765}.{218})))" />
 
             <!-- If single selected ship is player controlled, override seminar active status to false and tooltip to "Player is already on board." -->
             <do_if value="$ShipsCount == 1 and $Ships.{1} == player.controlled">

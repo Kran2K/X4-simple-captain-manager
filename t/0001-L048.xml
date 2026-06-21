@@ -106,5 +106,7 @@
     <t id="426">Brak dostępnego nieprzydzielonego personelu z mniej niż 2 gwiazdkami.</t>
     <t id="427">Brak dostępnego nieprzydzielonego personelu z mniej niż 1 gwiazdką.</t>
     <t id="428">Gracz pilotuje ten statek.</t>
+    <t id="431">Wszyscy kapitanowie mają już %1 gwiazdek.</t>
+    <t id="432">Kapitan ma już %1 gwiazdek.</t>
   </page>
 </language>

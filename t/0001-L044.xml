@@ -106,5 +106,7 @@
     <t id="426">No under 2-star unassigned crew available.</t>
     <t id="427">No under 1-star unassigned crew available.</t>
     <t id="428">The player is piloting this ship.</t>
+    <t id="431">The captains are all already %1-star.</t>
+    <t id="432">The captain is already %1-star.</t>
   </page>
 </language>

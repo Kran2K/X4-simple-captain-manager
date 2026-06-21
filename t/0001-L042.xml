@@ -106,5 +106,7 @@
     <t id="426">Není k dispozici žádný nepřiřazený personál s méně než 2 hvězdičkami.</t>
     <t id="427">Není k dispozici žádný nepřiřazený personál s méně než 1 hvězdičkou.</t>
     <t id="428">Hráč pilotuje tuto loď.</t>
+    <t id="431">Všichni kapitáni již mají %1 hvězd.</t>
+    <t id="432">Kapitán již má %1 hvězd.</t>
   </page>
 </language>

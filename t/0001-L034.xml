@@ -106,5 +106,7 @@
     <t id="426">No hay personal sin asignar de menos de 2 estrellas disponible.</t>
     <t id="427">No hay personal sin asignar de menos de 1 estrella disponible.</t>
     <t id="428">El jugador está pilotando esta nave.</t>
+    <t id="431">Los capitanes son todos ya de %1-estrella.</t>
+    <t id="432">El capitán es ya de %1-estrella.</t>
   </page>
 </language>

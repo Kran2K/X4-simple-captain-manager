@@ -106,5 +106,7 @@
     <t id="426">Aucun équipage non assigné de moins de 2 étoiles disponible.</t>
     <t id="427">Aucun équipage non assigné de moins de 1 étoile disponible.</t>
     <t id="428">Le joueur pilote ce vaisseau.</t>
+    <t id="431">Les capitaines ont tous déjà %1 étoiles.</t>
+    <t id="432">Le capitaine a déjà %1 étoiles.</t>
   </page>
 </language>
