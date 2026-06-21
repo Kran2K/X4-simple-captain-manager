@@ -108,5 +108,15 @@
     <t id="428">El jugador está pilotando esta nave.</t>
     <t id="431">Los capitanes son todos ya de %1-estrella.</t>
     <t id="432">El capitán es ya de %1-estrella.</t>
+    <t id="13">Arrojar inventario</t>
+    <t id="14">Arrojar inventario en contenedor</t>
+    <t id="222">Arroja los objetos de inventario del capitán.</t>
+    <t id="223">Arroja los objetos de inventario del capitán en un contenedor.</t>
+    <t id="309">Arrojado el inventario de %1 capitán(es).</t>
+    <t id="310">Arrojado el inventario del capitán de la nave %1 (%2 tipos de objetos).</t>
+    <t id="311">Arrojado el inventario de %1 capitán(es) en un contenedor.</t>
+    <t id="312">Arrojado el inventario del capitán de la nave %1 (%2 tipos de objetos) en un contenedor.</t>
+    <t id="429">No hay objetos de inventario para arrojar.</t>
+    <t id="430">El inventario está vacío.</t>
   </page>
 </language>

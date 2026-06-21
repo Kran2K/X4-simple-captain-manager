@@ -108,5 +108,15 @@
     <t id="428">Il giocatore sta pilotando questa nave.</t>
     <t id="431">I capitani sono già tutti a %1-stelle.</t>
     <t id="432">Il capitano è già a %1-stelle.</t>
+    <t id="13">Rilascia inventario</t>
+    <t id="14">Rilascia inventario in cassaforte</t>
+    <t id="222">Rilascia gli oggetti d'inventario del capitano.</t>
+    <t id="223">Rilascia gli oggetti d'inventario del capitano in cassaforte.</t>
+    <t id="309">Rilasciato l'inventario di %1 capitano(i).</t>
+    <t id="310">Rilasciato l'inventario del capitano della nave %1 (%2 tipi di oggetti).</t>
+    <t id="311">Rilasciato l'inventario di %1 capitano(i) in una cassaforte.</t>
+    <t id="312">Rilasciato l'inventario del capitano della nave %1 (%2 tipi di oggetti) in una cassaforte.</t>
+    <t id="429">Nessun oggetto d'inventario da rilasciare.</t>
+    <t id="430">L'inventario è vuoto.</t>
   </page>
 </language>

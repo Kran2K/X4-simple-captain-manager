@@ -108,5 +108,15 @@
     <t id="428">Der Spieler steuert dieses Schiff.</t>
     <t id="431">Die Kapitäne haben alle bereits %1 Sterne.</t>
     <t id="432">Der Kapitän hat bereits %1 Sterne.</t>
+    <t id="13">Inventar auswerfen</t>
+    <t id="14">Inventar in Tresor auswerfen</t>
+    <t id="222">Wirft das vom Kapitän getragene Inventar aus.</t>
+    <t id="223">Wirft das vom Kapitän getragene Inventar in einen Tresor aus.</t>
+    <t id="309">Inventar von %1 Kapitän(en) ausgeworfen.</t>
+    <t id="310">Inventar des Kapitäns von Schiff %1 (%2 Warensorten) ausgeworfen.</t>
+    <t id="311">Inventar von %1 Kapitän(en) in einen Tresor ausgeworfen.</t>
+    <t id="312">Inventar des Kapitäns von Schiff %1 (%2 Warensorten) in einen Tresor ausgeworfen.</t>
+    <t id="429">Keine Inventargegenstände zum Auswerfen vorhanden.</t>
+    <t id="430">Inventar ist leer.</t>
   </page>
 </language>

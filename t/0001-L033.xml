@@ -108,5 +108,15 @@
     <t id="428">Le joueur pilote ce vaisseau.</t>
     <t id="431">Les capitaines ont tous déjà %1 étoiles.</t>
     <t id="432">Le capitaine a déjà %1 étoiles.</t>
+    <t id="13">Larguer l'inventaire</t>
+    <t id="14">Larguer l'inventaire dans un coffre</t>
+    <t id="222">Largue les objets d'inventaire portés par le capitaine.</t>
+    <t id="223">Largue les objets d'inventaire portés par le capitaine dans un coffre.</t>
+    <t id="309">Largué l'inventaire de %1 capitaine(s).</t>
+    <t id="310">Largué l'inventaire du capitaine du vaisseau %1 (%2 types d'objets).</t>
+    <t id="311">Largué l'inventaire de %1 capitaine(s) dans un coffre.</t>
+    <t id="312">Largué l'inventaire du capitaine du vaisseau %1 (%2 types d'objets) dans un coffre.</t>
+    <t id="429">Aucun objet d'inventaire à larguer.</t>
+    <t id="430">L'inventaire est vide.</t>
   </page>
 </language>

@@ -108,5 +108,15 @@
     <t id="428">The player is piloting this ship.</t>
     <t id="431">The captains are all already %1-star.</t>
     <t id="432">The captain is already %1-star.</t>
+    <t id="13">Drop Inventory</t>
+    <t id="14">Drop Inventory (Lockbox)</t>
+    <t id="222">Drops the inventory items carried by the captain.</t>
+    <t id="223">Drops the inventory items carried by the captain into a lockbox.</t>
+    <t id="309">Dropped the inventory of %1 captain(s).</t>
+    <t id="310">Dropped the inventory items (%2 types) of the captain of ship %1.</t>
+    <t id="311">Dropped the inventory of %1 captain(s) into a lockbox.</t>
+    <t id="312">Dropped the inventory items (%2 types) of the captain of ship %1 in a lockbox.</t>
+    <t id="429">No inventory items to drop.</t>
+    <t id="430">Inventory is empty.</t>
   </page>
 </language>

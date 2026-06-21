@@ -909,6 +909,40 @@
                 $active   = $DropCargoActive,
                 $callback = SCM_drop_cargo_callback,
                 ]" />
+
+            <!-- 3.5 Drop Inventory & Drop Inventory into Lockbox -->
+            <set_value name="$DropInvActive" exact="false" />
+            <do_all exact="$Ships.count" counter="$i">
+              <do_if value="@$Ships.{$i}.pilot.exists">
+                <do_if value="$Ships.{$i}.pilot.inventory.list.count gt 0">
+                  <set_value name="$DropInvActive" exact="true" />
+                </do_if>
+              </do_if>
+            </do_all>
+
+            <set_value name="$DropInvMouseover" exact="if not $DropInvActive then readtext.{98765}.{430} else readtext.{98765}.{222}" />
+            <signal_cue_instantly
+              cue="md.Interact_Menu_API.Add_Action"
+              param="table[
+                $id       = 'scm_drop_inventory',
+                $section  = $s_other,
+                $text     = readtext.{98765}.{13},
+                $mouseover = $DropInvMouseover,
+                $active   = $DropInvActive,
+                $callback = SCM_drop_inventory_callback,
+                ]" />
+
+            <set_value name="$DropInvLockboxMouseover" exact="if not $DropInvActive then readtext.{98765}.{430} else readtext.{98765}.{223}" />
+            <signal_cue_instantly
+              cue="md.Interact_Menu_API.Add_Action"
+              param="table[
+                $id       = 'scm_drop_inventory_lockbox',
+                $section  = $s_other,
+                $text     = readtext.{98765}.{14},
+                $mouseover = $DropInvLockboxMouseover,
+                $active   = $DropInvActive,
+                $callback = SCM_drop_inventory_callback,
+                ]" />
           </do_if>
         </do_if>
       </actions>

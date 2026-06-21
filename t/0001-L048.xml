@@ -108,5 +108,15 @@
     <t id="428">Gracz pilotuje ten statek.</t>
     <t id="431">Wszyscy kapitanowie mają już %1 gwiazdek.</t>
     <t id="432">Kapitan ma już %1 gwiazdek.</t>
+    <t id="13">Wyrzuć ekwipunek</t>
+    <t id="14">Wyrzuć ekwipunek do skrzyni</t>
+    <t id="222">Wyrzuca przedmioty z ekwipunku kapitana.</t>
+    <t id="223">Wyrzuca przedmioty z ekwipunku kapitana do skrzyni.</t>
+    <t id="309">Wyrzucono ekwipunek %1 kapitanów.</t>
+    <t id="310">Wyrzucono ekwipunek kapitana statku %1 (%2 typów przedmiotów).</t>
+    <t id="311">Wyrzucono ekwipunek %1 kapitanów do skrzyni.</t>
+    <t id="312">Wyrzucono ekwipunek kapitana statku %1 (%2 typów przedmiotów) do skrzyni.</t>
+    <t id="429">Brak przedmiotów w ekwipunku do wyrzucenia.</t>
+    <t id="430">Ekwipunek jest pusty.</t>
   </page>
 </language>

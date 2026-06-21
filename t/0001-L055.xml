@@ -108,5 +108,15 @@
     <t id="428">O jogador está pilotando esta nave.</t>
     <t id="431">Os capitães das naves selecionadas já possuem %1-estrela.</t>
     <t id="432">O capitão já possui %1-estrela.</t>
+    <t id="13">Descartar inventário</t>
+    <t id="14">Descartar inventário em cofre</t>
+    <t id="222">Descarta os itens de inventário do capitão.</t>
+    <t id="223">Descarta os itens de inventário do capitão em um cofre.</t>
+    <t id="309">Descartado o inventário de %1 capitão(es).</t>
+    <t id="310">Descartado o inventário do capitão da nave %1 (%2 tipos de itens).</t>
+    <t id="311">Descartado o inventário de %1 capitão(es) em um cofre.</t>
+    <t id="312">Descartado o inventário do capitão da nave %1 (%2 tipos de itens) em um cofre.</t>
+    <t id="429">Nenhum item de inventário para descartar.</t>
+    <t id="430">O inventário está vazio.</t>
   </page>
 </language>
