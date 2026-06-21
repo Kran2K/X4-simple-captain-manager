@@ -6,11 +6,13 @@
     <t id="2">Congeda Capitano</t>
     <t id="3">Licenzia Capitano</t>
     <t id="4">Trasferisci Equipaggio non Assegnato</t>
-    <t id="5">Espelli carico</t>
+    <t id="5">Rilascia carico</t>
     <!-- Category B: Submenu Groups & Function Names (ID: 10 ~ 19) -->
     <t id="10">Assegna Capitano</t>
-    <t id="11">Usa Seminari</t>
+    <t id="11">Dai seminari</t>
     <t id="12">Altre Funzioni Capitano</t>
+    <t id="13">Rilascia inventario</t>
+    <t id="14">Rilascia inventario in cassaforte</t>
     <!-- Category C: Auto Assign Button Names (ID: 100 ~ 119) -->
     <t id="100">Assegna tutto il personale non assegnato</t>
     <t id="101">Solo abilità 5 stelle</t>
@@ -35,9 +37,9 @@
     <t id="200">Congeda il capitano e cambia il suo stato in equipaggio non assegnato.</t>
     <t id="201">Licenzia immediatamente il capitano.</t>
     <t id="202">Trasferisce i membri dell'equipaggio non assegnati per riempire la nave secondo la priorità.</t>
-    <t id="203">Espelle tutto il carico nello spazio.</t>
+    <t id="203">Rilascia tutto il carico nello spazio.</t>
     <t id="204">Seleziona e assegna solo i membri non assegnati con abilità di pilotaggio 5 stelle.</t>
-    <t id="205">Nomina l'equipaggio non assegnato in tutta la galassia in ordine di livello di abilità più alto.</t>
+    <t id="205">Assegna l'equipaggio non assegnato in tutta la galassia in ordine di livello di abilità più alto.</t>
     <t id="206">Seleziona e assegna i membri con abilità di pilotaggio 3 stelle o più.</t>
     <t id="207">Seleziona e assegna i membri con abilità di pilotaggio 2 stelle o più.</t>
     <t id="208">Seleziona e assegna i membri con abilità di pilotaggio meno di 2 stelle.</t>
@@ -47,25 +49,27 @@
     <t id="212">Seleziona e assegna i membri con abilità di pilotaggio meno di 4 stelle.</t>
     <t id="213">Seleziona e assegna i membri con abilità di pilotaggio meno di 3 stelle.</t>
     <t id="214">Seleziona e assegna i membri con abilità di pilotaggio meno di 1 stella.</t>
-    <t id="215">Consuma sequenzialmente tutti i seminari disponibili per raggiungere 5 stelle.</t>
+    <t id="215">Consumia sequenzialmente tutti i seminari disponibili per raggiungere al massimo 5 stelle.</t>
     <t id="216">Consuma i seminari da base a 3 stelle per raggiungere 4 stelle.</t>
     <t id="217">Consuma i seminari da base a 2 stelle per raggiungere 3 stelle.</t>
     <t id="218">Consuma 1 seminario adatto per avanzare di un livello di abilità.</t>
     <t id="219">Consuma i seminari da base a 1 stella per raggiungere 2 stelle.</t>
     <t id="220">Consuma i seminari di base per raggiungere 1 stella.</t>
     <t id="221">Consuma in sequenza i seminari da base a 4 stelle per addestrare l'abilità di pilotaggio a 5 stelle.</t>
+    <t id="222">Rilascia gli oggetti d'inventario del capitano.</t>
+    <t id="223">Rilascia gli oggetti d'inventario del capitano in cassaforte.</t>
     <!-- Category F: Unassigned Pilot Statistics Tooltips (ID: 250 ~ 269) -->
-    <t id="250">Piloti non assegnati totali: %1</t>
-    <t id="251">Piloti a 5 stelle: %1</t>
-    <t id="252">Piloti da 4 stelle in su: %1</t>
-    <t id="253">Piloti da 3 stelle in su: %1</t>
-    <t id="254">Piloti da 2 stelle in su: %1</t>
-    <t id="255">Piloti da 1 stella in su: %1</t>
-    <t id="256">Piloti con meno di 5 stelle: %1</t>
-    <t id="257">Piloti con meno di 4 stelle: %1</t>
-    <t id="258">Piloti con meno di 3 stelle: %1</t>
-    <t id="259">Piloti con meno di 2 stelle: %1</t>
-    <t id="260">Piloti con meno di 1 stella: %1</t>
+    <t id="250">Equipaggio non assegnato totale: %1</t>
+    <t id="251">Equipaggio a 5 stelle: %1</t>
+    <t id="252">Equipaggio da 4 stelle in su: %1</t>
+    <t id="253">Equipaggio da 3 stelle in su: %1</t>
+    <t id="254">Equipaggio da 2 stelle in su: %1</t>
+    <t id="255">Equipaggio da 1 stella in su: %1</t>
+    <t id="256">Equipaggio con meno di 5 stelle: %1</t>
+    <t id="257">Equipaggio con meno di 4 stelle: %1</t>
+    <t id="258">Equipaggio con meno di 3 stelle: %1</t>
+    <t id="259">Equipaggio con meno di 2 stelle: %1</t>
+    <t id="260">Equipaggio con meno di 1 stella: %1</t>
     <!-- Category G: Action Logbook & Notification Messages (ID: 300 ~ 399) -->
     <t id="300">%1 capitani congedati.</t>
     <t id="301">Capitani assegnati a %1 navi.</t>
@@ -75,7 +79,11 @@
     <t id="305">Capitano [%3] da %2 stelle assegnato alla nave %1.</t>
     <t id="306">Trasferiti %2 membri dell'equipaggio non assegnati su %1.</t>
     <t id="307">Addestramento completato: %1 capitani promossi. [Consumato: base x%2, 1-stella x%3, 2-stelle x%4, 3-stelle x%5, 4-stelle x%6]</t>
-    <t id="308">Tutto il carico [%2 tipi di merci] della nave %1 è stato espulso nello spazio.</t>
+    <t id="308">Tutto il carico [%2 tipi di merci] della nave %1 è stato rilasciato nello spazio.</t>
+    <t id="309">Rilasciato l'inventario di %1 capitano(i).</t>
+    <t id="310">Rilasciato l'inventario del capitano della nave %1 (%2 tipi di oggetti).</t>
+    <t id="311">Rilasciato l'inventario di %1 capitano(i) in una cassaforte.</t>
+    <t id="312">Rilasciato l'inventario del capitano della nave %1 (%2 tipi di oggetti) in una cassaforte.</t>
     <!-- Category H: Disabled Warning Tooltips (ID: 400 ~ 499) -->
     <t id="400">Nessun capitano da congedare.</t>
     <t id="401">Un capitano è già assegnato a questa nave.</t>
@@ -83,7 +91,7 @@
     <t id="403">L'equipaggio di alcune navi è al completo. Per fare spazio ai capitani congedati, il membro dell'equipaggio meno qualificato su quelle navi verrà licenziato automaticamente.</t>
     <t id="404">Nessun capitano da licenziare.</t>
     <t id="405">Nessun capitano da addestrare.</t>
-    <t id="406">Nessun carico da espellere.</t>
+    <t id="406">Nessun carico da rilasciare.</t>
     <t id="407">La nave o la stazione bersaglio non ha spazio libero.</t>
     <t id="408">Non ci sono seminari nel tuo inventario.</t>
     <t id="409">Mancano i seminari richiesti per questo addestramento. [Mancante: Seminario base x%1]</t>
@@ -91,9 +99,9 @@
     <t id="411">Mancano i seminari richiesti per questo addestramento. [Mancante: Base x%1, 1 stella x%2, 2 stelle x%3]</t>
     <t id="412">Mancano i seminari richiesti per questo addestramento. [Mancante: Base x%1, 1 stella x%2, 2 stelle x%3, 3 stelle x%4]</t>
     <t id="413">Mancano i seminari richiesti per questo addestramento. [Mancante: Base x%1, 1 stella x%2, 2 stelle x%3, 3 stelle x%4, 4 stelle x%5]</t>
-    <t id="414">Equipaggio non assegnato insufficiente; i capitani verranno nominati solo per alcune navi.</t>
-    <t id="415">Capitani già nominati per %1 navi; le nomine verranno effettuate solo per %2 navi.</t>
-    <t id="416">Capitani già nominati per %1 navi e carenza di equipaggio non assegnato; le nomine verranno effettuate solo per %2 navi.</t>
+    <t id="414">Equipaggio non assegnato insufficiente; i capitani verranno assegnati solo per alcune navi.</t>
+    <t id="415">Capitani già assegnati per %1 navi; le assegnazioni verranno effettuate solo per %2 navi.</t>
+    <t id="416">Capitani già assegnati per %1 navi e carenza di equipaggio non assegnato; le assegnazioni verranno effettuate solo per %2 navi.</t>
     <t id="417">Nessun personale non assegnato disponibile.</t>
     <t id="418">Nessun personale non assegnato a 5 stelle disponibile.</t>
     <t id="419">Nessun personale non assegnato a 4 o più stelle disponibile.</t>
@@ -106,17 +114,9 @@
     <t id="426">Nessun personale non assegnato con meno di 2 stelle disponibile.</t>
     <t id="427">Nessun personale non assegnato con meno di 1 stella disponibile.</t>
     <t id="428">Il giocatore sta pilotando questa nave.</t>
-    <t id="431">I capitani sono già tutti a %1-stelle.</t>
-    <t id="432">Il capitano è già a %1-stelle.</t>
-    <t id="13">Rilascia inventario</t>
-    <t id="14">Rilascia inventario in cassaforte</t>
-    <t id="222">Rilascia gli oggetti d'inventario del capitano.</t>
-    <t id="223">Rilascia gli oggetti d'inventario del capitano in cassaforte.</t>
-    <t id="309">Rilasciato l'inventario di %1 capitano(i).</t>
-    <t id="310">Rilasciato l'inventario del capitano della nave %1 (%2 tipi di oggetti).</t>
-    <t id="311">Rilasciato l'inventario di %1 capitano(i) in una cassaforte.</t>
-    <t id="312">Rilasciato l'inventario del capitano della nave %1 (%2 tipi di oggetti) in una cassaforte.</t>
     <t id="429">Nessun oggetto d'inventario da rilasciare.</t>
     <t id="430">L'inventario è vuoto.</t>
+    <t id="431">I capitani sono già tutti a %1-stelle.</t>
+    <t id="432">Il capitano è già a %1-stelle.</t>
   </page>
 </language>

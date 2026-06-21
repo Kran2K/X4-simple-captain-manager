@@ -9,8 +9,10 @@
     <t id="5">Drop Cargo</t>
     <!-- Category B: Submenu Groups & Function Names (ID: 10 ~ 19) -->
     <t id="10">Assign Captain</t>
-    <t id="11">Use Seminars</t>
+    <t id="11">Give Seminars</t>
     <t id="12">Other Captain Functions</t>
+    <t id="13">Drop Inventory</t>
+    <t id="14">Drop Inventory (Lockbox)</t>
     <!-- Category C: Auto Assign Button Names (ID: 100 ~ 119) -->
     <t id="100">Assign All Unassigned Crew</t>
     <t id="101">Assign 5-Star only</t>
@@ -32,12 +34,12 @@
     <t id="125">Train to 1-Star</t>
     <t id="126">Use only 1 seminar</t>
     <!-- Category E: UI Function Description Tooltips (ID: 200 ~ 249) -->
-    <t id="200">Dismisses the captain and changes their status to unassigned personnel.</t>
+    <t id="200">Dismisses the captain and changes their status to unassigned crew.</t>
     <t id="201">Immediately fires the captain.</t>
     <t id="202">Transfers unassigned crew members to fill the ship according to priority.</t>
-    <t id="203">Ejects all cargo into space.</t>
+    <t id="203">Drops all cargo into space.</t>
     <t id="204">Selects and assigns only unassigned crew members with a piloting skill of 5-star to the captain slot.</t>
-    <t id="205">Appoints unassigned crew galaxy-wide in order of highest skill levels.</t>
+    <t id="205">Assigns unassigned crew galaxy-wide in order of highest skill levels.</t>
     <t id="206">Selects and assigns only unassigned crew members with a piloting skill of 3-star or higher to the captain slot.</t>
     <t id="207">Selects and assigns only unassigned crew members with a piloting skill of 2-star or higher to the captain slot.</t>
     <t id="208">Selects and assigns only unassigned crew members with a piloting skill under 2-star to the captain slot.</t>
@@ -47,25 +49,27 @@
     <t id="212">Selects and assigns only unassigned crew members with a piloting skill under 4-star to the captain slot.</t>
     <t id="213">Selects and assigns only unassigned crew members with a piloting skill under 3-star to the captain slot.</t>
     <t id="214">Selects and assigns only unassigned crew members with a piloting skill under 1-star to the captain slot.</t>
-    <t id="215">Sequentially consumes all available seminars in your inventory to train the captain's piloting skill to 5-star.</t>
+    <t id="215">Sequentially consumes all available seminars in your inventory to train the captain's piloting skill up to 5-star.</t>
     <t id="216">Sequentially consumes basic to 3-star seminars to train piloting skill up to 4-star.</t>
     <t id="217">Sequentially consumes basic to 2-star seminars to train piloting skill up to 3-star.</t>
     <t id="218">Consumes 1 seminar appropriate for the captain's current skill to promote the piloting skill by 1 tier.</t>
     <t id="219">Sequentially consumes basic to 1-star seminars to train piloting skill up to 2-star.</t>
     <t id="220">Sequentially consumes basic seminars to train piloting skill up to 1-star.</t>
     <t id="221">Consumes basic to 4-star seminars sequentially to train piloting skill to 5-star.</t>
+    <t id="222">Drops the inventory items carried by the captain.</t>
+    <t id="223">Drops the inventory items carried by the captain into a lockbox.</t>
     <!-- Category F: Unassigned Pilot Statistics Tooltips (ID: 250 ~ 269) -->
-    <t id="250">Total unassigned pilots: %1</t>
-    <t id="251">5-star pilots: %1</t>
-    <t id="252">4-star and higher pilots: %1</t>
-    <t id="253">3-star and higher pilots: %1</t>
-    <t id="254">2-star and higher pilots: %1</t>
-    <t id="255">1-star and higher pilots: %1</t>
-    <t id="256">Under 5-star pilots: %1</t>
-    <t id="257">Under 4-star pilots: %1</t>
-    <t id="258">Under 3-star pilots: %1</t>
-    <t id="259">Under 2-star pilots: %1</t>
-    <t id="260">Under 1-star pilots: %1</t>
+    <t id="250">Total unassigned crew: %1</t>
+    <t id="251">5-star crew: %1</t>
+    <t id="252">4-star and higher crew: %1</t>
+    <t id="253">3-star and higher crew: %1</t>
+    <t id="254">2-star and higher crew: %1</t>
+    <t id="255">1-star and higher crew: %1</t>
+    <t id="256">Under 5-star crew: %1</t>
+    <t id="257">Under 4-star crew: %1</t>
+    <t id="258">Under 3-star crew: %1</t>
+    <t id="259">Under 2-star crew: %1</t>
+    <t id="260">Under 1-star crew: %1</t>
     <!-- Category G: Action Logbook & Notification Messages (ID: 300 ~ 399) -->
     <t id="300">Dismissed %1 captain[s].</t>
     <t id="301">Assigned captains to %1 ship[s].</t>
@@ -75,7 +79,11 @@
     <t id="305">Assigned %2-star captain [%3] to ship %1.</t>
     <t id="306">Transferred %2 unassigned crew to %1.</t>
     <t id="307">Seminar training complete: Promoted %1 captains. [Consumed: basic x%2, 1-star x%3, 2-star x%4, 3-star x%5, 4-star x%6]</t>
-    <t id="308">Ejected all cargo [%2 types of wares] of ship %1 into space.</t>
+    <t id="308">Dropped all cargo [%2 types of wares] of ship %1 into space.</t>
+    <t id="309">Dropped the inventory of %1 captain(s).</t>
+    <t id="310">Dropped the inventory items (%2 types) of the captain of ship %1.</t>
+    <t id="311">Dropped the inventory of %1 captain(s) into a lockbox.</t>
+    <t id="312">Dropped the inventory items (%2 types) of the captain of ship %1 in a lockbox.</t>
     <!-- Category H: Disabled Warning Tooltips (ID: 400 ~ 499) -->
     <t id="400">No captain to dismiss.</t>
     <t id="401">A captain is already assigned to this ship.</t>
@@ -91,9 +99,9 @@
     <t id="411">Lacks required seminars for this training. [Missing: Basic x%1, 1-Star x%2, 2-Star x%3]</t>
     <t id="412">Lacks required seminars for this training. [Missing: Basic x%1, 1-Star x%2, 2-Star x%3, 3-Star x%4]</t>
     <t id="413">Lacks required seminars for this training. [Missing: Basic x%1, 1-Star x%2, 2-Star x%3, 3-Star x%4, 4-Star x%5]</t>
-    <t id="414">Not enough unassigned crew; captains will be appointed to some ships only.</t>
-    <t id="415">Captains already appointed to %1 ships; appointments will be made to %2 ships only.</t>
-    <t id="416">Captains already appointed to %1 ships and unassigned crew is short; appointments will be made to %2 ships only.</t>
+    <t id="414">Not enough unassigned crew; captains will be assigned to some ships only.</t>
+    <t id="415">Captains already assigned to %1 ships; assignments will be made to %2 ships only.</t>
+    <t id="416">Captains already assigned to %1 ships and unassigned crew is short; assignments will be made to %2 ships only.</t>
     <t id="417">No unassigned crew members available.</t>
     <t id="418">No 5-star unassigned crew available.</t>
     <t id="419">No 4-star or higher unassigned crew available.</t>
@@ -106,17 +114,9 @@
     <t id="426">No under 2-star unassigned crew available.</t>
     <t id="427">No under 1-star unassigned crew available.</t>
     <t id="428">The player is piloting this ship.</t>
-    <t id="431">The captains are all already %1-star.</t>
-    <t id="432">The captain is already %1-star.</t>
-    <t id="13">Drop Inventory</t>
-    <t id="14">Drop Inventory (Lockbox)</t>
-    <t id="222">Drops the inventory items carried by the captain.</t>
-    <t id="223">Drops the inventory items carried by the captain into a lockbox.</t>
-    <t id="309">Dropped the inventory of %1 captain(s).</t>
-    <t id="310">Dropped the inventory items (%2 types) of the captain of ship %1.</t>
-    <t id="311">Dropped the inventory of %1 captain(s) into a lockbox.</t>
-    <t id="312">Dropped the inventory items (%2 types) of the captain of ship %1 in a lockbox.</t>
     <t id="429">No inventory items to drop.</t>
     <t id="430">Inventory is empty.</t>
+    <t id="431">The captains are all already %1-star.</t>
+    <t id="432">The captain is already %1-star.</t>
   </page>
 </language>

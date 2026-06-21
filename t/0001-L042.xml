@@ -9,8 +9,10 @@
     <t id="5">Vyhodit náklad</t>
     <!-- Category B: Submenu Groups & Function Names (ID: 10 ~ 19) -->
     <t id="10">Přiřadit kapitána</t>
-    <t id="11">Použít semináře</t>
+    <t id="11">Poskytnout semináře</t>
     <t id="12">Další funkce kapitána</t>
+    <t id="13">Vyhodit inventář</t>
+    <t id="14">Vyhodit inventář do uzamykatelné truhly</t>
     <!-- Category C: Auto Assign Button Names (ID: 100 ~ 119) -->
     <t id="100">Přiřadit veškerý nepřiřazený personál</t>
     <t id="101">Pouze dovednost 5 hvězd</t>
@@ -37,7 +39,7 @@
     <t id="202">Přemísťuje nepřiřazené členy posádky pro doplnění lodi podle priority.</t>
     <t id="203">Vyhodí veškerý náklad do vesmíru.</t>
     <t id="204">Vybere a přiřadí pouze nepřiřazené členy s dovedností pilotáže 5 hvězd.</t>
-    <t id="205">Jmenuje nepřiřazenou posádku v celé galaxii v pořadí nejvyšší úrovně dovedností.</t>
+    <t id="205">Přiřadí nepřiřazenou posádku v celé galaxii v pořadí nejvyšší úrovně dovedností.</t>
     <t id="206">Vybere a přiřadí nepřiřazené s dovedností pilotáže 3 hvězdy nebo více.</t>
     <t id="207">Vybere a přiřadí nepřiřazené s dovedností pilotáže 2 hvězdy nebo více.</t>
     <t id="208">Vybere a přiřadí nepřiřazené s dovedností pilotáže méně než 2 hvězdy.</t>
@@ -47,25 +49,27 @@
     <t id="212">Vybere a přiřadí nepřiřazené s dovedností pilotáže méně než 4 hvězdy.</t>
     <t id="213">Vybere a přiřadí nepřiřazené s dovedností pilotáže méně než 3 hvězdy.</t>
     <t id="214">Vybere a přiřadí nepřiřazené s dovedností pilotáže méně než 1 hvězda.</t>
-    <t id="215">Sekvenčně spotřebuje všechny dostupné semináře pro dosažení 5-hvězdičkového pilotáže.</t>
+    <t id="215">Sekvenčně spotřebuje všechny dostupné semináře pro dosažení maximálně 5-hvězdičkového pilotáže.</t>
     <t id="216">Spotřebuje semináře od základní do 3 hvězd pro dosažení 4 hvězd.</t>
     <t id="217">Spotřebuje semináře od základní do 2 hvězd pro dosažení 3 hvězd.</t>
     <t id="218">Spotřebuje 1 vhodný seminář pro postup o úroveň dovednosti.</t>
     <t id="219">Spotřebuje semináře od základní do 1 hvězdy pro dosažení 2 hvězd.</t>
     <t id="220">Spotřebuje základní semináře pro dosažení 1 hvězdy.</t>
     <t id="221">Postupně spotřebovává základní až 4hvězdičkové semináře k výcviku pilotáže na 5 hvězdiček.</t>
+    <t id="222">Vyhodí předměty inventáře kapitána.</t>
+    <t id="223">Vyhodí předměty inventáře kapitána do truhly.</t>
     <!-- Category F: Unassigned Pilot Statistics Tooltips (ID: 250 ~ 269) -->
-    <t id="250">Celkový počet nepřiřazených pilotů: %1</t>
-    <t id="251">5hvězdičkoví piloti: %1</t>
-    <t id="252">4hvězdičkoví a vyšší piloti: %1</t>
-    <t id="253">3hvězdičkoví a vyšší piloti: %1</t>
-    <t id="254">2hvězdičkoví a vyšší piloti: %1</t>
-    <t id="255">1hvězdičkoví a vyšší piloti: %1</t>
-    <t id="256">Piloti pod 5 hvězdiček: %1</t>
-    <t id="257">Piloti pod 4 hvězdičky: %1</t>
-    <t id="258">Piloti pod 3 hvězdičky: %1</t>
-    <t id="259">Piloti pod 2 hvězdičky: %1</t>
-    <t id="260">Piloti pod 1 hvězdičku: %1</t>
+    <t id="250">Celkový počet nepřiřazené posádky: %1</t>
+    <t id="251">Posádka s 5 hvězdičkami: %1</t>
+    <t id="252">Posádka se 4 a více hvězdičkami: %1</t>
+    <t id="253">Posádka se 3 a více hvězdičkami: %1</t>
+    <t id="254">Posádka se 2 a více hvězdičkami: %1</t>
+    <t id="255">Posádka s 1 a více hvězdičkami: %1</t>
+    <t id="256">Posádka s méně než 5 hvězdičkami: %1</t>
+    <t id="257">Posádka s méně než 4 hvězdičkami: %1</t>
+    <t id="258">Posádka s méně než 3 hvězdičkami: %1</t>
+    <t id="259">Posádka s méně než 2 hvězdičkami: %1</t>
+    <t id="260">Posádka s méně než 1 hvězdičkou: %1</t>
     <!-- Category G: Action Logbook & Notification Messages (ID: 300 ~ 399) -->
     <t id="300">%1 kapitánů propuštěno.</t>
     <t id="301">Kapitáni přiřazeni k %1 lodím.</t>
@@ -76,6 +80,10 @@
     <t id="306">Převedeno %2 nepřidělených členů posádky na %1.</t>
     <t id="307">Školení semináře dokončeno: %1 kapitáni povýšeni. [Spotřebováno: základní x%2, 1hvězdičkový x%3, 2hvězdičkový x%4, 3hvězdičkový x%5, 4hvězdičkový x%6]</t>
     <t id="308">Veškerý náklad [%2 druhů zboží] lodi %1 byl vyhozen do vesmíru.</t>
+    <t id="309">Vyhozen inventář %1 kapitánů.</t>
+    <t id="310">Vyhozen inventář kapitána lodi %1 (%2 typů předmětů).</t>
+    <t id="311">Vyhozen inventář %1 kapitánů do truhly.</t>
+    <t id="312">Vyhozen inventář kapitána lodi %1 (%2 typů předmětů) do truhly.</t>
     <!-- Category H: Disabled Warning Tooltips (ID: 400 ~ 499) -->
     <t id="400">Žádný kapitán k propuštění.</t>
     <t id="401">Kapitán je již k této lodi přiřazen.</t>
@@ -91,9 +99,9 @@
     <t id="411">Chybí semináře vyžadované pro tento výcvik. [Chybí: Základní x%1, 1hvězdičkový x%2, 2hvězdičkový x%3]</t>
     <t id="412">Chybí semináře vyžadované pro tento výcvik. [Chybí: Základní x%1, 1hvězdičkový x%2, 2hvězdičkový x%3, 3hvězdičkový x%4]</t>
     <t id="413">Chybí semináře vyžadované pro tento výcvik. [Chybí: Základní x%1, 1hvězdičkový x%2, 2hvězdičkový x%3, 3hvězdičkový x%4, 4hvězdičkový x%5]</t>
-    <t id="414">Nedostatek nepřiřazené posádky; kapitáni budou jmenováni pouze na některých lodích.</t>
-    <t id="415">Kapitáni již byli jmenováni na %1 lodích; jmenování budou provedena pouze na %2 lodích.</t>
-    <t id="416">Kapitáni již byli jmenováni na %1 lodích a nepřiřazená posádka je nedostatečná; jmenování budou provedena pouze na %2 lodích.</t>
+    <t id="414">Nedostatek nepřiřazené posádky; kapitáni budou přiřazeni pouze na některých lodích.</t>
+    <t id="415">Kapitáni již byli přiřazeni na %1 lodích; přiřazení budou provedena pouze na %2 lodích.</t>
+    <t id="416">Kapitáni již byli přiřazeni na %1 lodích a nepřiřazená posádka je nedostatečná; přiřazení budou provedena pouze na %2 lodích.</t>
     <t id="417">Není k dispozici žádný nepřiřazený personál.</t>
     <t id="418">Není k dispozici žádný nepřiřazený 5hvězdičkový personál.</t>
     <t id="419">Není k dispozici žádný nepřiřazený personál se 4 a více hvězdičkami.</t>
@@ -106,17 +114,9 @@
     <t id="426">Není k dispozici žádný nepřiřazený personál s méně než 2 hvězdičkami.</t>
     <t id="427">Není k dispozici žádný nepřiřazený personál s méně než 1 hvězdičkou.</t>
     <t id="428">Hráč pilotuje tuto loď.</t>
-    <t id="431">Všichni kapitáni již mají %1 hvězd.</t>
-    <t id="432">Kapitán již má %1 hvězd.</t>
-    <t id="13">Vyhodit inventář</t>
-    <t id="14">Vyhodit inventář do uzamykatelné truhly</t>
-    <t id="222">Vyhodí předměty inventáře kapitána.</t>
-    <t id="223">Vyhodí předměty inventáře kapitána do truhly.</t>
-    <t id="309">Vyhozen inventář %1 kapitánů.</t>
-    <t id="310">Vyhozen inventář kapitána lodi %1 (%2 typů předmětů).</t>
-    <t id="311">Vyhozen inventář %1 kapitánů do truhly.</t>
-    <t id="312">Vyhozen inventář kapitána lodi %1 (%2 typů předmětů) do truhly.</t>
     <t id="429">Žádné předměty inventáře k vyhození.</t>
     <t id="430">Inventář je prázdný.</t>
+    <t id="431">Všichni kapitáni již mají %1 hvězd.</t>
+    <t id="432">Kapitán již má %1 hvězd.</t>
   </page>
 </language>

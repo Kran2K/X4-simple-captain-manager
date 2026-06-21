@@ -9,8 +9,10 @@
     <t id="5">Descartar Carga</t>
     <!-- Category B: Submenu Groups & Function Names (ID: 10 ~ 19) -->
     <t id="10">Atribuir Capitão</t>
-    <t id="11">Usar Seminários</t>
+    <t id="11">Dar seminários</t>
     <t id="12">Outras Funções do Capitão</t>
+    <t id="13">Descartar inventário</t>
+    <t id="14">Descartar inventário em cofre</t>
     <!-- Category C: Auto Assign Button Names (ID: 100 ~ 119) -->
     <t id="100">Atribuir todo o pessoal não atribuído</t>
     <t id="101">Apenas habilidade 5 estrelas</t>
@@ -47,25 +49,27 @@
     <t id="212">Seleciona e atribui membros com habilidade de pilotagem menos de 4 estrelas.</t>
     <t id="213">Seleciona e atribui membros com habilidade de pilotagem menos de 3 estrelas.</t>
     <t id="214">Seleciona e atribui membros com habilidade de pilotagem menos de 1 estrela.</t>
-    <t id="215">Consome sequencialmente todos os seminários disponíveis para atingir 5 estrelas.</t>
+    <t id="215">Consome sequencialmente todos os seminários disponíveis para atingir no máximo 5 estrelas.</t>
     <t id="216">Consome seminários do básico até 3 estrelas para atingir 4 estrelas.</t>
     <t id="217">Consome seminários do básico até 2 estrelas para atingir 3 estrelas.</t>
     <t id="218">Consome 1 seminário adequado para avançar 1 nível de habilidade.</t>
     <t id="219">Consome seminários do básico até 1 estrela para atingir 2 estrelas.</t>
     <t id="220">Consome seminários básicos para atingir 1 estrela.</t>
     <t id="221">Consome sequencialmente seminários básicos a 4 estrelas para treinar a habilidade de pilotagem para 5 estrelas.</t>
+    <t id="222">Descarta os itens de inventário do capitão.</t>
+    <t id="223">Descarta os itens de inventário do capitão em um cofre.</t>
     <!-- Category F: Unassigned Pilot Statistics Tooltips (ID: 250 ~ 269) -->
-    <t id="250">Pilotos não atribuídos totais: %1</t>
-    <t id="251">Pilotos de 5 estrelas: %1</t>
-    <t id="252">Pilotos de 4 estrelas ou mais: %1</t>
-    <t id="253">Pilotos de 3 estrelas ou mais: %1</t>
-    <t id="254">Pilotos de 2 estrelas ou mais: %1</t>
-    <t id="255">Pilotos de 1 estrela ou mais: %1</t>
-    <t id="256">Pilotos com menos de 5 estrelas: %1</t>
-    <t id="257">Pilotos com menos de 4 estrelas: %1</t>
-    <t id="258">Pilotos com menos de 3 estrelas: %1</t>
-    <t id="259">Pilotos com menos de 2 estrelas: %1</t>
-    <t id="260">Pilotos com menos de 1 estrela: %1</t>
+    <t id="250">Tripulação não atribuída total: %1</t>
+    <t id="251">Tripulação de 5 estrelas: %1</t>
+    <t id="252">Tripulação de 4 estrelas ou mais: %1</t>
+    <t id="253">Tripulação de 3 estrelas ou mais: %1</t>
+    <t id="254">Tripulação de 2 estrelas ou mais: %1</t>
+    <t id="255">Tripulação de 1 estrela ou mais: %1</t>
+    <t id="256">Tripulação de menos de 5 estrelas: %1</t>
+    <t id="257">Tripulação de menos de 4 estrelas: %1</t>
+    <t id="258">Tripulação de menos de 3 estrelas: %1</t>
+    <t id="259">Tripulação de menos de 2 estrelas: %1</t>
+    <t id="260">Tripulação de menos de 1 estrela: %1</t>
     <!-- Category G: Action Logbook & Notification Messages (ID: 300 ~ 399) -->
     <t id="300">%1 capitães dispensados.</t>
     <t id="301">Capitães atribuídos a %1 naves.</t>
@@ -76,6 +80,10 @@
     <t id="306">Transferidos %2 tripulantes não atribuídos para %1.</t>
     <t id="307">Treinamento com seminário concluído: %1 capitães promovidos. [Consumido: básico x%2, 1 estrela x%3, 2 estrelas x%4, 3 estrelas x%5, 4 estrelas x%6]</t>
     <t id="308">Toda a carga [%2 tipos de mercadorias] da nave %1 foi descartada no espaço.</t>
+    <t id="309">Descartado o inventário de %1 capitão(es).</t>
+    <t id="310">Descartado o inventário do capitão da nave %1 (%2 tipos de itens).</t>
+    <t id="311">Descartado o inventário de %1 capitão(es) em um cofre.</t>
+    <t id="312">Descartado o inventário do capitão da nave %1 (%2 tipos de itens) em um cofre.</t>
     <!-- Category H: Disabled Warning Tooltips (ID: 400 ~ 499) -->
     <t id="400">Nenhum capitão para dispensar.</t>
     <t id="401">Um capitão já está atribuído a esta nave.</t>
@@ -91,9 +99,9 @@
     <t id="411">Faltam os seminários necessários para este treinamento. [Falta: Básico x%1, 1 estrela x%2, 2 estrelas x%3]</t>
     <t id="412">Faltam os seminários necessários para este treinamento. [Falta: Básico x%1, 1 estrela x%2, 2 estrelas x%3, 3 estrelas x%4]</t>
     <t id="413">Faltam os seminários necessários para este treinamento. [Falta: Básico x%1, 1 estrela x%2, 2 estrelas x%3, 3 estrelas x%4, 4 estrelas x%5]</t>
-    <t id="414">Falta de tripulação não atribuída; capitães serão nomeados apenas para algumas naves.</t>
-    <t id="415">Capitães já nomeados para %1 naves; as nomeações serão feitas apenas para %2 naves.</t>
-    <t id="416">Capitães já nomeados para %1 naves e falta tripulação não atribuída; as nomeações serão feitas apenas para %2 naves.</t>
+    <t id="414">Falta de tripulação não atribuída; capitães serão atribuídos apenas para algumas naves.</t>
+    <t id="415">Capitães já atribuídos para %1 naves; as atribuições serão feitas apenas para %2 naves.</t>
+    <t id="416">Capitães já atribuídos para %1 naves e falta tripulação não atribuída; as atribuições serão feitas apenas para %2 naves.</t>
     <t id="417">Nenhum pessoal não atribuído disponível.</t>
     <t id="418">Nenhum pessoal não atribuído de 5 estrelas disponível.</t>
     <t id="419">Nenhum pessoal não atribuído de 4 estrelas ou mais disponível.</t>
@@ -106,17 +114,9 @@
     <t id="426">Nenhum pessoal não atribuído de menos de 2 estrelas disponível.</t>
     <t id="427">Nenhum pessoal não atribuído de menos de 1 estrela disponível.</t>
     <t id="428">O jogador está pilotando esta nave.</t>
-    <t id="431">Os capitães das naves selecionadas já possuem %1-estrela.</t>
-    <t id="432">O capitão já possui %1-estrela.</t>
-    <t id="13">Descartar inventário</t>
-    <t id="14">Descartar inventário em cofre</t>
-    <t id="222">Descarta os itens de inventário do capitão.</t>
-    <t id="223">Descarta os itens de inventário do capitão em um cofre.</t>
-    <t id="309">Descartado o inventário de %1 capitão(es).</t>
-    <t id="310">Descartado o inventário do capitão da nave %1 (%2 tipos de itens).</t>
-    <t id="311">Descartado o inventário de %1 capitão(es) em um cofre.</t>
-    <t id="312">Descartado o inventário do capitão da nave %1 (%2 tipos de itens) em um cofre.</t>
     <t id="429">Nenhum item de inventário para descartar.</t>
     <t id="430">O inventário está vazio.</t>
+    <t id="431">Os capitães das naves selecionadas já possuem %1-estrela.</t>
+    <t id="432">O capitão já possui %1-estrela.</t>
   </page>
 </language>

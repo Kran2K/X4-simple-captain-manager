@@ -9,8 +9,10 @@
     <t id="5">Arrojar carga</t>
     <!-- Category B: Submenu Groups & Function Names (ID: 10 ~ 19) -->
     <t id="10">Asignar Capitán</t>
-    <t id="11">Usar Seminarios</t>
+    <t id="11">Dar seminarios</t>
     <t id="12">Otras Funciones del Capitán</t>
+    <t id="13">Arrojar inventario</t>
+    <t id="14">Arrojar inventario en contenedor</t>
     <!-- Category C: Auto Assign Button Names (ID: 100 ~ 119) -->
     <t id="100">Asignar a todo el personal no asignado</t>
     <t id="101">Solo habilidad 5 estrellas</t>
@@ -47,25 +49,27 @@
     <t id="212">Selecciona y asigna miembros con habilidad de pilotaje menos de 4 estrellas.</t>
     <t id="213">Selecciona y asigna miembros con habilidad de pilotaje menos de 3 estrellas.</t>
     <t id="214">Selecciona y asigna miembros con habilidad de pilotaje menos de 1 estrella.</t>
-    <t id="215">Consume secuencialmente todos los seminarios disponibles para alcanzar 5 estrellas.</t>
+    <t id="215">Consume secuencialmente todos los seminarios disponibles para alcanzar al menos 5 estrellas.</t>
     <t id="216">Consume seminarios básicos hasta 3 estrellas para alcanzar 4 estrellas.</t>
     <t id="217">Consume seminarios básicos hasta 2 estrellas para alcanzar 3 estrellas.</t>
     <t id="218">Consume 1 seminario adecuado para subir la habilidad un nivel.</t>
     <t id="219">Consume seminarios básicos hasta 1 estrella para alcanzar 2 estrellas.</t>
     <t id="220">Consume seminarios básicos para alcanzar 1 estrella.</t>
     <t id="221">Consume secuencialmente seminarios básicos a 4 estrellas para entrenar la habilidad de pilotaje a 5 estrellas.</t>
+    <t id="222">Arroja los objetos de inventario del capitán.</t>
+    <t id="223">Arroja los objetos de inventario del capitán en un contenedor.</t>
     <!-- Category F: Unassigned Pilot Statistics Tooltips (ID: 250 ~ 269) -->
-    <t id="250">Pilotos sin asignar totales: %1</t>
-    <t id="251">Pilotos de 5 estrellas: %1</t>
-    <t id="252">Pilotos de 4 estrellas o más: %1</t>
-    <t id="253">Pilotos de 3 estrellas o más: %1</t>
-    <t id="254">Pilotos de 2 estrellas o más: %1</t>
-    <t id="255">Pilotos de 1 estrella o más: %1</t>
-    <t id="256">Pilotos de menos de 5 estrellas: %1</t>
-    <t id="257">Pilotos de menos de 4 estrellas: %1</t>
-    <t id="258">Pilotos de menos de 3 estrellas: %1</t>
-    <t id="259">Pilotos de menos de 2 estrellas: %1</t>
-    <t id="260">Pilotos de menos de 1 estrella: %1</t>
+    <t id="250">Tripulación sin asignar total: %1</t>
+    <t id="251">Tripulación de 5 estrellas: %1</t>
+    <t id="252">Tripulación de 4 estrellas o más: %1</t>
+    <t id="253">Tripulación de 3 estrellas o más: %1</t>
+    <t id="254">Tripulación de 2 estrellas o más: %1</t>
+    <t id="255">Tripulación de 1 estrella o más: %1</t>
+    <t id="256">Tripulación de menos de 5 estrellas: %1</t>
+    <t id="257">Tripulación de menos de 4 estrellas: %1</t>
+    <t id="258">Tripulación de menos de 3 estrellas: %1</t>
+    <t id="259">Tripulación de menos de 2 estrellas: %1</t>
+    <t id="260">Tripulación de menos de 1 estrella: %1</t>
     <!-- Category G: Action Logbook & Notification Messages (ID: 300 ~ 399) -->
     <t id="300">%1 capitanes destituidos.</t>
     <t id="301">Capitanes asignados a %1 naves.</t>
@@ -76,6 +80,10 @@
     <t id="306">Se transfirieron %2 miembros de la tripulación sin asignar a %1.</t>
     <t id="307">Formación completada: %1 capitanes promovidos. [Consumido: básico x%2, 1-estrella x%3, 2-estrellas x%4, 3-estrellas x%5, 4-estrellas x%6]</t>
     <t id="308">Se ha arrojado al espacio toda la carga [%2 tipos de mercancías] de la nave %1.</t>
+    <t id="309">Arrojado el inventario de %1 capitán(es).</t>
+    <t id="310">Arrojado el inventario del capitán de la nave %1 (%2 tipos de objetos).</t>
+    <t id="311">Arrojado el inventario de %1 capitán(es) en un contenedor.</t>
+    <t id="312">Arrojado el inventario del capitán de la nave %1 (%2 tipos de objetos) en un contenedor.</t>
     <!-- Category H: Disabled Warning Tooltips (ID: 400 ~ 499) -->
     <t id="400">No hay ningún capitán que destituir.</t>
     <t id="401">Ya hay un capitán asignado a esta nave.</t>
@@ -106,17 +114,9 @@
     <t id="426">No hay personal sin asignar de menos de 2 estrellas disponible.</t>
     <t id="427">No hay personal sin asignar de menos de 1 estrella disponible.</t>
     <t id="428">El jugador está pilotando esta nave.</t>
-    <t id="431">Los capitanes son todos ya de %1-estrella.</t>
-    <t id="432">El capitán es ya de %1-estrella.</t>
-    <t id="13">Arrojar inventario</t>
-    <t id="14">Arrojar inventario en contenedor</t>
-    <t id="222">Arroja los objetos de inventario del capitán.</t>
-    <t id="223">Arroja los objetos de inventario del capitán en un contenedor.</t>
-    <t id="309">Arrojado el inventario de %1 capitán(es).</t>
-    <t id="310">Arrojado el inventario del capitán de la nave %1 (%2 tipos de objetos).</t>
-    <t id="311">Arrojado el inventario de %1 capitán(es) en un contenedor.</t>
-    <t id="312">Arrojado el inventario del capitán de la nave %1 (%2 tipos de objetos) en un contenedor.</t>
     <t id="429">No hay objetos de inventario para arrojar.</t>
     <t id="430">El inventario está vacío.</t>
+    <t id="431">Los capitanes son todos ya de %1-estrella.</t>
+    <t id="432">El capitán es ya de %1-estrella.</t>
   </page>
 </language>

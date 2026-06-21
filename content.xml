@@ -8,7 +8,7 @@
                       ██                              ██                                                             ██             
                       ▀▀                              ▀▀                                                           ▀▀▀              
 -->
-<content id="simple_captain_manager" name="Simple Captain Manager" description="Allows batch personnel management for captains of selected ships in the right-click interaction menu." author="kran2k" version="102" date="2026-06-17" save="false">
+<content id="simple_captain_manager" name="Simple Captain Manager" description="Allows batch personnel management for captains of selected ships in the right-click interaction menu." author="kran2k" version="101" date="2026-06-20" save="false">
   <text language="7" name="Простое управление капитанами" description="Позволяет выполнять пакетное управление персоналом для капитанов выбранных кораблей в контекстном меню правого клика."/>
   <text language="33" name="Gestion simple des capitaines" description="Permet la gestion collective du personnel pour les capitaines des vaisseaux sélectionnés dans le menu d'interaction du clic droit."/>
   <text language="34" name="Gestión sencilla de capitanes" description="Permite la gestión de personal por lotes para los capitanes de las naves seleccionadas en el menú de interacción del clic derecho."/>

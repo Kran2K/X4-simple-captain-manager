@@ -563,6 +563,8 @@
                 <set_value name="$SeminarActive" exact="true" />
                 <set_value name="$Piloting" exact="$Ships.{$i}.pilot.skill.piloting" />
 
+
+
                 <!-- 1star (up to 3) -->
                 <do_if value="$Piloting lt 3">
                   <set_value name="$Req1_0" exact="$Req1_0 + 1" />
@@ -1023,7 +1025,7 @@
               </do_all>
               <do_if value="$WorstCrew">
                 <set_value name="$WorstCrewName" exact="$Ship.people.{$WorstCrew}.name" />
-                <debug_text text="'[SCM] Ship full. Firing worst crew ' + $WorstCrewName + ' (score: ' + $WorstSkill + ') to make space for dismissed pilot.'" filter="general" />
+                <debug_text text="'[SCM] Ship full. Firing worst crew ' + $WorstCrewName + ' (score: ' + $WorstSkill + ') to make space for dismissed captain.'" filter="general" />
                 <remove_npc_template object="$Ship" template="$WorstCrew" />
               </do_if>
             </do_if>
@@ -1101,7 +1103,7 @@
             <set_value name="$PilotPiloting" exact="$Pilot.skill.piloting" />
             <debug_text text="'[SCM] Firing: ' + $PilotName + ' from ' + $Ship.knownname" filter="general" />
             
-            <!-- Dismiss and destroy pilot entity (to prevent references getting stuck) -->
+            <!-- Dismiss and destroy captain entity (to prevent references getting stuck) -->
             <dismiss_control_entity actor="$Pilot" object="$Ship" />
             <destroy_object object="$Pilot" />
             
@@ -1529,7 +1531,7 @@
             <set_value name="$Pilot" exact="$Ship.pilot" />
             
             <set_value name="$LoopEnded" exact="false" />
-            <!-- Max 5 upgrades can happen per pilot -->
+            <!-- Max 5 upgrades can happen per captain -->
             <do_all exact="5">
               <do_if value="not $LoopEnded">
                 <set_value name="$Piloting" exact="$Pilot.skill.piloting" />
@@ -1637,7 +1639,7 @@
 
     <!-- ============================================================
          7. Batch Drop Cargo Callback
-         - Eject all container/cargo items of selected ships into space
+         - Drop all container/cargo items of selected ships into space
          ============================================================ -->
     <cue name="SCM_drop_cargo_callback" instantiate="true">
       <conditions>
@@ -1680,6 +1682,85 @@
           </do_if>
         </do_all>
       </do_if>
+      </actions>
+    </cue>
+
+    <!-- ============================================================
+         8. Batch Drop Inventory Callback
+         - Drop all inventory items of captains on selected ships
+         ============================================================ -->
+    <cue name="SCM_drop_inventory_callback" instantiate="true">
+      <conditions>
+        <event_cue_signalled />
+      </conditions>
+      <actions>
+        <!-- Build list of selected ships -->
+        <create_list name="$Ships" />
+        <do_if value="@event.param.$object.isclass.ship and event.param.$object.isplayerowned">
+          <append_to_list name="$Ships" exact="event.param.$object" />
+        </do_if>
+        <do_all exact="@event.param.$selectedplayerships.count" counter="$i">
+          <set_value name="$SelShip" exact="event.param.$selectedplayerships.{$i}" />
+          <do_if value="not $Ships.indexof.{$SelShip}">
+            <append_to_list name="$Ships" exact="$SelShip" />
+          </do_if>
+        </do_all>
+
+        <set_value name="$ActionId" exact="event.param.$id" />
+        <set_value name="$SuccessCount" exact="0" />
+
+        <debug_text text="'[SCM] Drop Inventory start: ' + $Ships.count + ' ships, action: ' + $ActionId" filter="general" />
+
+        <do_if value="$Ships.count gt 0">
+          <do_all exact="$Ships.count" counter="$i">
+            <set_value name="$Ship" exact="$Ships.{$i}" />
+            <do_if value="@$Ship.pilot.exists">
+              <set_value name="$Pilot" exact="$Ship.pilot" />
+              <set_value name="$InvList" exact="$Pilot.inventory.list" />
+              <set_value name="$InvCount" exact="$InvList.count" />
+              
+              <do_if value="$InvCount gt 0">
+                <set_value name="$DropTable" exact="table[]" />
+                <set_value name="$HasItems" exact="false" />
+                <do_all exact="$InvCount" counter="$k">
+                  <set_value name="$Ware" exact="$InvList.{$k}" />
+                  <set_value name="$Amount" exact="$Pilot.inventory.{$Ware}.count" />
+                  <do_if value="$Amount gt 0">
+                    <set_value name="$DropTable.{$Ware}" exact="$Amount" />
+                    <set_value name="$HasItems" exact="true" />
+                  </do_if>
+                </do_all>
+                
+                <do_if value="$HasItems">
+                  <do_if value="$ActionId == 'scm_drop_inventory_lockbox'">
+                    <drop_inventory object="$Pilot" ware="$DropTable" macro="macro.sm_gen_lockbox_common_01_macro" />
+                  </do_if>
+                  <do_else>
+                    <drop_inventory object="$Pilot" ware="$DropTable" />
+                  </do_else>
+                </do_if>
+                
+                <!-- Output success to logbook and show notification -->
+                <do_if value="$ActionId == 'scm_drop_inventory_lockbox'">
+                  <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{312}.[$Ship.knownname, $InvCount]" />
+                </do_if>
+                <do_else>
+                  <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{310}.[$Ship.knownname, $InvCount]" />
+                </do_else>
+                <set_value name="$SuccessCount" exact="$SuccessCount + 1" />
+              </do_if>
+            </do_if>
+          </do_all>
+          
+          <do_if value="$SuccessCount gt 0">
+            <do_if value="$ActionId == 'scm_drop_inventory_lockbox'">
+              <show_notification text="readtext.{98765}.{311}.[$SuccessCount]" timeout="6s" />
+            </do_if>
+            <do_else>
+              <show_notification text="readtext.{98765}.{309}.[$SuccessCount]" timeout="6s" />
+            </do_else>
+          </do_if>
+        </do_if>
       </actions>
     </cue>
 

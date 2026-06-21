@@ -9,8 +9,10 @@
     <t id="5">Larguer la cargaison</t>
     <!-- Category B: Submenu Groups & Function Names (ID: 10 ~ 19) -->
     <t id="10">Assigner un capitaine</t>
-    <t id="11">Utiliser des séminaires</t>
+    <t id="11">Donner des séminaires</t>
     <t id="12">Autres fonctions du capitaine</t>
+    <t id="13">Larguer l'inventaire</t>
+    <t id="14">Larguer l'inventaire dans un coffre</t>
     <!-- Category C: Auto Assign Button Names (ID: 100 ~ 119) -->
     <t id="100">Assigner tout le personnel non assigné</t>
     <t id="101">Compétence 5 étoiles uniquement</t>
@@ -37,7 +39,7 @@
     <t id="202">Transfère les membres d'équipage non affectés pour remplir le vaisseau selon les priorités.</t>
     <t id="203">Largue toute la cargaison dans l'espace.</t>
     <t id="204">Sélectionne et assigne uniquement les membres non affectés avec un niveau de pilotage 5 étoiles.</t>
-    <t id="205">Nomme l'équipage non assigné dans toute la galaxie par ordre de niveau de compétence le plus élevé.</t>
+    <t id="205">Assigne l'équipage non assigné dans toute la galaxie par ordre de niveau de compétence le plus élevé.</t>
     <t id="206">Sélectionne et assigne les membres avec un niveau de pilotage 3 étoiles ou plus.</t>
     <t id="207">Sélectionne et assigne les membres avec un niveau de pilotage 2 étoiles ou plus.</t>
     <t id="208">Sélectionne et assigne les membres avec un niveau de pilotage inférieur à 2 étoiles.</t>
@@ -47,25 +49,27 @@
     <t id="212">Sélectionne et assigne les membres avec un niveau de pilotage inférieur à 4 étoiles.</t>
     <t id="213">Sélectionne et assigne les membres avec un niveau de pilotage inférieur à 3 étoiles.</t>
     <t id="214">Sélectionne et assigne les membres avec un niveau de pilotage inférieur à 1 étoile.</t>
-    <t id="215">Consomme séquentiellement tous les séminaires disponibles pour atteindre 5 étoiles.</t>
+    <t id="215">Consomme séquentiellement tous les séminaires disponibles pour atteindre au maximum 5 étoiles.</t>
     <t id="216">Consomme les séminaires de base à 3 étoiles pour atteindre 4 étoiles.</t>
     <t id="217">Consomme les séminaires de base à 2 étoiles pour atteindre 3 étoiles.</t>
     <t id="218">Consomme 1 séminaire adapté pour progresser d'un niveau de compétence.</t>
     <t id="219">Consomme les séminaires de base à 1 étoile pour atteindre 2 étoiles.</t>
     <t id="220">Consomme les séminaires de base pour atteindre 1 étoile.</t>
     <t id="221">Consomme séquentiellement les séminaires de base à 4 étoiles pour former la compétence de pilotage à 5 étoiles.</t>
+    <t id="222">Largue les objets d'inventaire portés par le capitaine.</t>
+    <t id="223">Largue les objets d'inventaire portés par le capitaine dans un coffre.</t>
     <!-- Category F: Unassigned Pilot Statistics Tooltips (ID: 250 ~ 269) -->
-    <t id="250">Pilotes non assignés totaux : %1</t>
-    <t id="251">Pilotes 5 étoiles : %1</t>
-    <t id="252">Pilotes de 4 étoiles et plus : %1</t>
-    <t id="253">Pilotes de 3 étoiles et plus : %1</t>
-    <t id="254">Pilotes de 2 étoiles et plus : %1</t>
-    <t id="255">Pilotes de 1 étoile et plus : %1</t>
-    <t id="256">Pilotes de moins de 5 étoiles : %1</t>
-    <t id="257">Pilotes de moins de 4 étoiles : %1</t>
-    <t id="258">Pilotes de moins de 3 étoiles : %1</t>
-    <t id="259">Pilotes de moins de 2 étoiles : %1</t>
-    <t id="260">Pilotes de moins de 1 étoile : %1</t>
+    <t id="250">Équipage non assigné total : %1</t>
+    <t id="251">Équipage 5 étoiles : %1</t>
+    <t id="252">Équipage de 4 étoiles et plus : %1</t>
+    <t id="253">Équipage de 3 étoiles et plus : %1</t>
+    <t id="254">Équipage de 2 étoiles et plus : %1</t>
+    <t id="255">Équipage de 1 étoile et plus : %1</t>
+    <t id="256">Équipage de moins de 5 étoiles : %1</t>
+    <t id="257">Équipage de moins de 4 étoiles : %1</t>
+    <t id="258">Équipage de moins de 3 étoiles : %1</t>
+    <t id="259">Équipage de moins de 2 étoiles : %1</t>
+    <t id="260">Équipage de moins de 1 étoile : %1</t>
     <!-- Category G: Action Logbook & Notification Messages (ID: 300 ~ 399) -->
     <t id="300">%1 capitaines démis de leurs fonctions.</t>
     <t id="301">Capitaines assignés à %1 vaisseaux.</t>
@@ -76,6 +80,10 @@
     <t id="306">Transfert de %2 membres d'équipage non assignés vers %1.</t>
     <t id="307">Formation terminée : %1 capitaines promus. [Consommé : basique x%2, 1-étoile x%3, 2-étoiles x%4, 3-étoiles x%5, 4-étoiles x%6]</t>
     <t id="308">Toute la cargaison [%2 types de marchandises] du vaisseau %1 a été larguée dans l'espace.</t>
+    <t id="309">Largué l'inventaire de %1 capitaine(s).</t>
+    <t id="310">Largué l'inventaire du capitaine du vaisseau %1 (%2 types d'objets).</t>
+    <t id="311">Largué l'inventaire de %1 capitaine(s) dans un coffre.</t>
+    <t id="312">Largué l'inventaire du capitaine du vaisseau %1 (%2 types d'objets) dans un coffre.</t>
     <!-- Category H: Disabled Warning Tooltips (ID: 400 ~ 499) -->
     <t id="400">Aucun capitaine à démettre de ses fonctions.</t>
     <t id="401">Un capitaine est déjà assigné à ce vaisseau.</t>
@@ -91,9 +99,9 @@
     <t id="411">Il manque les séminaires requis pour cette formation. [Manquant : Basique x%1, 1 étoile x%2, 2 étoiles x%3]</t>
     <t id="412">Il manque les séminaires requis pour cette formation. [Manquant : Basique x%1, 1 étoile x%2, 2 étoiles x%3, 3 étoiles x%4]</t>
     <t id="413">Il manque les séminaires requis pour cette formation. [Manquant : Basique x%1, 1 étoile x%2, 2 étoiles x%3, 3 étoiles x%4, 4 étoile x%5]</t>
-    <t id="414">Pas assez d'équipage non assigné ; les capitaines ne seront nommés que pour certains vaisseaux.</t>
-    <t id="415">Capitaines déjà nommés pour %1 vaisseaux ; les nominations ne seront faites que pour %2 vaisseaux.</t>
-    <t id="416">Capitaines déjà nommés pour %1 vaisseaux et manque d'équipage non assigné ; les nominations ne seront faites que pour %2 vaisseaux.</t>
+    <t id="414">Pas assez d'équipage non assigné ; les capitaines ne seront assignés que pour certains vaisseaux.</t>
+    <t id="415">Capitaines déjà assignés pour %1 vaisseaux ; les assignations ne seront faites que pour %2 vaisseaux.</t>
+    <t id="416">Capitaines déjà assignés pour %1 vaisseaux et manque d'équipage non assigné ; les assignations ne seront faites que pour %2 vaisseaux.</t>
     <t id="417">Aucun équipage non assigné disponible.</t>
     <t id="418">Aucun équipage non assigné 5 étoiles disponible.</t>
     <t id="419">Aucun équipage non assigné de 4 étoiles ou plus disponible.</t>
@@ -106,17 +114,9 @@
     <t id="426">Aucun équipage non assigné de moins de 2 étoiles disponible.</t>
     <t id="427">Aucun équipage non assigné de moins de 1 étoile disponible.</t>
     <t id="428">Le joueur pilote ce vaisseau.</t>
-    <t id="431">Les capitaines ont tous déjà %1 étoiles.</t>
-    <t id="432">Le capitaine a déjà %1 étoiles.</t>
-    <t id="13">Larguer l'inventaire</t>
-    <t id="14">Larguer l'inventaire dans un coffre</t>
-    <t id="222">Largue les objets d'inventaire portés par le capitaine.</t>
-    <t id="223">Largue les objets d'inventaire portés par le capitaine dans un coffre.</t>
-    <t id="309">Largué l'inventaire de %1 capitaine(s).</t>
-    <t id="310">Largué l'inventaire du capitaine du vaisseau %1 (%2 types d'objets).</t>
-    <t id="311">Largué l'inventaire de %1 capitaine(s) dans un coffre.</t>
-    <t id="312">Largué l'inventaire du capitaine du vaisseau %1 (%2 types d'objets) dans un coffre.</t>
     <t id="429">Aucun objet d'inventaire à larguer.</t>
     <t id="430">L'inventaire est vide.</t>
+    <t id="431">Les capitaines ont tous déjà %1 étoiles.</t>
+    <t id="432">Le capitaine a déjà %1 étoiles.</t>
   </page>
 </language>
