@@ -1042,24 +1042,25 @@
             <!-- Dismiss pilot -->
             <dismiss_control_entity actor="$Pilot" object="$Ship" />
             
-            <!-- Change NPC entity role (Unassigned status) -->
-            <do_if value="$PilotExists">
-              <set_entity_role entity="$Pilot" role="entityrole.unassigned" />
-              <set_entity_role_object entity="$Pilot" object="$Ship" />
-            </do_if>
-            
-            <!-- Change NPC template role -->
+            <!-- Maintain NPCTemplate in crew roster as unassigned -->
             <do_if value="$Template">
               <do_if value="$Ship.people.{$Template}.exists">
                 <set_npc_template_role object="$Ship" template="$Template" role="entityrole.unassigned" />
               </do_if>
               <do_else>
-                <create_npc_template object="$Ship" entity="$Pilot" role="entityrole.unassigned" />
+                <do_if value="$PilotExists">
+                  <create_npc_template object="$Ship" entity="$Pilot" role="entityrole.unassigned" />
+                </do_if>
               </do_else>
             </do_if>
             <do_else>
               <debug_text text="'[SCM] Warning: No npctemplate found for pilot!'" filter="general" />
             </do_else>
+            
+            <!-- Destroy seat-bound pilot entity so the pilot chair is completely freed -->
+            <do_if value="$PilotExists">
+              <destroy_object object="$Pilot" />
+            </do_if>
             
             <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{303}.[$Ship.knownname, ($Pilot.skill.piloting / 3), $Pilot.knownname]" />
             <set_value name="$SuccessCount" exact="$SuccessCount + 1" />
@@ -1105,11 +1106,17 @@
             <set_value name="$Pilot" exact="$Ship.pilot" />
             <set_value name="$PilotName" exact="$Pilot.knownname" />
             <set_value name="$PilotPiloting" exact="$Pilot.skill.piloting" />
+            <set_value name="$Template" exact="@$Pilot.npctemplate" />
             <debug_text text="'[SCM] Firing: ' + $PilotName + ' from ' + $Ship.knownname" filter="general" />
             
             <!-- Dismiss and destroy captain entity (to prevent references getting stuck) -->
             <dismiss_control_entity actor="$Pilot" object="$Ship" />
             <destroy_object object="$Pilot" />
+            
+            <!-- Remove template from crew roster -->
+            <do_if value="$Template and $Ship.people.{$Template}.exists">
+              <remove_npc_template object="$Ship" template="$Template" />
+            </do_if>
             
             <write_to_logbook category="tips" title="readtext.{98765}.{1}" text="readtext.{98765}.{304}.[$Ship.knownname, ($PilotPiloting / 3), $PilotName]" />
             <set_value name="$SuccessCount" exact="$SuccessCount + 1" />
@@ -1323,6 +1330,17 @@
               <!-- Pop selected candidate from cache -->
               <remove_from_list name="$CandidateList" exact="$BestCandTable" />
 
+              <!-- Safety check: Clean up any non-control NPC entity remaining on the target ship seat -->
+              <find_object_component name="$OldEntities" object="$Ship" class="class.npc" multiple="true" />
+              <do_all exact="$OldEntities.count" counter="$e">
+                <set_value name="$OldEnt" exact="$OldEntities.{$e}" />
+                <do_if value="$OldEnt != player.entity and not $OldEnt.iscontrolentity">
+                  <do_if value="$OldEnt.role == entityrole.unassigned or not $Ship.people.{$OldEnt.npctemplate}.exists">
+                    <destroy_object object="$OldEnt" />
+                  </do_if>
+                </do_if>
+              </do_all>
+
               <!-- Check if the template already has an active NPC entity -->
               <set_value name="$TargetActor" exact="$BestSource.roleentity.{$BestCandidate}" />
 
@@ -1479,6 +1497,14 @@
 
                 <do_if value="$LocalTemplates.count gt 0">
                   <debug_text text="'[SCM] Transferring ' + $LocalTemplates.count + ' templates from ' + $Src.knownname + ' to ' + $Ship.knownname" filter="general" />
+                  <!-- Clean up any orphaned NPC entities matching the transferred templates on source object -->
+                  <do_all exact="$LocalTemplates.count" counter="$t">
+                    <set_value name="$Tmpl" exact="$LocalTemplates.{$t}" />
+                    <set_value name="$OrphanActor" exact="@$Src.roleentity.{$Tmpl}" />
+                    <do_if value="$OrphanActor">
+                      <destroy_object object="$OrphanActor" />
+                    </do_if>
+                  </do_all>
                   <transfer_people object="$Ship" otherobject="$Src" result="$Transferred" force="true">
                     <existing_people people="$LocalTemplates" />
                   </transfer_people>
