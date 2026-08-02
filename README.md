@@ -1,5 +1,7 @@
 # Simple Captain Manager (SCM) - X4: Foundations Mod
 
+Steam Workshop Link : https://steamcommunity.com/sharedfiles/filedetails/?id=3745997977
+
 A QoL mod that drastically reduce your time of assigning captains and training them with seminars. By adding a batch control feature to the right-click context menu, you can now assign captains and handle seminar training for large fleets in just a few clicks.
 
 SCM will save you tons of time whether you need to quickly staff a newly purchased mining fleet, store your high skilled pilots to a safe spot before selling off a fleet, or bulk-train your fighter pilots' piloting skills to 5-star status.
