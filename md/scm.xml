@@ -2,6 +2,17 @@
 <mdscript name="SCM" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="md.xsd">
   <cues>
 
+    <!-- Public feature capability for lightweight companion/alternative mods.
+         Consumers should check $Enabled instead of the SCM extension ID so
+         disabled installs and future SCM versions without seminars are safe. -->
+    <cue name="SCM_Seminar_Capability">
+      <actions>
+        <set_value name="$Id" exact="'kran2k.simple_captain_manager.seminars'" />
+        <set_value name="$Version" exact="1" />
+        <set_value name="$Enabled" exact="true" />
+      </actions>
+    </cue>
+
     <!-- ============================================================
          1. Register Actions on Menu Open
          - SN Mod Support APIs: md.Interact_Menu_API.Get_Actions
